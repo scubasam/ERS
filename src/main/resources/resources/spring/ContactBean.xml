@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 	
+ 	<bean id="contactDao" class="edu.thangiah.dao.ContactDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+ 	
+	<bean id="contactAction" class="edu.thangiah.action.ContactAction">
+		<property name="contactDao" ref="contactDao" />
+	</bean>
+ 
+</beans>
