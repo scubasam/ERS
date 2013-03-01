@@ -29,6 +29,12 @@
  		<action name="listAllContacts" method="listAll" class="contactAction">
  			<result name="success">WEB-INF/content/contact/list.jsp</result>
  		</action>
- 
+ 		
+ 		
+ 		<!-- Contractor Actions -->
+ 		<action name="listAllContractors" method="listAll" class="contractorAction">
+ 			<result name="success">WEB-INF/content/contractor/list.jsp</result>
+ 		</action>
+ 		
 	</package>
 </struts>
