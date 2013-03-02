@@ -28,7 +28,7 @@
 				<td><s:property value="roadNumber" /></td>
 				<td><s:property value="latitude" /></td>
 				<td><s:property value="longitude" /></td>
-				<td><s:property value="contractor" /></td>
+				<td><s:property value="contractor.contractorName" /></td>
 				<td><s:property value="locationType" /></td>
 			</tr>
 		</s:iterator>

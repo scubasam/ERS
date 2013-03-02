@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 28, 2013 at 08:02 PM
+-- Generation Time: Mar 02, 2013 at 02:41 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.4.6-1ubuntu1.1
 
@@ -78,6 +78,109 @@ INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `middle_initial`, `emai
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contractors`
+--
+
+CREATE TABLE IF NOT EXISTS `contractors` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contractor_name` varchar(100) NOT NULL,
+  `contact_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `contractor_contactFK` (`contact_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `contractors`
+--
+
+INSERT INTO `contractors` (`id`, `contractor_name`, `contact_id`) VALUES
+(1, 'Bob''s Warehouse', 1),
+(2, 'The Shipping Co.', 8),
+(3, 'Bob''s Warehouse', 5),
+(4, 'Adams Trucking', 4),
+(5, 'FreightMaster', 18),
+(6, 'Adams Trucking', 22),
+(7, 'Samson Shipping', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `locations`
+--
+
+CREATE TABLE IF NOT EXISTS `locations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `street_address_1` varchar(255) NOT NULL,
+  `street_address_2` varchar(255) DEFAULT NULL,
+  `city` varchar(100) NOT NULL,
+  `state` varchar(10) NOT NULL,
+  `zip` varchar(10) NOT NULL,
+  `road_name` varchar(100) DEFAULT NULL,
+  `road_number` int(11) DEFAULT NULL,
+  `latitude` varchar(45) DEFAULT NULL,
+  `longitude` varchar(45) DEFAULT NULL,
+  `contractor_id` int(11) DEFAULT NULL,
+  `location_type` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `location_contractorFK` (`contractor_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+
+--
+-- Dumping data for table `locations`
+--
+
+INSERT INTO `locations` (`id`, `name`, `street_address_1`, `street_address_2`, `city`, `state`, `zip`, `road_name`, `road_number`, `latitude`, `longitude`, `contractor_id`, `location_type`) VALUES
+(1, 'East Depot', '213 Navy Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Navy Rd.', 457, '34', '45', 1, 'depot'),
+(2, 'West Depot', '44 Martin Rd.', NULL, 'Cleveland', 'OH', '22357', 'Martin Rd.', 651, '32', '44', 4, 'depot'),
+(3, 'South Depot', '586 Liverpool Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Liverpool Rd.', 258, '34', '45', 5, 'depot'),
+(4, 'Adams Depot', '998 Adams Ln.', NULL, 'Pittsburgh', 'PA', '15232', 'Adams Ln.', 201, '34', '45', 2, 'depot'),
+(5, 'Garage E3', '1241 Able Rd.', NULL, 'Cleveland', 'OH', '22356', 'Able Rd.', 413, '32', '44', 7, 'depot'),
+(6, 'Garage E6', '67 Milly Dr.', NULL, 'Pittsburgh', 'PA', '15232', 'Milly Dr.', 856, '34', '45', 3, 'depot'),
+(7, 'Garage F3', '453 Main St.', NULL, 'Columbus', 'OH', '23568', 'Main St.', 21, '33', '46', 3, 'depot'),
+(8, 'Garage A3', '256 Fillmore Blvd.', NULL, 'Columbus', 'OH', '23568', 'Fillmore Blvd.', 460, '33', '46', 4, 'depot'),
+(9, 'Garage J8', '1456 Jones Dr.', NULL, 'Pittsburgh', 'PA', '15232', 'Jones Dr.', 695, '34', '45', 6, 'depot'),
+(10, 'Garage L9', '2586 Carnegie St.', NULL, 'Pittsburgh', 'PA', '15232', 'Carnegie St.', 587, '34', '45', 6, 'depot'),
+(11, 'Garage B7', '745 Fullson Dr.', NULL, 'Harrisburg', 'PA', '15232', 'Fullson Dr.', 258, '36', '46', 2, 'depot'),
+(12, 'Garage B5', '225 Navy Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Navy Rd.', 146, '34', '45', 1, 'depot'),
+(13, 'Garage A2', '563 Lincoln Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Lincoln Rd.', 456, '34', '45', 4, 'depot'),
+(14, 'Silver Lake Depot', '12 Wester Rd.', NULL, 'Harrisburg', 'PA', '15232', 'Wester Rd.', 213, '34', '45', 1, 'depot'),
+(15, 'Garage F4', '46 W. Arizona St.', NULL, 'Nantucket', 'MA', '12017', 'Arizona St.', 232, '11', '40', 2, 'depot'),
+(16, 'East Warehouse', '254 Kliner Rd.', NULL, 'Johnstown', 'PA', '14125', 'Kliner Rd.', 256, '35', '45', 3, 'warehouse'),
+(17, 'Warehouse G4', '411 Park Rd.', NULL, 'Pittsburgh', 'PA', '15222', 'Park Rd.', 410, '37', '44', 2, 'warehouse'),
+(18, 'Warehouse 342', '508 Sandy Rd.', NULL, 'Johnstown', 'PA', '14125', 'Sandy Rd.', 194, '35', '45', 4, 'warehouse'),
+(19, 'South Warehouse', '1024 Marketway St.', NULL, 'Pittsburgh', 'PA', '15222', 'Marketway St.', 285, '37', '44', 6, 'warehouse'),
+(20, 'Warehouse 38', '55 Tri-Boro Expy.', NULL, 'Pittsburgh', 'PA', '15223', 'Tri-Boro Expy.', 466, '37', '44', 2, 'warehouse'),
+(21, 'Warehouse 55', '118 Millerstown Rd.', NULL, 'Johnstown', 'PA', '14125', 'Millerstown Rd.', 558, '35', '45', 1, 'warehouse'),
+(22, 'Warehouse A4', '210 Route 8.', NULL, 'Pittsburgh', 'PA', '15221', 'Route 8', 123, '37', '44', 1, 'warehouse'),
+(23, 'Warehouse B2', '1238 N. Plugger St.', NULL, 'Boston', 'MA', '10124', 'Plugger St.', 98, '28', '42', 7, 'warehouse'),
+(24, 'East Depot', '213 Navy Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Navy Rd.', 457, '34', '45', 1, 'depot'),
+(25, 'West Depot', '44 Martin Rd.', NULL, 'Cleveland', 'OH', '22357', 'Martin Rd.', 651, '32', '44', 4, 'depot'),
+(26, 'South Depot', '586 Liverpool Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Liverpool Rd.', 258, '34', '45', 5, 'depot'),
+(27, 'Adams Depot', '998 Adams Ln.', NULL, 'Pittsburgh', 'PA', '15232', 'Adams Ln.', 201, '34', '45', 2, 'depot'),
+(28, 'Garage E3', '1241 Able Rd.', NULL, 'Cleveland', 'OH', '22356', 'Able Rd.', 413, '32', '44', 7, 'depot'),
+(29, 'Garage E6', '67 Milly Dr.', NULL, 'Pittsburgh', 'PA', '15232', 'Milly Dr.', 856, '34', '45', 3, 'depot'),
+(30, 'Garage F3', '453 Main St.', NULL, 'Columbus', 'OH', '23568', 'Main St.', 21, '33', '46', 3, 'depot'),
+(31, 'Garage A3', '256 Fillmore Blvd.', NULL, 'Columbus', 'OH', '23568', 'Fillmore Blvd.', 460, '33', '46', 4, 'depot'),
+(32, 'Garage J8', '1456 Jones Dr.', NULL, 'Pittsburgh', 'PA', '15232', 'Jones Dr.', 695, '34', '45', 6, 'depot'),
+(33, 'Garage L9', '2586 Carnegie St.', NULL, 'Pittsburgh', 'PA', '15232', 'Carnegie St.', 587, '34', '45', 6, 'depot'),
+(34, 'Garage B7', '745 Fullson Dr.', NULL, 'Harrisburg', 'PA', '15232', 'Fullson Dr.', 258, '36', '46', 2, 'depot'),
+(35, 'Garage B5', '225 Navy Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Navy Rd.', 146, '34', '45', 1, 'depot'),
+(36, 'Garage A2', '563 Lincoln Rd.', NULL, 'Pittsburgh', 'PA', '15232', 'Lincoln Rd.', 456, '34', '45', 4, 'depot'),
+(37, 'Silver Lake Depot', '12 Wester Rd.', NULL, 'Harrisburg', 'PA', '15232', 'Wester Rd.', 213, '34', '45', 1, 'depot'),
+(38, 'Garage F4', '46 W. Arizona St.', NULL, 'Nantucket', 'MA', '12017', 'Arizona St.', 232, '11', '40', 2, 'depot'),
+(39, 'East Warehouse', '254 Kliner Rd.', NULL, 'Johnstown', 'PA', '14125', 'Kliner Rd.', 256, '35', '45', 3, 'warehouse'),
+(40, 'Warehouse G4', '411 Park Rd.', NULL, 'Pittsburgh', 'PA', '15222', 'Park Rd.', 410, '37', '44', 2, 'warehouse'),
+(41, 'Warehouse 342', '508 Sandy Rd.', NULL, 'Johnstown', 'PA', '14125', 'Sandy Rd.', 194, '35', '45', 4, 'warehouse'),
+(42, 'South Warehouse', '1024 Marketway St.', NULL, 'Pittsburgh', 'PA', '15222', 'Marketway St.', 285, '37', '44', 6, 'warehouse'),
+(43, 'Warehouse 38', '55 Tri-Boro Expy.', NULL, 'Pittsburgh', 'PA', '15223', 'Tri-Boro Expy.', 466, '37', '44', 2, 'warehouse'),
+(44, 'Warehouse 55', '118 Millerstown Rd.', NULL, 'Johnstown', 'PA', '14125', 'Millerstown Rd.', 558, '35', '45', 1, 'warehouse'),
+(45, 'Warehouse A4', '210 Route 8.', NULL, 'Pittsburgh', 'PA', '15221', 'Route 8', 123, '37', '44', 1, 'warehouse'),
+(46, 'Warehouse B2', '1238 N. Plugger St.', NULL, 'Boston', 'MA', '10124', 'Plugger St.', 98, '28', '42', 7, 'warehouse');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `USERS`
 --
 
@@ -102,6 +205,22 @@ INSERT INTO `USERS` (`id`, `username`, `password`, `admin`) VALUES
 (5, 'adsfasddsfd', 'asdfasdfasd', 0),
 (6, 'asdfasdfdsa', 'adsfad', 0),
 (7, 'asdafsdfads', 'asdf', 1);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `contractors`
+--
+ALTER TABLE `contractors`
+  ADD CONSTRAINT `contractor_contactFK` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`);
+
+--
+-- Constraints for table `locations`
+--
+ALTER TABLE `locations`
+  ADD CONSTRAINT `location_contractorFK` FOREIGN KEY (`contractor_id`) REFERENCES `contractors` (`id`) ON DELETE SET NULL;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

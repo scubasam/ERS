@@ -14,7 +14,7 @@ public class ContactDao extends AbstractDao<Contact> {
     }
 	
 	@Override
-    public List<Contact> findById(int id) {
+    public List<Contact> findById(Long id) {
         return getHibernateTemplate().find("from Contact where id=?", id);
     }
 

@@ -1,15 +1,19 @@
 package edu.thangiah.action;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.tools.JavaFileManager.Location;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
 import edu.thangiah.dao.ContractorDao;
+import edu.thangiah.dao.LocationDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
+import edu.thangiah.entity.Location;
+import edu.thangiah.user.entity.User;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.Preparable;
@@ -19,12 +23,18 @@ public class ContractorAction implements Preparable {
     private static final Logger LOGGER = Logger.getLogger(ContactAction.class.getName());
  
     private List<Contractor> contractors;
+    private Contractor contractor;
     
     private String contractorName = null;
     private Contact contact = null;
     
+    private Long id;
+    
     @Autowired
     private ContractorDao contractorDao;
+    
+    @Autowired
+    private LocationDao locationDao;
     
 	@Override
 	public void prepare() throws Exception {
@@ -49,7 +59,44 @@ public class ContractorAction implements Preparable {
         }
         return Action.SUCCESS;
     }
-
+	
+	public String view(){
+		if( id == null )
+			return Action.ERROR;
+		
+		Contractor cont = getContractor(id);
+		if( cont == null )
+			return Action.ERROR;
+		
+		List<Location> locs = getLocations(cont);
+		cont.setLocations(new HashSet<Location>(locs));
+		
+		contractor = cont;
+		
+		return Action.SUCCESS;
+	}
+	
+	// END ACTION METHOD
+	
+	// UTILITY METHODS
+	private Contractor getContractor(Long id) {
+        LOGGER.debug("Get contractor with id = " + id);
+        if (id != null) {
+            List<Contractor> contractors = contractorDao.findById(id);
+            LOGGER.debug("Number of contractors with id = " + id + ": " + contractors.size());
+            if (contractors.size() == 1) {
+                return contractors.get(0);
+            }
+        }
+        return null;
+    }
+	
+	private List<Location> getLocations(Contractor contractor){	
+		return locationDao.findByContractor(contractor);
+	}
+	// END UTILITY METHODS
+	
+	
 	public List<Contractor> getContractors() {
 		return contractors;
 	}
@@ -80,6 +127,30 @@ public class ContractorAction implements Preparable {
 
 	public void setContractorDao(ContractorDao contractorDao) {
 		this.contractorDao = contractorDao;
+	}
+
+	public LocationDao getLocationDao() {
+		return locationDao;
+	}
+
+	public void setLocationDao(LocationDao locationDao) {
+		this.locationDao = locationDao;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Contractor getContractor() {
+		return contractor;
+	}
+
+	public void setContractor(Contractor contractor) {
+		this.contractor = contractor;
 	}
  
     

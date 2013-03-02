@@ -41,7 +41,7 @@
         <property name="locationType" type="java.lang.String">
             <column name="location_type" />
         </property>
-        <many-to-one name="contractor" class="edu.thangiah.entity.Contractor" fetch="select" cascade="all">
+        <many-to-one name="contractor" class="edu.thangiah.entity.Contractor" fetch="select" cascade="all" lazy="false">
             <column name="contractor_id" not-null="true" />
         </many-to-one>
     </class>

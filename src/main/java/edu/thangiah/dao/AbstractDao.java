@@ -17,7 +17,7 @@ public abstract class AbstractDao<Entity> extends HibernateDaoSupport {
  
     public abstract List<Entity> findAll();
  
-    public abstract List<Entity> findById(int id);
+    public abstract List<Entity> findById(Long id);
  
     public void update(Entity entity) {
         getHibernateTemplate().update(entity);

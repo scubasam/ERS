@@ -13,8 +13,6 @@ import org.hibernate.validator.Length;
  * Contact model.
  * @author pbair,ksmith
  */
-@Entity
-@Table(name="contacts")
 public class Contact implements Serializable {
     private static final long serialVersionUID = 1L;
     protected Long id = null;
@@ -62,7 +60,6 @@ public class Contact implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name="first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -71,7 +68,6 @@ public class Contact implements Serializable {
         this.firstName = firstName;
     }
 
-    @Column(name="last_name")
     public String getLastName() {
         return lastName;
     }
@@ -80,7 +76,6 @@ public class Contact implements Serializable {
         this.lastName = lastName;
     }
 
-    @Column(name="middle_initial")
     public String getMiddleInitial() {
         return middleInitial;
     }
@@ -89,7 +84,6 @@ public class Contact implements Serializable {
         this.middleInitial = middleInitial;
     }
 
-    @Column(name="email_address")
     public String getEmailAddress() {
         return emailAddress;
     }
@@ -98,7 +92,6 @@ public class Contact implements Serializable {
         this.emailAddress = emailAddress;
     }
 
-    @Column(name="street_address_1")
     public String getStreetAddress1() {
         return streetAddress1;
     }
@@ -107,7 +100,6 @@ public class Contact implements Serializable {
         this.streetAddress1 = streetAddress1;
     }
 
-    @Column(name="street_address_2")
     public String getStreetAddress2() {
         return streetAddress2;
     }
@@ -116,7 +108,6 @@ public class Contact implements Serializable {
         this.streetAddress2 = streetAddress2;
     }
 
-    @Column(name="city")
     public String getCity() {
         return city;
     }
@@ -125,7 +116,6 @@ public class Contact implements Serializable {
         this.city = city;
     }
 
-    @Column(name="state")
     public String getState() {
         return state;
     }
@@ -134,7 +124,6 @@ public class Contact implements Serializable {
         this.state = state;
     }
 
-    @Column(name="zip")
     public String getZip() {
         return zip;
     }
@@ -143,8 +132,6 @@ public class Contact implements Serializable {
         this.zip = zip;
     }
 
-    @Column(name="primary_phone")
-    @Length(min=10, max=10)
     public String getPrimaryPhone() {
         return primaryPhone;
     }
@@ -153,13 +140,16 @@ public class Contact implements Serializable {
         this.primaryPhone = primaryPhone;
     }
 
-    @Column(name="work_phone")
-    @Length(min=10, max=10)
+
     public String getWorkPhone() {
         return workPhone;
     }
 
     public void setWorkPhone(String workPhone) {
         this.workPhone = workPhone;
+    }
+    
+    public String toString(){
+    	return this.firstName + " " + this.lastName;
     }
 }

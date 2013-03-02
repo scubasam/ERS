@@ -16,8 +16,12 @@
 			<th>Contractor</th><th>Contact</th>
 		</tr>
 		<s:iterator value="contractors">
+			<s:url id="viewContractor" value="viewContractor.action">
+					<s:param name="id" value="id" />
+				</s:url>
+		
 			<tr>
-				<td><s:property value="contractorName" /></td>
+				<td><s:a href="%{viewContractor}"><s:property value="contractorName" /></s:a></td>
 				<td><s:property value="contact" /></td>
 				<td>
 				<s:iterator value="locations">

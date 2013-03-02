@@ -16,13 +16,15 @@ import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
 
+import edu.thangiah.decorator.HtmlDecorator;
+
 /**
  * Contractor Model.
  * @author pbair, ksmith
  */
 @Entity
 @Table(name="contractors")
-public class Contractor implements Serializable {
+public class Contractor extends AbstractEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     protected Long id = null;
     private String contractorName = null;
@@ -83,4 +85,9 @@ public class Contractor implements Serializable {
     public void setLocations(Set<Location> locations) {
         this.locations = locations;
     }
+
+	@Override
+	public String getViewLink() {
+		return HtmlDecorator.generateEntityLink("viewContractor", this.id, this.contractorName);
+	}
 }

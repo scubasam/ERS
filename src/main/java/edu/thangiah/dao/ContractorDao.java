@@ -15,7 +15,7 @@ public class ContractorDao extends AbstractDao<Contractor> {
     }
 	
 	@Override
-    public List<Contractor> findById(int id) {
+    public List<Contractor> findById(Long id) {
         return getHibernateTemplate().find("from Contractor where id=?", id);
     }
 

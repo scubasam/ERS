@@ -36,6 +36,11 @@
  			<result name="success">WEB-INF/content/contractor/list.jsp</result>
  		</action>
  		
+ 		<action name="viewContractor" method="view" class="contractorAction">
+ 			<result name="success">WEB-INF/content/contractor/view.jsp</result>
+ 		</action>
+ 		
+ 		
  		<!-- Location Actions -->
  		<action name="listAllLocations" method="listAll" class="locationAction">
  			<result name="success">WEB-INF/content/location/list.jsp</result>

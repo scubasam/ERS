@@ -16,7 +16,7 @@ public class LocationDao extends AbstractDao<Location> {
     }
 	
 	@Override
-    public List<Location> findById(int id) {
+    public List<Location> findById(Long id) {
         return getHibernateTemplate().find("from Location where id=?", id);
     }
 	
