@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 1, 2013 5:06:22 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.thangiah.entity.Location" table="locations">
+        <id name="id" type="java.lang.Long" access="field">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="streetAddress1" type="java.lang.String">
+            <column name="STREET_ADDRESS_1" />
+        </property>
+        <property name="streetAddress2" type="java.lang.String">
+            <column name="STREET_ADDRESS_2" />
+        </property>
+        <property name="city" type="java.lang.String">
+            <column name="CITY" />
+        </property>
+        <property name="state" type="java.lang.String">
+            <column name="STATE" />
+        </property>
+        <property name="zip" type="java.lang.String">
+            <column name="ZIP" />
+        </property>
+        <property name="roadName" type="java.lang.String">
+            <column name="ROAD_NAME" />
+        </property>
+        <property name="roadNumber" type="java.lang.Integer">
+            <column name="ROAD_NUMBER" />
+        </property>
+        <property name="latitude" type="java.lang.String">
+            <column name="LATITUDE" />
+        </property>
+        <property name="longitude" type="java.lang.String">
+            <column name="LONGITUDE" />
+        </property>
+        <property name="locationType" type="java.lang.String">
+            <column name="location_type" />
+        </property>
+        <many-to-one name="contractor" class="edu.thangiah.entity.Contractor" fetch="select" cascade="all">
+            <column name="contractor_id" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

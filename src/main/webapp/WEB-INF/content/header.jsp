@@ -1,2 +1,4 @@
 <h1>Enterprise Routing System</h1>
-<a href="/ers/">Home</a> | <a href="/ers/listAllUsers.action">Users</a> | <a href="/ers/listAllContacts.action">Contacts</a> | <a href="/ers/listAllContractors.action">Contractors</a>
+<a href="/ERS/">Home</a> | <a href="/ERS/listAllUsers.action">Users</a> | <a href="/ERS/listAllContacts.action">Contacts</a> 
+| <a href="/ERS/listAllContractors.action">Contractors</a>
+| <a href="/ERS/listAllLocations.action">Locations</a>

@@ -6,25 +6,16 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  
 import edu.thangiah.entity.Contact;
  
-public class ContactDao extends HibernateDaoSupport {
- 
-    public void add(Contact contact) {
-        getHibernateTemplate().save(contact);
-    }
- 
-    public void delete(Contact contact) {
-        getHibernateTemplate().delete(contact);
-    }
- 
-    public List findAll() {
+public class ContactDao extends AbstractDao<Contact> {
+	
+	@Override
+    public List<Contact> findAll() {
         return getHibernateTemplate().find("from Contact");
     }
- 
-    public List findById(int id) {
+	
+	@Override
+    public List<Contact> findById(int id) {
         return getHibernateTemplate().find("from Contact where id=?", id);
     }
- 
-    public void update(Contact contact) {
-        getHibernateTemplate().update(contact);
-    }
+
 }

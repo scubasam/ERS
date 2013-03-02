@@ -4,12 +4,12 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
 
-	<bean id="contractorDao" class="edu.thangiah.dao.ContractorDao">
+	<bean id="locationDao" class="edu.thangiah.dao.LocationDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="contractorAction" class="edu.thangiah.action.ContractorAction">
-		<property name="contractorDao" ref="contractorDao" />
+	<bean id="locationAction" class="edu.thangiah.action.LocationAction">
+		<property name="locationDao" ref="locationDao" />
 	</bean>
  
 </beans>

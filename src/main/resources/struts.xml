@@ -36,5 +36,10 @@
  			<result name="success">WEB-INF/content/contractor/list.jsp</result>
  		</action>
  		
+ 		<!-- Location Actions -->
+ 		<action name="listAllLocations" method="listAll" class="locationAction">
+ 			<result name="success">WEB-INF/content/location/list.jsp</result>
+ 		</action>
+ 		
 	</package>
 </struts>

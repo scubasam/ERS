@@ -27,7 +27,7 @@ public class Contractor implements Serializable {
     protected Long id = null;
     private String contractorName = null;
     private Contact contact = null;
-    //private Set<Location> locations = null;
+    private Set<Location> locations = null;
 
     public Contractor() {
         super();
@@ -74,7 +74,7 @@ public class Contractor implements Serializable {
         this.contact = contact;
     }
 
-    /*@OneToMany(mappedBy="contractor")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="contractor")
     @Valid
     public Set<Location> getLocations() {
         return locations;
@@ -82,5 +82,5 @@ public class Contractor implements Serializable {
 
     public void setLocations(Set<Location> locations) {
         this.locations = locations;
-    }*/
+    }
 }
