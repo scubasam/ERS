@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 02, 2013 at 02:41 PM
+-- Generation Time: Mar 04, 2013 at 06:07 PM
 -- Server version: 5.5.29
 -- PHP Version: 5.4.6-1ubuntu1.1
 
@@ -206,6 +206,90 @@ INSERT INTO `USERS` (`id`, `username`, `password`, `admin`) VALUES
 (6, 'asdfasdfdsa', 'adsfad', 0),
 (7, 'asdafsdfads', 'asdf', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicles`
+--
+
+CREATE TABLE IF NOT EXISTS `vehicles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plate_number` varchar(20) DEFAULT NULL,
+  `vin_number` varchar(45) NOT NULL,
+  `manufactured_year` varchar(45) NOT NULL,
+  `vehicle_type_id` int(11) NOT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `contractor_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `vehicle_locationFK` (`location_id`),
+  KEY `vehicle_contractorFK` (`contractor_id`),
+  KEY `vehicle_typeFK` (`vehicle_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+--
+-- Dumping data for table `vehicles`
+--
+
+INSERT INTO `vehicles` (`id`, `plate_number`, `vin_number`, `manufactured_year`, `vehicle_type_id`, `location_id`, `contractor_id`) VALUES
+(1, 'DEC-DFE1', '4B7DH3LDJNEE945D', '1982', 2, 2, 1),
+(2, 'KD8-2GX', '56JFBNWUMNSJMWJ6', '1995', 1, 8, 5),
+(3, 'HHG-JIN', 'JF58R6F82V8E2D68', '2008', 4, 7, 2),
+(4, 'J7F-901', '5F4E7D2G4R7W9S21', '2005', 2, 8, 4),
+(5, 'KD9-5DS', 'J4GH56E8D4Q1A7D1', '2007', 5, 2, 3),
+(6, 'MNK-GGT', '5D6E27D11H5JK7RT', '1999', 7, 9, 6),
+(7, '5D6-D6D', 'JKD845JFU58FK2LH', '1995', 6, 9, 1),
+(8, 'L04-K9H', 'KD856JFLWKFM945J', '2005', 4, 1, 7),
+(9, 'RB3-5D8', '6DJELOD0PCKJADDD', '1983', 2, 4, 4),
+(10, 'DEE-V89', 'KDMC83JKCH30CL22', '1994', 5, 5, 5),
+(11, 'EKE-83D', 'DJDKC378DALCX893', '1979', 4, 2, 3),
+(12, 'FE3-EF3', 'KDHE83DHENCX83DD', '1985', 8, 3, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `vehicle_types`
+--
+
+CREATE TABLE IF NOT EXISTS `vehicle_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(45) NOT NULL,
+  `sub_type` varchar(45) NOT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `make` varchar(45) NOT NULL,
+  `model` varchar(45) NOT NULL,
+  `minimum_weight` int(11) NOT NULL,
+  `maximum_weight` int(11) NOT NULL,
+  `capacity` varchar(45) DEFAULT NULL,
+  `maximum_range` int(11) NOT NULL,
+  `restrictions` varchar(255) DEFAULT NULL,
+  `height` int(11) NOT NULL,
+  `empty_weight` int(11) NOT NULL,
+  `length` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `vehicle_types`
+--
+
+INSERT INTO `vehicle_types` (`id`, `type`, `sub_type`, `description`, `make`, `model`, `minimum_weight`, `maximum_weight`, `capacity`, `maximum_range`, `restrictions`, `height`, `empty_weight`, `length`) VALUES
+(1, 'Flatbed', 'Open', '', 'FreightLiner', 'FL-20134', 20000, 40000, NULL, 400, NULL, 90, 7000, 95),
+(2, 'Flatbed', 'Closed', '', 'Mack', 'M-DJ48DC', 20000, 40000, NULL, 400, NULL, 95, 8000, 88),
+(3, 'Flatbed', 'Refrigerated', '', 'Mack', 'M-DK84VK', 20000, 40000, NULL, 400, NULL, 98, 9000, 88),
+(4, 'Semi-Trailer', '', '', 'FreightLiner', 'FL-38409', 60000, 120000, NULL, 500, NULL, 105, 23000, 160),
+(5, 'Heavy', '', '', 'Mack', 'M-EK38KJ', 5000, 10000, NULL, 400, NULL, 80, 3000, 70),
+(6, 'Tanker', '', '', 'FreightLiner', 'FL-384DK', 20000, 40000, '3000', 400, NULL, 80, 10000, 85),
+(7, 'Van', 'Panel', '', 'Dodge', 'DOD-383D', 2000, 7000, NULL, 400, NULL, 65, 3000, 65),
+(8, 'Van', 'Parcel', '', 'GM', 'GM-FJKE3', 2000, 7000, NULL, 400, NULL, 60, 3000, 65),
+(9, 'Flatbed', 'Open', '', 'FreightLiner', 'FL-20134', 20000, 40000, NULL, 400, NULL, 90, 7000, 95),
+(10, 'Flatbed', 'Closed', '', 'Mack', 'M-DJ48DC', 20000, 40000, NULL, 400, NULL, 95, 8000, 88),
+(11, 'Flatbed', 'Refrigerated', '', 'Mack', 'M-DK84VK', 20000, 40000, NULL, 400, NULL, 98, 9000, 88),
+(12, 'Semi-Trailer', '', '', 'FreightLiner', 'FL-38409', 60000, 120000, NULL, 500, NULL, 105, 23000, 160),
+(13, 'Heavy', '', '', 'Mack', 'M-EK38KJ', 5000, 10000, NULL, 400, NULL, 80, 3000, 70),
+(14, 'Tanker', '', '', 'FreightLiner', 'FL-384DK', 20000, 40000, '3000', 400, NULL, 80, 10000, 85),
+(15, 'Van', 'Panel', '', 'Dodge', 'DOD-383D', 2000, 7000, NULL, 400, NULL, 65, 3000, 65),
+(16, 'Van', 'Parcel', '', 'GM', 'GM-FJKE3', 2000, 7000, NULL, 400, NULL, 60, 3000, 65);
+
 --
 -- Constraints for dumped tables
 --
@@ -221,6 +305,14 @@ ALTER TABLE `contractors`
 --
 ALTER TABLE `locations`
   ADD CONSTRAINT `location_contractorFK` FOREIGN KEY (`contractor_id`) REFERENCES `contractors` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `vehicles`
+--
+ALTER TABLE `vehicles`
+  ADD CONSTRAINT `vehicle_locationFK` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `vehicle_contractorFK` FOREIGN KEY (`contractor_id`) REFERENCES `contractors` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `vehicle_typeFK` FOREIGN KEY (`vehicle_type_id`) REFERENCES `vehicle_types` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
