@@ -5,7 +5,7 @@ mvn compile
 mvn war:war
 
 target_path="/var/lib/tomcat7/webapps"
-app_name="ers"
+app_name="ERS"
 backup_path="build_backup"
 war_name="ERS-1.0-SNAPSHOT.war"
 
