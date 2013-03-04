@@ -23,6 +23,7 @@
 				<value>resources/hibernate/Contact.hbm.xml</value>
 				<value>resources/hibernate/Contractor.hbm.xml</value>
 				<value>resources/hibernate/Location.hbm.xml</value>
+				<value>resources/hibernate/VehicleType.hbm.xml</value>
 			</list>
 		</property>
  

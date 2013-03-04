@@ -46,5 +46,10 @@
  			<result name="success">WEB-INF/content/location/list.jsp</result>
  		</action>
  		
+ 		<!-- Vehicle Type Actions -->
+ 		<action name="listAllVehicleTypes" method="listAll" class="vehicleTypeAction">
+ 			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
+ 		</action>
+ 		
 	</package>
 </struts>
