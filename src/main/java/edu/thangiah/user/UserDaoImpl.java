@@ -16,15 +16,18 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         getHibernateTemplate().delete(user);
     }
  
-    public List findAll() {
+    @SuppressWarnings("unchecked")
+	public List<User> findAll() {
         return getHibernateTemplate().find("from User");
     }
  
-    public List findById(int id) {
+    @SuppressWarnings("unchecked")
+	public List<User> findById(int id) {
         return getHibernateTemplate().find("from User where id=?", id);
     }
  
-    public List findByUsername(String username) {
+    @SuppressWarnings("unchecked")
+	public List<User> findByUsername(String username) {
         return getHibernateTemplate().find("from User where username=?", username);
     }
  

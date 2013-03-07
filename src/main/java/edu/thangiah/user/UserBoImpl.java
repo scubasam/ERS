@@ -40,16 +40,16 @@ public class UserBoImpl implements UserBo {
         userDao.delete(user);
     }
  
-    public List findAll() {
+    public List<User> findAll() {
         LOGGER.debug("Getting all users");
         return userDao.findAll();
     }
  
-    public List findById(int id) {
+    public List<User> findById(int id) {
         return userDao.findById(id);
     }
  
-    public List findByUsername(String username) {
+    public List<User> findByUsername(String username) {
         return userDao.findByUsername(username);
     }
  

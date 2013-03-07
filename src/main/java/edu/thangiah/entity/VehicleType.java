@@ -2,11 +2,9 @@ package edu.thangiah.entity;
 
 import edu.thangiah.decorator.HtmlDecorator;
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.NotEmpty;

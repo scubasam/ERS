@@ -12,9 +12,9 @@ public interface UserBo {
  
     void delete(User user);
  
-    List findAll();
+    List<User> findAll();
  
-    List findById(int id);
+    List<User> findById(int id);
  
-    List findByUsername(String username);
+    List<User> findByUsername(String username);
 }

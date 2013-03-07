@@ -15,7 +15,7 @@ public class ContactAction implements Preparable {
  
     private static final Logger LOGGER = Logger.getLogger(ContactAction.class.getName());
  
-    private List contacts;
+    private List<Contact> contacts;
  
     private String firstName = null;
     private String lastName = null;
@@ -58,11 +58,11 @@ public class ContactAction implements Preparable {
 		this.contactDao = contactDao;
 	}
 
-	public List getContacts() {
+	public List<Contact> getContacts() {
 		return contacts;
 	}
 
-	public void setContacts(List contacts) {
+	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
 	}
 

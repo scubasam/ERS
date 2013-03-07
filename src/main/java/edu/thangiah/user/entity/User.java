@@ -11,7 +11,9 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User implements Serializable {
  
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     private int id;
  
     private String password;

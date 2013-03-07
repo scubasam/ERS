@@ -14,7 +14,7 @@ public class UserAction implements Preparable {
  
     private static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
  
-    private List users;
+    private List<User> users;
  
     private Integer id;
     private String username;
@@ -32,11 +32,11 @@ public class UserAction implements Preparable {
         this.userBo = userBo;
     }
  
-    public List getUsers() {
+    public List<User> getUsers() {
         return users;
     }
  
-    public void setUsers(List users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
  
@@ -114,7 +114,7 @@ public class UserAction implements Preparable {
     private User getUser(Integer id) {
         LOGGER.debug("Get user with id = " + id);
         if (id != null) {
-            List users = userBo.findById(id);
+            List<User> users = userBo.findById(id);
             LOGGER.debug("Number of users with id = " + id + ": " + users.size());
             if (users.size() == 1) {
                 return (User) users.get(0);

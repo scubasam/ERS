@@ -1,21 +1,13 @@
 package edu.thangiah.action;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
-import edu.thangiah.dao.ContractorDao;
-import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.VehicleTypeDao;
-import edu.thangiah.entity.Contact;
-import edu.thangiah.entity.Contractor;
-import edu.thangiah.entity.Location;
 import edu.thangiah.entity.VehicleType;
-import edu.thangiah.user.entity.User;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.Preparable;
