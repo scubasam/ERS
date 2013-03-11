@@ -1,14 +1,4 @@
-<style type="text/css">
-.navbar {
-	list-style-type:none;
-	margin:0;
-	padding:0;
-}
-
-.navitem {
-	display: inline;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css"/>
 
 <h1>Enterprise Routing System</h1>
 <ul class="navbar">
