@@ -1,5 +1,21 @@
+<style type="text/css">
+.navbar {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+.navitem {
+	display: inline;
+}
+</style>
+
 <h1>Enterprise Routing System</h1>
-<a href="/ERS/">Home</a> | <a href="/ERS/listAllUsers.action">Users</a> | <a href="/ERS/listAllContacts.action">Contacts</a> 
-| <a href="/ERS/listAllContractors.action">Contractors</a>
-| <a href="/ERS/listAllLocations.action">Locations</a>
-| <a href="/ERS/listAllVehicleTypes.action">Vehicle Types</a>
+<ul class="navbar">
+<li class="navitem"><a href="/ERS/">Home</a> | </li>
+<li class="navitem"><a href="/ERS/listAllUsers.action">Users</a> | </li>
+<li class="navitem"><a href="/ERS/listAllContacts.action">Contacts</a> | </li>
+<li class="navitem"><a href="/ERS/listAllContractors.action">Contractors</a> | </li>
+<li class="navitem"><a href="/ERS/listAllLocations.action">Locations</a> | </li>
+<li class="navitem"><a href="/ERS/listAllVehicleTypes.action">Vehicle Types</a></li>
+</ul>
