@@ -3,3 +3,4 @@
 | <a href="/ERS/listAllContractors.action">Contractors</a>
 | <a href="/ERS/listAllLocations.action">Locations</a>
 | <a href="/ERS/listAllVehicleTypes.action">Vehicle Types</a>
+| <a href="/ERS/listAllVehicles.action">Vehicles</a>

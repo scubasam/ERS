@@ -90,4 +90,8 @@ public class Contractor extends AbstractEntity implements Serializable {
 	public String getViewLink() {
 		return HtmlDecorator.generateEntityLink("viewContractor", this.id, this.contractorName);
 	}
+	
+	public String toString(){
+		return contractorName;
+	}
 }

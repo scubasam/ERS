@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 7, 2013 7:36:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.thangiah.entity.Vehicle" table="vehicles" lazy="false">
+        <id name="id" type="java.lang.Long">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        
+        <property name="plateNumber" type="java.lang.String">
+            <column name="PLATE_NUMBER" />
+        </property>
+        <property name="vinNumber" type="java.lang.String">
+            <column name="VIN_NUMBER" />
+        </property>
+        <property name="manufacturedYear" type="java.lang.String">
+            <column name="MANUFACTURED_YEAR" />
+        </property>
+        <!--<property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>-->
+        <many-to-one name="vehicleType" class="edu.thangiah.entity.VehicleType" fetch="join" lazy="false">
+            <column name="VEHICLE_TYPE_ID" />
+        </many-to-one>
+        <many-to-one name="contractor" class="edu.thangiah.entity.Contractor" fetch="join" lazy="false">
+            <column name="CONTRACTOR_ID" />
+        </many-to-one>
+        <many-to-one name="location" class="edu.thangiah.entity.Location" fetch="join" lazy="false">
+            <column name="LOCATION_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -36,7 +36,7 @@
 	</table>
 </s:if>
 <s:else>
-	No Contractors Found...
+	No Vehicle Types Found...
 </s:else>
 
 <jsp:include page="/WEB-INF/content/footer.jsp" />

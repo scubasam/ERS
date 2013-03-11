@@ -207,5 +207,9 @@ public class VehicleType extends AbstractEntity implements Serializable {
 	public String getViewLink() {
 		return HtmlDecorator.generateEntityLink("viewVehicleType", this.id, this.make + this.model);
 	}
+	
+	public String toString(){
+		return this.make + " " + this.model;
+	}
 
 }

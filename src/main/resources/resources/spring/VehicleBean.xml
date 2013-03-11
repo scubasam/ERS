@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+ 	
+
+	<bean id="vehicleDao" class="edu.thangiah.dao.VehicleDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+ 	
+	<bean id="vehicleAction" class="edu.thangiah.action.VehicleAction">
+		<property name="vehicleDao" ref="vehicleDao" />
+	</bean>
+ 
+</beans>
