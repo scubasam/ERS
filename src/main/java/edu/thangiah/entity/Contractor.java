@@ -30,6 +30,7 @@ public class Contractor extends AbstractEntity implements Serializable {
     private String contractorName = null;
     private Contact contact = null;
     private Set<Location> locations = null;
+    private Set<Vehicle> vehicles = null;
 
     public Contractor() {
         super();
@@ -39,11 +40,12 @@ public class Contractor extends AbstractEntity implements Serializable {
         this.id = id;
     }
 
-    public Contractor(Long id, String contractorName, Contact contact/*, Set<Location> locations*/) {
+    public Contractor(Long id, String contractorName, Contact contact, Set<Location> locations, Set<Vehicle> vehicles) {
         this.id = id;
         this.contractorName = contractorName;
         this.contact = contact;
-        //this.locations = locations;
+        this.locations = locations;
+        this.vehicles = vehicles;
     }
 
     public Long getId() {
@@ -85,6 +87,14 @@ public class Contractor extends AbstractEntity implements Serializable {
     public void setLocations(Set<Location> locations) {
         this.locations = locations;
     }
+
+	public Set<Vehicle> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(Set<Vehicle> vehicles) {
+		this.vehicles = vehicles;
+	}
 
 	@Override
 	public String getViewLink() {

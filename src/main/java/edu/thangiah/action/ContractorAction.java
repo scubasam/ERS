@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.LocationDao;
+import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
+import edu.thangiah.entity.Vehicle;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.Preparable;
@@ -32,6 +34,9 @@ public class ContractorAction implements Preparable {
     
     @Autowired
     private LocationDao locationDao;
+    
+    @Autowired
+    private VehicleDao vehicleDao;
     
 	@Override
 	public void prepare() throws Exception {
@@ -67,6 +72,8 @@ public class ContractorAction implements Preparable {
 		
 		List<Location> locs = getLocations(cont);
 		cont.setLocations(new HashSet<Location>(locs));
+		List<Vehicle> vehicles = vehicleDao.findByContractor(cont);
+		cont.setVehicles(new HashSet<Vehicle>(vehicles));
 		
 		contractor = cont;
 		
@@ -132,6 +139,14 @@ public class ContractorAction implements Preparable {
 
 	public void setLocationDao(LocationDao locationDao) {
 		this.locationDao = locationDao;
+	}
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
 	}
 
 	public Long getId() {

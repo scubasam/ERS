@@ -11,10 +11,15 @@
 	<bean id="locationDao" class="edu.thangiah.dao.LocationDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="vehicleDao" class="edu.thangiah.dao.VehicleDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
  	
 	<bean id="contractorAction" class="edu.thangiah.action.ContractorAction">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
  
 </beans>

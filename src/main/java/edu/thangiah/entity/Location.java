@@ -183,6 +183,14 @@ public class Location implements Serializable {
         this.contractor = contractor;
     }
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
     /*@OneToMany(mappedBy="location")
     @Valid
     public Set<Vehicle> getVehicles() {

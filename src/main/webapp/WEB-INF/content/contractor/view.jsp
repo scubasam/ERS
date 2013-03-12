@@ -58,6 +58,32 @@
 	No Locations Found...
 </s:else>
 
+<h3>Vehicle Information</h3>
+<s:if test="contractor.vehicles.size > 0">
+	<table id="contractor_vehicleInfo">
+		<tr>
+			<th>Type</th><th>Plate Number</th><th>VIN</th><th>Manufactured Year</th><th>Location</th><th>Contractor</th>
+		</tr>
+		<s:iterator value="contractor.vehicles">
+			<s:url id="viewContractor" value="viewContractor.action">
+					<s:param name="id" value="contractor.getId()" />
+				</s:url>
+			<tr>
+			<tr>
+				<td><s:property value="vehicleType" /></td>
+				<td><s:property value="plateNumber" /></td>
+				<td><s:property value="vinNumber" /></td>
+				<td><s:property value="manufacturedYear" /></td>
+				<td><s:property value="location.name" /></td>
+				<td><s:a href="%{viewContractor}"><s:property value="contractor" /></s:a></td>
+			</tr>
+		</s:iterator>
+	</table>
+</s:if>
+<s:else>
+	No Vehicles Found...
+</s:else>
+
 <jsp:include page="/WEB-INF/content/footer.jsp" />
 </body>
 </html>
