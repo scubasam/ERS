@@ -1,4 +1,4 @@
-< %@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
  
 <html>
 <head>
