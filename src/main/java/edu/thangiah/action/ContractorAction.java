@@ -40,7 +40,6 @@ public class ContractorAction implements Preparable {
     
 	@Override
 	public void prepare() throws Exception {
-		// TODO Auto-generated method stub
 		
 	}
 	
