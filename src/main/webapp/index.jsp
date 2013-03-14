@@ -23,5 +23,10 @@
 			<div class="push"></div>
 		</div>
 		<jsp:include page="WEB-INF/content/footer.jsp" />
+		
+		<script type="text/javascript">
+			<jsp:include page="WEB-INF/content/scripts.js" />
+			setCurrentPage("nav_home");
+		</script>
 	</body>
 </html>

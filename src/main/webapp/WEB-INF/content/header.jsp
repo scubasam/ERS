@@ -6,25 +6,25 @@
 	<div id="menu">
 		<ul class="navbar">
 			<li class="navitem">
-				<a class="navlink" href="/ERS/">Home</a>
+				<a class="navlink" id="nav_home" href="/ERS/">Home</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllUsers.action">Users</a>
+				<a class="navlink" id="nav_users" href="/ERS/listAllUsers.action">Users</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllContacts.action">Contacts</a>
+				<a class="navlink" id="nav_contacts" href="/ERS/listAllContacts.action">Contacts</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllContractors.action">Contractors</a>
+				<a class="navlink" id="nav_contractors" href="/ERS/listAllContractors.action">Contractors</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllLocations.action">Locations</a>
+				<a class="navlink" id="nav_locations" href="/ERS/listAllLocations.action">Locations</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllVehicleTypes.action">Vehicle Types</a>
+				<a class="navlink" id="nav_vehicles" href="/ERS/listAllVehicles.action">Vehicles</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllVehicles.action">Vehicles</a>
+				<a class="navlink" id="nav_vehicletypes" href="/ERS/listAllVehicleTypes.action">Vehicle Types</a>
 			</li>
 		</ul>
 	</div>
