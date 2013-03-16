@@ -5,12 +5,16 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
+import edu.thangiah.action.AbstractAction;
 import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
+import edu.thangiah.utility.RandomString;
+import edu.thangiah.utility.UtilityFunctions;
+
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.Preparable;
  
-public class UserAction implements Preparable {
+public class UserAction extends AbstractAction implements Preparable {
  
     private static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
  
@@ -19,6 +23,9 @@ public class UserAction implements Preparable {
     private Integer id;
     private String username;
     private String password;
+    private String sessionId;
+	private String salt;
+	
     private boolean admin;
  
     @Autowired
@@ -93,13 +100,30 @@ public class UserAction implements Preparable {
         if (userBo == null) {
             return Action.ERROR;
         }
- 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setAdmin(admin);
-        LOGGER.debug("Add user: " + user.toString());
-        userBo.add(user);
+        
+        List<User> users = userBo.findByUsername(username);
+        if( users.size() == 0 ){
+        	User user = new User();
+	        user.setUsername(username);
+	        
+	        RandomString rand = new RandomString(16);
+	        String salt = rand.nextString();
+	        user.setSalt(salt);
+	        
+	        // salt and encrypt the password for the database.
+	        salt = salt + password;
+	        password = UtilityFunctions.sha1(salt);
+	        
+	        user.setPassword(password);
+	        user.setAdmin(admin);
+	        user.setSessionId("");
+	        
+	        LOGGER.debug("Add user: " + user.toString());
+	        userBo.add(user);
+        } else {
+        	setError(true);
+        	setErrorMessage("Username already taken.");
+        }
         return Action.SUCCESS;
     }
  
@@ -129,5 +153,21 @@ public class UserAction implements Preparable {
 
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
+	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 }

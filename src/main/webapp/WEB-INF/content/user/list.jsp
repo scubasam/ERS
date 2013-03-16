@@ -14,12 +14,14 @@
 <s:if test="users.size > 0">
 	<table id="users">
 		<tr>
-			<th>Username</th><th>Password</th><th>Admin?</th>
+			<th>Username</th><th>Password</th><th>Session ID</th><th>Salt</th><th>Admin?</th>
 		</tr>
 		<s:iterator value="users">
 			<tr>
 				<td><s:property value="username" /></td>
 				<td><s:property value="password" /></td>
+				<td><s:property value="sessionId" /></td>
+				<td><s:property value="salt" /></td>
 				<td><s:property value="admin" /></td>
 				<td><s:url id="deleteUser" value="deleteUser.action">
 					<s:param name="id" value="id" />

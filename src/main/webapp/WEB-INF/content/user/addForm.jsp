@@ -7,7 +7,11 @@
 <body>
 <jsp:include page="/WEB-INF/content/header.jsp" />
 <p>Add User</p>
- 
+
+<s:if test="isError">
+	<s:property value="errorMessage" />
+</s:if>
+
 <s:form name="addForm" method="post" action="addUser.action">
  
 	<s:textfield name="username" label="User" />

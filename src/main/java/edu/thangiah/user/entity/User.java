@@ -7,20 +7,18 @@ import javax.persistence.*;
  * The persistent class for the users database table.
  * 
  */
-@Entity
-@Table(name = "users")
+
 public class User implements Serializable {
  
 	private static final long serialVersionUID = 1L;
 
-	@Id
     private int id;
- 
     private String password;
- 
-    private String username;
-    
+    private String sessionId;
+	private String salt;
+	private String username;
     private boolean admin;
+    
  
     public User() {
     }
@@ -59,6 +57,23 @@ public class User implements Serializable {
 	
 	public String toString(){
 		return "User: " + this.username + " (" + this.password + ") - Admin? " + this.admin;
+	}
+	
+    public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
+	
+	
+    public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
  
 }
