@@ -19,7 +19,7 @@ import com.opensymphony.xwork2.Preparable;
  
 public class ContractorAction implements Preparable {
  
-    private static final Logger LOGGER = Logger.getLogger(ContactAction.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(ContractorAction.class.getName());
  
     private List<Contractor> contractors;
     private Contractor contractor;

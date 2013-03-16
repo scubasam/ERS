@@ -17,7 +17,7 @@ import com.opensymphony.xwork2.Preparable;
  
 public class VehicleAction implements Preparable {
  
-    private static final Logger LOGGER = Logger.getLogger(ContactAction.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(VehicleAction.class.getName());
  
     private List<Vehicle> vehicles;
     private Vehicle vehicle;
