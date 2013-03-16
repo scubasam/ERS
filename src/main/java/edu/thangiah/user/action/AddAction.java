@@ -20,31 +20,37 @@ public class AddAction extends UserAction implements Preparable{
     	if (userBo == null) {
             this.addActionError("Problem connecting with database.");
         }
+        User user = userBean;
+	        
+        RandomString rand = new RandomString(16);
+        String salt = rand.nextString();
+        user.setSalt(salt);
         
-        List<User> users = userBo.findByUsername(userBean.getUsername());
-        if( users.size() == 0 ){
-        	User user = userBean;
-	        
-	        RandomString rand = new RandomString(16);
-	        String salt = rand.nextString();
-	        user.setSalt(salt);
-	        
-	        // salt and encrypt the password for the database.
-	        salt = salt + user.getPassword();
-	        user.setPassword(UtilityFunctions.sha1(salt));
+        // salt and encrypt the password for the database.
+        salt = salt + user.getPassword();
+        user.setPassword(UtilityFunctions.sha1(salt));
 
-	        user.setSessionId("");
-	        
-	        LOGGER.debug("Add user: " + user.toString());
-	        userBo.add(user);
-        } else {
-        	this.addFieldError("userBean.username", "Username must be unique.");
-        }
+        user.setSessionId("");
         
-        if( this.hasErrors() )
-        	return INPUT;
+        LOGGER.debug("Add user: " + user.toString());
+        userBo.add(user);
         
         return SUCCESS;
+    }
+    
+    // called automatically
+    public void validate(){
+    	if( userBean.getUsername() == null || userBean.getUsername().length() == 0 )
+    		this.addFieldError("userBean.username", "Username is a required field.");
+    	
+    	if( userBean.getPassword() == null || userBean.getPassword().length() < User.minPasswordLength ){
+    		this.addFieldError("userBean.password", "Password must be at least " + User.minPasswordLength + " characters in length.");
+    	}
+    	
+    	List<User> users = userBo.findByUsername(userBean.getUsername());
+    	if( users.size() > 0 ){
+    		this.addFieldError("userBean.username", "Username must be unique.");
+    	}
     }
     
 	public User getUserBean() {

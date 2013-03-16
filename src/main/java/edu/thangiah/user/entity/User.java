@@ -18,6 +18,8 @@ public class User implements Serializable {
 	private String username;
     private boolean admin;
     
+    public static final int minPasswordLength = 6;
+    
  
     public User() {
     }
