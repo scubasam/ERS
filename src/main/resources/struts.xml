@@ -8,7 +8,7 @@
  
 	<package name="default" extends="struts-default">
  
-		<action name="listAllUsers" method="listAll" class="userAction">
+		<action name="listAllUsers" class="userListAction">
 			<result name="success">WEB-INF/content/user/list.jsp</result>
 		</action>
  
@@ -20,7 +20,7 @@
 			<result>WEB-INF/content/user/addForm.jsp</result>
 		</action>
  
-		<action name="addUser" method="execute" class="addUserAction">
+		<action name="addUser" class="addUserAction">
 			<result name="success" type="redirect">listAllUsers.action</result>
 			<result name="input">WEB-INF/content/user/addForm.jsp</result>
 		</action>
