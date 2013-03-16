@@ -27,7 +27,7 @@
 		
 		
 		<!-- Contact Actions -->
- 		<action name="listAllContacts" method="listAll" class="contactAction">
+ 		<action name="listAllContacts" class="contactListAction">
  			<result name="success">WEB-INF/content/contact/list.jsp</result>
  		</action>
  		
