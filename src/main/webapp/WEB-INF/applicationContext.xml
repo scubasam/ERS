@@ -15,4 +15,6 @@
 	<import resource="classes/resources/spring/LocationBean.xml" />
 	<import resource="classes/resources/spring/VehicleTypeBean.xml" />
 	<import resource="classes/resources/spring/VehicleBean.xml" />
+
+	
 </beans>

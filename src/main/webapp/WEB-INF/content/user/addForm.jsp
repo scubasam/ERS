@@ -3,6 +3,7 @@
 <html>
 <head>
 <title>Add User</title>
+<s:head />
 </head>
 <body>
 <jsp:include page="/WEB-INF/content/header.jsp" />
@@ -14,9 +15,9 @@
 
 <s:form name="addForm" method="post" action="addUser.action">
  
-	<s:textfield name="username" label="User" />
-	<s:password name="password" label="Password" />
-	<s:checkbox name="admin" label="Is Admin?" />
+	<s:textfield name="userBean.username" label="User" />
+	<s:password name="userBean.password" label="Password" />
+	<s:checkbox name="userBean.admin" label="Is Admin?" />
  
 	<s:submit type="button" name="Add" />
  

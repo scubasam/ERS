@@ -16,12 +16,13 @@
 			<result type="redirect">listAllUsers.action</result>
 		</action>
  
-		<action name="addUserForm" class="userAction">
+		<action name="addUserForm">
 			<result>WEB-INF/content/user/addForm.jsp</result>
 		</action>
  
-		<action name="addUser" method="add" class="userAction">
-			<result type="redirect">listAllUsers.action</result>
+		<action name="addUser" method="execute" class="addUserAction">
+			<result name="success" type="redirect">listAllUsers.action</result>
+			<result name="input">WEB-INF/content/user/addForm.jsp</result>
 		</action>
 		
 		

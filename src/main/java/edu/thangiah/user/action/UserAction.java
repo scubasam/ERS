@@ -5,21 +5,25 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
-import edu.thangiah.action.AbstractAction;
 import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
 import edu.thangiah.utility.UtilityFunctions;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
  
-public class UserAction extends AbstractAction implements Preparable {
+public class UserAction extends ActionSupport implements Preparable {
  
-    private static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
+	private static final long serialVersionUID = 1L;
+
+	private static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
  
     private List<User> users;
  
+    private User userBean;
+    
     private Integer id;
     private String username;
     private String password;
@@ -96,41 +100,6 @@ public class UserAction extends AbstractAction implements Preparable {
         return Action.SUCCESS;
     }
  
-    public String add() {
-        if (userBo == null) {
-            return Action.ERROR;
-        }
-        
-        List<User> users = userBo.findByUsername(username);
-        if( users.size() == 0 ){
-        	User user = new User();
-	        user.setUsername(username);
-	        
-	        RandomString rand = new RandomString(16);
-	        String salt = rand.nextString();
-	        user.setSalt(salt);
-	        
-	        // salt and encrypt the password for the database.
-	        salt = salt + password;
-	        password = UtilityFunctions.sha1(salt);
-	        
-	        user.setPassword(password);
-	        user.setAdmin(admin);
-	        user.setSessionId("");
-	        
-	        LOGGER.debug("Add user: " + user.toString());
-	        userBo.add(user);
-        } else {
-        	setError(true);
-        	setErrorMessage("Username already taken.");
-        }
-        return Action.SUCCESS;
-    }
- 
-    public String execute() {
-        return Action.SUCCESS;
-    }
- 
     public void prepare() throws Exception {
  
     }
@@ -169,5 +138,13 @@ public class UserAction extends AbstractAction implements Preparable {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public User getUserBean() {
+		return userBean;
+	}
+
+	public void setUserBean(User userBean) {
+		this.userBean = userBean;
 	}
 }
