@@ -17,4 +17,6 @@ public interface UserBo {
     List<User> findById(int id);
  
     List<User> findByUsername(String username);
+    
+    List<User> findBySessionId(String sessionId);
 }

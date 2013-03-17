@@ -17,6 +17,7 @@ public class ListAction extends UserAction implements Preparable{
         if (userBo == null) {
             return Action.ERROR;
         }
+        
         LOGGER.debug("Get all users");
         users = userBo.findAll();
         LOGGER.debug("Users number = " + users.size());

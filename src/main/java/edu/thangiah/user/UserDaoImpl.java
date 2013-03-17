@@ -34,4 +34,10 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     public void update(User user) {
         getHibernateTemplate().update(user);
     }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> findBySessionId(String sessionId) {
+		return getHibernateTemplate().find("from User where session_id=?", sessionId);
+	}
 }

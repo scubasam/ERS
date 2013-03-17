@@ -18,5 +18,9 @@
 	<bean id="userListAction" class="edu.thangiah.user.action.ListAction">
 		<property name="userBo" ref="userBo" />
 	</bean>
+	
+	<bean id="loginUserAction" class="edu.thangiah.user.action.LoginAction">
+		<property name="userBo" ref="userBo" />
+	</bean>
  
 </beans>
