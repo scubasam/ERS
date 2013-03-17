@@ -125,11 +125,13 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `salt` varchar(16) NOT NULL,
+  `session_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,7 +140,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Kelly','1234',0),(2,'Kelly','smithy',0),(3,'asdfasd','adf',0),(4,'adsfasd','asdfasdasd',0),(5,'adsfasddsfd','asdfasdfasd',0),(6,'asdfasdfdsa','adsfad',0),(7,'asdafsdfads','asdf',1);
+INSERT INTO `users` VALUES (24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','pd6ko7ubxlar7eenywm55jidn77wh0ahau22ebs6xd16235msmxnj17bk49xenhe');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,8 +199,8 @@ CREATE TABLE `vehicles` (
   KEY `vehicle_locationFK` (`location_id`),
   KEY `vehicle_contractorFK` (`contractor_id`),
   KEY `vehicle_typeFK` (`vehicle_type_id`),
-  CONSTRAINT `vehicle_locationFK` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE SET NULL,
   CONSTRAINT `vehicle_contractorFK` FOREIGN KEY (`contractor_id`) REFERENCES `contractors` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `vehicle_locationFK` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`) ON DELETE SET NULL,
   CONSTRAINT `vehicle_typeFK` FOREIGN KEY (`vehicle_type_id`) REFERENCES `vehicle_types` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -222,4 +224,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-12  9:58:28
+-- Dump completed on 2013-03-17 13:10:07
