@@ -2,10 +2,8 @@ package edu.thangiah.user.action;
 
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
  
 import edu.thangiah.action.AbstractAction;
-import edu.thangiah.user.UserBo;
 
 import com.opensymphony.xwork2.Preparable;
  
@@ -15,16 +13,6 @@ public class UserAction extends AbstractAction implements Preparable {
 
 	protected static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
  
-    @Autowired
-	protected UserBo userBo;
- 
-    public UserBo getUserBo() {
-        return userBo;
-    }
- 
-    public void setUserBo(UserBo userBo) {
-        this.userBo = userBo;
-    }
  
     /*public String delete() {
         if (userBo == null) {

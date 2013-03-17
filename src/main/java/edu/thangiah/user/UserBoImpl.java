@@ -59,4 +59,12 @@ public class UserBoImpl implements UserBo {
         }
         userDao.update(user);
     }
+
+	@Override
+	public List<User> findBySessionId(String sessionId) {
+		if( sessionId == null )
+			return null;
+		
+		return userDao.findBySessionId(sessionId);
+	}
 }

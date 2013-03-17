@@ -9,16 +9,7 @@
 			<jsp:include page="WEB-INF/content/header.jsp" />
 			
 			<div class="login">
-				<table class="login">
-					<tr>
-						<td>Username: </td>
-						<td><input type="text" class="username" /></td>
-					</tr>
-					<tr>
-						<td>Password: </td>
-						<td><input type="password" class="password" /></td>
-					</tr>
-				</table>
+				<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
 			</div>
 			<div class="push"></div>
 		</div>

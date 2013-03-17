@@ -19,10 +19,19 @@
 		<action name="addUserForm">
 			<result>WEB-INF/content/user/addForm.jsp</result>
 		</action>
+		
+		<action name="userLoginForm">
+			<result>WEB-INF/content/user/login.jsp</result>
+		</action>
  
 		<action name="addUser" class="addUserAction">
 			<result name="success" type="redirect">listAllUsers.action</result>
 			<result name="input">WEB-INF/content/user/addForm.jsp</result>
+		</action>
+		
+		<action name="loginUser" class="loginUserAction">
+			<result name="success" type="redirect">/</result>
+			<result name="input">WEB-INF/content/user/login.jsp</result>
 		</action>
 		
 		
