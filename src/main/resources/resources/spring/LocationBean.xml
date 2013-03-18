@@ -8,7 +8,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="locationAction" class="edu.thangiah.action.LocationAction">
+	<bean id="locationListAction" class="edu.thangiah.action.location.ListAction">
 		<property name="locationDao" ref="locationDao" />
 	</bean>
  

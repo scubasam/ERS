@@ -9,7 +9,7 @@
 	</bean>
 	
  	
-	<bean id="vehicleTypeAction" class="edu.thangiah.action.VehicleTypeAction">
+	<bean id="vehicleTypeListAction" class="edu.thangiah.action.vehicletype.ListAction">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
 	</bean>
  
