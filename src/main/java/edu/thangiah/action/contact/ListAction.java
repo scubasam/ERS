@@ -10,7 +10,8 @@ public class ListAction extends ContactAction {
 	private static final long serialVersionUID = 1L;
 	
 	private List<Contact> contacts;
-
+	
+	@Override
 	public String execute() {
         if (contactDao == null) {
             return Action.ERROR;

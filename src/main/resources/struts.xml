@@ -7,7 +7,12 @@
 	<constant name="struts.devMode" value="true" />
  
 	<package name="default" extends="struts-default">
- 
+ 		
+ 		<global-results>
+ 			<result name="error">WEB-INF/content/error.jsp</result>
+ 			<result name="login">WEB-INF/content/user/login.jsp</result>
+ 		</global-results>
+ 		
 		<action name="listAllUsers" class="userListAction">
 			<result name="success">WEB-INF/content/user/list.jsp</result>
 		</action>
@@ -42,11 +47,11 @@
  		
  		
  		<!-- Contractor Actions -->
- 		<action name="listAllContractors" method="listAll" class="contractorAction">
+ 		<action name="listAllContractors" class="contractorListAction">
  			<result name="success">WEB-INF/content/contractor/list.jsp</result>
  		</action>
  		
- 		<action name="viewContractor" method="view" class="contractorAction">
+ 		<action name="viewContractor" class="contractorViewAction">
  			<result name="success">WEB-INF/content/contractor/view.jsp</result>
  		</action>
  		

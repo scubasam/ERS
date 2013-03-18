@@ -20,6 +20,7 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 	protected User currentUser;
 	private boolean loggedIn = false;
 	
+	
 	@Autowired
 	protected UserBo userBo;
  
@@ -39,7 +40,7 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 		String sessionId = (String) session.get("sessionId");
 		
 		this.setLoggedIn(checkLogin(sessionId));
-		this.isLoggedIn();
+		
 	}
 	
 	private boolean checkLogin(String sessionId){
