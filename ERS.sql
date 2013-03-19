@@ -79,6 +79,38 @@ INSERT INTO `contractors` VALUES (1,'Bob\'s Warehouse',1),(2,'The Shipping Co.',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `drivers`
+--
+
+DROP TABLE IF EXISTS `drivers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `drivers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contact_id` int(11) NOT NULL,
+  `contractor_id` int(11) DEFAULT NULL,
+  `license_number` varchar(10) DEFAULT NULL,
+  `license_expiration` date DEFAULT NULL,
+  `license_class` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `driver_contactFK` (`contact_id`),
+  KEY `driver_contractorFK` (`contractor_id`),
+  CONSTRAINT `driver_contactFK` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`),
+  CONSTRAINT `driver_contractorFK` FOREIGN KEY (`contractor_id`) REFERENCES `contractors` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `drivers`
+--
+
+LOCK TABLES `drivers` WRITE;
+/*!40000 ALTER TABLE `drivers` DISABLE KEYS */;
+INSERT INTO `drivers` VALUES (1,3,3,'384-374','2010-05-23','A'),(2,15,5,'768-911','2012-10-11','C'),(3,7,1,'829-490','2011-11-02','C'),(4,16,7,'456-465','2011-06-29','D'),(5,24,2,'897-285','2011-12-05','A'),(6,17,4,'251-231','2011-11-12','D'),(7,19,1,'101-231','2011-05-02','C'),(8,11,6,'256-589','2011-01-22','C'),(9,10,2,'763-998','2011-04-15','D'),(10,9,5,'585-115','2010-04-11','B');
+/*!40000 ALTER TABLE `drivers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `locations`
 --
 
@@ -131,7 +163,7 @@ CREATE TABLE `users` (
   `session_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,8 +172,35 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','pd6ko7ubxlar7eenywm55jidn77wh0ahau22ebs6xd16235msmxnj17bk49xenhe');
+INSERT INTO `users` VALUES (25,'Jacky','4904e56f7c6f54e2f6fd897d3e24f108b02b3a05',0,'21ufq2sdycv2qz6j',''),(24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','ai9m5mz4n38n7h9fnrwpnmvwfciwslrm7uawpidvzeuvlpfmfhgprukwikbxzroh');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `vehicle_driver`
+--
+
+DROP TABLE IF EXISTS `vehicle_driver`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vehicle_driver` (
+  `vehicle_id` int(11) NOT NULL,
+  `driver_id` int(11) NOT NULL,
+  PRIMARY KEY (`vehicle_id`,`driver_id`),
+  KEY `vehicle_driver_driverFK` (`driver_id`),
+  CONSTRAINT `vehicle_driver_driverFK` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `vehicle_driver_vehicleFK` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `vehicle_driver`
+--
+
+LOCK TABLES `vehicle_driver` WRITE;
+/*!40000 ALTER TABLE `vehicle_driver` DISABLE KEYS */;
+INSERT INTO `vehicle_driver` VALUES (2,1),(1,2),(3,2),(1,3),(4,4),(5,5);
+/*!40000 ALTER TABLE `vehicle_driver` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -224,4 +283,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-17 13:10:07
+-- Dump completed on 2013-03-18 22:46:15
