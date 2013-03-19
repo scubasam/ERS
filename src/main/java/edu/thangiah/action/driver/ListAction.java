@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 
 import com.opensymphony.xwork2.Action;
 
-import edu.thangiah.action.vehicle.VehicleAction;
 import edu.thangiah.entity.Driver;
 
 

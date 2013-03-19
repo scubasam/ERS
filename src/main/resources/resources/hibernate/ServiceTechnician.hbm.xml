@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 19, 2013 11:59:50 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.thangiah.entity.ServiceTechnician" discriminator-value="ServiceTechnician" table="service_technicians" lazy="false">
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <one-to-one name="contact" class="edu.thangiah.entity.Contact"></one-to-one>
+        <property name="skillGrade" type="java.lang.String">
+            <column name="SKILL_GRADE" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -61,6 +61,11 @@
  			<result name="success">WEB-INF/content/location/list.jsp</result>
  		</action>
  		
+ 		<!-- Location Actions -->
+ 		<action name="listAllServiceTechnicians" class="serviceTechnicianListAction">
+ 			<result name="success">WEB-INF/content/service_technician/list.jsp</result>
+ 		</action>
+ 		
  		<!-- Vehicle Type Actions -->
  		<action name="listAllVehicleTypes" class="vehicleTypeListAction">
  			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
