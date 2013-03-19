@@ -25,6 +25,7 @@
 				<value>resources/hibernate/Location.hbm.xml</value>
 				<value>resources/hibernate/VehicleType.hbm.xml</value>
 				<value>resources/hibernate/Vehicle.hbm.xml</value>
+				<value>resources/hibernate/Driver.hbm.xml</value>
 			</list>
 		</property>
  

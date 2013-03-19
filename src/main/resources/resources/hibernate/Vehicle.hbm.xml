@@ -30,5 +30,15 @@
         <many-to-one name="location" class="edu.thangiah.entity.Location" fetch="join" lazy="false">
             <column name="LOCATION_ID" />
         </many-to-one>
+        
+        <set name="drivers" table="vehicle_driver" inverse="true" lazy="false">
+            <key>
+                <column name="vehicle_id" />
+            </key>
+            <many-to-many entity-name="edu.thangiah.entity.Driver">
+                <column name="driver_id" not-null="true" />
+            </many-to-many>
+        </set>
+        
     </class>
 </hibernate-mapping>

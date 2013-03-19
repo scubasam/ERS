@@ -26,6 +26,9 @@
 			<li class="navitem">
 				<a class="navlink" id="nav_vehicletypes" href="/ERS/listAllVehicleTypes.action">Vehicle Types</a>
 			</li>
+			<li class="navitem">
+				<a class="navlink" id="nav_drivers" href="/ERS/listAllDrivers.action">Drivers</a>
+			</li>
 		</ul>
 	</div>
 </div>

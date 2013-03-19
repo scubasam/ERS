@@ -22,7 +22,7 @@ public class ListAction extends VehicleAction{
         }
         LOGGER.debug("Get all vehicle types");
         vehicles = vehicleDao.findAll();
-        LOGGER.debug("Contractors number = " + vehicles.size());
+        LOGGER.debug("Vehicles number = " + vehicles.size());
         return Action.SUCCESS;
     }
 

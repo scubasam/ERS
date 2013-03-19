@@ -71,5 +71,10 @@
  			<result name="success">WEB-INF/content/vehicle/list.jsp</result>
  		</action>
  		
+ 		<!-- Driver Actions -->
+ 		<action name="listAllDrivers" class="driverListAction">
+ 			<result name="success">WEB-INF/content/driver/list.jsp</result>
+ 		</action>
+ 		
 	</package>
 </struts>
