@@ -127,4 +127,8 @@ public class Driver extends AbstractEntity implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	public String toString(){
+		return "Driver: " + contact.toString();
+	}
 }

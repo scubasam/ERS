@@ -1,11 +1,13 @@
 package edu.thangiah.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.NotEmpty;
@@ -13,7 +15,7 @@ import org.hibernate.validator.Valid;
 
 /**
  * Location model. 
- * @author pbair
+ * @author pbair, Kelly Smith
  */
 @Entity
 @Table(name="locations")
@@ -35,7 +37,7 @@ public class Location implements Serializable {
     private String longitude = null;
     private String locationType = null;
     private Contractor contractor = null;
-    //private Set<Vehicle> vehicles = null;
+    private Set<Vehicle> vehicles = null;
 
     public Location() {
         super();
@@ -50,7 +52,7 @@ public class Location implements Serializable {
     }
 
     public Location(Long id, String name, String streetAddress1, String streetAddress2, String city, String state, String zip, String roadName,
-            Integer roadNumber, String latitude, String longitude, String locationType, Contractor contractor/*, Set<Vehicle> vehicles*/) {
+            Integer roadNumber, String latitude, String longitude, String locationType, Contractor contractor, Set<Vehicle> vehicles) {
         this.id = id;
         this.name = name;
         this.streetAddress1 = streetAddress1;
@@ -64,7 +66,7 @@ public class Location implements Serializable {
         this.longitude = longitude;
         this.locationType = locationType;
         this.contractor = contractor;
-        //this.vehicles = vehicles;
+        this.vehicles = vehicles;
     }
 
     @Column(name="name")
@@ -191,7 +193,7 @@ public class Location implements Serializable {
 		this.id = id;
 	}
 
-    /*@OneToMany(mappedBy="location")
+    @OneToMany(mappedBy="location")
     @Valid
     public Set<Vehicle> getVehicles() {
         return vehicles;
@@ -199,5 +201,5 @@ public class Location implements Serializable {
 
     public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }*/
+    }
 }
