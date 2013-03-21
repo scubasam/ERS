@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Preparable;
 
 import edu.thangiah.action.AbstractAction;
-import edu.thangiah.action.location.LocationAction;
 import edu.thangiah.dao.ServiceTechnicianDao;
 
 public class ServiceTechnicianAction extends AbstractAction implements Preparable {
@@ -16,7 +15,7 @@ public class ServiceTechnicianAction extends AbstractAction implements Preparabl
 	 */
 	private static final long serialVersionUID = 4008513602409497443L;
 	
-	protected static final Logger LOGGER = Logger.getLogger(LocationAction.class.getName());
+	protected static final Logger LOGGER = Logger.getLogger(ServiceTechnicianAction.class.getName());
 	
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;

@@ -17,5 +17,6 @@
 	<import resource="classes/resources/spring/VehicleBean.xml" />
 	<import resource="classes/resources/spring/DriverBean.xml" />
 	<import resource="classes/resources/spring/ServiceTechnicianBean.xml" />
+	<import resource="classes/resources/spring/MaintenanceOrderBean.xml" />
 
 </beans>
