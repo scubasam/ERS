@@ -148,6 +148,151 @@ INSERT INTO `locations` VALUES (1,'East Depot','213 Navy Rd.',NULL,'Pittsburgh',
 UNLOCK TABLES;
 
 --
+-- Table structure for table `maintenance_orders`
+--
+
+DROP TABLE IF EXISTS `maintenance_orders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `maintenance_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `requester_id` int(11) DEFAULT NULL,
+  `service_technician_id` int(11) DEFAULT NULL,
+  `scheduled_date` datetime DEFAULT NULL,
+  `details` varchar(255) DEFAULT NULL,
+  `service_type_key` varchar(45) DEFAULT NULL,
+  `cost` varchar(45) DEFAULT NULL,
+  `status_key` varchar(45) DEFAULT NULL,
+  `vehicle_id` int(11) DEFAULT NULL,
+  `maintenance_type` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `maintenance_order_driverFK` (`requester_id`),
+  KEY `maintenance_order_service_technicianFK` (`service_technician_id`),
+  KEY `maintenance_order_vehicleFK` (`vehicle_id`),
+  CONSTRAINT `maintenance_order_driverFK` FOREIGN KEY (`requester_id`) REFERENCES `drivers` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `maintenance_order_service_technicianFK` FOREIGN KEY (`service_technician_id`) REFERENCES `service_technicians` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `maintenance_order_vehicleFK` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `maintenance_orders`
+--
+
+LOCK TABLES `maintenance_orders` WRITE;
+/*!40000 ALTER TABLE `maintenance_orders` DISABLE KEYS */;
+INSERT INTO `maintenance_orders` VALUES (1,3,1,'2010-03-28 00:00:00','Brake Replacement','REPAIR','$123.00','COMPLETED',1,'BRAKES'),(2,4,2,'2010-03-28 00:00:00','Tighten Suspension','MAINTENANCE','$586.00','COMPLETED',3,'SUSPENSION'),(3,6,1,'2010-03-28 00:00:00','Brake Replacement','REPAIR','$1024.00','COMPLETED',8,'BRAKES'),(4,7,2,'2010-03-28 00:00:00','Muffler Replacement','REPAIR','$699.00','COMPLETED',5,'EXHAUST'),(5,5,3,'2010-03-28 00:00:00','Oil Change','MAINTENANCE','$641.00','COMPLETED',8,'ENGINE'),(6,2,3,'2010-03-28 00:00:00','Brake Replacement','REPAIR','$35.00','PENDING',7,'SUSPENSION'),(7,2,1,'2010-03-28 00:00:00','Upholstery Refinish','REPAIR','$102.00','COMPLETED',9,'INTERIOR'),(8,1,5,'2010-03-28 00:00:00','Upholstery Refinish','MAINTENANCE','$256.00','COMPLETED',3,'INTERIOR'),(9,9,4,'2010-03-28 00:00:00','Brake Replacement','MAINTENANCE','$574.00','COMPLETED',2,'BRAKES'),(10,9,4,'2010-03-28 00:00:00','Radiator Repair','REPAIR','$664.00','COMPLETED',4,'ENGINE'),(11,7,5,'2010-03-28 00:00:00','Brake Replacement','REPAIR','$105.00','PENDING',4,'ENGINE'),(12,5,2,'2010-03-28 00:00:00','Tire Replacement','REPAIR','$586.00','PENDING',12,'TIRES'),(13,7,2,'2010-03-28 00:00:00','Air Pressure Check','MAINTENANCE','$669.00','COMPLETED',11,'TIRES'),(14,2,1,'2010-03-28 00:00:00','Muffler Check','MAINTENANCE','$87.00','PENDING',10,'EXHAUST'),(15,4,3,'2010-03-28 00:00:00','Brake Replacement','REPAIR','$23.00','COMPLETED',4,'BRAKES'),(16,5,4,'2010-04-12 00:00:00','Oil Change','MAINTENANCE','$15.00','PENDING',2,'ENGINE');
+/*!40000 ALTER TABLE `maintenance_orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `routes`
+--
+
+DROP TABLE IF EXISTS `routes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `routes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vehicle_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `route_vehicleFK` (`vehicle_id`),
+  CONSTRAINT `route_vehicleFK` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicles` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `routes`
+--
+
+LOCK TABLES `routes` WRITE;
+/*!40000 ALTER TABLE `routes` DISABLE KEYS */;
+INSERT INTO `routes` VALUES (16,1),(1,2),(8,2),(2,3),(7,3),(9,4),(10,4),(3,5),(15,6),(4,7),(6,7),(5,8),(11,8),(12,10),(13,11),(14,12);
+/*!40000 ALTER TABLE `routes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_technicians`
+--
+
+DROP TABLE IF EXISTS `service_technicians`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `service_technicians` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `contact_id` int(11) NOT NULL,
+  `skill_grade` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `service_technician_contactFK` (`contact_id`),
+  CONSTRAINT `service_technician_contactFK` FOREIGN KEY (`contact_id`) REFERENCES `contacts` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_technicians`
+--
+
+LOCK TABLES `service_technicians` WRITE;
+/*!40000 ALTER TABLE `service_technicians` DISABLE KEYS */;
+INSERT INTO `service_technicians` VALUES (1,12,'Junior'),(2,8,'Junior'),(3,13,'Apprentice'),(4,20,'Master'),(5,14,'Apprentice');
+/*!40000 ALTER TABLE `service_technicians` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `shipments`
+--
+
+DROP TABLE IF EXISTS `shipments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shipments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time_entered` datetime DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `vehicle_type_id` int(11) DEFAULT NULL,
+  `route_id` int(11) DEFAULT NULL,
+  `route_order_value` int(11) DEFAULT NULL,
+  `location_id` int(11) DEFAULT NULL,
+  `available_date` date DEFAULT NULL,
+  `available_time` time DEFAULT NULL,
+  `release_date` date DEFAULT NULL,
+  `release_time` time DEFAULT NULL,
+  `earliest_delivery_date` date DEFAULT NULL,
+  `earliest_delivery_time` time DEFAULT NULL,
+  `latest_delivery_date` date DEFAULT NULL,
+  `latest_delivery_time` time DEFAULT NULL,
+  `service_time` int(11) DEFAULT NULL,
+  `weight` int(11) DEFAULT NULL,
+  `cubic_weight` int(11) DEFAULT NULL,
+  `customer_name` varchar(100) DEFAULT NULL,
+  `destination_id` int(11) DEFAULT NULL,
+  `pooled_shipment` tinyint(1) NOT NULL,
+  `pooled_destination_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `shipment_routeFK` (`route_id`),
+  KEY `shipment_vehicle_typeFK` (`vehicle_type_id`),
+  KEY `shipment_locationFK` (`location_id`),
+  KEY `shipment_destinationFK` (`destination_id`),
+  KEY `shipment_pooled_destinationFK` (`pooled_destination_id`),
+  CONSTRAINT `shipment_destinationFK` FOREIGN KEY (`destination_id`) REFERENCES `locations` (`id`),
+  CONSTRAINT `shipment_locationFK` FOREIGN KEY (`location_id`) REFERENCES `locations` (`id`),
+  CONSTRAINT `shipment_pooled_destinationFK` FOREIGN KEY (`pooled_destination_id`) REFERENCES `locations` (`id`),
+  CONSTRAINT `shipment_routeFK` FOREIGN KEY (`route_id`) REFERENCES `routes` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `shipment_vehicle_typeFK` FOREIGN KEY (`vehicle_type_id`) REFERENCES `vehicle_types` (`id`) ON DELETE SET NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `shipments`
+--
+
+LOCK TABLES `shipments` WRITE;
+/*!40000 ALTER TABLE `shipments` DISABLE KEYS */;
+INSERT INTO `shipments` VALUES (1,'2010-03-28 12:23:00',1875938,1,1,0,17,'2010-03-29','12:55:00','2010-12-09','17:00:00','2010-06-02','00:00:00','2010-07-02','23:59:59',3,25,20,'Derby Plumbing',23,0,NULL),(2,'2010-03-12 15:25:00',2839303,2,1,1,17,'2010-05-02','15:23:00','2010-12-19','17:00:00','2010-06-05','00:00:00','2010-07-05','23:59:59',5,20,22,'Derby Plumbing',23,0,NULL),(3,'2010-05-15 22:56:00',2568745,2,1,2,17,'2010-04-23','02:44:00','2010-02-18','17:00:00','2010-08-05','00:00:00','2010-08-05','23:59:59',4,13,10,'Miller Electrical',23,0,NULL),(4,'2010-04-02 22:35:00',2568945,3,NULL,NULL,19,'2010-03-11','05:07:00','2010-05-20','17:00:00','2010-08-30','00:00:00','2010-08-30','23:59:59',1,28,29,'Miller Electrical',16,0,NULL),(5,'2010-11-10 02:45:00',2568479,1,1,3,17,'2010-08-02','04:17:00','2010-12-21','17:00:00','2010-11-28','00:00:00','2010-12-28','23:59:59',1,15,14,'Derby Plumbing',23,0,NULL),(6,'2009-08-23 14:12:00',3695487,2,NULL,NULL,20,'2010-08-22','22:12:00','2010-01-05','17:00:00','2010-12-22','00:00:00','2010-12-31','23:59:59',2,20,15,'Miller Electrical',17,0,NULL),(7,'2010-08-15 12:44:00',1546841,1,NULL,NULL,16,'2010-10-23','20:23:00','2010-05-02','17:00:00','2010-03-06','00:00:00','2010-04-06','23:59:59',2,50,34,'Miller Electrical',18,0,NULL),(8,'2010-09-14 02:55:00',5798484,1,NULL,NULL,20,'2010-12-15','15:54:00','2010-08-14','17:00:00','2010-12-01','00:00:00','2010-12-31','23:59:59',5,20,23,'Sandusky Steel',19,0,NULL),(9,'2010-04-06 08:32:00',5896895,3,1,4,17,'2010-03-07','08:16:00','2010-08-23','17:00:00','2010-02-25','00:00:00','2010-03-25','23:59:59',4,25,15,'Derby Plumbing',23,0,NULL),(10,'2010-05-28 17:02:00',3256887,3,NULL,NULL,16,'2010-10-08','08:58:00','2010-06-17','17:00:00','2010-05-06','00:00:00','2010-06-06','23:59:59',5,18,18,'Sandusky Steel',20,0,NULL),(11,'2010-06-29 17:14:00',2543212,1,1,5,17,'2010-08-10','10:16:00','2010-11-17','17:00:00','2010-05-08','00:00:00','2010-06-08','23:59:59',3,20,15,'Miller Electrical',23,0,NULL),(12,'2010-06-30 23:46:00',1215412,1,NULL,NULL,20,'2010-11-29','23:24:00','2010-10-02','17:00:00','2010-08-12','00:00:00','2010-09-12','23:59:59',6,27,17,'Derby Plumbing',21,0,NULL),(13,'2010-06-12 00:35:00',1315465,2,1,6,17,'2010-09-30','22:22:00','2010-12-05','17:00:00','2010-04-15','00:00:00','2010-05-15','23:59:59',5,33,19,'Sandusky Steel',23,0,NULL),(14,'2010-05-08 21:26:00',2535652,3,1,7,17,'2010-05-14','20:05:00','2010-01-28','17:00:00','2010-09-30','00:00:00','2010-10-30','23:59:59',2,21,11,'Derby Plumbing',23,0,NULL),(15,'2010-03-15 16:02:00',2565414,2,NULL,NULL,18,'2010-03-08','01:10:00','2010-03-31','17:00:00','2010-11-30','00:00:00','2010-12-30','23:59:59',1,20,15,'Miller Electrical',22,0,NULL),(16,'2010-10-23 12:11:00',2536524,1,NULL,NULL,19,'2010-01-01','16:01:00','2010-06-23','17:00:00','2010-10-23','00:00:00','2010-11-23','23:59:59',1,30,20,'Sandusky Steel',16,0,NULL);
+/*!40000 ALTER TABLE `shipments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -172,7 +317,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (25,'Jacky','4904e56f7c6f54e2f6fd897d3e24f108b02b3a05',0,'21ufq2sdycv2qz6j',''),(24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','ai9m5mz4n38n7h9fnrwpnmvwfciwslrm7uawpidvzeuvlpfmfhgprukwikbxzroh');
+INSERT INTO `users` VALUES (25,'Jacky','4904e56f7c6f54e2f6fd897d3e24f108b02b3a05',0,'21ufq2sdycv2qz6j',''),(24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','pw98cwswv5ykam3nlun659olmakv5xcdxgk2x3eax3zl29hs9vcvsigu4inizpp2');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,4 +428,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-18 22:46:15
+-- Dump completed on 2013-03-21 12:34:00
