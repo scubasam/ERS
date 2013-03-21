@@ -2,13 +2,16 @@ package edu.thangiah.entity;
 
 import edu.thangiah.decorator.HtmlDecorator;
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
+import org.hibernate.validator.Valid;
 
 
 @Entity
@@ -29,7 +32,7 @@ public class VehicleType extends AbstractEntity implements Serializable {
     private Integer height = null;
     private Integer emptyWeight = null;
     private Integer length = null;
-    //private Set<Vehicle> vehicles = null;
+    private Set<Vehicle> vehicles = null;
 
     public VehicleType() {
         super();
@@ -40,8 +43,8 @@ public class VehicleType extends AbstractEntity implements Serializable {
     }
 
     public VehicleType(Long id, String type, String subType, String description, String make, String model, Integer minimumWeight,
-            Integer maximumWeight, Integer maximumRange, String capacity, String restrictions, Integer height, Integer emptyWeight, Integer length/*,
-            Set<Vehicle> vehicles*/) {
+            Integer maximumWeight, Integer maximumRange, String capacity, String restrictions, Integer height, Integer emptyWeight, Integer length,
+            Set<Vehicle> vehicles) {
     	this.id = id;
         this.type = type;
         this.subType = subType;
@@ -56,7 +59,7 @@ public class VehicleType extends AbstractEntity implements Serializable {
         this.height = height;
         this.emptyWeight = emptyWeight;
         this.length = length;
-        //this.vehicles = vehicles;
+        this.vehicles = vehicles;
     }
 
     public Long getId() {
@@ -194,7 +197,7 @@ public class VehicleType extends AbstractEntity implements Serializable {
         this.length = length;
     }
 
-    /*@OneToMany(mappedBy="vehicleType")
+    @OneToMany(mappedBy="vehicleType")
     @Valid
     public Set<Vehicle> getVehicles() {
         return vehicles;
@@ -202,7 +205,7 @@ public class VehicleType extends AbstractEntity implements Serializable {
 
     public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
-    }*/
+    }
     
 	public String getViewLink() {
 		return HtmlDecorator.generateEntityLink("viewVehicleType", this.id, this.make + this.model);

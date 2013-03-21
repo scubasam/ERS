@@ -2,6 +2,7 @@ package edu.thangiah.entity;
 
 
 import java.io.Serializable;
+import java.util.Set;
 //import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,11 +10,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-//import javax.persistence.OneToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-//import org.hibernate.annotations.IndexColumn;
+import org.hibernate.annotations.IndexColumn;
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
@@ -30,7 +31,7 @@ public class ServiceTechnician extends AbstractEntity implements Serializable {
     protected Long id = null;
     private Contact contact = null;
     private String skillGrade = null;
-    //private List<MaintenanceOrder> maintenanceOrders = null;
+    private Set<MaintenanceOrder> maintenanceOrders = null;
 
     public ServiceTechnician() {
         super();
@@ -40,11 +41,11 @@ public class ServiceTechnician extends AbstractEntity implements Serializable {
         this.id = id;
     }
 
-    public ServiceTechnician(Long id, Contact contact, String skillGrade/*, List<MaintenanceOrder> maintenanceOrders*/) {
+    public ServiceTechnician(Long id, Contact contact, String skillGrade, Set<MaintenanceOrder> maintenanceOrders) {
         this.id = id;
         this.contact = contact;
         this.skillGrade = skillGrade;
-        //this.maintenanceOrders = maintenanceOrders;
+        this.maintenanceOrders = maintenanceOrders;
     }
 
     public Long getId() {
@@ -77,20 +78,24 @@ public class ServiceTechnician extends AbstractEntity implements Serializable {
         this.skillGrade = skillGrade;
     }
 
-    /*@OneToMany(mappedBy="serviceTechnician")
+    @OneToMany(mappedBy="serviceTechnician")
     @IndexColumn(name="id")
     @Valid
-    public List<MaintenanceOrder> getMaintenanceOrders() {
+    public Set<MaintenanceOrder> getMaintenanceOrders() {
         return maintenanceOrders;
     }
 
-    public void setMaintenanceOrders(List<MaintenanceOrder> maintenanceOrders) {
+    public void setMaintenanceOrders(Set<MaintenanceOrder> maintenanceOrders) {
         this.maintenanceOrders = maintenanceOrders;
-    }*/
+    }
 
 	@Override
 	public String getViewLink() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public String toString(){
+		return contact.toString();
 	}
 }

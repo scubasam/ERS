@@ -13,12 +13,13 @@
 <s:if test="technicians.size > 0">
 	<table id="technicians">
 		<tr>
-			<th>Contact</th><th>Skill Grade</th>
+			<th>Contact</th><th>Skill Grade</th><th>Maintenance Orders</th>
 		</tr>
 		<s:iterator value="technicians">
 			<tr>
 				<td><s:property value="contact" /></td>
 				<td><s:property value="skillGrade" /></td>
+				<td><s:property value="maintenanceOrders" /></td>
 			</tr>
 		</s:iterator>
 	</table>

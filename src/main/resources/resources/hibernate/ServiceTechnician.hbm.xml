@@ -12,5 +12,13 @@
         <property name="skillGrade" type="java.lang.String">
             <column name="SKILL_GRADE" />
         </property>
+        
+        <set name="maintenanceOrders" table="maintenance_orders" 
+				inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="service_technician_id" not-null="true" />
+            </key>
+            <one-to-many class="edu.thangiah.entity.MaintenanceOrder" />
+        </set>
     </class>
 </hibernate-mapping>
