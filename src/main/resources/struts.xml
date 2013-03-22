@@ -7,7 +7,12 @@
 	<constant name="struts.devMode" value="true" />
  
 	<package name="default" extends="struts-default">
- 
+ 		
+ 		<global-results>
+ 			<result name="error">WEB-INF/content/error.jsp</result>
+ 			<result name="login">WEB-INF/content/user/login.jsp</result>
+ 		</global-results>
+ 		
 		<action name="listAllUsers" class="userListAction">
 			<result name="success">WEB-INF/content/user/list.jsp</result>
 		</action>
@@ -42,28 +47,43 @@
  		
  		
  		<!-- Contractor Actions -->
- 		<action name="listAllContractors" method="listAll" class="contractorAction">
+ 		<action name="listAllContractors" class="contractorListAction">
  			<result name="success">WEB-INF/content/contractor/list.jsp</result>
  		</action>
  		
- 		<action name="viewContractor" method="view" class="contractorAction">
+ 		<action name="viewContractor" class="contractorViewAction">
  			<result name="success">WEB-INF/content/contractor/view.jsp</result>
  		</action>
  		
  		
  		<!-- Location Actions -->
- 		<action name="listAllLocations" method="listAll" class="locationAction">
+ 		<action name="listAllLocations" class="locationListAction">
  			<result name="success">WEB-INF/content/location/list.jsp</result>
  		</action>
  		
+ 		<!-- Service Technician Actions -->
+ 		<action name="listAllServiceTechnicians" class="serviceTechnicianListAction">
+ 			<result name="success">WEB-INF/content/service_technician/list.jsp</result>
+ 		</action>
+ 		
+ 		<!-- Maintenance Order Actions -->
+ 		<action name="listAllMaintenanceOrders" class="maintenanceOrderListAction">
+ 			<result name="success">WEB-INF/content/maintenance_order/list.jsp</result>
+ 		</action>
+ 		
  		<!-- Vehicle Type Actions -->
- 		<action name="listAllVehicleTypes" method="listAll" class="vehicleTypeAction">
+ 		<action name="listAllVehicleTypes" class="vehicleTypeListAction">
  			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
  		</action>
  		
  		<!-- Vehicle Actions -->
- 		<action name="listAllVehicles" method="listAll" class="vehicleAction">
+ 		<action name="listAllVehicles" class="vehicleListAction">
  			<result name="success">WEB-INF/content/vehicle/list.jsp</result>
+ 		</action>
+ 		
+ 		<!-- Driver Actions -->
+ 		<action name="listAllDrivers" class="driverListAction">
+ 			<result name="success">WEB-INF/content/driver/list.jsp</result>
  		</action>
  		
 	</package>

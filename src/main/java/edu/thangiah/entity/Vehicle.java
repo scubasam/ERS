@@ -1,14 +1,21 @@
 package edu.thangiah.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
+
 
 public class Vehicle extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -20,7 +27,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
     private String status = null;
     private VehicleType vehicleType = null;
     private Contractor contractor = null;
-    //private Set<Driver> drivers = null;
+    private Set<Driver> drivers = null;
     private Location location = null;
 
     public static final String[] statuses = {"available", "unavailable"};
@@ -35,7 +42,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
     }
 
     public Vehicle(Long id, String plateNumber, String vinNumber, String manufacturedYear, String status, VehicleType vehicleType,
-            Contractor contractor, /*Set<Driver> drivers,*/ Location location) {
+            Contractor contractor, Set<Driver> drivers, Location location) {
         super();
         this.id = id;
         this.plateNumber = plateNumber;
@@ -44,7 +51,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
         this.status = status;
         this.vehicleType = vehicleType;
         this.contractor = contractor;
-        //this.drivers = drivers;
+        this.drivers = drivers;
         this.location = location;
     }
 
@@ -110,7 +117,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
         this.contractor = contractor;
     }
 
-    /*@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(name="vehicle_driver", joinColumns=@JoinColumn(name="vehicle_id"), inverseJoinColumns=@JoinColumn(name="driver_id"))
     @Valid
@@ -120,7 +127,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
 
     public void setDrivers(Set<Driver> drivers) {
         this.drivers = drivers;
-    }*/
+    }
 
     @ManyToOne
     @JoinColumn(name="location_id")
@@ -141,6 +148,10 @@ public class Vehicle extends AbstractEntity implements Serializable {
 		this.id = id;
 	}
 
+	public String toString(){
+		return this.vehicleType.toString() + " (" + this.vinNumber + ")";
+	}
+	
 	@Override
 	public String getViewLink() {
 		// TODO Auto-generated method stub

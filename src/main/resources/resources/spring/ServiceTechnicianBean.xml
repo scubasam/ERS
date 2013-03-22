@@ -4,13 +4,12 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
 
-	<bean id="vehicleTypeDao" class="edu.thangiah.dao.VehicleTypeDao">
+	<bean id="serviceTechnicianDao" class="edu.thangiah.dao.ServiceTechnicianDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
  	
-	<bean id="vehicleTypeListAction" class="edu.thangiah.action.vehicletype.ListAction">
-		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+	<bean id="serviceTechnicianListAction" class="edu.thangiah.action.servicetechnician.ListAction">
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
  
 </beans>

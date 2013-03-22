@@ -14,7 +14,7 @@
 	<table id="types">
 		<tr>
 			<th>Type</th><th>Sub Type</th><th>Description</th><th>Make</th><th>Model</th><th>Minimum Weight</th><th>Maximum Weight</th><th>Capacity</th>
-			<th>Maximum Range</th><th>Restrictions</th><th>Height</th><th>Empty Weight</th><th>Length</th>
+			<th>Maximum Range</th><th>Restrictions</th><th>Height</th><th>Empty Weight</th><th>Length</th><th>Vehicles</th>
 		</tr>
 		<s:iterator value="types">
 			<tr>
@@ -31,6 +31,7 @@
 				<td><s:property value="height" /></td>
 				<td><s:property value="empty_weight" /></td>
 				<td><s:property value="length" /></td>
+				<td><s:property value="vehicles" /></td>
 			</tr>
 		</s:iterator>
 	</table>

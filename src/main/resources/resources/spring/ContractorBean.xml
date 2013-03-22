@@ -16,7 +16,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="contractorAction" class="edu.thangiah.action.ContractorAction">
+	<bean id="contractorListAction" class="edu.thangiah.action.contractor.ListAction">
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
+	
+	<bean id="contractorViewAction" class="edu.thangiah.action.contractor.ViewAction">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="locationDao" ref="locationDao" />
 		<property name="vehicleDao" ref="vehicleDao" />

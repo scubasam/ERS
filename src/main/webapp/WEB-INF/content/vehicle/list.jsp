@@ -14,6 +14,7 @@
 	<table id="vehicles">
 		<tr>
 			<th>Type</th><th>Plate Number</th><th>VIN</th><th>Manufactured Year</th><th>Location</th><th>Contractor</th>
+			<th>Drivers</th>
 		</tr>
 		<s:iterator value="vehicles">
 			<s:url id="viewContractor" value="viewContractor.action">
@@ -26,6 +27,7 @@
 				<td><s:property value="manufacturedYear" /></td>
 				<td><s:property value="location.name" /></td>
 				<td><s:a href="%{viewContractor}"><s:property value="contractor" /></s:a></td>
+				<td><s:property value="drivers" /></td>
 			</tr>
 		</s:iterator>
 	</table>

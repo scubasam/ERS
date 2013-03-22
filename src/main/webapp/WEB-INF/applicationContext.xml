@@ -7,7 +7,21 @@
 	<import resource="classes/resources/spring/config/DataSource.xml" />
 	<import resource="classes/resources/spring/config/Hibernate.xml" />
  
- 
+ 	
+ 	<bean id="urlMapping"     
+     class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">    
+       <property name="interceptors">
+         <list>
+              <ref bean="openSessionInViewInterceptor"/>
+         </list>
+       </property>
+	  </bean>
+	  <bean name="openSessionInViewInterceptor"  
+	    class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
+	       <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+	  </bean>
+
+ 	
 	<!-- Beans Declaration -->
 	<import resource="classes/resources/spring/UserBean.xml" />
 	<import resource="classes/resources/spring/ContactBean.xml" />
@@ -15,6 +29,8 @@
 	<import resource="classes/resources/spring/LocationBean.xml" />
 	<import resource="classes/resources/spring/VehicleTypeBean.xml" />
 	<import resource="classes/resources/spring/VehicleBean.xml" />
+	<import resource="classes/resources/spring/DriverBean.xml" />
+	<import resource="classes/resources/spring/ServiceTechnicianBean.xml" />
+	<import resource="classes/resources/spring/MaintenanceOrderBean.xml" />
 
-	
 </beans>

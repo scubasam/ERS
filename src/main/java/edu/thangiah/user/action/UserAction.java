@@ -13,7 +13,6 @@ public class UserAction extends AbstractAction implements Preparable {
 
 	protected static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
  
- 
     /*public String delete() {
         if (userBo == null) {
             return Action.ERROR;
