@@ -18,7 +18,7 @@ public class AddAction extends UserAction implements Preparable{
     public String execute() throws Exception{
     	
     	if (userBo == null) {
-            this.addActionError("Problem connecting with database.");
+            this.addActionError(DB_ERROR_MESSAGE);
         }
         User user = userBean;
 	        

@@ -12,6 +12,13 @@ public class AddAction extends ContactAction implements Preparable{
 	
 	@Override
     public String execute() throws Exception{
+		if (contactDao == null || contact == null) {
+            this.addActionError(DB_ERROR_MESSAGE);
+        }
+		
+		LOGGER.debug("Adding new contact: " + contact.toString());
+		contactDao.add(contact);
+		
     	return SUCCESS;
     }
     

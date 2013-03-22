@@ -6,7 +6,7 @@
     <class name="edu.thangiah.entity.MaintenanceOrder" discriminator-value="MaintenanceOrder" table="maintenance_orders" lazy="false">
         <id name="id" type="java.lang.Long" unsaved-value="null">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <one-to-one name="requester" class="edu.thangiah.entity.Driver"></one-to-one>
         <many-to-one name="serviceTechnician" class="edu.thangiah.entity.ServiceTechnician" fetch="join" lazy="false">

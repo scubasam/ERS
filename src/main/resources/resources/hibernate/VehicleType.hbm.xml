@@ -6,7 +6,7 @@
     <class name="edu.thangiah.entity.VehicleType" table="vehicle_types" lazy="false">
         <id name="id" type="java.lang.Long">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="type" type="java.lang.String">
             <column name="TYPE" />

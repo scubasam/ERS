@@ -20,6 +20,8 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 	protected User currentUser;
 	private boolean loggedIn = false;
 	
+	public static final String DB_ERROR_MESSAGE = "Problem connecting with database.  Please try again.";
+	
 	
 	@Autowired
 	protected UserBo userBo;
