@@ -33,7 +33,10 @@
 				<a class="navlink" id="nav_technicians" href="/ERS/listAllServiceTechnicians.action">Technicians</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_technicians" href="/ERS/listAllMaintenanceOrders.action">Maintenance Orders</a>
+				<a class="navlink" id="nav_orders" href="/ERS/listAllMaintenanceOrders.action">Maintenance Orders</a>
+			</li>
+			<li class="navitem">
+				<a class="navlink" id="nav_shipments" href="/ERS/listAllShipments.action">Shipments</a>
 			</li>
 		</ul>
 	</div>

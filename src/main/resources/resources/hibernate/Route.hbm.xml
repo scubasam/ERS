@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 22, 2013 2:46:53 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.thangiah.entity.Route" table="routes">
+        <id name="id" type="java.lang.Long" access="field">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="vehicle" class="edu.thangiah.entity.Vehicle" fetch="join" lazy="false">
+            <column name="VEHICLE_ID" />
+        </many-to-one>
+        <set name="shipments" table="shipments" 
+				inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="route_id" not-null="true" />
+            </key>
+            <one-to-many class="edu.thangiah.entity.Shipment" />
+        </set>
+    </class>
+</hibernate-mapping>

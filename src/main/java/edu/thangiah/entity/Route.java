@@ -2,8 +2,7 @@ package edu.thangiah.entity;
 
 
 import java.io.Serializable;
-import java.util.List;
-
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +22,7 @@ public class Route extends AbstractEntity implements Serializable {
     private final static long serialVersionUID = 1L;
     protected Long id;
     private Vehicle vehicle = null;
-    private List<Shipment> shipments = null;
+    private Set<Shipment> shipments = null;
 
     public Route() {
         super();
@@ -33,7 +32,7 @@ public class Route extends AbstractEntity implements Serializable {
         this.id = id;
     }
 
-    public Route(Long id, Vehicle vehicle, List<Shipment> shipments) {
+    public Route(Long id, Vehicle vehicle, Set<Shipment> shipments) {
         this.id = id;
         this.vehicle = vehicle;
         this.shipments = shipments;
@@ -53,17 +52,16 @@ public class Route extends AbstractEntity implements Serializable {
     @OneToMany(mappedBy="route")
     @IndexColumn(name="route_order_value")
     @Valid
-    public List<Shipment> getShipments() {
+    public Set<Shipment> getShipments() {
         return shipments;
     }
 
-    public void setShipments(List<Shipment> shipments) {
+    public void setShipments(Set<Shipment> shipments) {
         this.shipments = shipments;
     }
 
 	@Override
 	public String getViewLink() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

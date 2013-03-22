@@ -28,6 +28,8 @@
 				<value>resources/hibernate/Driver.hbm.xml</value>
 				<value>resources/hibernate/ServiceTechnician.hbm.xml</value>
 				<value>resources/hibernate/MaintenanceOrder.hbm.xml</value>
+				<value>resources/hibernate/Shipment.hbm.xml</value>
+				<value>resources/hibernate/Route.hbm.xml</value>
 			</list>
 		</property>
  

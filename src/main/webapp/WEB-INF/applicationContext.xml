@@ -7,19 +7,6 @@
 	<import resource="classes/resources/spring/config/DataSource.xml" />
 	<import resource="classes/resources/spring/config/Hibernate.xml" />
  
- 	
- 	<bean id="urlMapping"     
-     class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">    
-       <property name="interceptors">
-         <list>
-              <ref bean="openSessionInViewInterceptor"/>
-         </list>
-       </property>
-	  </bean>
-	  <bean name="openSessionInViewInterceptor"  
-	    class="org.springframework.orm.hibernate3.support.OpenSessionInViewInterceptor">
-	       <property name="sessionFactory"><ref bean="sessionFactory"/></property>
-	  </bean>
 
  	
 	<!-- Beans Declaration -->
@@ -32,5 +19,6 @@
 	<import resource="classes/resources/spring/DriverBean.xml" />
 	<import resource="classes/resources/spring/ServiceTechnicianBean.xml" />
 	<import resource="classes/resources/spring/MaintenanceOrderBean.xml" />
+	<import resource="classes/resources/spring/ShipmentBean.xml" />
 
 </beans>

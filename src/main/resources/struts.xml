@@ -66,6 +66,11 @@
  			<result name="success">WEB-INF/content/service_technician/list.jsp</result>
  		</action>
  		
+ 		<!--Shipment Actions -->
+ 		<action name="listAllShipments" class="shipmentListAction">
+ 			<result name="success">WEB-INF/content/shipment/list.jsp</result>
+ 		</action>
+ 		
  		<!-- Maintenance Order Actions -->
  		<action name="listAllMaintenanceOrders" class="maintenanceOrderListAction">
  			<result name="success">WEB-INF/content/maintenance_order/list.jsp</result>

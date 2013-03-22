@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 22, 2013 12:54:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.thangiah.entity.Shipment" discriminator-value="Shipment" table="shipments" lazy="false">
+        <id name="id" type="java.lang.Long" unsaved-value="null">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="timeEntered" type="java.sql.Date">
+            <column name="TIME_ENTERED" />
+        </property>
+        <property name="orderId" type="java.lang.Integer">
+            <column name="ORDER_ID" />
+        </property>
+        <many-to-one name="vehicleType" class="edu.thangiah.entity.VehicleType" fetch="join" lazy="false">
+            <column name="VEHICLE_TYPE_ID" />
+        </many-to-one>
+        <many-to-one name="location" class="edu.thangiah.entity.Location" fetch="join" lazy="false">
+            <column name="LOCATION_ID" />
+        </many-to-one>
+        <many-to-one name="route" class="edu.thangiah.entity.Route" fetch="join" lazy="false">
+            <column name="ROUTE_ID" />
+        </many-to-one>
+        <property name="availableDate" type="java.sql.Date">
+            <column name="AVAILABLE_DATE" />
+        </property>
+        <property name="availableTime" type="java.sql.Time">
+            <column name="AVAILABLE_TIME" />
+        </property>
+        <property name="releaseDate" type="java.sql.Date">
+            <column name="RELEASE_DATE" />
+        </property>
+        <property name="releaseTime" type="java.sql.Time">
+            <column name="RELEASE_TIME" />
+        </property>
+        <property name="earliestDeliveryDate" type="java.sql.Date">
+            <column name="EARLIEST_DELIVERY_DATE" />
+        </property>
+        <property name="earliestDeliveryTime" type="java.sql.Time">
+            <column name="EARLIEST_DELIVERY_TIME" />
+        </property>
+        <property name="latestDeliveryDate" type="java.sql.Date">
+            <column name="LATEST_DELIVERY_DATE" />
+        </property>
+        <property name="latestDeliveryTime" type="java.sql.Time">
+            <column name="LATEST_DELIVERY_TIME" />
+        </property>
+        <property name="serviceTime" type="java.lang.Integer">
+            <column name="SERVICE_TIME" />
+        </property>
+        <property name="weight" type="java.lang.Integer">
+            <column name="WEIGHT" />
+        </property>
+        <property name="cubicWeight" type="java.lang.Integer">
+            <column name="CUBIC_WEIGHT" />
+        </property>
+        <property name="customerName" type="java.lang.String">
+            <column name="CUSTOMER_NAME" />
+        </property>
+        <many-to-one name="destination" class="edu.thangiah.entity.Location" fetch="join" lazy="false">
+            <column name="DESTINATION_ID" />
+        </many-to-one>
+        <property name="pooledShipment" type="java.lang.Boolean">
+            <column name="POOLED_SHIPMENT" />
+        </property>
+        <many-to-one name="pooledDestination" class="edu.thangiah.entity.Location" fetch="join" lazy="false">
+            <column name="POOLED_DESTINATION_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
