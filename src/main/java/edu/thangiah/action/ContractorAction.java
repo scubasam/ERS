@@ -6,10 +6,10 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
-import edu.thangiah.contact.entity.Contact;
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.VehicleDao;
+import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Vehicle;

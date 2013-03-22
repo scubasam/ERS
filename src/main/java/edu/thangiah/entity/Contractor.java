@@ -16,7 +16,6 @@ import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
 
-import edu.thangiah.contact.entity.Contact;
 import edu.thangiah.decorator.HtmlDecorator;
 
 /**
