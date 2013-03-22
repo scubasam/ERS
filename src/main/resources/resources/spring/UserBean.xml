@@ -11,6 +11,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="requireLoginAction" class="edu.thangiah.action.RequireLoginAction">
+		<property name="userBo" ref="userBo" />
+	</bean>
+	
 	<bean id="addUserAction" class="edu.thangiah.user.action.AddAction">
 		<property name="userBo" ref="userBo" />
 	</bean>

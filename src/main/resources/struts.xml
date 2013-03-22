@@ -21,11 +21,11 @@
 			<result type="redirect">listAllUsers.action</result>
 		</action>
  
-		<action name="addUserForm">
+		<action name="addUserForm" class="requireLoginAction">
 			<result>WEB-INF/content/user/addForm.jsp</result>
 		</action>
 		
-		<action name="userLoginForm">
+		<action name="userLoginForm" class="requireLoginAction">
 			<result>WEB-INF/content/user/login.jsp</result>
 		</action>
  
@@ -45,7 +45,7 @@
  			<result name="success">WEB-INF/content/contact/list.jsp</result>
  		</action>
  		
- 		<action name="addContactForm">
+ 		<action name="addContactForm" class="requireLoginAction">
 			<result>WEB-INF/content/contact/addForm.jsp</result>
 		</action>
 		

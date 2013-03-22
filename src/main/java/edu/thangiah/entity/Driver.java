@@ -116,7 +116,6 @@ public class Driver extends AbstractEntity implements Serializable {
 
 	@Override
 	public String getViewLink() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

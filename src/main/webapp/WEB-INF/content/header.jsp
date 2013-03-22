@@ -1,5 +1,6 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <div id="heading">
-	<h1>Enterprise Routing System</h1>
+	<h1>Enterprise Routing System</h1><s:if test="loggedIn == true">Hello <s:property value="currentUser" /></s:if><s:else>Not Logged In</s:else>
 </div>
 
 <div id="navbar">

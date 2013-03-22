@@ -144,7 +144,6 @@ public class MaintenanceOrder extends AbstractEntity implements Serializable {
 
 	@Override
 	public String getViewLink() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

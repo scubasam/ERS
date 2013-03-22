@@ -57,7 +57,7 @@ public class User implements Serializable {
 	}
 	
 	public String toString(){
-		return "User: " + this.username + " (" + this.password + ") - Admin? " + this.admin;
+		return this.username;
 	}
 	
     public String getSessionId() {
