@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.action.AbstractAction;
+import edu.thangiah.action.ValidationAction;
 import edu.thangiah.dao.ContactDao;
 
-public class ContactAction extends AbstractAction implements Preparable {
+public class ContactAction extends ValidationAction implements Preparable {
 
 	private static final long serialVersionUID = 1L;
 	protected static final Logger LOGGER = Logger.getLogger(ContactAction.class.getName());

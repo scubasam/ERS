@@ -3,8 +3,6 @@ package edu.thangiah.entity;
 import java.io.Serializable;
 
 
-
-
 /**
  * Contact model.
  * @author pbair,ksmith

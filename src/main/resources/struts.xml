@@ -45,6 +45,15 @@
  			<result name="success">WEB-INF/content/contact/list.jsp</result>
  		</action>
  		
+ 		<action name="addContactForm">
+			<result>WEB-INF/content/contact/addForm.jsp</result>
+		</action>
+		
+		<action name="addContact" class="addContactAction">
+			<result name="success" type="redirect">listAllContacts.action</result>
+			<result name="input">WEB-INF/content/contact/addForm.jsp</result>
+		</action>
+ 		
  		
  		<!-- Contractor Actions -->
  		<action name="listAllContractors" class="contractorListAction">

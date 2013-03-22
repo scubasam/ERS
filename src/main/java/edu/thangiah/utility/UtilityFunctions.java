@@ -2,8 +2,19 @@ package edu.thangiah.utility;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UtilityFunctions {
+	
+	private static final String EMAIL_PATTERN = 
+			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
+	//http://regexlib.com/DisplayPatterns.aspx?categoryId=7
+	private static final String PHONE_PATTERN = 
+			"^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9])"
+			+ "{4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$";
 	
 	// http://www.sha1-online.com/sha1-java/
 	public static String sha1(String input){
@@ -23,4 +34,26 @@ public class UtilityFunctions {
 	    }
 		return null;
     }
+	
+	//http://www.mkyong.com/regular-expressions/how-to-validate-email-address-with-regular-expression/
+	public static boolean validateEmail(final String email){
+		if( email != null ){
+			Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+			Matcher matcher = pattern.matcher(email);
+			return matcher.matches();
+		}
+		return false;
+	}
+	
+	
+	public static boolean validatePhone(final String phone){
+		if( phone != null ){
+			Pattern pattern = Pattern.compile(PHONE_PATTERN);
+			Matcher matcher = pattern.matcher(phone);
+			return matcher.matches();
+		}
+		return false;
+	}
+	
+	
 }
