@@ -9,7 +9,8 @@
 <body>
  <jsp:include page="/WEB-INF/content/header.jsp" />
 <p>Contractor List</p>
-
+<div><s:url id="addContractor" value="addContractorForm.action">
+</s:url><s:a href="%{addContractor}">Add</s:a></div>
 <s:if test="contractors.size > 0">
 	<table id="contractors">
 		<tr>

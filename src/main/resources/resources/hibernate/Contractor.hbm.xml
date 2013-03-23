@@ -11,7 +11,9 @@
         <property name="contractorName" type="java.lang.String">
             <column name="contractor_name" />
         </property>
-        <one-to-one name="contact" class="edu.thangiah.entity.Contact"></one-to-one>
+        <many-to-one name="contact" class="edu.thangiah.entity.Contact" fetch="select" cascade="all" lazy="false">
+            <column name="contact_id" not-null="true" />
+        </many-to-one>
         <set name="locations" table="locations" inverse="true" fetch="select" lazy="false">
             <key>
                 <column name="ID" />

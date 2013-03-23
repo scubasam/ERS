@@ -1,5 +1,6 @@
 package edu.thangiah.action;
 
+import edu.thangiah.entity.Contact;
 import edu.thangiah.utility.UtilityFunctions;
 
 /**
@@ -12,6 +13,39 @@ import edu.thangiah.utility.UtilityFunctions;
  */
 public class ValidationAction extends AbstractAction {
 	private static final long serialVersionUID = -6766865678238928057L;
+	
+	
+	
+	public void runContactValidation(Contact contact){
+		if( contact != null ){
+    		requiredString(contact.getFirstName(), "contact.firstName");
+    		requiredString(contact.getLastName(), "contact.lastName");
+    		
+    		requiredString(contact.getEmailAddress(), "contact.emailAddress");
+    		validateEmail(contact.getEmailAddress(), "contact.emailAddress");
+    		
+    		requiredString(contact.getStreetAddress1(), "contact.streetAddress1");
+    		requiredString(contact.getCity(), "contact.city");
+    		requiredString(contact.getState(), "contact.state");
+    		
+    		if( contact.getState() != null ){
+    			if( contact.getState().length() > 2 ){
+    				this.addFieldError("contact.state", "Please use the two letter abbreviation for the State.");
+    			}
+    		}
+    		
+    		requiredString(contact.getZip(), "contact.zip");
+    		
+    		requiredString(contact.getPrimaryPhone(), "contact.primaryPhone");
+    		validatePhone(contact.getPrimaryPhone(), "contact.primaryPhone", "Invalid phone number.  Please use the form (xxx) xxx-xxxx.");
+    		if( contact.getWorkPhone() != null )
+    			validatePhone(contact.getWorkPhone(), "contact.workPhone", "Invalid phone number.  Please use the form (xxx) xxx-xxxx.");
+    	}
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}
+	}
+	
 	
 	public void requiredString(String value, String field_name){
 		requiredString(value, field_name, "This field is required.");

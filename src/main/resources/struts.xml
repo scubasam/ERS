@@ -64,6 +64,16 @@
  			<result name="success">WEB-INF/content/contractor/view.jsp</result>
  		</action>
  		
+ 		<action name="addContractorForm" class="requireLoginAction">
+			<result>WEB-INF/content/contractor/addForm.jsp</result>
+		</action>
+		
+		
+		<action name="addContractor" class="addContractorAction">
+			<result name="success" type="redirect">listAllContractors.action</result>
+			<result name="input">WEB-INF/content/contractor/addForm.jsp</result>
+		</action>
+ 		
  		
  		<!-- Location Actions -->
  		<action name="listAllLocations" class="locationListAction">
