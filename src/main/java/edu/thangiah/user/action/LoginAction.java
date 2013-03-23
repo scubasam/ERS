@@ -49,8 +49,9 @@ public class LoginAction extends UserAction implements Preparable{
         	userBo.update(user);
         	
         	Map<String, Object> session = ActionContext.getContext().getSession();
-            session.put("sessionId", sessionId);
-        			
+            session.put(SESSION_ID_KEY, sessionId);
+        	
+            this.invokeLoginRedirect(); // initilizes this.loginUrl with the correct redirection url to be used by the struts action.
         	return SUCCESS;
         }
         else{

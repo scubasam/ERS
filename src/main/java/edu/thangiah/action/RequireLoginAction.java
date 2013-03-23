@@ -13,7 +13,9 @@ public class RequireLoginAction extends AbstractAction {
 	public String execute() {
 		if(this.isLoggedIn())
 			return SUCCESS;
-		else
+		else{
+			this.initializeLoginRedirect();
 			return LOGIN;
+		}
     }
 }

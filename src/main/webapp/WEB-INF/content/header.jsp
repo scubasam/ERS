@@ -1,6 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<div id="debug">
+<s:property value="currentSession" />
+</div>
 <div id="heading">
-	<h1>Enterprise Routing System</h1><s:if test="loggedIn == true">Hello <s:property value="currentUser" /></s:if><s:else>Not Logged In</s:else>
+<h1>Enterprise Routing System</h1>
 </div>
 
 <div id="navbar">
@@ -41,4 +44,8 @@
 			</li>
 		</ul>
 	</div>
+</div>
+<div id="sub_heading">
+	<s:if test="loggedIn == true">Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a></s:if>
+	<s:else><a href="userLoginForm.action">Login</a></s:else>
 </div>

@@ -18,6 +18,7 @@
  	
 	<bean id="contractorListAction" class="edu.thangiah.action.contractor.ListAction">
 		<property name="contractorDao" ref="contractorDao" />
+		<property name="userBo" ref="userBo" />
 	</bean>
 	
 	<bean id="addContractorAction" class="edu.thangiah.action.contractor.AddAction">

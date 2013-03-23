@@ -26,5 +26,9 @@
 	<bean id="loginUserAction" class="edu.thangiah.user.action.LoginAction">
 		<property name="userBo" ref="userBo" />
 	</bean>
+	
+	<bean id="logoutUserAction" class="edu.thangiah.user.action.LogoutAction">
+		<property name="userBo" ref="userBo" />
+	</bean>
  
 </beans>
