@@ -1,13 +1,13 @@
 package edu.thangiah.action.driver;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.apache.log4j.Logger;
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.action.AbstractAction;
+import edu.thangiah.action.ValidationAction;
 import edu.thangiah.dao.DriverDao;
 
-public class DriverAction extends AbstractAction implements Preparable{
+public class DriverAction extends ValidationAction implements Preparable{
 
 	/**
 	 * 

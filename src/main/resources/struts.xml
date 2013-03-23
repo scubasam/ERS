@@ -100,5 +100,13 @@
  			<result name="success">WEB-INF/content/driver/list.jsp</result>
  		</action>
  		
+ 		<action name="viewDriver" class="driverViewAction">
+ 			<result name="success">WEB-INF/content/driver/view.jsp</result>
+ 		</action>
+ 		
+ 		 <action name="addDriverForm" class="requireLoginAction">
+			<result>WEB-INF/content/driver/addForm.jsp</result>
+		</action>
+ 		
 	</package>
 </struts>
