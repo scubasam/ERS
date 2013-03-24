@@ -3,10 +3,11 @@
 
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="/ERS/styles/main.css">
 	</head>
 	<body>
 		<div id="container">
-			<jsp:include page="includes/header.jsp" />
+			<jsp:include page="/includes/header.jsp" />
 			
 			<s:if test="loggedIn == true">
 				<div class="login">
@@ -20,7 +21,7 @@
 			</s:else>
 			<div class="push"></div>
 		</div>
-		<jsp:include page="includes/footer.jsp" />
+		<jsp:include page="/includes/footer.jsp" />
 		
 		<script type="text/javascript">
 		</script>

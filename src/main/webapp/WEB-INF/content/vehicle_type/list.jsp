@@ -2,12 +2,14 @@
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
  
 <html>
+
 <head>
-<title>Vehicle Type List</title>
-<sx:head debug="true" cache="false" compressed="false" />
+	<title>Vehicle Type List</title>
+	<sx:head debug="true" cache="false" compressed="false" />
 </head>
+
 <body>
- <jsp:include page="/includes/header.jsp" />
+<jsp:include page="/includes/header.jsp" />
 <p>Vehicle Type List</p>
 
 <s:if test="types.size > 0">
