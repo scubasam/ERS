@@ -3,9 +3,12 @@ package edu.thangiah.user.action;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.Preparable;
 
+import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
 import edu.thangiah.utility.UtilityFunctions;
@@ -16,6 +19,9 @@ public class LoginAction extends UserAction implements Preparable{
 	private User userBean;
 	
 	private static final String invalidLoginMessage = "Invalid username/password combination.";
+	
+	@Autowired
+	private UserBo userBo;
 	
     @Override
     public String execute() throws Exception{
@@ -76,6 +82,14 @@ public class LoginAction extends UserAction implements Preparable{
 	}
 	public void setUserBean(User userBean) {
 		this.userBean = userBean;
+	}
+
+	public UserBo getUserBo() {
+		return userBo;
+	}
+
+	public void setUserBo(UserBo userBo) {
+		this.userBo = userBo;
 	}
 	
 }

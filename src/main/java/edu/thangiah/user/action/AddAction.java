@@ -2,9 +2,12 @@ package edu.thangiah.user.action;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 import com.opensymphony.xwork2.Preparable;
 
+import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
 import edu.thangiah.utility.UtilityFunctions;
@@ -13,6 +16,9 @@ public class AddAction extends UserAction implements Preparable{
 	
 	private static final long serialVersionUID = 1L;
 	private User userBean;
+	
+	@Autowired
+	private UserBo userBo;
 	
     @Override
     public String execute() throws Exception{
@@ -58,6 +64,14 @@ public class AddAction extends UserAction implements Preparable{
 	}
 	public void setUserBean(User userBean) {
 		this.userBean = userBean;
+	}
+
+	public UserBo getUserBo() {
+		return userBo;
+	}
+
+	public void setUserBo(UserBo userBo) {
+		this.userBo = userBo;
 	}
 	
 }

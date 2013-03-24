@@ -9,12 +9,10 @@
  	
 	<bean id="contactListAction" class="edu.thangiah.action.contact.ListAction">
 		<property name="contactDao" ref="contactDao" />
-		<property name="userBo" ref="userBo" />
 	</bean>
 	
 	<bean id="addContactAction" class="edu.thangiah.action.contact.AddAction">
 		<property name="contactDao" ref="contactDao" />
-		<property name="userBo" ref="userBo" />
 	</bean>
  
 </beans>
