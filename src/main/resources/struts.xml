@@ -25,6 +25,11 @@
  			<result name="error">WEB-INF/content/error.jsp</result>
  			<result name="login">WEB-INF/content/user/login.jsp</result>
  		</global-results>
+ 		
+ 		<action name="home" class="baseAction">
+ 			<result name="success">home.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
 
  		
 		<action name="listAllUsers" class="userListAction">
