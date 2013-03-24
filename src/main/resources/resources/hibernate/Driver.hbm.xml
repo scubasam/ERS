@@ -8,7 +8,9 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <one-to-one name="contact" class="edu.thangiah.entity.Contact"></one-to-one>
+        <many-to-one name="contact" class="edu.thangiah.entity.Contact" fetch="select" cascade="all" lazy="false">
+            <column name="contact_id" not-null="true" />
+        </many-to-one>
         
         <set name="vehicles" table="vehicle_driver" inverse="true" lazy="false">
             <key>
