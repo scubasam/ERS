@@ -7,7 +7,7 @@
 <sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
- <jsp:include page="/WEB-INF/content/header.jsp" />
+ <jsp:include page="/includes/header.jsp" />
 <p>Vehicle Type List</p>
 
 <s:if test="types.size > 0">
@@ -40,6 +40,6 @@
 	No Vehicle Types Found...
 </s:else>
 
-<jsp:include page="/WEB-INF/content/footer.jsp" />
+<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

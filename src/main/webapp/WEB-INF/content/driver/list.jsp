@@ -7,7 +7,7 @@
 <sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
- <jsp:include page="/WEB-INF/content/header.jsp" />
+ <jsp:include page="/includes/header.jsp" />
 <p>Driver List</p>
 
 <s:if test="drivers.size > 0">
@@ -38,6 +38,6 @@
 	No Drivers Found...
 </s:else>
 
-<jsp:include page="/WEB-INF/content/footer.jsp" />
+<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>
