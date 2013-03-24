@@ -7,7 +7,7 @@
 <sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
- <jsp:include page="/WEB-INF/content/header.jsp" />
+ <jsp:include page="/includes/header.jsp" />
 
 <h2><s:property value="contractor.contractorName" /></h2>
 <h3>Contact Information</h3>
@@ -84,6 +84,6 @@
 	No Vehicles Found...
 </s:else>
 
-<jsp:include page="/WEB-INF/content/footer.jsp" />
+<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

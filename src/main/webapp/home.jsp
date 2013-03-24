@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<div id="container">
-			<jsp:include page="WEB-INF/content/header.jsp" />
+			<jsp:include page="includes/header.jsp" />
 			
 			<s:if test="loggedIn == true">
 				<div class="login">
@@ -23,7 +23,7 @@
 			</s:else>
 			<div class="push"></div>
 		</div>
-		<jsp:include page="WEB-INF/content/footer.jsp" />
+		<jsp:include page="includes/footer.jsp" />
 		
 		<script type="text/javascript">
 			<jsp:include page="WEB-INF/content/scripts.js" />

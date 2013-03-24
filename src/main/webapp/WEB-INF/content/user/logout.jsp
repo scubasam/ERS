@@ -6,10 +6,10 @@
 <s:head />
 </head>
 <body>
-<jsp:include page="/WEB-INF/content/header.jsp" />
+<jsp:include page="/includes/header.jsp" />
 
 You have been logged out.
 
- <jsp:include page="/WEB-INF/content/footer.jsp" />
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

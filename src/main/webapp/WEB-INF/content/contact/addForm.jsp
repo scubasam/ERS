@@ -6,7 +6,7 @@
 <s:head />
 </head>
 <body>
-<jsp:include page="/WEB-INF/content/header.jsp" />
+<jsp:include page="/includes/header.jsp" />
 <p>Add Contact</p>
 
 <s:if test="isError">
@@ -20,6 +20,6 @@
 	<s:submit type="button" name="Add Contact" />
 						
 	</s:form>
-	<jsp:include page="/WEB-INF/content/footer.jsp" />
+	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>
