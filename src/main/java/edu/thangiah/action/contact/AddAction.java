@@ -24,26 +24,7 @@ public class AddAction extends ContactAction implements Preparable{
     
     // called automatically
     public void validate(){
-    	if( contact != null ){
-    		requiredString(contact.getFirstName(), "contact.firstName");
-    		requiredString(contact.getLastName(), "contact.lastName");
-    		
-    		requiredString(contact.getEmailAddress(), "contact.emailAddress");
-    		validateEmail(contact.getEmailAddress(), "contact.emailAddress");
-    		
-    		requiredString(contact.getStreetAddress1(), "contact.streetAddress1");
-    		requiredString(contact.getCity(), "contact.city");
-    		requiredString(contact.getState(), "contact.state");
-    		requiredString(contact.getZip(), "contact.zip");
-    		
-    		requiredString(contact.getPrimaryPhone(), "contact.primaryPhone");
-    		validatePhone(contact.getPrimaryPhone(), "contact.primaryPhone", "Invalid phone number.  Please use the form (xxx) xxx-xxxx.");
-    		if( contact.getWorkPhone() != null )
-    			validatePhone(contact.getWorkPhone(), "contact.workPhone", "Invalid phone number.  Please use the form (xxx) xxx-xxxx.");
-    	}
-    	else{
-    		addActionError("Unknown error.  Please try again.");
-    	}
+    	this.runContactValidation(contact);
     }
 
 	/**

@@ -6,7 +6,7 @@
 <s:head />
 </head>
 <body>
-<jsp:include page="/WEB-INF/content/header.jsp" />
+<jsp:include page="/includes/header.jsp" />
 <p>User Login</p>
 
 <s:if test="hasActionErrors()">
@@ -16,6 +16,6 @@
 </s:if>
 <jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
 
- <jsp:include page="/WEB-INF/content/footer.jsp" />
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

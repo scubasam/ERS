@@ -7,7 +7,7 @@
 <sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
- <jsp:include page="/WEB-INF/content/header.jsp" />
+ <jsp:include page="/includes/header.jsp" />
 <p>Service Technician List</p>
 
 <s:if test="technicians.size > 0">
@@ -28,6 +28,6 @@
 	No Technicians Found...
 </s:else>
 
-<jsp:include page="/WEB-INF/content/footer.jsp" />
+<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

@@ -2,21 +2,25 @@
  
 <html>
 <head>
-<title>Contractor</title>
+<title>Add Contractor</title>
+<s:head />
 </head>
 <body>
- 
-<p>Contractor</p>
- 
-<s:form name="contractor" method="post" action="contractor.action">
+<jsp:include page="/includes/header.jsp" />
+<p>Add Contractor</p>
 
-	<s:textfield name="id" label="id" /> 
-	<s:textfield name="contractor" label="contractor" />
-	<s:textfield name="contact" label="contact" />
-	<s:textfield name="locations" label="locations" />
-	<s:submit type="button" name="Add" />
-						
- </s:form>
+<s:if test="isError">
+	<s:property value="errorMessage" />
+</s:if>
  
+<s:form name="addContractor" action="addContractor.action">
+
+	<s:textfield name="contractor.contractorName" label="Contractor Name" />
+	<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+		
+	<s:submit type="button" name="Add Contractor" />
+						
+	</s:form>
+	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

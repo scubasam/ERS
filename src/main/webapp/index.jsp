@@ -6,14 +6,14 @@
 	</head>
 	<body>
 		<div id="container">
-			<jsp:include page="WEB-INF/content/header.jsp" />
+			<jsp:include page="includes/header.jsp" />
 			
 			<div class="login">
 				<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
 			</div>
 			<div class="push"></div>
 		</div>
-		<jsp:include page="WEB-INF/content/footer.jsp" />
+		<jsp:include page="includes/footer.jsp" />
 		
 		<script type="text/javascript">
 			<jsp:include page="WEB-INF/content/scripts.js" />

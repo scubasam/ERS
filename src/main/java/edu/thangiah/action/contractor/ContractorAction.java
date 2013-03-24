@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
-import edu.thangiah.action.AbstractAction;
+import edu.thangiah.action.ValidationAction;
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.VehicleDao;
@@ -14,7 +14,7 @@ import edu.thangiah.entity.Location;
 
 import com.opensymphony.xwork2.Preparable;
  
-public class ContractorAction extends AbstractAction implements Preparable {
+public class ContractorAction extends ValidationAction implements Preparable {
 	private static final long serialVersionUID = -8291864018797596756L;
 
 	protected static final Logger LOGGER = Logger.getLogger(ContractorAction.class.getName());

@@ -20,5 +20,5 @@
 	<import resource="classes/resources/spring/ServiceTechnicianBean.xml" />
 	<import resource="classes/resources/spring/MaintenanceOrderBean.xml" />
 	<import resource="classes/resources/spring/ShipmentBean.xml" />
-
+	<import resource="classes/resources/spring/InterceptorBean.xml" />
 </beans>

@@ -20,6 +20,11 @@
 		<property name="contractorDao" ref="contractorDao" />
 	</bean>
 	
+	<bean id="addContractorAction" class="edu.thangiah.action.contractor.AddAction">
+		<property name="contractorDao" ref="contractorDao" />
+		<property name="contactDao" ref="contactDao" />
+	</bean>
+	
 	<bean id="contractorViewAction" class="edu.thangiah.action.contractor.ViewAction">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="locationDao" ref="locationDao" />
