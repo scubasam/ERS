@@ -1,0 +1,18 @@
+div.login {
+	width: 340px;
+	margin: 0px auto;
+	margin-top: 48px;
+	border: 1px solid grey;
+}
+
+table.login {
+	margin: 0px auto;
+}
+
+.username {
+	width: 240px;
+}
+
+.password {
+	width: 240px;
+}

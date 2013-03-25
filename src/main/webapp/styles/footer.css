@@ -1,0 +1,12 @@
+.push {
+	height: 24px;
+}
+
+.footer {
+	height: 24px;
+	width: 95%;
+	line-height: 24px;
+	background: #4188d2;
+	text-align: center;
+	margin: 0px auto;
+}

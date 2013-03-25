@@ -2,9 +2,10 @@
  
 <html>
 <head>
-<title>User Login</title>
-<s:head />
+	<title>User Login</title>
+	<s:head />
 </head>
+
 <body>
 <jsp:include page="/includes/header.jsp" />
 <p>User Login</p>
@@ -14,8 +15,9 @@
       <s:actionerror/>
    </div>
 </s:if>
-<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
 
- <jsp:include page="/includes/footer.jsp" />
+<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
+<jsp:include page="/includes/footer.jsp" />
+
 </body>
 </html>

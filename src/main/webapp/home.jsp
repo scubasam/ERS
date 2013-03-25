@@ -1,9 +1,12 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
+<s:set var="currentPage" value="home" />
+
+<!doctype html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="/ERS/styles/main.css">
+		<jsp:include page="/includes/decorator.jsp" />
 	</head>
 	<body>
 		<div id="container">

@@ -15,6 +15,10 @@ body {
 	font-family: Sans-serif;
 }
 
+#debug {
+	display: none;
+}
+
 #container {
 	width: 95%;
 	min-height: 100%;
@@ -24,86 +28,4 @@ body {
 	background: #fff;
 	border-left: 1px solid grey;
 	border-right: 1px solid grey;
-}
-
-#debug {
-	display: none;
-}
-
-#heading {
-	height: 64px;
-	line-height: 64px;
-	padding-left: 12px;
-	background: #5FBDCE;
-}
-
-#menu {
-	background: #04859D;
-	height: 30px;
-}
-
-ul.navbar {
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-}
-
-li.navitem {
-	display: inline-block;
-}
-
-a.currentpage {
-	background: white;
-}
-
-a.navlink, a.navlink:active, a.navlink:visited {
-	display: inline-block;
-	
-	min-width: 80px;
-	height: 22px;
-	
-	text-align: center;
-	text-decoration: none;
-	color: black;
-	
-	margin-left: 8px;
-	margin-top: 6px;
-	padding-top: 2px;
-}
-
-a.navlink:hover {
-	background: white;
-}
-
-div.login {
-	width: 340px;
-	margin: 0px auto;
-	margin-top: 48px;
-	border: 1px solid grey;
-}
-
-table.login {
-	margin: 0px auto;
-}
-
-.username {
-	width: 240px;
-}
-
-.password {
-	width: 240px;
-}
-
-.push {
-	height: 24px;
-}
-
-.footer {
-	height: 24px;
-	width: 95%;
-	line-height: 24px;
-	background: #04859D;
-	text-align: center;
-	margin: 0px auto;
 }
