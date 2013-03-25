@@ -21,6 +21,7 @@ body {
 
 #container {
 	width: 95%;
+	min-width: 1140px;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
@@ -28,4 +29,27 @@ body {
 	background: #fff;
 	border-left: 1px solid grey;
 	border-right: 1px solid grey;
+	padding-bottom: 24px;
+}
+
+#content {
+	padding: 6px;
+}
+
+#addDiv {
+	clear: both;
+	width: 120px;
+	
+	margin-top: 12px;
+	text-align: center;
+	
+	background: #eee;
+	
+	border: 1px solid grey;
+	padding: 4px;
+}
+
+#addDiv a {
+	color: black;
+	text-decoration: none;
 }

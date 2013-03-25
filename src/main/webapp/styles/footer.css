@@ -1,10 +1,12 @@
 .push {
+	clear: both;
 	height: 24px;
 }
 
 .footer {
 	height: 24px;
 	width: 95%;
+	min-width: 1140px;
 	line-height: 24px;
 	background: #4188d2;
 	text-align: center;
