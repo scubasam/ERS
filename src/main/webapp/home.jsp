@@ -1,7 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
-<s:set var="currentPage" value="home" />
+<s:set name="currentPage" value="home" />
 
 <!doctype html>
 <html>

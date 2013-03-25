@@ -1,3 +1,4 @@
-function setCurrentPage(page){
-	$("page").addClass("currentpage");
+
+function setCurrentPage(nav){
+	$(nav).addClass("currentpage");
 }

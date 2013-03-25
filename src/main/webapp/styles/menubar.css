@@ -15,11 +15,6 @@ li.navitem {
 	display: inline-block;
 }
 
-a.currentpage {
-	background: white;
-	border-bottom: 1px solid white;
-}
-
 a.navlink, a.navlink:active, a.navlink:visited {
 	display: inline-block;
 	
@@ -45,5 +40,10 @@ a.navlink, a.navlink:active, a.navlink:visited {
 
 a.navlink:hover {
 	background: white;
+	border-bottom: 1px solid white;
+}
+
+a.currentpage {
+	background: white !important;
 	border-bottom: 1px solid white;
 }

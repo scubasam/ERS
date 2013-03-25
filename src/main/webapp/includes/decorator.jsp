@@ -12,5 +12,5 @@
 <script type="text/javascript" src="/ERS/scripts/decorators.js"></script>
 
 <script type="text/javascript">
-$("document").ready(setCurrentPage("nav_home"));
+$(document).ready(setCurrentPage("home"));
 </script>

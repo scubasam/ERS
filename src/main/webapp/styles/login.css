@@ -5,14 +5,20 @@ div.login {
 	border: 1px solid grey;
 }
 
-table.login {
+#loginUser_userBean_username {
+	width: 240px;
+}
+
+#loginUser_userBean_password {
+	width: 240px;
+}
+
+#loginUser_Login {
+	
+}
+
+.wwFormTable {
 	margin: 0px auto;
-}
-
-.username {
-	width: 240px;
-}
-
-.password {
-	width: 240px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }

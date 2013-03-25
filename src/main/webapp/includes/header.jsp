@@ -12,7 +12,7 @@
 	<div id="menu">
 		<ul class="navbar">
 			<li class="navitem">
-				<a class="navlink <s:if test='currentPage == home'>currentpage</s:if>" id="nav_home" href="/ERS/">Home</a>
+				<a class="navlink<s:if test='currentPage == home'> currentpage</s:if>" href="/ERS/">Home</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" href="/ERS/listAllUsers.action">Users</a>
