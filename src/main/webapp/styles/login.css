@@ -22,3 +22,18 @@ div.login {
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
+
+#loginLinkDiv {
+	width: 48px;
+	text-align: center;
+	border: 1px solid grey;
+	margin: 4px;
+	padding: 4px;
+	background: white;
+	float: right;
+}
+
+#loginLink {
+	text-decoration: none;
+	color: black;
+}

@@ -1,12 +1,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
-<s:set name="currentPage" value="home" />
-
 <!doctype html>
 <html>
 	<head>
 		<jsp:include page="/includes/decorator.jsp" />
+		<script type="text/javascript">
+			// style the nav bar
+			setCurrentPage("home");
+		</script>
 	</head>
 	<body>
 		<div id="container">
@@ -24,6 +26,7 @@
 			</s:else>
 			<div class="push"></div>
 		</div>
+		
 		<jsp:include page="/includes/footer.jsp" />
 		
 		<script type="text/javascript">

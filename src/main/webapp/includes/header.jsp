@@ -12,13 +12,13 @@
 	<div id="menu">
 		<ul class="navbar">
 			<li class="navitem">
-				<a class="navlink<s:if test='currentPage == home'> currentpage</s:if>" href="/ERS/">Home</a>
+				<a class="navlink" id="nav_home" href="/ERS/">Home</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllUsers.action">Users</a>
+				<a class="navlink" id="nav_users" href="/ERS/listAllUsers.action">Users</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" href="/ERS/listAllContacts.action">Contacts</a>
+				<a class="navlink" id="nav_contacts" href="/ERS/listAllContacts.action">Contacts</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" href="/ERS/listAllContractors.action">Contractors</a>
@@ -53,6 +53,6 @@
 		Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a>
 	</s:if>
 	<s:else>
-		<a href="userLoginForm.action">Login</a>
+		<div id="loginLinkDiv"><a id="loginLink" href="userLoginForm.action">Login</a></div>
 	</s:else>
 </div>
