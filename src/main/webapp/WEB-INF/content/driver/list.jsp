@@ -9,7 +9,8 @@
 <body>
  <jsp:include page="/includes/header.jsp" />
 <p>Driver List</p>
-
+<div><s:url id="addDriver" value="addDriverForm.action">
+</s:url><s:a href="%{addDriver}">Add</s:a></div>
 <s:if test="drivers.size > 0">
 	<table id="drivers">
 		<tr>

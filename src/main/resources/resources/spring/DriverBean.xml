@@ -8,9 +8,17 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
- 	
 	<bean id="driverListAction" class="edu.thangiah.action.driver.ListAction">
 		<property name="driverDao" ref="driverDao" />
 	</bean>
+	
+	<bean id="addDriverAction" class="edu.thangiah.action.driver.AddAction">
+		<property name="driverDao" ref="driverDao" />
+		<property name="contactDao" ref="contactDao" />
+	</bean>
+	
+	<bean id="driverViewAction" class="edu.thangiah.action.driver.ViewAction">
+		<property name="driverDao" ref="driverDao" />
+	</bean>	
  
 </beans>

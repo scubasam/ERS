@@ -1,8 +1,6 @@
 package edu.thangiah.dao;
 
 import java.util.List;
-
- 
 import edu.thangiah.entity.Contact;
  
 public class ContactDao extends AbstractDao<Contact> {

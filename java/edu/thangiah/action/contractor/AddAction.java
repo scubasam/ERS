@@ -1,9 +1,7 @@
 package edu.thangiah.action.contractor;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.opensymphony.xwork2.Preparable;
-
 import edu.thangiah.dao.ContactDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
@@ -18,8 +16,10 @@ public class AddAction extends ContractorAction implements Preparable{
 	protected ContactDao contactDao;
 	
 	@Override
-    public String execute() throws Exception{
-		if (contractorDao == null || contractor == null) {
+    public String execute() throws Exception
+    {
+		if (contractorDao == null || contractor == null) 
+		{
             this.addActionError(DB_ERROR_MESSAGE);
         }
 		

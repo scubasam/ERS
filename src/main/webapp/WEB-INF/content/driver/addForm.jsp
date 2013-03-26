@@ -2,13 +2,18 @@
  
 <html>
 <head>
-<title>Driver</title>
+<title>Add Driver</title>
+<s:head />
 </head>
 <body>
+ <jsp:include page="/includes/header.jsp" />
+<p>Add Driver</p>
+
+<s:if test="isError">
+	<s:property value="errorMessage" />
+</s:if>
  
-<p>Driver</p>
- 
-<s:form name="driver" method="post" action="driver.action">
+<s:form name="addForm" method="post" action="addDriver.action">
 
 	<s:textfield name="id" label="id" /> 
 	<s:textfield name="contact" label="contact" />
@@ -17,9 +22,10 @@
 	<s:textfield name="licenseExpiration" label="licenseExpiration" />
 	<s:textfield name="licenseClass" label="licenseClass" />
 	<s:textfield name="contractor" label="contractor" />
+
 	<s:submit type="button" name="Add" />
 						
- </s:form>
- 
+</s:form>
+<jsp:include page="/includes/footer.jsp" /> 
 </body>
 </html>
