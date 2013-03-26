@@ -22,21 +22,25 @@ body {
 #container {
 	width: 95%;
 	min-width: 1140px;
+	
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0px auto -24px;
+	
 	background: #fff;
+	
+	margin: 0px auto -24px;
 	border-left: 1px solid grey;
 	border-right: 1px solid grey;
-	padding-bottom: 24px;
 }
 
 #content {
 	padding: 6px;
+	padding-bottom: 30px;
 }
 
 #addDiv {
+	display: inline-block !important;
 	clear: both;
 	width: 120px;
 	
@@ -56,7 +60,6 @@ body {
 
 #scrollContainer {
 	width: 100%;
-	height: 100%;
 	overflow: auto;
 }
 

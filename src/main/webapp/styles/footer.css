@@ -4,8 +4,9 @@
 }
 
 .footer {
-	height: 24px;
 	width: 95%;
+	height: 24px;
+	
 	min-width: 1140px;
 	line-height: 24px;
 	background: #4188d2;
