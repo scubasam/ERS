@@ -2,24 +2,35 @@
  
 <html>
 <head>
-<title>Driver</title>
+<title>Add Driver</title>
+<s:head />
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("drivers");
+	</script>
 </head>
 <body>
- 
-<p>Driver</p>
- 
-<s:form name="driver" method="post" action="driver.action">
+<div id="container">
+ <jsp:include page="/includes/header.jsp" />
+<p>Add Driver</p>
 
-	<s:textfield name="id" label="id" /> 
-	<s:textfield name="contact" label="contact" />
-	<s:textfield name="vehicles" label="vehicles" />
-	<s:textfield name="licenseNumber" label="licenseNUmber" />
-	<s:textfield name="licenseExpiration" label="licenseExpiration" />
-	<s:textfield name="licenseClass" label="licenseClass" />
-	<s:textfield name="contractor" label="contractor" />
+<s:if test="isError">
+	<s:property value="errorMessage" />
+</s:if>
+ 
+<s:form name="addForm" method="post" action="addDriver.action">
+
+	<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+	<s:textfield name="driver.licenseNumber" label="licenseNUmber" />
+	<s:textfield name="driver.licenseExpiration" label="licenseExpiration" />
+	<s:textfield name="driver.licenseClass" label="licenseClass" />
+	<s:textfield name="driver.contractor" label="contractor" />
+
 	<s:submit type="button" name="Add" />
 						
- </s:form>
- 
+</s:form>
+</div>
+<jsp:include page="/includes/footer.jsp" /> 
 </body>
 </html>

@@ -2,9 +2,7 @@ package edu.thangiah.action.contractor;
 
 import java.util.HashSet;
 import java.util.List;
-
 import com.opensymphony.xwork2.Action;
-
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Vehicle;

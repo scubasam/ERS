@@ -1,9 +1,7 @@
 package edu.thangiah.action.contractor;
 
 import java.util.List;
-
 import com.opensymphony.xwork2.Action;
-
 import edu.thangiah.entity.Contractor;
 
 public class ListAction extends ContractorAction{
@@ -35,7 +33,5 @@ public class ListAction extends ContractorAction{
 	public void setContractors(List<Contractor> contractors) {
 		this.contractors = contractors;
 	}
-	
-	
 	
 }
