@@ -1,8 +1,18 @@
 div.login {
-	width: 340px;
+	width: 348px !important;
+	border: 1px solid grey;
+	
+	padding: 0px;
 	margin: 0px auto;
 	margin-top: 48px;
-	border: 1px solid grey;
+}
+
+div.login td {
+	border: none !important;
+}
+
+div.login table {
+	border: none !important;
 }
 
 #loginUser_userBean_username {
@@ -17,10 +27,18 @@ div.login {
 	
 }
 
-.wwFormTable {
+table.wwFormTable {
+	width: 348px !important;
+	border: 1px solid grey !important;
+	
 	margin: 0px auto;
+	margin-top: 12px;
 	padding-top: 4px;
 	padding-bottom: 4px;
+}
+
+table.wwFormTable td {
+	border: none !important;
 }
 
 #loginLinkDiv {

@@ -20,23 +20,25 @@
 			<h2>User List</h2>
 		
 			<s:if test="users.size > 0">
-				<table id="users">
-					<tr>
-						<th>Username</th><th>Password</th><th>Session ID</th><th>Salt</th><th>Admin?</th>
-					</tr>
-					<s:iterator value="users">
+				<div id="scrollContainer">
+					<table id="users">
 						<tr>
-							<td><s:property value="username" /></td>
-							<td><s:property value="password" /></td>
-							<td><s:property value="sessionId" /></td>
-							<td><s:property value="salt" /></td>
-							<td><s:property value="admin" /></td>
-							<td><s:url id="deleteUser" value="deleteUser.action">
-								<s:param name="id" value="id" />
-							</s:url> <s:a href="%{deleteUser}">Delete</s:a></td>
+							<th>Username</th><th>Password</th><th>Session ID</th><th>Salt</th><th>Admin?</th>
 						</tr>
-					</s:iterator>
-				</table>
+						<s:iterator value="users">
+							<tr>
+								<td><s:property value="username" /></td>
+								<td><s:property value="password" /></td>
+								<td><s:property value="sessionId" /></td>
+								<td><s:property value="salt" /></td>
+								<td><s:property value="admin" /></td>
+								<td><s:url id="deleteUser" value="deleteUser.action">
+									<s:param name="id" value="id" />
+								</s:url> <s:a href="%{deleteUser}">Delete</s:a></td>
+							</tr>
+						</s:iterator>
+					</table>
+				</div>
 			</s:if>
 			
 			<div id="addDiv">

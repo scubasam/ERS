@@ -36,6 +36,9 @@ a.navlink, a.navlink:active, a.navlink:visited {
 	border-top: 1px solid grey;
 	border-left: 1px solid grey;
 	border-right: 1px solid grey;
+	
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 }
 
 a.navlink:hover {
