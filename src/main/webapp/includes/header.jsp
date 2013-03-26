@@ -39,7 +39,7 @@
 				<a class="navlink" id="nav_technicians" href="/ERS/listAllServiceTechnicians.action">Technicians</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_orders" href="/ERS/listAllMaintenanceOrders.action">Maintenance Orders</a>
+				<a class="navlink" id="nav_maintenanceorders" href="/ERS/listAllMaintenanceOrders.action">Maintenance Orders</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_shipments" href="/ERS/listAllShipments.action">Shipments</a>
@@ -49,6 +49,10 @@
 </div>
 
 <div id="sub_heading">
-	<s:if test="loggedIn == true">Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a></s:if>
-	<s:else><a href="userLoginForm.action">Login</a></s:else>
+	<s:if test="loggedIn == true">
+		Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a>
+	</s:if>
+	<s:else>
+		<div id="loginLinkDiv"><a id="loginLink" href="userLoginForm.action">Login</a></div>
+	</s:else>
 </div>

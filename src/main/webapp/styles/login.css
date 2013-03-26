@@ -1,0 +1,57 @@
+div.login {
+	width: 348px !important;
+	border: 1px solid grey;
+	
+	padding: 0px;
+	margin: 0px auto;
+	margin-top: 48px;
+}
+
+div.login td {
+	border: none !important;
+}
+
+div.login table {
+	border: none !important;
+}
+
+#loginUser_userBean_username {
+	width: 240px;
+}
+
+#loginUser_userBean_password {
+	width: 240px;
+}
+
+#loginUser_Login {
+	
+}
+
+table.wwFormTable {
+	width: 348px !important;
+	border: 1px solid grey !important;
+	
+	margin: 0px auto;
+	margin-top: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+table.wwFormTable td {
+	border: none !important;
+}
+
+#loginLinkDiv {
+	width: 48px;
+	text-align: center;
+	border: 1px solid grey;
+	margin: 4px;
+	padding: 4px;
+	background: #eee;
+	float: right;
+}
+
+#loginLink {
+	text-decoration: none;
+	color: black;
+}

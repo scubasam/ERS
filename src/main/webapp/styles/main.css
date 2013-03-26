@@ -15,8 +15,13 @@ body {
 	font-family: Sans-serif;
 }
 
+#debug {
+	display: none;
+}
+
 #container {
-	width: 960px;
+	width: 95%;
+	min-width: 1140px;
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
@@ -24,82 +29,52 @@ body {
 	background: #fff;
 	border-left: 1px solid grey;
 	border-right: 1px solid grey;
+	padding-bottom: 24px;
 }
 
-#heading {
-	height: 64px;
-	line-height: 64px;
-	padding-left: 12px;
-	background: #5FBDCE;
+#content {
+	padding: 6px;
 }
 
-#menu {
-	background: #04859D;
-	height: 30px;
-}
-
-ul.navbar {
-	width: 100%;
-	margin: 0px;
-	padding: 0px;
-	list-style-type: none;
-}
-
-li.navitem {
-	display: inline-block;
-}
-
-a.currentpage {
-	background: white;
-}
-
-a.navlink, a.navlink:active, a.navlink:visited {
-	display: inline-block;
+#addDiv {
+	clear: both;
+	width: 120px;
 	
-	min-width: 100px;
-	height: 22px;
-	
+	margin-top: 12px;
 	text-align: center;
-	text-decoration: none;
-	color: black;
 	
-	margin-left: 8px;
-	margin-top: 6px;
-	padding-top: 2px;
-}
-
-a.navlink:hover {
-	background: white;
-}
-
-div.login {
-	width: 340px;
-	margin: 0px auto;
-	margin-top: 48px;
+	background: #eee;
+	
 	border: 1px solid grey;
+	padding: 4px;
 }
 
-table.login {
-	margin: 0px auto;
+#addDiv a {
+	color: black;
+	text-decoration: none;
 }
 
-.username {
-	width: 240px;
+#scrollContainer {
+	width: 100%;
+	height: 100%;
+	overflow: auto;
 }
 
-.password {
-	width: 240px;
+table {
+	width: 100%;
+	border: 1px solid grey;
+	/* This adds scroll bars */
+	overflow: auto;
 }
 
-.push {
-	height: 24px;
+th {
+	margin: 0px;
+	padding: 4px;
+	text-decoration: underline;
 }
 
-.footer {
-	height: 24px;
-	width: 960px;
-	line-height: 24px;
-	background: #04859D;
-	text-align: center;
-	margin: 0px auto;
+td {
+	border: 1px solid #ccc;
+	margin: 0px;
+	padding: 4px;
 }
