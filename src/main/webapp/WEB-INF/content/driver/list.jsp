@@ -17,7 +17,6 @@
 	<div id="container">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Driver List</h2>
 			
 			<s:if test="drivers.size > 0">
 				<table id="drivers">
@@ -46,6 +45,11 @@
 			<s:else>
 				No Drivers Found...
 			</s:else>
+			
+		<div id="addDiv">
+			<s:url id="addDriver" value="addDriverForm.action"></s:url>
+			<s:a href="%{addDriver}">Add Driver</s:a>
+		</div>
 		</div>
 	</div>
 		

@@ -33,11 +33,11 @@ public class AddAction extends DriverAction implements Preparable{
     
     // called automatically
     public void validate(){
-    	if( driver != null )
+    	if( driver != null && contact != null )
     	{
-    		requiredString(driver.getLicenseClass(), "driver.Id");
     		requiredString(driver.getLicenseNumber(), "driver.licenseNumber");
-    		requiredString(driver.getLicenseExpiration().toString(), "driver.licenseExpiration");
+    		
+    		this.runContactValidation(contact);
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
