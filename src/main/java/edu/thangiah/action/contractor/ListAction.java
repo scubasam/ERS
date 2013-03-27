@@ -18,13 +18,6 @@ public class ListAction extends ContractorAction{
         LOGGER.debug("Get all contractors");
         contractors = contractorDao.findAll();
         LOGGER.debug("Contractors number = " + contractors.size());
-        for( Contractor contractor : contractors ){
-        	String log = "Contractor(" + contractor.getContractorName() + ") Locations: ";
-        	for( edu.thangiah.entity.Location loc : contractor.getLocations() ){
-        		log += loc.getName();
-        	}
-        	LOGGER.debug(log);
-        }
         return Action.SUCCESS;
     }
 
@@ -35,7 +28,4 @@ public class ListAction extends ContractorAction{
 	public void setContractors(List<Contractor> contractors) {
 		this.contractors = contractors;
 	}
-	
-	
-	
 }
