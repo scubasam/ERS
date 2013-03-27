@@ -1,7 +1,12 @@
 package edu.thangiah.action.driver;
 
+import java.util.HashSet;
+import java.util.List;
+
 import com.opensymphony.xwork2.Action;
+
 import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.Vehicle;
 
 public class ViewAction extends DriverAction{
 	private static final long serialVersionUID = -6821373379137215233L;
@@ -18,6 +23,8 @@ public class ViewAction extends DriverAction{
 		if( driver == null )
 			return Action.ERROR;
 		
+		List<Vehicle> vehs = getVehicles(driver);
+		driver.setVehicles(new HashSet<Vehicle>(vehs));
 		setDriver(driver);	
 		
 		return Action.SUCCESS;

@@ -4,6 +4,11 @@
 <head>
 <title>Add Contact</title>
 <s:head />
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("contacts");
+	</script>
 </head>
 <body>
 <jsp:include page="/includes/header.jsp" />

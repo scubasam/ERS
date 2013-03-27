@@ -2,7 +2,7 @@ package edu.thangiah.dao;
 
 import java.util.List;
 
-
+import edu.thangiah.entity.Driver;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Vehicle;
@@ -38,4 +38,8 @@ public class VehicleDao extends AbstractDao<Vehicle> {
 		return getHibernateTemplate().find("from Vehicle where contractor_id=?", contractor.getId());
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Vehicle> findByDriver(Driver driver){
+		return getHibernateTemplate().find("from Vehicle where contractor_id=?", driver.getId());
+	}	
 }

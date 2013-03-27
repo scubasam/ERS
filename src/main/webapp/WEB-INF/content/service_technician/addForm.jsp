@@ -3,6 +3,11 @@
 <html>
 <head>
 <title>Service Technician</title>
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("drivers");
+	</script>
 </head>
 <body>
  

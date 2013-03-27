@@ -3,6 +3,11 @@
 <html>
 <head>
 <title>Maintenance Order</title>
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("maintenance_orders");
+	</script>
 </head>
 <body>
  

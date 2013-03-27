@@ -3,6 +3,11 @@
 <html>
 <head>
 <title>Vehicle Type</title>
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("vehicle_types");
+	</script>
 </head>
 <body>
  

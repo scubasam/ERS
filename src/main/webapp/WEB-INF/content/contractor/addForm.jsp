@@ -4,6 +4,11 @@
 <head>
 <title>Add Contractor</title>
 <s:head />
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("contractors");
+	</script>
 </head>
 <body>
 <jsp:include page="/includes/header.jsp" />

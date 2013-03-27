@@ -7,6 +7,7 @@ import edu.thangiah.action.ValidationAction;
 import edu.thangiah.dao.DriverDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.Vehicle;
 
 public class DriverAction extends ValidationAction implements Preparable{
 
@@ -30,6 +31,10 @@ public class DriverAction extends ValidationAction implements Preparable{
         }
         return null;
     }
+	
+	protected List<Vehicle> getVehicles(Driver driver) {
+		return vehicleDao.findByDriver(driver);
+	}
 	
 	public DriverDao getDriverDao() {
 		return driverDao;

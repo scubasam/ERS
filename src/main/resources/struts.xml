@@ -109,7 +109,6 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		
 		<action name="addContractor" class="addContractorAction">
 			<result name="success" type="redirect">listAllContractors.action</result>
 			<result name="input">WEB-INF/content/contractor/addForm.jsp</result>

@@ -51,6 +51,10 @@
 			<s:else>
 				No Locations Found...
 			</s:else>
+		<div id="addDiv">
+			<s:url id="addLocation" value="addLocationForm.action"></s:url>
+			<s:a href="%{addLocation}">Add Location</s:a>
+		</div>
 		</div>
 	</div>
 	<jsp:include page="/includes/footer.jsp" />

@@ -43,6 +43,10 @@
 			<s:else>
 				No Orders Found...
 			</s:else>
+		<div id="addDiv">
+			<s:url id="addMaintenanceOrder" value="addMaintenanceOrderForm.action"></s:url>
+			<s:a href="%{addMaintenanceOrder}">Add Maintenace Order</s:a>
+		</div>
 		</div>
 	</div>
 		

@@ -3,6 +3,11 @@
 <html>
 <head>
 <title>Add User</title>
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("users");
+	</script>
 <s:head />
 </head>
 <body>

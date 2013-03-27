@@ -3,6 +3,11 @@
 <html>
 <head>
 <title>Shipment</title>
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("shipments");
+	</script>
 </head>
 <body>
  

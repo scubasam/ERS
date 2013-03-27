@@ -35,6 +35,10 @@
 			<s:else>
 				No Technicians Found...
 			</s:else>
+		<div id="addDiv">
+			<s:url id="addTechnician" value="addTechnicianForm.action"></s:url>
+			<s:a href="%{addTechnician}">Add Contact</s:a>
+		</div>
 		</div>
 	</div>
 			
