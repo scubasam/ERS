@@ -13,34 +13,30 @@
 	</script>
 </head>
 <body>
- <jsp:include page="/includes/header.jsp" />
-
-<h2><s:property value="driver.driverName" /></h2>
-<h3>Driver Information</h3>
-<table id="driver_contactInfo">
-		<tr>
-			<th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
-			<th>State</th><th>Zip</th><th>Primary Phone</th><th>Work Phone</th>
-		</tr>
-			<tr>
-				<td><s:property value="driver.contact.firstName" /></td>
-				<td><s:property value="driver.contact.lastName" /></td>
-				<td><s:property value="driver.contact.middleInitial" /></td>
-				<td><s:property value="driver.contact.emailAddress" /></td>
-				<td><s:property value="driver.contact.streetAddress1" /></td>
-				<td><s:property value="driver.contact.streetAddres2" /></td>
-				<td><s:property value="driver.contact.city" /></td>
-				<td><s:property value="driver.contact.state" /></td>
-				<td><s:property value="driver.contact.zip" /></td>
-				<td><s:property value="driver.contact.primaryPhone" /></td>
-				<td><s:property value="driver.contact.workPhone" /></td>												
-			</tr>
-	</table>
+	<div id="container">
+ 		<jsp:include page="/includes/header.jsp" />
+		<div id="content">
+			<h2>Driver List</h2>
+			<s:if test="drivers.size > 0">
+				<table id="drivers">
+					<tr>
+						<th>Driver</th><th>Vehicle</th>
+					</tr>
+					<s:iterator value="drivers">
+						<tr>
+							<td><s:property value="id" /></td>
+								<td><s:a href="%{viewDriver}"><s:property value="vehicles" /></s:a></td>
+								<td><s:property value="type" /></td>
+						</s:iterator>
+				</table>
+			</s:if>
+			<s:else>
+				No Drivers Found....
+			</s:else>
 			<div id="addDiv">
 				<s:url id="addDriver" value="addDriverForm.action"></s:url>
 				<s:a href="%{addDriver}">Add Driver</s:a>
 			</div>
-
-<jsp:include page="/includes/footer.jsp" />
+	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>
