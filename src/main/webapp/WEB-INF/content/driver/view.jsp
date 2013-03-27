@@ -7,7 +7,7 @@
 <sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
- <jsp:include page="/WEB-INF/content/header.jsp" />
+<jsp:include page="/includes/header.jsp" />
 
 <h2><s:property value="driver.driverName" /></h2>
 <h3>Driver Information</h3>
@@ -90,7 +90,7 @@
 		<tr>
 			<th>Driver ID</th><th>Contact</th><th>Vehicles</th><th>License Number</th><th>License Expiration</th><th>License Class</th><th>Contract Name</th>
 		</tr>
-		<s:iterator valu="driver.">
+		<s:iterator value="driver.">
 			<tr>
 				<td><s:property value ="id" /></td>
 			</tr>
@@ -101,6 +101,6 @@
 	No locations Found....
 </s:else>
 
-<jsp:include page="/WEB-INF/content/footer.jsp" />
+<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

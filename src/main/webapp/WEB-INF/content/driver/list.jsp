@@ -1,74 +1,63 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
-<!doctype html>
 <html>
 <head>
-	<title>Driver List</title>
+	<title>View Driver</title>
 	<sx:head debug="true" cache="false" compressed="false" />
-	<jsp:include page="/includes/decorator.jsp" />
-	<script type="text/javascript">
-		// style the nav bar
-		setCurrentPage("drivers");
-	</script>
 </head>
-
 <body>
-<<<<<<< HEAD
-	<div id="container">
-		<jsp:include page="/includes/header.jsp" />
-		<div id="content">
-			
-			<s:if test="drivers.size > 0">
-				<table id="drivers">
-					<tr>
-						<th>Contact</th><th>License Number</th><th>License Exp.</th><th>License Class</th><th>Contractor</th>
-						<th>Vehicles</th>
-					</tr>
-					<s:iterator value="drivers">
-						<s:url id="viewContractor" value="viewContractor.action">
-								<s:param name="id" value="contractor.id" />
-							</s:url>
-					
-						<tr>
-							<td><s:property value="contact" /></td>
-							<td><s:property value="licenseNumber" /></td>
-							<td><s:property value="licenseExpiration" /></td>
-							<td><s:property value="licenseClass" /></td>
-							<td><s:a href="%{viewContractor}"><s:property value="contractor" /></s:a></td>
-							<td>
-							<s:property value="vehicles" />
-							</td>
-						</tr>
-					</s:iterator>
-				</table>
-			</s:if>
-			<s:else>
-				No Drivers Found...
-			</s:else>
-			
-		<div id="addDiv">
-			<s:url id="addDriver" value="addDriverForm.action"></s:url>
-			<s:a href="%{addDriver}">Add Driver</s:a>
-		</div>
-		</div>
-	</div>
-=======
  <jsp:include page="/includes/header.jsp" />
-<p>Driver List</p>
 
-<s:if test="drivers.size > 0">
-	<table id="drivers">
+<h2><s:property value="driver.driverName" /></h2>
+<h3>Driver Information</h3>
+<table id="driver_contactInfo">
 		<tr>
-			<th>Contact</th><th>License Number</th><th>License Exp.</th><th>License Class</th><th>Contractor</th>
-			<th>Vehicles</th>
+			<th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
+			<th>State</th><th>Zip</th><th>Primary Phone</th><th>Work Phone</th>
 		</tr>
-		<s:iterator value="drivers">
-			<s:url id="viewContractor" value="viewContractor.action">
-					<s:param name="id" value="contractor.id" />
-				</s:url>
->>>>>>> parent of 88408e7... Making this work... or else.
-		
-	<jsp:include page="/includes/footer.jsp" />
+			<tr>
+				<td><s:property value="driver.contact.firstName" /></td>
+				<td><s:property value="driver.contact.lastName" /></td>
+				<td><s:property value="driver.contact.middleInitial" /></td>
+				<td><s:property value="driver.contact.emailAddress" /></td>
+				<td><s:property value="driver.contact.streetAddress1" /></td>
+				<td><s:property value="driver.contact.streetAddres2" /></td>
+				<td><s:property value="driver.contact.city" /></td>
+				<td><s:property value="driver.contact.state" /></td>
+				<td><s:property value="driver.contact.zip" /></td>
+				<td><s:property value="driver.contact.primaryPhone" /></td>
+				<td><s:property value="driver.contact.workPhone" /></td>												
+			</tr>
+	</table>
+<h3>Location Information</h3>
+<s:if test="driver.locations.size > 0">
+	<table id="driver_locationInfo">
+		<tr>
+			<th>Name</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
+			<th>State</th><th>Zip</th><th>Road Name</th><th>Road Number</th><th>Latitude</th><th>Longitude</th><th>Location Type</th>
+		</tr>
+		<s:iterator value="driver.locations">
+				<tr>
+					<td><s:property value="name" /></td>
+					<td><s:property value="streetAddress1" /></td>
+					<td><s:property value="streetAddress2" /></td>
+					<td><s:property value="city" /></td>
+					<td><s:property value="state" /></td>
+					<td><s:property value="zip" /></td>
+					<td><s:property value="roadName" /></td>
+					<td><s:property value="roadNumber" /></td>
+					<td><s:property value="latitude" /></td>
+					<td><s:property value="longitude" /></td>
+					<td><s:property value="locationType" /></td>
+				</tr>
+		</s:iterator>
+	</table>
+</s:if>
+<s:else>
+	No Locations Found...
+</s:else>
+
+<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>
