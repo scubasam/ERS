@@ -7,7 +7,7 @@
 <sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
- <jsp:include page="/includes/header.jsp" />
+ <jsp:include page="/WEB-INF/content/header.jsp" />
 
 <h2><s:property value="driver.driverName" /></h2>
 <h3>Driver Information</h3>
@@ -58,6 +58,49 @@
 	No Locations Found...
 </s:else>
 
-<jsp:include page="/includes/footer.jsp" />
+<h3>Vehicle Information</h3>
+<s:if test="driver.vehicles.size > 0">
+	<table id="driver_vehicleInfo">
+		<tr>
+			<th>Type</th><th>Plate Number</th><th>VIN</th><th>Manufactured Year</th><th>Location</th><th>Contractor</th>
+		</tr>
+		<s:iterator value="driver.vehicles">
+			<s:url id="viewDriver" value="viewDriver.action">
+					<s:param name="id" value="driver.getId()" />
+				</s:url>
+			<tr>
+			<tr>
+				<td><s:property value="vehicleType" /></td>
+				<td><s:property value="plateNumber" /></td>
+				<td><s:property value="vinNumber" /></td>
+				<td><s:property value="manufacturedYear" /></td>
+				<td><s:property value="location.name" /></td>
+				<td><s:a href="%{viewDriver}"><s:property value="driver" /></s:a></td>
+			</tr>
+		</s:iterator>
+	</table>
+</s:if>
+<s:else>
+	No Vehicles Found...
+</s:else>
+
+<h3>Driver Information</h3>
+<s:if test="driver.vehicles.size> 0">
+	<table id="driverInfo">
+		<tr>
+			<th>Driver ID</th><th>Contact</th><th>Vehicles</th><th>License Number</th><th>License Expiration</th><th>License Class</th><th>Contract Name</th>
+		</tr>
+		<s:iterator valu="driver.">
+			<tr>
+				<td><s:property value ="id" /></td>
+			</tr>
+		</s:iterator>
+	</table>
+</s:if>
+<s:else>
+	No locations Found....
+</s:else>
+
+<jsp:include page="/WEB-INF/content/footer.jsp" />
 </body>
 </html>

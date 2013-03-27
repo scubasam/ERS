@@ -162,21 +162,11 @@
  		
  		<action name="viewDriver" class="driverViewAction">
  			<result name="success">WEB-INF/content/driver/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
- 		 <action name="addDriverForm" class="baseAction">
+ 		 <action name="addDriverForm" class="requireLoginAction">
 			<result>WEB-INF/content/driver/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
-
-		<action name="addDriver" class="addDriverAction">
-			<result name="success" type="redirect">listAllDrivers.action</result>
-			<result name="input">WEB-INF/content/driver/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>	
-		
+ 		
 	</package>
 </struts>

@@ -1,8 +1,11 @@
 package edu.thangiah.action.driver;
 
 import java.util.List;
+
 import org.apache.log4j.Logger;
+
 import com.opensymphony.xwork2.Action;
+
 import edu.thangiah.entity.Driver;
 
 
@@ -16,7 +19,6 @@ public class ListAction extends DriverAction {
 	
 	private List<Driver> drivers;
 	
-	@Override
 	public String execute() {
         if (driverDao == null) {
             return Action.ERROR;

@@ -1,6 +1,8 @@
 package edu.thangiah.dao;
 
 import java.util.List;
+
+
 import edu.thangiah.entity.Contractor;
 
 public class ContractorDao extends AbstractDao<Contractor> {

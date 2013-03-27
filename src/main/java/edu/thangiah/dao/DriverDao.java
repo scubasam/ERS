@@ -1,6 +1,7 @@
 package edu.thangiah.dao;
 
 import java.util.List;
+
 import edu.thangiah.entity.Driver;
 
 
@@ -19,4 +20,5 @@ public class DriverDao extends AbstractDao<Driver> {
         return getHibernateTemplate().find("from Driver where id=?", id);
     }
 	
+
 }
