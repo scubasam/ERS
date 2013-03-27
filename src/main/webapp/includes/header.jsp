@@ -50,7 +50,7 @@
 
 <div id="sub_heading">
 	<s:if test="loggedIn == true">
-		Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a>
+		<div align="right">Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a></div>
 	</s:if>
 	<s:else>
 		<div id="loginLinkDiv"><a id="loginLink" href="userLoginForm.action">Login</a></div>

@@ -21,6 +21,7 @@
 				</s:if>
 				<s:else>
 					<div class="login">
+						<h2 align="middle">User Login</h2>
 						<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
 					</div>
 				</s:else>
