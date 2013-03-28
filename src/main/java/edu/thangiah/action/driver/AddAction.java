@@ -26,6 +26,7 @@ public class AddAction extends DriverAction implements Preparable{
 		contactDao.add(contact);
 		driver.setContact(contact);
 		
+		LOGGER.debug("Adding new driver: " + driver.toString());
 		driverDao.add(driver);
 		
     	return SUCCESS;

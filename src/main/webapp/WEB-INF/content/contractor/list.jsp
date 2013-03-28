@@ -21,7 +21,7 @@
 			<s:if test="contractors.size > 0">
 				<table id="contractors">
 					<tr>
-						<th>Contractor</th><th>Contact</th>
+						<th>Contractor</th><th>Contact</th><th>Locations</th>
 					</tr>
 					<s:iterator value="contractors">
 						<s:url id="viewContractor" value="viewContractor.action">

@@ -2,6 +2,11 @@
  
 <html>
 <head>
+<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		setCurrentPage("logout");
+	</script>
 <title>Enterprise Routing System</title>
 <s:head />
 </head>

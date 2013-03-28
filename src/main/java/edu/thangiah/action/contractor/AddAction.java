@@ -26,7 +26,7 @@ public class AddAction extends ContractorAction implements Preparable{
 		contactDao.add(contact);
 		contractor.setContact(contact);
 		
-		LOGGER.debug("Adding new contact: " + contractor.toString());
+		LOGGER.debug("Adding new contractor: " + contractor.toString());
 		contractorDao.add(contractor);
 		
     	return SUCCESS;

@@ -53,6 +53,11 @@
 		</div>
 	</div>
 	
+	<div id="addDiv">
+		<s:url id="addVehicleType" value="addVehicleTypeForm.action"></s:url>
+		<s:a href="%{addVehicleType}">Add Vehicle Type</s:a>
+	</div>
+	
 	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

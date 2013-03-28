@@ -61,6 +61,10 @@
 			</s:else>
 		</div>
 	</div>
+	<div id="addDiv">
+		<s:url id="addShipment" value="addShipmentForm.action"></s:url>
+		<s:a href="%{addShipment}">Add Shipment</s:a>
+	</div>
 	
 	<jsp:include page="/includes/footer.jsp" />
 </body>

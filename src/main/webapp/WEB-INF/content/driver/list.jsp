@@ -20,13 +20,15 @@
 			<s:if test="drivers.size > 0">
 				<table id="drivers">
 					<tr>
-						<th>Driver</th><th>Vehicle</th>
+						<th>License Number</th><th>License Expiration</th><th>License Class</th><th>Contractor</th><th>Vehicle Type</th>
 					</tr>
 					<s:iterator value="drivers">
 						<tr>
-							<td><s:property value="id" /></td>
-								<td><s:a href="%{viewDriver}"><s:property value="vehicles" /></s:a></td>
-								<td><s:property value="type" /></td>
+							<td><s:property value="licenseNumber" /></td>
+							<td><s:property value="licenseExpiration" /></td>
+							<td><s:property value="licenseClass" /></td>
+								<td><s:property value="contractor" /></td>
+								<td><s:property value="vehicles" /></td>
 						</s:iterator>
 				</table>
 			</s:if>
@@ -37,6 +39,8 @@
 				<s:url id="addDriver" value="addDriverForm.action"></s:url>
 				<s:a href="%{addDriver}">Add Driver</s:a>
 			</div>
+		</div>
+	</div>
 	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>
