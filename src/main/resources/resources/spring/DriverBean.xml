@@ -7,10 +7,15 @@
 	<bean id="driverDao" class="edu.thangiah.dao.DriverDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
  	
 	<bean id="driverListAction" class="edu.thangiah.action.driver.ListAction">
 		<property name="driverDao" ref="driverDao" />
 	</bean>
  
+ 	<bean id="addDriverAction" class="edu.thangiah.action.driver.AddAction">
+	</bean>
+	
+	<bean id="driverViewAction" class="edu.thangiah.action.driver.ViewAction">
+	</bean>
+	
 </beans>
