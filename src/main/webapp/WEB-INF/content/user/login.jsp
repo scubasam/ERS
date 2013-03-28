@@ -8,7 +8,7 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("login");
+		setCurrentPage("home");
 	</script>
 </head>
 
@@ -16,15 +16,17 @@
 	<div id="container">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2 style="text-align: center;">User Login</h2>
-			
+		
 			<s:if test="hasActionErrors()">
 			   <div class="errors">
 			      <s:actionerror/>
 			   </div>
 			</s:if>
 			
-			<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
+			<div class="login">
+				<h2 style="text-align: center;">User Login</h2>
+				<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
+			</div>
 		</div>
 	</div>
 	
