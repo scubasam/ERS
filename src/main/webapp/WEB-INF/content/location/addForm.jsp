@@ -2,36 +2,40 @@
  
 <html>
 <head>
-<title>Location</title>
+<title>Add Location</title>
+<s:head />
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("locations");
+		setCurrentPage("contractors");
 	</script>
 </head>
 <body>
- 
-<p>Location</p>
- 
-<s:form name="location" method="post" action="location.action">
+<div id="container">
+<jsp:include page="/includes/header.jsp" />
 
-	<s:textfield name="id" label="id" /> 
-	<s:textfield name="name" label="name" />
-	<s:textfield name="streetAddress1" label="streetAddress1" />
-	<s:textfield name="streetAddress2" label="streetAddress2" />
-	<s:textfield name="city" label="city" />
-	<s:textfield name="state" label="state" />
-	<s:textfield name="zip" label="zip" />
-	<s:textfield name="roadName" label="roadName" />
-	<s:textfield name="roadNumber" label="roadNumber" />	
-	<s:textfield name="latitude" label="latitude" />	
-	<s:textfield name="longitude" label="longitude" />	
-	<s:textfield name="vehicles" label="vehicles" />
-	<s:textfield name="locationType" label="locationType" />	
-	<s:textfield name="contractor" label="contractor" />
-	<s:textfield name="vehicles" label="vehicles" />	
-	<s:submit type="button" name="Add" />				
- </s:form>
+<s:if test="isError">
+	<s:property value="errorMessage" />
+</s:if>
  
+<s:form name="addLocation" action="addLocation.action">
+
+	<s:textfield name="location.locationName" label="Location Name" />
+	<s:textfield name="location.locationStreetAddress1" label="Street Address 1" />
+	<s:textfield name="location.locationStreetAddress2" label="Street Address 2" />
+	<s:textfield name="location.locationCity" label="City" />
+	<s:textfield name="location.locationZip" label="Zip Code" />
+	<s:textfield name="location.locationRoadName" label="Road" />
+	<s:textfield name="location.locationRoadNumber" label="Road Number" />
+	<s:textfield name="location.locationLatitude" label="Latitude" />
+	<s:textfield name="contractor.contractorName" label="ContractorName" />
+	<s:textfield name="location.locationType" label="Location Type" />
+	<s:textfield name="vehicle.vehicles" label="Vehicles at Location" />								
+	<s:submit type="button" name="Add Location" />
+						
+	</s:form>
+	</div>
+	<jsp:include page="/includes/footer.jsp" />
+	
 </body>
 </html>
