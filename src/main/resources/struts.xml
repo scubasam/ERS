@@ -175,6 +175,25 @@
  			<result name="success">WEB-INF/content/shipment/list.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
+
+ 		 <action name="viewShipments" class="shipmentViewAction">
+ 			<result name="success">WEB-INF/content/shipment/view.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="addShipmentForm" class="baseAction">
+			<result>WEB-INF/content/shipment/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+
+		<action name="addShipments" class="addShipmentAction">
+			<result name="success" type="redirect">listAllShipments.action</result>
+			<result name="input">WEB-INF/content/shipment/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+
  		
  		<!-- Maintenance Order Actions -->
  		<action name="listAllMaintenanceOrders" class="maintenanceOrderListAction">
@@ -182,17 +201,72 @@
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
- 		<!-- Vehicle Type Actions -->
- 		<action name="listAllVehicleTypes" class="vehicleTypeListAction">
- 			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
+ 		 <action name="viewMaintenanceOrders" class="maintenanceOrderViewAction">
+ 			<result name="success">WEB-INF/content/maintenance_order/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
+ 		
+ 		<action name="addMaintenanceOrderForm" class="baseAction">
+			<result>WEB-INF/content/maintenance_order/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+
+		<action name="addMaintenanceOrders" class="addMaintenanceOrdersAction">
+			<result name="success" type="redirect">listAllMaintenanceOrders.action</result>
+			<result name="input">WEB-INF/content/maintenance_order/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>	
  		
  		<!-- Vehicle Actions -->
  		<action name="listAllVehicles" class="vehicleListAction">
  			<result name="success">WEB-INF/content/vehicle/list.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
+ 		
+ 		 <action name="viewVehicles" class="vehicleViewAction">
+ 			<result name="success">WEB-INF/content/vehicle/view.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="addVehicleForm" class="baseAction">
+			<result>WEB-INF/content/vehicle/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+
+		<action name="addVehicle" class="addVehicleAction">
+			<result name="success" type="redirect">listAllVehicles.action</result>
+			<result name="input">WEB-INF/content/vehicle/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>	
+
+ 		<!-- Vehicle Type Actions -->
+ 		<action name="listAllVehicleTypes" class="vehicleTypeListAction">
+ 			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
+ 		
+ 		 <action name="viewVehicleTypes" class="vehicleTypeViewAction">
+ 			<result name="success">WEB-INF/content/vehicle_type/view.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="addVehicleTypeForm" class="baseAction">
+			<result>WEB-INF/content/vehicle_type/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+
+		<action name="addVehicleType" class="addVehicleTypeAction">
+			<result name="success" type="redirect">listAllVehicleTypes.action</result>
+			<result name="input">WEB-INF/content/vehicle_type/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>	
+
  		
  		<!-- Driver Actions -->
  		<action name="listAllDrivers" class="driverListAction">
@@ -217,6 +291,30 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>	
+
+ 		<!-- Route Actions -->
+ 		<action name="listAllRoutes" class="routeListAction">
+ 			<result name="success">WEB-INF/content/route/list.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="viewRouteType" class="routeViewAction">
+ 			<result name="success">WEB-INF/content/route/view.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="addRouteForm" class="baseAction">
+			<result>WEB-INF/content/route/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+
+		<action name="addRoute" class="addRouteAction">
+			<result name="success" type="redirect">listAllRoutes.action</result>
+			<result name="input">WEB-INF/content/route/addForm.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
  		
 	</package>
 </struts>
