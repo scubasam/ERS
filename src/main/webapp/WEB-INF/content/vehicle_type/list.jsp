@@ -50,13 +50,13 @@
 			<s:else>
 				No Vehicle Types Found...
 			</s:else>
-		</div>
-	</div>
-	
 	<div id="addDiv">
 		<s:url id="addVehicleType" value="addVehicleTypeForm.action"></s:url>
 		<s:a href="%{addVehicleType}">Add Vehicle Type</s:a>
 	</div>
+			</div>
+	</div>
+	
 	
 	<jsp:include page="/includes/footer.jsp" />
 </body>

@@ -28,6 +28,7 @@
 	<s:textfield name="location.locationRoadName" label="Road" />
 	<s:textfield name="location.locationRoadNumber" label="Road Number" />
 	<s:textfield name="location.locationLatitude" label="Latitude" />
+	<s:textfield name="location.locationLongitude" label="Longitude" />	
 	<s:textfield name="contractor.contractorName" label="ContractorName" />
 	<s:textfield name="location.locationType" label="Location Type" />
 	<s:textfield name="vehicle.vehicles" label="Vehicles at Location" />								
