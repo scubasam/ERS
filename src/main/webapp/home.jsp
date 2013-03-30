@@ -4,6 +4,8 @@
 <!doctype html>
 <html>
 	<head>
+		<title>Enterprise Routing System</title>
+		<s:head />
 		<jsp:include page="/includes/decorator.jsp" />
 		<script type="text/javascript">
 			// style the nav bar
@@ -21,7 +23,7 @@
 				</s:if>
 				<s:else>
 					<div class="login">
-						<h2 align="middle">User Login</h2>
+						<h2 style="text-align: center;">User Login</h2>
 						<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
 					</div>
 				</s:else>

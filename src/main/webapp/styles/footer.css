@@ -4,12 +4,13 @@
 }
 
 .footer {
-	width: 95%;
+	width: 100%;
 	height: 24px;
 	
+	color: white;
 	min-width: 1140px;
 	line-height: 24px;
-	background: #4188d2;
+	background: #134b33;
 	text-align: center;
 	margin: 0px auto;
 }

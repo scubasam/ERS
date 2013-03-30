@@ -1,5 +1,6 @@
 * {
 	margin: 0px;
+	font-family: Tahoma;
 }
 
 html, body {
@@ -20,7 +21,7 @@ body {
 }
 
 #container {
-	width: 95%;
+	width: 100%;
 	min-width: 1140px;
 	
 	min-height: 100%;
@@ -30,8 +31,6 @@ body {
 	background: #fff;
 	
 	margin: 0px auto -24px;
-	border-left: 1px solid grey;
-	border-right: 1px solid grey;
 }
 
 #content {

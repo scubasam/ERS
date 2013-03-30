@@ -1,6 +1,6 @@
 #menu {
-	background: #0d58a6;
 	height: 30px;
+	background: #134b33;
 	border-bottom: 1px solid grey;
 }
 
@@ -8,6 +8,7 @@ ul.navbar {
 	width: 100%;
 	margin: 0px;
 	padding: 0px;
+	
 	list-style-type: none;
 }
 
@@ -17,6 +18,8 @@ li.navitem {
 
 a.navlink, a.navlink:active, a.navlink:visited {
 	display: inline-block;
+	
+	float: right;
 	
 	min-width: 80px;
 	height: 21px;
@@ -33,20 +36,16 @@ a.navlink, a.navlink:active, a.navlink:visited {
 	padding-left: 2px;
 	padding-right: 2px;
 	
-	border-top: 1px solid grey;
-	border-left: 1px solid grey;
-	border-right: 1px solid grey;
-	
+	border: 1px solid grey;
 	border-top-left-radius: 6px;
 	border-top-right-radius: 6px;
 }
 
-a.navlink:hover {
-	background: white;
-	border-bottom: 1px solid white;
+a.navlink:hover, a.currentpage {
+	background: white !important;
+	border-bottom: 1px solid white !important;
 }
 
 a.currentpage {
-	background: white !important;
-	border-bottom: 1px solid white;
+	font-weight: bold;
 }
