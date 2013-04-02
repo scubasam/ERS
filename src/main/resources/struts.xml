@@ -43,7 +43,7 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  
-		<action name="addUserForm" class="baseAction">
+		<action name="addUserForm" class="addUserFormAction">
 			<result>WEB-INF/content/user/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
