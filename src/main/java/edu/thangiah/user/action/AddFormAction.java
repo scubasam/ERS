@@ -11,12 +11,13 @@ public class AddFormAction extends UserAction {
 	private static final String ROLE_NULL_MESSAGE = "Unable to get the list of user roles from the database. Please try again.";
 	private static final long serialVersionUID = 3437065226885830031L;
 	
-	private List<Role> roles;
+	protected List<Role> roles;
 	
 	@Override
 	public String execute(){
 		if (roleDao == null) {
             this.addActionError(DB_ERROR_MESSAGE);
+            return ERROR;
         }
 		
 		roles = roleDao.findAll();
@@ -24,13 +25,13 @@ public class AddFormAction extends UserAction {
 			this.addActionError(ROLE_NULL_MESSAGE);
 		}
 		
-		testUserRoleCreation();
+		//testUserRoleCreation();
 		
 		return SUCCESS;
 	}
 	
 	
-	private void testUserRoleCreation(){
+	/*private void testUserRoleCreation(){
 		User user = new User();
 		Random rand = new Random();
 		int randInt = rand.nextInt();
@@ -50,6 +51,7 @@ public class AddFormAction extends UserAction {
 		
 		
 	}
+	*/
 
 	public List<Role> getRoles() {
 		return roles;

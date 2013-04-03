@@ -23,6 +23,7 @@
 	<s:textfield name="userBean.username" label="User" />
 	<s:password name="userBean.password" label="Password" />
 	<s:checkbox name="userBean.admin" label="Is Admin?" />
+	<s:checkboxlist label="User Roles" list="roles" name="userRoles" />
  
 	<s:submit type="button" name="Add" />
  
