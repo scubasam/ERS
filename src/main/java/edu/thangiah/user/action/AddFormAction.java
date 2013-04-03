@@ -1,10 +1,8 @@
 package edu.thangiah.user.action;
 
 import java.util.List;
-import java.util.Random;
 
 import edu.thangiah.permission.Role;
-import edu.thangiah.user.entity.User;
 
 public class AddFormAction extends UserAction {
 
@@ -29,29 +27,6 @@ public class AddFormAction extends UserAction {
 		
 		return SUCCESS;
 	}
-	
-	
-	/*private void testUserRoleCreation(){
-		User user = new User();
-		Random rand = new Random();
-		int randInt = rand.nextInt();
-		user.setUsername("TESTING - " + randInt);
-		user.setPassword("Testing");
-		user.setSalt("testing");
-		user.setSessionId("tseting");
-		userBo.add(user);
-		
-		user= userBo.findByUsername(user.getUsername()).get(0);
-		
-		user.addRole(roles.get(0), roleDao);
-		user.addRole(roles.get(2), roleDao);
-		
-		userBo.update(user);
-		
-		
-		
-	}
-	*/
 
 	public List<Role> getRoles() {
 		return roles;
