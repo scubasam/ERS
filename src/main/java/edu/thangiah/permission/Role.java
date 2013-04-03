@@ -26,6 +26,13 @@ public class Role implements Serializable {
 		this.role = role;
 	}
 	
+	public boolean equals(Role otherRole){
+		if( this.getRole().equals(otherRole.getRole()) )
+			return true;
+		else
+			return false;
+	}
+	
 	public Long getId() {
 		return id;
 	}

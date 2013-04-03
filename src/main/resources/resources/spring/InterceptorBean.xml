@@ -5,6 +5,7 @@
 	
 	<bean id="authIntercept" class="edu.thangiah.interceptor.AuthenticationInterceptor">
 		<property name="userBo" ref="userBo" />
+		<property name="permissionDao" ref="permissionDao" />
 	</bean>
 	
 	<bean id="requireLogin" class="edu.thangiah.interceptor.RequireLoginInterceptor">

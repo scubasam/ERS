@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 28, 2013 6:06:56 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="edu.thangiah.permission.Permission" table="permissions">
+        <id name="id" type="java.lang.String">
+            <column name="ID" />
+        </id>
+        
+        <many-to-one name="role" class="edu.thangiah.permission.Role" fetch="select" cascade="all" lazy="false">
+            <column name="role_id" not-null="true" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>

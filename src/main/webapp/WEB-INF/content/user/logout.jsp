@@ -3,18 +3,21 @@
 <html>
 <head>
 <jsp:include page="/includes/decorator.jsp" />
+	<title>Logged Out</title>
+	<s:head />
+	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("logout");
+		setCurrentPage("home");
 	</script>
-<title>Enterprise Routing System</title>
-<s:head />
 </head>
 <body>
 <jsp:include page="/includes/header.jsp" />
-
-You have been logged out.
-
+<div id="container">
+	<div id="content">
+		You have been logged out.
+	</div>
+</div>
  <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

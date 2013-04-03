@@ -15,6 +15,10 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="permissionDao" class="edu.thangiah.permission.PermissionDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
 	<bean id="addUserFormAction" class="edu.thangiah.user.action.AddFormAction">
 		<property name="roleDao" ref="roleDao" />
 		<property name="userBo" ref="userBo" />

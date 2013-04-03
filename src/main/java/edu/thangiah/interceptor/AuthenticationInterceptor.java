@@ -5,6 +5,10 @@ import java.util.Map;
 
 
 
+
+
+
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,6 +16,9 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.Interceptor;
 
+import edu.thangiah.permission.Permission;
+import edu.thangiah.permission.PermissionController;
+import edu.thangiah.permission.PermissionDao;
 import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
@@ -25,7 +32,16 @@ public class AuthenticationInterceptor implements Interceptor {
 	@Autowired
 	protected UserBo userBo;
 	
+	@Autowired
+	protected PermissionDao permissionDao;
+	
 	private Map<String, Object> currentSession;
+	private User currentUser;
+	
+	private boolean hasError = false;
+	private String errorMessage = "";
+	
+	private static final String PERMISSION_DENIED = "permission";
 
 	@Override
 	public void destroy() {
@@ -51,7 +67,7 @@ public class AuthenticationInterceptor implements Interceptor {
 		if( userBo != null ){
 			result = validateLogin(sessionId);
 			if( !result.equals(Action.SUCCESS) )
-				return invocation.invoke();
+				currentUser = null;
         	
         	// Perform permission calculation
         	result = Action.ERROR; // Default to permission denied if no calculation is performed.
@@ -88,13 +104,39 @@ public class AuthenticationInterceptor implements Interceptor {
 		
 		currentSession.put(AbstractAction.SESSION_ID_KEY, newSessionId);
 		currentSession.put(AbstractAction.USER_SESSION_KEY, user);
+		
+		this.currentUser = user;
+		
 		return Action.SUCCESS;
 	}
 	
 	public String calculatePermissions(String actionName){
 		
-		
-		return Action.SUCCESS;
+
+		List<Permission> permissions = permissionDao.findById(actionName);
+		if( permissions != null && permissions.size() == 1 ){
+			Permission permission = permissions.get(0);
+			PermissionController controller = new PermissionController(currentUser, actionName, permission);
+			boolean result = controller.calculatePermission();
+			if( result ){
+				return Action.SUCCESS;
+			}
+			else{
+				return PERMISSION_DENIED;
+			}
+		}
+		else{
+			addErrorMessage("Unabled to get permission information from database for this action.");
+			LOGGER.error(this.errorMessage);
+			return Action.SUCCESS;
+		}
+	}
+	
+	private void addErrorMessage(String message){
+		this.errorMessage += " " + message;
+		if( !this.hasError ){
+			this.hasError = true;
+		}
 	}
 
 	public UserBo getUserBo() {
@@ -103,5 +145,13 @@ public class AuthenticationInterceptor implements Interceptor {
 
 	public void setUserBo(UserBo userBo) {
 		this.userBo = userBo;
+	}
+
+	public PermissionDao getPermissionDao() {
+		return permissionDao;
+	}
+
+	public void setPermissionDao(PermissionDao permissionDao) {
+		this.permissionDao = permissionDao;
 	}
 }
