@@ -19,27 +19,29 @@
 		<h2>Contact List</h2>
 		
 		<s:if test="contacts.size > 0">
-			<table id="contacts">
-				<tr>
-					<th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
-					<th>State</th><th>Zip</th><th>Primary Phone</th><th>Work Phone</th>
-				</tr>
-				<s:iterator value="contacts">
+			<div id="scrollContainer">
+				<table id="contacts">
 					<tr>
-						<td><s:property value="firstName" /></td>
-						<td><s:property value="lastName" /></td>
-						<td><s:property value="middleInitial" /></td>
-						<td><s:property value="emailAddress" /></td>
-						<td><s:property value="streetAddress1" /></td>
-						<td><s:property value="streetAddres2" /></td>
-						<td><s:property value="city" /></td>
-						<td><s:property value="state" /></td>
-						<td><s:property value="zip" /></td>
-						<td><s:property value="primaryPhone" /></td>
-						<td><s:property value="workPhone" /></td>
+						<th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
+						<th>State</th><th>Zip</th><th>Primary Phone</th><th>Work Phone</th>
 					</tr>
-				</s:iterator>
-			</table>
+					<s:iterator value="contacts">
+						<tr>
+							<td><s:property value="firstName" /></td>
+							<td><s:property value="lastName" /></td>
+							<td><s:property value="middleInitial" /></td>
+							<td><s:property value="emailAddress" /></td>
+							<td><s:property value="streetAddress1" /></td>
+							<td><s:property value="streetAddres2" /></td>
+							<td><s:property value="city" /></td>
+							<td><s:property value="state" /></td>
+							<td><s:property value="zip" /></td>
+							<td><s:property value="primaryPhone" /></td>
+							<td><s:property value="workPhone" /></td>
+						</tr>
+					</s:iterator>
+				</table>
+			</div>
 		</s:if>
 		<s:else>
 			No Contacts Found...

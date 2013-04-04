@@ -16,7 +16,7 @@
 			<div id="content">
 			
 			<div class="error">
-				Permission denied.  You do not have permission to access this resource.  This incident has been logged.
+				Permission denied. You do not have permission to access this resource. This incident has been logged.
 			</div>
 			<div class="push"></div>
 		</div>
