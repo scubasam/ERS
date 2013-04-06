@@ -20,6 +20,8 @@
 		<property name="mappingResources">
 			<list>
 				<value>resources/hibernate/User.hbm.xml</value>
+				<value>resources/hibernate/Role.hbm.xml</value>
+				<value>resources/hibernate/Permission.hbm.xml</value>
 				<value>resources/hibernate/Contact.hbm.xml</value>
 				<value>resources/hibernate/Contractor.hbm.xml</value>
 				<value>resources/hibernate/Location.hbm.xml</value>

@@ -4,11 +4,14 @@ import java.util.Map;
 
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 
+import edu.thangiah.permission.RoleDao;
+import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
 
 public abstract class AbstractAction extends ActionSupport implements Preparable{
@@ -28,6 +31,12 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 	public static final String SESSION_ID_KEY = "sessionId";
 	public static final String USER_SESSION_KEY = "sessionUser";
 	
+	@Autowired
+	protected RoleDao roleDao;
+	
+	
+	@Autowired
+	protected UserBo userBo;
     /**
      * This method should be overridden by subclass actions that wish to require login.
      * @return boolean
@@ -94,6 +103,23 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 
 	private void setLoginUrl(String loginUrl) {
 		this.loginUrl = loginUrl;
+	}
+	
+
+	public UserBo getUserBo() {
+		return userBo;
+	}
+
+	public void setUserBo(UserBo userBo) {
+		this.userBo = userBo;
+	}
+	
+	public RoleDao getRoleDao() {
+		return roleDao;
+	}
+
+	public void setRoleDao(RoleDao roleDao) {
+		this.roleDao = roleDao;
 	}
 	
 }

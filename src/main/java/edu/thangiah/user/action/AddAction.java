@@ -1,27 +1,31 @@
 package edu.thangiah.user.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
+
 
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.user.UserBo;
+import edu.thangiah.permission.Role;
 import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
 import edu.thangiah.utility.UtilityFunctions;
 
-public class AddAction extends UserAction implements Preparable{
+public class AddAction extends AddFormAction implements Preparable{
 	
 	private static final long serialVersionUID = 1L;
 	private User userBean;
-	
-	@Autowired
-	private UserBo userBo;
+	private String userRoles;
+	private ArrayList<Role> parsedRoles = new ArrayList<Role>();
 	
     @Override
-    public String execute() throws Exception{
+    public String execute(){
+    	String result = super.execute();
+    	if( !result.equals(SUCCESS) )
+    		return result;
     	
     	if (userBo == null) {
             this.addActionError(DB_ERROR_MESSAGE);
@@ -41,6 +45,26 @@ public class AddAction extends UserAction implements Preparable{
         LOGGER.debug("Add user: " + user.toString());
         userBo.add(user);
         
+        if( !parseRoles() ){
+    		this.addFieldError("userRoles", "Unknown error has occured.  Please try reloading the page.");
+    		return INPUT;
+    	}
+        
+        if( parsedRoles.size() > 0 ){
+	        List<User> fromDb = userBo.findByUsername(user.getUsername());
+	        if( fromDb.size() == 1 ){
+	        	User fromDbUser = fromDb.get(0);
+	        	for( Role parsedRole : parsedRoles ){
+	        		fromDbUser.addRole(parsedRole, roleDao);
+	        	}
+	        	userBo.update(fromDbUser);
+	        }
+	        else{
+	        	this.addActionError("Unable to add the user to the database.  Please try again.");
+	        	return INPUT;
+	        }
+        }
+        
         return SUCCESS;
     }
     
@@ -53,10 +77,34 @@ public class AddAction extends UserAction implements Preparable{
     		this.addFieldError("userBean.password", "Password must be at least " + User.minPasswordLength + " characters in length.");
     	}
     	
+    	
     	List<User> users = userBo.findByUsername(userBean.getUsername());
     	if( users.size() > 0 ){
     		this.addFieldError("userBean.username", "Username must be unique.");
     	}
+    }
+    
+    
+    private boolean parseRoles(){
+    	if( this.userRoles != null ){
+    		if( this.userRoles.length() > 0 ){
+    			if( userBean != null ){
+    				String[] parsedRoles = userRoles.split(", ");
+    				for( String roleStr : parsedRoles ){
+    					for( Role role : roles ){
+    						if( roleStr.equals(role.getRole()) ){
+    							this.parsedRoles.add(role);
+    						}
+    					}
+    				}
+    			}
+    			else{
+    				return false;
+    			}
+    		}
+    	}
+    	
+    	return true; // not a required field.
     }
     
 	public User getUserBean() {
@@ -66,12 +114,12 @@ public class AddAction extends UserAction implements Preparable{
 		this.userBean = userBean;
 	}
 
-	public UserBo getUserBo() {
-		return userBo;
+	public String getUserRoles() {
+		return userRoles;
 	}
 
-	public void setUserBo(UserBo userBo) {
-		this.userBo = userBo;
+	public void setUserRoles(String userRoles) {
+		this.userRoles = userRoles;
 	}
 	
 }

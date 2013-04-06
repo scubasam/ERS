@@ -24,6 +24,7 @@
  		<global-results>
  			<result name="error">WEB-INF/content/error.jsp</result>
  			<result name="login">WEB-INF/content/user/login.jsp</result>
+ 			<result name="permission">WEB-INF/content/permission.jsp</result>
  		</global-results>
  		
  		<action name="home" class="baseAction">
@@ -43,7 +44,7 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  
-		<action name="addUserForm" class="baseAction">
+		<action name="addUserForm" class="addUserFormAction">
 			<result>WEB-INF/content/user/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>

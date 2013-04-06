@@ -16,7 +16,7 @@
 			<div id="content">
 			
 			<div class="error">
-				An unexpected error occurred.  Sorry for the inconvenience - Please try again.
+				Permission denied. You do not have permission to access this resource. This incident has been logged.
 			</div>
 			<div class="push"></div>
 		</div>

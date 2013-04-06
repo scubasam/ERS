@@ -10,6 +10,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
  
     public void add(User user) {
         getHibernateTemplate().save(user);
+        this.getSession().flush();
     }
  
     public void delete(User user) {

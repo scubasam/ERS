@@ -1,6 +1,11 @@
 package edu.thangiah.user.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import edu.thangiah.permission.Role;
+import edu.thangiah.permission.RoleDao;
  
 /**
  * The persistent class for the users database table.
@@ -17,6 +22,8 @@ public class User implements Serializable {
 	private String salt;
 	private String username;
     private boolean admin;
+    
+    Set<Role> roles;
     
     public static final int minPasswordLength = 6;
     
@@ -75,6 +82,23 @@ public class User implements Serializable {
 
 	public void setSalt(String salt) {
 		this.salt = salt;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+	
+	public void addRole(Role role, RoleDao dao){
+		if( this.roles == null )
+			this.roles = new HashSet<Role>();
+			this.roles.add(role);
+			
+			role.addUser(this);
+			dao.update(role);
 	}
  
 }
