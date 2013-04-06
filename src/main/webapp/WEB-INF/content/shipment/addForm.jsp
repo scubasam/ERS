@@ -10,34 +10,35 @@
 	</script>
 </head>
 <body>
+<div id="container">
+<jsp:include page="/includes/header.jsp" />
  
-<p>Shipment</p>
+<s:form name="addShipment" method="post" action="addShipment.action">
  
-<s:form name="shipment" method="post" action="shipment.action">
- 
-	<s:textfield name="timeEntered" label="timeEntered" />
-	<s:textfield name="orderID" label="orderID" />
-	<s:textfield name="vehicleType" label="vehicleType" />
-	<s:textfield name="location" label="location" />
-	<s:textfield name="route" label="route" />
-	<s:textfield name="location" label="location" />
-	<s:textfield name="route" label="route" />
-	<s:textfield name="availableDate" label="availableDate" />
-	<s:textfield name="releaseDate" label="releaseDate" />
-	<s:textfield name="releaseTime" label="releaseTime" />
-	<s:textfield name="earliestDelieveryDate" label="earliestDeliveryDate" />
-	<s:textfield name="earliestDelieveryTime" label="earliestDelieveryTime" />
-	<s:textfield name="latestDeliveryDate" label="latestDeliveryDate" />
-	<s:textfield name="latestDeliveryTime" label="latestDeliveryTime" />
-	<s:textfield name="serviceTime" label="serviceTime" />
-	<s:textfield name="cubicWeight" label="cubicWeight" />
-	<s:textfield name="customerName" label="customerName" />
-	<s:textfield name="destination" label="destination" />
-	<s:textfield name="pooledShipment" label="pooledShipment" />
-	<s:textfield name="pooledDestination" label="pooledDestination" />
-	<s:submit type="button" name="Add" />
+	<s:textfield name="shipment.timeEntered" label="timeEntered" />
+	<s:textfield name="shipment.orderID" label="orderID" />
+	<s:textfield name="shipment.vehicleType" label="vehicleType" />
+	<s:textfield name="shipment.location" label="location" />
+	<s:textfield name="shipment.route" label="route" />
+	<s:textfield name="shipment.location" label="location" />
+	<s:textfield name="shipment.route" label="route" />
+	<s:textfield name="shipment.availableDate" label="availableDate" />
+	<s:textfield name="shipment.releaseDate" label="releaseDate" />
+	<s:textfield name="shipment.releaseTime" label="releaseTime" />
+	<s:textfield name="shipment.earliestDelieveryDate" label="earliestDeliveryDate" />
+	<s:textfield name="shipment.earliestDelieveryTime" label="earliestDelieveryTime" />
+	<s:textfield name="shipment.latestDeliveryDate" label="latestDeliveryDate" />
+	<s:textfield name="shipment.latestDeliveryTime" label="latestDeliveryTime" />
+	<s:textfield name="shipment.serviceTime" label="serviceTime" />
+	<s:textfield name="shipment.cubicWeight" label="cubicWeight" />
+	<s:textfield name="shipment.customerName" label="customerName" />
+	<s:textfield name="shipment.destination" label="destination" />
+	<s:textfield name="shipment.pooledShipment" label="pooledShipment" />
+	<s:textfield name="shipment.pooledDestination" label="pooledDestination" />
+	<s:submit type="button" name="Add Shipment" />
 	
  </s:form>
- 
+ </div>
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

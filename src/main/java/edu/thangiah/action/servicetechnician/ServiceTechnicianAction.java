@@ -1,12 +1,16 @@
 package edu.thangiah.action.servicetechnician;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.Preparable;
 
 import edu.thangiah.action.AbstractAction;
+import edu.thangiah.dao.ContactDao;
 import edu.thangiah.dao.ServiceTechnicianDao;
+import edu.thangiah.entity.ServiceTechnician;
 
 public class ServiceTechnicianAction extends AbstractAction implements Preparable {
 
@@ -19,6 +23,29 @@ public class ServiceTechnicianAction extends AbstractAction implements Preparabl
 	
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;
+	
+	@Autowired
+	protected ContactDao contactDao;
+	
+	protected ServiceTechnician getServiceTechnician(Long id) {
+        if (id != null) {
+            List<ServiceTechnician> serviceTechnician = serviceTechnicianDao.findById(id);
+            if (serviceTechnician.size() == 1) {
+                return serviceTechnician.get(0);
+            }
+        }
+        return null;
+    }
+	
+	public void setContactDao(ContactDao contactDao)
+	{
+		this.contactDao = contactDao;
+	}
+	
+	public ContactDao getContactDao()
+	{
+		return contactDao;
+	}
 
 	public ServiceTechnicianDao getServiceTechnicianDao() {
 		return serviceTechnicianDao;

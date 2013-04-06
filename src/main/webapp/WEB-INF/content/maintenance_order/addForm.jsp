@@ -6,28 +6,29 @@
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("maintenance_orders");
+		setCurrentPage("maintenance orders");
 	</script>
 </head>
 <body>
- 
-<p>Maintenance Order</p>
- 
+<div id="container">
+<jsp:include page="/includes/header.jsp" />
+
 <s:form name="maintenanceOrder" method="post" action="maintenanceOrder.action">
 
-	<s:textfield name="id" label="id" /> 
-	<s:textfield name="requester" label="requester" />
-	<s:textfield name="serviceTechnician" label="serviceTechnician" />
-	<s:textfield name="scheduleDate" label="scheduleDate" />
-	<s:textfield name="details" label="details" />
-	<s:textfield name="serviceTypeKey" label="serviceTypeKey" />
-	<s:textfield name="cost" label="cost" />
-	<s:textfield name="statusKey" label="statusKey" />
-	<s:textfield name="vehicle" label="vehicle" />
-	<s:textfield name="maintenanceType" label="maintenanceType" />	
-	<s:submit type="button" name="Add" />
+	<s:textfield name="maintenanceOrder.id" label="id" /> 
+	<s:textfield name="maintenanceOrder.requester" label="requester" />
+	<s:textfield name="maintenanceOrder.serviceTechnician" label="serviceTechnician" />
+	<s:textfield name="maintenanceOrder.scheduleDate" label="scheduleDate" />
+	<s:textfield name="maintenanceOrder.details" label="details" />
+	<s:textfield name="maintenanceOrder.serviceTypeKey" label="serviceTypeKey" />
+	<s:textfield name="maintenanceOrder.cost" label="cost" />
+	<s:textfield name="maintenanceOrder.statusKey" label="statusKey" />
+	<s:textfield name="Vehicle.vehicle" label="vehicle" />
+	<s:textfield name="maintenanceOrder.maintenanceType" label="maintenanceType" />	
+	<s:submit type="button" name="Add MaintenanceOrder" />
 		
  </s:form>
- 
+ </div>
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

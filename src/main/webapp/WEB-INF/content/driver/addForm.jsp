@@ -13,7 +13,6 @@
 <body>
 <div id="container">
  <jsp:include page="/includes/header.jsp" />
-<p>Add Driver</p>
 
 <s:if test="isError">
 	<s:property value="errorMessage" />

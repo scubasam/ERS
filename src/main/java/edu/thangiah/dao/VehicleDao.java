@@ -5,6 +5,7 @@ import java.util.List;
 import edu.thangiah.entity.Driver;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
+import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Vehicle;
 import edu.thangiah.entity.VehicleType;
 
@@ -32,6 +33,11 @@ public class VehicleDao extends AbstractDao<Vehicle> {
 	public List<Vehicle> findByLocation(Location loc){
 		return getHibernateTemplate().find("from Vehicle where location_id=?", loc.getId());
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Vehicle> findByMaintenanceOrder(MaintenanceOrder maintenanceOrder){
+		return getHibernateTemplate().find("from Vehicle where maintenanceOrder_id=?", maintenanceOrder.getId());
+	}	
 	
 	@SuppressWarnings("unchecked")
 	public List<Vehicle> findByContractor(Contractor contractor){

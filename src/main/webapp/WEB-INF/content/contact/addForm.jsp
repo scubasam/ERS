@@ -11,8 +11,8 @@
 	</script>
 </head>
 <body>
+<div id="container">
 <jsp:include page="/includes/header.jsp" />
-<p>Add Contact</p>
 
 <s:if test="isError">
 	<s:property value="errorMessage" />
@@ -25,6 +25,7 @@
 	<s:submit type="button" name="Add Contact" />
 						
 	</s:form>
+	</div>
 	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

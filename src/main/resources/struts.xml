@@ -144,7 +144,7 @@
 			<result name="input">WEB-INF/content/location/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
+		</action>	
  		
  		<!-- Service Technician Actions -->
  		<action name="listAllServiceTechnicians" class="serviceTechnicianListAction">
@@ -152,20 +152,20 @@
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
 
- 		 <action name="viewTechnician" class="technicianViewAction">
- 			<result name="success">WEB-INF/content/technician/view.jsp</result>
+ 		 <action name="viewServiceTechnicians" class="serviceTechnicianViewAction">
+ 			<result name="success">WEB-INF/content/service_technician/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
- 		 <action name="addTechnicianForm" class="baseAction">
-			<result>WEB-INF/content/technician/addForm.jsp</result>
+ 		 <action name="addServiceTechnicianForm" class="baseAction">
+			<result>WEB-INF/content/service_technician/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 
-		<action name="addTechnician" class="addTechnicianAction">
-			<result name="success" type="redirect">listAllTechnicians.action</result>
-			<result name="input">WEB-INF/content/technician/addForm.jsp</result>
+		<action name="addTechnicians" class="addServiceTechnicianAction">
+			<result name="success" type="redirect">listAllServiceTechnicians.action</result>
+			<result name="input">WEB-INF/content/service_technician/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

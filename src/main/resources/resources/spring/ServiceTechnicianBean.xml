@@ -11,5 +11,15 @@
 	<bean id="serviceTechnicianListAction" class="edu.thangiah.action.servicetechnician.ListAction">
 		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
+
+	<bean id="addServiceTechnicianAction" class="edu.thangiah.action.servicetechnician.AddAction">
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+	</bean>
+
+	<bean id="serviceTechnicianViewAction" class="edu.thangiah.action.servicetechnician.ViewAction">
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+	</bean>
+
+
  
 </beans>
