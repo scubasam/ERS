@@ -1,14 +1,17 @@
 package edu.thangiah.action.vehicletype;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
  
-import edu.thangiah.action.AbstractAction;
+import edu.thangiah.action.ValidationAction;
 import edu.thangiah.dao.VehicleTypeDao;
+import edu.thangiah.entity.VehicleType;
 
 import com.opensymphony.xwork2.Preparable;
  
-public class VehicleTypeAction extends AbstractAction implements Preparable {
+public class VehicleTypeAction extends ValidationAction implements Preparable {
  
     /**
 	 * 
@@ -21,6 +24,20 @@ public class VehicleTypeAction extends AbstractAction implements Preparable {
     protected VehicleTypeDao vehicleTypeDao;
   
 
+	protected VehicleType getVehicleType(Long id) {
+        if (id != null) {
+            List<VehicleType> vehicleType = vehicleTypeDao.findById(id);
+            if (vehicleType.size() == 1) {
+                return vehicleType.get(0);
+            }
+        }
+        return null;
+    }
+
+    
+    
+    
+    
 	public VehicleTypeDao getVehicleTypeDao() {
 		return vehicleTypeDao;
 	}

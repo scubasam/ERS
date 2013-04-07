@@ -2,26 +2,29 @@
  
 <html>
 <head>
-<title>Service Technician</title>
+<title>Add Service Technician</title>
+<s:head />
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("drivers");
+		setCurrentPage("technicians");
 	</script>
 </head>
 <body>
- 
-<p>Service Technician</p>
- 
-<s:form name="serviceTechnician" method="post" action="serviceTechinican.action">
+<div id="container"> 
+<jsp:include page="/includes/header.jsp" /> 
+<s:form name="addServiceTechnician" method="post" action="addServiceTechinican.action">
 
-	<s:textfield name="id" label="id" /> 
-	<s:textfield name="contact" label="contact" />
-	<s:textfield name="skillGrade" label="skillGrade" />
-	<s:textfield name="maintenanceOrders" label="maintenanceOrders" />
-	<s:submit type="button" name="Add" />
+	<s:textfield name="serviceTechnician.id" label="id" /> 
+	<s:textfield name="serviceTechnician.contact" label="contact" />
+	<s:textfield name="serviceTechnician.skillGrade" label="skillGrade" />
+	<s:textfield name="maintenanceOrder.maintenanceOrders" label="maintenanceOrders" />
+	<jsp:include page ="/WEB-INF/content/contact/fieldForm.jsp" />
+	
+	<s:submit type="button" name="Add Service Technician" />
 		
  </s:form>
- 
+ </div>
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

@@ -1,16 +1,20 @@
 package edu.thangiah.action.shipment;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.action.AbstractAction;
+import edu.thangiah.action.ValidationAction;
 
 import edu.thangiah.dao.ShipmentDao;
+import edu.thangiah.dao.VehicleTypeDao;
+import edu.thangiah.entity.Shipment;
 
 
-public class ShipmentAction extends AbstractAction implements Preparable{
+public class ShipmentAction extends ValidationAction  implements Preparable{
 
 	/**
 	 * 
@@ -21,7 +25,20 @@ public class ShipmentAction extends AbstractAction implements Preparable{
 	
 	@Autowired
 	protected ShipmentDao shipmentDao;
-
+	
+	@Autowired
+	protected VehicleTypeDao vehicleTypeDao;
+	
+	protected Shipment getShipment(Long id) {
+        if (id != null) {
+            List<Shipment> shipment = shipmentDao.findById(id);
+            if (shipment.size() == 1) {
+                return shipment.get(0);
+            }
+        }
+        return null;
+    }
+	
 	public ShipmentDao getShipmentDao() {
 		return shipmentDao;
 	}
@@ -29,5 +46,15 @@ public class ShipmentAction extends AbstractAction implements Preparable{
 	public void setShipmentDao(ShipmentDao shipmentDao) {
 		this.shipmentDao = shipmentDao;
 	}
+
+	public VehicleTypeDao getVehicleTypetDao() {
+		return vehicleTypeDao;
+	}
+
+	public void setVehicleTypetDao(VehicleTypeDao vehicleTypeDao) {
+		this.vehicleTypeDao = vehicleTypeDao;
+	}
+
+
 
 }

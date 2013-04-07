@@ -2,36 +2,37 @@
  
 <html>
 <head>
-<title>Vehicle Type</title>
+<title>Add Vehicle Type</title>
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("vehicle_types");
+		setCurrentPage("vehicletypes");
 	</script>
 </head>
 <body>
+<div id="container">
+<jsp:include page="/includes/header.jsp" /> 
  
-<p>Vehicle Type</p>
- 
-<s:form name="vehicleType" method="post" action="vehicleType.action">
+<s:form name="addVehicleType" method="post" action="addVehicleType.action">
 	
-	<s:textfield name="id" label="id" />
-	<s:textfield name="type" label="type" />
-	<s:textfield name="subType" label="subType" />
-	<s:textfield name="description" label="description" />
-	<s:textfield name="make" label="make" />
-	<s:textfield name="model" label="model" />
-	<s:textfield name="maximumWeight" label="maximumWeight" />
-	<s:textfield name="minimumWeight" label="minimumWeight" />
-	<s:textfield name="maximumRange" label="maximumRange" />
-	<s:textfield name="capacity" label="capacity" />
-	<s:textfield name="restrictions" label="restrictions" />
-	<s:textfield name="height" label="height" />
-	<s:textfield name="emptyWeight" label="emptyWeight" />
-	<s:textfield name="length" label="length" />
-	<s:submit type="button" name="Add" />
+	<s:textfield name="vehicleType.id" label="id" />
+	<s:textfield name="vehicleType.type" label="type" />
+	<s:textfield name="vehicleType.subType" label="subType" />
+	<s:textfield name="vehicleType.description" label="description" />
+	<s:textfield name="vehicleType.make" label="make" />
+	<s:textfield name="vehicleType.model" label="model" />
+	<s:textfield name="vehicleType.maximumWeight" label="maximumWeight" />
+	<s:textfield name="vehicleType.minimumWeight" label="minimumWeight" />
+	<s:textfield name="vehicleType.maximumRange" label="maximumRange" />
+	<s:textfield name="vehicleType.capacity" label="capacity" />
+	<s:textfield name="vehicleType.restrictions" label="restrictions" />
+	<s:textfield name="vehicleType.height" label="height" />
+	<s:textfield name="vehicleType.emptyWeight" label="emptyWeight" />
+	<s:textfield name="vehicleType.length" label="length" />
+	<s:submit type="button" name="Add Vehicle Type" />
 	
  </s:form>
- 
+ </div>
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

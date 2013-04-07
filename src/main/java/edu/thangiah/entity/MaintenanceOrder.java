@@ -1,7 +1,5 @@
 package edu.thangiah.entity;
 
-
-import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.CascadeType;
@@ -14,13 +12,17 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.Valid;
 
+import com.opensymphony.xwork2.Preparable;
+
+import edu.thangiah.action.ValidationAction;
+
 /**
  * MaintenanceOrder model.
  * @author pbair
  */
 @Entity
 @Table(name="maintenance_orders")
-public class MaintenanceOrder extends AbstractEntity implements Serializable {
+public class MaintenanceOrder extends ValidationAction implements Preparable {
 	protected Long id;
     private final static long serialVersionUID = 1L;
     private Driver requester = null;
@@ -142,7 +144,6 @@ public class MaintenanceOrder extends AbstractEntity implements Serializable {
         this.maintenanceType = maintenanceType;
     }
 
-	@Override
 	public String getViewLink() {
 		return null;
 	}

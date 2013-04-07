@@ -13,15 +13,18 @@ import javax.persistence.Table;
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.Valid;
 
+import edu.thangiah.decorator.HtmlDecorator;
+
 /**
  * Location model. 
- * @author pbair, Kelly Smith
+ * @author pbair, Kelly Smith, Alex
  */
 @Entity
 @Table(name="locations")
-public class Location implements Serializable {
+public class Location extends AbstractEntity implements Serializable {
     public static final String WAREHOUSE_TYPE = "warehouse";
     public static final String DEPOT_TYPE = "depot";
+    private String locationName = null;
 
     private static final long serialVersionUID = 1L;
     protected Long id = null;
@@ -202,4 +205,14 @@ public class Location implements Serializable {
     public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
+
+	@Override
+	public String getViewLink() {
+		return HtmlDecorator.generateEntityLink("viewLocation", this.id, this.locationName);
+	}
+	
+	public String toString()
+	{
+		return locationName;
+	}
 }

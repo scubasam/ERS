@@ -10,23 +10,23 @@
 	</script>
 </head>
 <body>
- 
-<p>Vehicle</p>
- 
-<s:form name="vehicle" method="post" action="vehicle.action">
+<div id="container">
+<jsp:include page="/includes/header.jsp" />
+<s:form name="addvehicle" method="post" action="addVehicle.action">
 	
-	<s:textfield name="id" label="id" />
-	<s:textfield name="plateNumber" label="plateNumber" />
-	<s:textfield name="vinNumber" label="vinNumber" />
-	<s:textfield name="manufacturedYear" label="manufacturedYear" />
-	<s:textfield name="status" label="status" />
-	<s:textfield name="vehicleType" label="vehicleType" />
-	<s:textfield name="contractor" label="contractor" />
-	<s:textfield name="drivers" label="drivers" />
-	<s:textfield name="location" label="location" />	
-	<s:submit type="button" name="Add" />
+	<s:textfield name="vehicle.id" label="id" />
+	<s:textfield name="vehicle.plateNumber" label="plateNumber" />
+	<s:textfield name="vehicle.vinNumber" label="vinNumber" />
+	<s:textfield name="vehicle.manufacturedYear" label="manufacturedYear" />
+	<s:textfield name="vehicle.status" label="status" />
+	<s:textfield name="vehicle.vehicleType" label="vehicleType" />
+	<s:textfield name="vehicle.contractor" label="contractor" />
+	<s:textfield name="vehicle.drivers" label="drivers" />
+	<s:textfield name="vehicle.location" label="location" />	
+	<s:submit type="button" name="Add Vehicle" />
 	
  </s:form>
- 
+ </div>
+ <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>
