@@ -1,6 +1,6 @@
 package edu.thangiah.permission;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 import edu.thangiah.user.entity.User;
 
@@ -11,7 +11,7 @@ public class PermissionController {
 	@SuppressWarnings("unused")
 	private Permission permission;
 	
-	private HashMap<String, Boolean> currentRoles;
+	private HashSet<String> currentRoles;
 	
 	private final static String GLOBAL_ADMIN = "globalAdmin";
 	
@@ -21,9 +21,9 @@ public class PermissionController {
 		this.permission = permission;
 		
 		if( currentUser != null ){
-			currentRoles = new HashMap<String, Boolean>();
+			currentRoles = new HashSet<String>();
 			for( Role role : currentUser.getRoles() ){
-				currentRoles.put(role.getRole(), true);
+				currentRoles.add(role.getRole());
 			}
 		}
 	}
@@ -33,6 +33,17 @@ public class PermissionController {
 			return true;
 		}
 		
+		if( this.currentUser != null ){
+			// User is logged in.
+			
+			if( this.permission != null ){
+				// A permission exists for this action.
+				if( hasRole(this.permission.getId()) ){
+					return true;
+				}
+			}
+		}
+		
 		return false;
 	}
 	
@@ -40,7 +51,7 @@ public class PermissionController {
 		if( currentRoles == null )
 			return false;
 		
-		if( currentRoles.containsKey(role) ){
+		if( currentRoles.contains(role) ){
 			return true;
 		}
 		
