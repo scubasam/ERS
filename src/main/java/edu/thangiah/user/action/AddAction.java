@@ -30,20 +30,8 @@ public class AddAction extends AddFormAction implements Preparable{
     	if (userBo == null) {
             this.addActionError(DB_ERROR_MESSAGE);
         }
-        User user = userBean;
-	        
-        RandomString rand = new RandomString(16);
-        String salt = rand.nextString();
-        user.setSalt(salt);
-        
-        // salt and encrypt the password for the database.
-        salt = salt + user.getPassword();
-        user.setPassword(UtilityFunctions.sha1(salt));
-
-        user.setSessionId("");
-        
-        LOGGER.debug("Add user: " + user.toString());
-        userBo.add(user);
+        userBean = processUser(userBean);
+        userBo.add(userBean);
         
         if( !parseRoles() ){
     		this.addFieldError("userRoles", "Unknown error has occured.  Please try reloading the page.");
@@ -51,7 +39,7 @@ public class AddAction extends AddFormAction implements Preparable{
     	}
         
         if( parsedRoles.size() > 0 ){
-	        List<User> fromDb = userBo.findByUsername(user.getUsername());
+	        List<User> fromDb = userBo.findByUsername(userBean.getUsername());
 	        if( fromDb.size() == 1 ){
 	        	User fromDbUser = fromDb.get(0);
 	        	for( Role parsedRole : parsedRoles ){
@@ -76,8 +64,7 @@ public class AddAction extends AddFormAction implements Preparable{
     	if( userBean.getPassword() == null || userBean.getPassword().length() < User.minPasswordLength ){
     		this.addFieldError("userBean.password", "Password must be at least " + User.minPasswordLength + " characters in length.");
     	}
-    	
-    	
+    	   	
     	List<User> users = userBo.findByUsername(userBean.getUsername());
     	if( users.size() > 0 ){
     		this.addFieldError("userBean.username", "Username must be unique.");
@@ -105,6 +92,22 @@ public class AddAction extends AddFormAction implements Preparable{
     	}
     	
     	return true; // not a required field.
+    }
+    
+    private User processUser(User user){
+    	RandomString rand = new RandomString(16);
+        String salt = rand.nextString();
+        user.setSalt(salt);
+        
+        // salt and encrypt the password for the database.
+        salt = salt + user.getPassword();
+        user.setPassword(UtilityFunctions.sha1(salt));
+
+        user.setSessionId("");
+        
+        LOGGER.debug("Add user: " + user.toString());
+        
+        return user;
     }
     
 	public User getUserBean() {
