@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.action.AbstractAction;
+import edu.thangiah.action.ValidationAction;
 import edu.thangiah.dao.MaintenanceOrderDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Vehicle;
 
-public class MaintenanceOrderAction extends AbstractAction implements Preparable {
+public class MaintenanceOrderAction extends ValidationAction implements Preparable {
 	
 	/**
 	 * 

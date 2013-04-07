@@ -6,7 +6,9 @@ import edu.thangiah.user.entity.User;
 
 public class PermissionController {
 	private User currentUser;
+	@SuppressWarnings("unused")
 	private String actionName;
+	@SuppressWarnings("unused")
 	private Permission permission;
 	
 	private HashMap<String, Boolean> currentRoles;

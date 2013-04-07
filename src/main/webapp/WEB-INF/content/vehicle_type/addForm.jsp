@@ -6,7 +6,7 @@
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("vehicle_types");
+		setCurrentPage("vehicletypes");
 	</script>
 </head>
 <body>
