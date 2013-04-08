@@ -118,7 +118,7 @@ public class AuthenticationInterceptor implements Interceptor {
 			Permission permission = permissions.get(0);
 			PermissionController controller = new PermissionController(currentUser, actionName, permission);
 			boolean result = controller.calculatePermission();
-			if( result ){
+			if( result || currentUser == null ){
 				return Action.SUCCESS;
 			}
 			else{

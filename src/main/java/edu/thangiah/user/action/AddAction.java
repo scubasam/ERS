@@ -3,10 +3,6 @@ package edu.thangiah.user.action;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-
-
 import com.opensymphony.xwork2.Preparable;
 
 import edu.thangiah.permission.Role;
@@ -14,24 +10,25 @@ import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
 import edu.thangiah.utility.UtilityFunctions;
 
-public class AddAction extends AddFormAction implements Preparable{
+public class AddAction extends ManagementController implements Preparable{
 	
 	private static final long serialVersionUID = 1L;
-	private User userBean;
+	
 	private String userRoles;
 	private ArrayList<Role> parsedRoles = new ArrayList<Role>();
 	
+	
+	@Override
+	public void prepare() throws Exception {
+		this.mode =  Modes.ADD;
+		super.prepare();
+	}
+	
     @Override
     public String execute(){
-    	String result = super.execute();
-    	if( !result.equals(SUCCESS) )
-    		return result;
     	
-    	if (userBo == null) {
-            this.addActionError(DB_ERROR_MESSAGE);
-        }
-        userBean = processUser(userBean);
-        userBo.add(userBean);
+        user = processUser(user);
+        userBo.add(user);
         
         if( !parseRoles() ){
     		this.addFieldError("userRoles", "Unknown error has occured.  Please try reloading the page.");
@@ -39,7 +36,7 @@ public class AddAction extends AddFormAction implements Preparable{
     	}
         
         if( parsedRoles.size() > 0 ){
-	        List<User> fromDb = userBo.findByUsername(userBean.getUsername());
+	        List<User> fromDb = userBo.findByUsername(user.getUsername());
 	        if( fromDb.size() == 1 ){
 	        	User fromDbUser = fromDb.get(0);
 	        	for( Role parsedRole : parsedRoles ){
@@ -58,16 +55,17 @@ public class AddAction extends AddFormAction implements Preparable{
     
     // called automatically
     public void validate(){
-    	if( userBean.getUsername() == null || userBean.getUsername().length() == 0 )
-    		this.addFieldError("userBean.username", "Username is a required field.");
     	
-    	if( userBean.getPassword() == null || userBean.getPassword().length() < User.minPasswordLength ){
-    		this.addFieldError("userBean.password", "Password must be at least " + User.minPasswordLength + " characters in length.");
+    	if( user.getUsername() == null || user.getUsername().length() == 0 )
+    		this.addFieldError("user.username", "Username is a required field.");
+    	
+    	if( user.getPassword() == null || user.getPassword().length() < User.minPasswordLength ){
+    		this.addFieldError("user.password", "Password must be at least " + User.minPasswordLength + " characters in length.");
     	}
     	   	
-    	List<User> users = userBo.findByUsername(userBean.getUsername());
+    	List<User> users = userBo.findByUsername(user.getUsername());
     	if( users.size() > 0 ){
-    		this.addFieldError("userBean.username", "Username must be unique.");
+    		this.addFieldError("user.username", "Username must be unique.");
     	}
     }
     
@@ -75,7 +73,7 @@ public class AddAction extends AddFormAction implements Preparable{
     private boolean parseRoles(){
     	if( this.userRoles != null ){
     		if( this.userRoles.length() > 0 ){
-    			if( userBean != null ){
+    			if( user != null ){
     				String[] parsedRoles = userRoles.split(", ");
     				for( String roleStr : parsedRoles ){
     					for( Role role : roles ){
@@ -110,11 +108,11 @@ public class AddAction extends AddFormAction implements Preparable{
         return user;
     }
     
-	public User getUserBean() {
-		return userBean;
+	public User getuser() {
+		return user;
 	}
-	public void setUserBean(User userBean) {
-		this.userBean = userBean;
+	public void setuser(User user) {
+		this.user = user;
 	}
 
 	public String getUserRoles() {

@@ -15,7 +15,7 @@
 				<a class="navlink" id="nav_home" href="/ERS/">Home</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_users" href="/ERS/listAllUsers.action">Users</a>
+				<a class="navlink" id="nav_users" href="/ERS/userManagement.action">Users</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_contacts" href="/ERS/listAllContacts.action">Contacts</a>

@@ -33,9 +33,10 @@
  		</action>
 
  		
-		<action name="listAllUsers" class="userListAction">
-			<result name="success">WEB-INF/content/user/list.jsp</result>
+		<action name="userManagement" class="userManagementAction">
+			<result name="success">WEB-INF/content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  
 		<action name="deleteUser" method="delete" class="userAction">
@@ -55,8 +56,8 @@
 		</action>
  
 		<action name="addUser" class="addUserAction">
-			<result name="success" type="redirect">listAllUsers.action</result>
-			<result name="input">WEB-INF/content/user/addForm.jsp</result>
+			<result name="success" type="redirect">userManagement.action</result>
+			<result name="input">WEB-INF/content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

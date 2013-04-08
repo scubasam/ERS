@@ -19,6 +19,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="userManagementAction" class="edu.thangiah.user.action.ManagementController">
+		<property name="roleDao" ref="roleDao" />
+		<property name="userBo" ref="userBo" />
+	</bean>
+	
 	<bean id="addUserFormAction" class="edu.thangiah.user.action.AddFormAction">
 		<property name="roleDao" ref="roleDao" />
 		<property name="userBo" ref="userBo" />
