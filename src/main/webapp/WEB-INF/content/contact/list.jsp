@@ -9,7 +9,7 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("contacts");
+		pageSetup("contacts");
 	</script>
 </head>
 <body>
@@ -19,14 +19,24 @@
 		<h2>Contact List</h2>
 		
 		<s:if test="contacts.size > 0">
+			
 			<div id="scrollContainer">
 				<table id="contacts">
 					<tr>
-						<th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
+						<th></th><th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
 						<th>State</th><th>Zip</th><th>Primary Phone</th><th>Work Phone</th>
 					</tr>
 					<s:iterator value="contacts">
 						<tr>
+							<td>
+								<s:url id="edit" action="listAllContacts">
+									<s:param name="id">
+										<s:property value='id' />
+									</s:param>
+								</s:url>
+								
+								<s:a href="%{edit}">Edit</s:a>
+							</td>
 							<td><s:property value="firstName" /></td>
 							<td><s:property value="lastName" /></td>
 							<td><s:property value="middleInitial" /></td>
@@ -42,15 +52,16 @@
 					</s:iterator>
 				</table>
 			</div>
+			<div id="editContainer">
+				<div id="addDiv">
+					<s:url id="addContact" value="addContactForm.action"></s:url>
+					<s:a href="%{addContact}">Add Contact</s:a>
+				</div>
+			</div>
 		</s:if>
 		<s:else>
 			No Contacts Found...
 		</s:else>
-		
-		<div id="addDiv">
-			<s:url id="addContact" value="addContactForm.action"></s:url>
-			<s:a href="%{addContact}">Add Contact</s:a>
-		</div>
 	</div>
 </div>
 

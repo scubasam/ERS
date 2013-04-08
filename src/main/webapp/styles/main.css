@@ -44,6 +44,7 @@ body {
 	width: 120px;
 	
 	margin-top: 12px;
+	margin-left: 12px;
 	text-align: center;
 	
 	background: #eee;
@@ -58,13 +59,24 @@ body {
 }
 
 #scrollContainer {
+	clear: both;
+	
 	width: 100%;
 	overflow: auto;
+	border: 1px solid grey;
+}
+
+#editContainer {
+	clear: both;
+	
+	width: 100%;
+	overflow: auto;
+	margin-top: 12px;
+	border: 1px solid grey;
 }
 
 table {
 	width: 100%;
-	border: 1px solid grey;
 	/* This adds scroll bars */
 	overflow: auto;
 }
