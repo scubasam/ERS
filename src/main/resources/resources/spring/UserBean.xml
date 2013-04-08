@@ -24,19 +24,12 @@
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
-	<bean id="addUserFormAction" class="edu.thangiah.user.action.AddFormAction">
-		<property name="roleDao" ref="roleDao" />
-		<property name="userBo" ref="userBo" />
-	</bean>
 	
 	<bean id="addUserAction" class="edu.thangiah.user.action.AddAction">
 		<property name="roleDao" ref="roleDao" />
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
-	<bean id="userListAction" class="edu.thangiah.user.action.ListAction">
-		<property name="userBo" ref="userBo" />
-	</bean>
 	
 	<bean id="loginUserAction" class="edu.thangiah.user.action.LoginAction">
 		<property name="userBo" ref="userBo" />
