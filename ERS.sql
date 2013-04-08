@@ -364,7 +364,7 @@ CREATE TABLE `user_role` (
 
 LOCK TABLES `user_role` WRITE;
 /*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
-INSERT INTO `user_role` VALUES (24,1),(27,1),(28,2),(29,2),(30,2),(27,3),(28,3),(29,3),(30,3),(28,4),(24,5);
+INSERT INTO `user_role` VALUES (24,1),(27,1),(31,1),(32,1),(28,2),(29,2),(30,2),(31,2),(32,2),(27,3),(28,3),(29,3),(30,3),(31,3),(32,3),(28,4),(24,5);
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -384,7 +384,7 @@ CREATE TABLE `users` (
   `session_id` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +393,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (25,'Jacky','4904e56f7c6f54e2f6fd897d3e24f108b02b3a05',0,'21ufq2sdycv2qz6j',''),(24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','qq6sartkis0yg7hv4i4q7ifn5d31lkli3f1yb7u4xxq5thm3z2nf7t8swh4fgyvo'),(23,'Alex','5deab2558476e8209ea74da66d756de9a13098b2',1,'a3ads3u7flp20mqa','vskbos74mpjuzjpr1cubc4f61qersn89cex6xvbop6o3rtufm2surmjp3yz5cp8c'),(26,'default','a1ba6591e17699d62d8c94cca46fa2677712f9f9',1,'dagvvk36bx4242z7','p3vqzw5h6tdo5plavtl9h6u2rvnbjvd6hmn2k6ki85163p422dslvzsv37y7yzkd'),(27,'TESTING - -1458010628','Testing',0,'testing','tseting'),(28,'Testing','f2e4a393d6e9b7343c908521bce2cc8be61378a5',1,'5gw7olh7f044bmet',''),(29,'Testing2','12209f8497303c2ddd65dc7b2088db5c67c15d9a',0,'tkt4xfr1v95ogz0t',''),(30,'Testing3','7f85d249ab5a9b7f4409fab76db4be513f2b98b6',0,'8v1m9c0kbwd34cty','');
+INSERT INTO `users` VALUES (25,'Jacky','4904e56f7c6f54e2f6fd897d3e24f108b02b3a05',0,'21ufq2sdycv2qz6j',''),(24,'Kelly','09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735',1,'7m9hc8fivst1kdwr','e2cq8pyx6qe7g8fkbtwhfdkin46pf3qtvzl3jtfrjt3hmyhlg07dlx1io20hp5m2'),(23,'Alex','5deab2558476e8209ea74da66d756de9a13098b2',1,'a3ads3u7flp20mqa','vskbos74mpjuzjpr1cubc4f61qersn89cex6xvbop6o3rtufm2surmjp3yz5cp8c'),(26,'default','a1ba6591e17699d62d8c94cca46fa2677712f9f9',1,'dagvvk36bx4242z7','ady2pvjy9wuij1kmpqpjdwn9hwzn3egxzejpw4e5oi26nw7fnkso7sfsihua36m9'),(27,'TESTING - -1458010628','Testing',0,'testing','tseting'),(28,'Testing','f2e4a393d6e9b7343c908521bce2cc8be61378a5',1,'5gw7olh7f044bmet',''),(29,'Testing2','12209f8497303c2ddd65dc7b2088db5c67c15d9a',0,'tkt4xfr1v95ogz0t',''),(30,'Testing3','7f85d249ab5a9b7f4409fab76db4be513f2b98b6',0,'8v1m9c0kbwd34cty',''),(31,'Testing4','74e521d841d9f1b23cb30b5fa41e8392cbc23bef',0,'ngv4xmkf3gcbluvv',''),(32,'Testing5','59ceee1a4574c864c250f0609cfdbdfd01dcdb56',0,'4bus3jvopna3oe1v','');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -504,4 +504,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-04-03 17:25:47
+-- Dump completed on 2013-04-08 11:17:54
