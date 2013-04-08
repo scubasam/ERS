@@ -38,6 +38,27 @@ body {
 	padding-bottom: 30px;
 }
 
+div.buttonDiv {
+	display: inline-block !important;
+	clear: both;
+	width: 120px;
+	
+	margin-top: 12px;
+	margin-left: 12px;
+	text-align: center;
+	
+	background: #eee;
+	
+	border: 1px solid grey;
+	padding: 4px;
+}
+
+div.buttonDiv a {
+	color: black;
+	text-decoration: none;
+}
+
+/** Transitional CSS **/
 #addDiv {
 	display: inline-block !important;
 	clear: both;
@@ -57,6 +78,7 @@ body {
 	color: black;
 	text-decoration: none;
 }
+/** End Transitional CSS**/
 
 #scrollContainer {
 	clear: both;
@@ -77,14 +99,15 @@ body {
 
 table {
 	width: 100%;
-	/* This adds scroll bars */
 	overflow: auto;
+	border-collapse: separate;
 }
 
 th {
 	margin: 0px;
 	padding: 4px;
 	text-decoration: underline;
+	background: #eee;
 }
 
 td {

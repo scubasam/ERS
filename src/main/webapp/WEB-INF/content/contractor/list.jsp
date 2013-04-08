@@ -20,24 +20,32 @@
 			
 			<s:if test="contractors.size > 0">
 				<table id="contractors">
-					<tr>
-						<th>Contractor</th><th>Contact</th><th>Locations</th>
-					</tr>
-					<s:iterator value="contractors">
-						<s:url id="viewContractor" value="viewContractor.action">
+					<thead class="fixedheader">
+						<tr>
+							<th>Contractor</th><th>Contact</th><th>Locations</th>
+						</tr>
+					</thead>
+					<tbody>
+						<s:iterator value="contractors">
+							<s:url id="viewContractor" value="viewContractor.action">
 								<s:param name="id" value="id" />
 							</s:url>
-					
-						<tr>
-							<td><s:a href="%{viewContractor}"><s:property value="contractorName" /></s:a></td>
-							<td><s:property value="contact" /></td>
-							<td>
-							<s:iterator value="locations">
-								<s:property value="name" /> 
-							</s:iterator>
-							</td>
-						</tr>
-					</s:iterator>
+						
+							<tr>
+								<td>
+									<s:a href="%{viewContractor}"><s:property value="contractorName" /></s:a>
+								</td>
+								<td>
+									<s:property value="contact" />
+								</td>
+								<td>
+									<s:iterator value="locations">
+										<s:property value="name" /> 
+									</s:iterator>
+								</td>
+							</tr>
+						</s:iterator>
+					</tbody>
 				</table>
 			</s:if>
 			<s:else>

@@ -17,11 +17,12 @@ function setCurrentPage(nav){
 }
 
 function interfaceSetup(){
-	$("#scrollContainer").height(
-		($(window).height()-50) / 2
-	);
+	var h1 = ($(window).height() - 196) * (0.75);
+	if(h1 < 240){ h1 = 240; }
 	
-	$("#editContainer").height(
-		($(window).height()-50) / 2
-	);
+	var h2 = ($(window).height() - 196) * (0.25);
+	if(h2 < 140){ h2 = 140; }
+	
+	$("#scrollContainer").height(h1);
+	$("#editContainer").height(h2);
 }

@@ -23,8 +23,18 @@
 			<div id="scrollContainer">
 				<table id="contacts">
 					<tr>
-						<th></th><th>First Name</th><th>Last Name</th><th>Middle Initial</th><th>Email Address</th><th>Street Address 1</th><th>Street Address 2</th><th>City</th>
-						<th>State</th><th>Zip</th><th>Primary Phone</th><th>Work Phone</th>
+						<th></th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Middle Initial</th>
+						<th>Email Address</th>
+						<th>Street Address 1</th>
+						<th>Street Address 2</th>
+						<th>City</th>
+						<th>State</th>
+						<th>Zip</th>
+						<th>Primary Phone</th>
+						<th>Work Phone</th>
 					</tr>
 					<s:iterator value="contacts">
 						<tr>
@@ -53,9 +63,17 @@
 				</table>
 			</div>
 			<div id="editContainer">
-				<div id="addDiv">
+				<div class="buttonDiv">
 					<s:url id="addContact" value="addContactForm.action"></s:url>
-					<s:a href="%{addContact}">Add Contact</s:a>
+					<s:a href="%{addContact}">Add</s:a>
+				</div>
+				<div class="buttonDiv">
+					<s:url id="editContact" value="addContactForm.action"></s:url>
+					<s:a href="%{editContact}">Edit</s:a>
+				</div>
+				<div class="buttonDiv">
+					<s:url id="deleteContact" value="addContactForm.action"></s:url>
+					<s:a href="%{deleteContact}">Delete</s:a>
 				</div>
 			</div>
 		</s:if>
