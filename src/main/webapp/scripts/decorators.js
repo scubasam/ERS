@@ -17,12 +17,21 @@ function setCurrentPage(nav){
 }
 
 function interfaceSetup(){
-	var h1 = ($(window).height() - 196) * (0.75);
-	if(h1 < 240){ h1 = 240; }
+	var h = ($(window).height() - 354);
+	if(h < 240){ h = 240; }
 	
-	var h2 = ($(window).height() - 196) * (0.25);
-	if(h2 < 140){ h2 = 140; }
+	$("#scrollContainer").height(h);
+	$("#editContainer").height(140);
+}
+
+// Dynamically resizes elements
+$(window).resize(function(){
+	interfaceSetup();
+});
+
+// Style the editing panel
+if($(document).getUrlParam("id") != null){
+	$("#addButton").css("color", "grey");
+} else {
 	
-	$("#scrollContainer").height(h1);
-	$("#editContainer").height(h2);
 }

@@ -8,4 +8,5 @@
 <link rel="stylesheet" type="text/css" href="/ERS/styles/footer.css">
 
 <script type="text/javascript" src="/ERS/scripts/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/ERS/scripts/jquery.getUrlParam.js"></script>
 <script type="text/javascript" src="/ERS/scripts/decorators.js"></script>

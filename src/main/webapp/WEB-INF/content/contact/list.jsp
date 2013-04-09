@@ -41,7 +41,7 @@
 							<td>
 								<s:url id="edit" action="listAllContacts">
 									<s:param name="id">
-										<s:property value='id' />
+										<s:property value='id-1' />
 									</s:param>
 								</s:url>
 								
@@ -62,19 +62,87 @@
 					</s:iterator>
 				</table>
 			</div>
+				
 			<div id="editContainer">
-				<div class="buttonDiv">
+				<div style="clear:both;">
+					<table>
+						<tr>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Middle Initial</th>
+							<th>Email Address</th>
+							<th>Street Address 1</th>
+							<th>Street Address 2</th>
+							<th>City</th>
+							<th>State</th>
+							<th>Zip</th>
+							<th>Primary Phone</th>
+							<th>Work Phone</th>
+						</tr>
+						<tr>
+							<td style="text-align: center;">
+								<input type="text" name="contact.firstName" 
+								value="<s:property value='contacts.get(#parameters["id"]).firstName' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.lastName" 
+								value="<s:property value='contacts.get(#parameters["id"]).lastName' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.middleInitial" style="width: 40px;"
+								value="<s:property value='contacts.get(#parameters["id"]).middleInitial' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.emailAddress" 
+								value="<s:property value='contacts.get(#parameters["id"]).emailAddress' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.streetAddress1" 
+								value="<s:property value='contacts.get(#parameters["id"]).streetAddress1' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.streetAddres2" 
+								value="<s:property value='contacts.get(#parameters["id"]).streetAddres2' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.city" 
+								value="<s:property value='contacts.get(#parameters["id"]).city' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.state" style="width: 40px;"
+								value="<s:property value='contacts.get(#parameters["id"]).state' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.zip" style="width: 50px;"
+								value="<s:property value='contacts.get(#parameters["id"]).zip' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.primaryPhone" style="width: 100px;"
+								value="<s:property value='contacts.get(#parameters["id"]).primaryPhone' />" />
+							</td>
+							<td style="text-align: center;">
+								<input type="text" name="contact.workPhone" style="width: 100px;" 
+								value="<s:property value='contacts.get(#parameters["id"]).workPhone' />" />
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="buttonDiv" id="addButton">
 					<s:url id="addContact" value="addContactForm.action"></s:url>
-					<s:a href="%{addContact}">Add</s:a>
+					<s:a href="%{addContact}" id="addButtonText">Add</s:a>
 				</div>
-				<div class="buttonDiv">
+				
+				<div class="buttonDiv" id="editButton">
 					<s:url id="editContact" value="addContactForm.action"></s:url>
-					<s:a href="%{editContact}">Edit</s:a>
+					<s:a href="%{editContact}" id="editButtonText">Submit</s:a>
 				</div>
-				<div class="buttonDiv">
+				
+				<div class="buttonDiv" id="deleteButton">
 					<s:url id="deleteContact" value="addContactForm.action"></s:url>
-					<s:a href="%{deleteContact}">Delete</s:a>
+					<s:a href="%{deleteContact}" id="deleteButtonText">Delete</s:a>
 				</div>
+				
 			</div>
 		</s:if>
 		<s:else>
