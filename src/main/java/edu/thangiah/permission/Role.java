@@ -27,6 +27,9 @@ public class Role implements Serializable {
 	}
 	
 	public boolean equals(Role otherRole){
+		if( otherRole == null )
+			return false;
+		
 		if( this.getRole().equals(otherRole.getRole()) )
 			return true;
 		else
@@ -60,6 +63,11 @@ public class Role implements Serializable {
 
 	public void setUsers(Set<User> users) {
 		this.users = users;
+	}
+
+	public void removeUser(User user) {
+		if( users != null )
+			this.users.remove(user);
 	}
 
 }

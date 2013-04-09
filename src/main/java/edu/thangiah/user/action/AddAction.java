@@ -1,6 +1,5 @@
 package edu.thangiah.user.action;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.opensymphony.xwork2.Preparable;
@@ -14,9 +13,6 @@ public class AddAction extends ManagementController implements Preparable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String userRoles;
-	private ArrayList<Role> parsedRoles = new ArrayList<Role>();
-	
 	
 	@Override
 	public void prepare() throws Exception {
@@ -27,11 +23,16 @@ public class AddAction extends ManagementController implements Preparable{
     @Override
     public String execute(){
     	
+    	if( this.hasControllerErrors() ){
+    		return ERROR;
+    	}
+    	
         user = processUser(user);
         userBo.add(user);
         
         if( !parseRoles() ){
     		this.addFieldError("userRoles", "Unknown error has occured.  Please try reloading the page.");
+    		userBo.delete(user);
     		return INPUT;
     	}
         
@@ -46,6 +47,7 @@ public class AddAction extends ManagementController implements Preparable{
 	        }
 	        else{
 	        	this.addActionError("Unable to add the user to the database.  Please try again.");
+	        	userBo.delete(user);
 	        	return INPUT;
 	        }
         }
@@ -70,26 +72,11 @@ public class AddAction extends ManagementController implements Preparable{
     }
     
     
-    private boolean parseRoles(){
-    	if( this.userRoles != null ){
-    		if( this.userRoles.length() > 0 ){
-    			if( user != null ){
-    				String[] parsedRoles = userRoles.split(", ");
-    				for( String roleStr : parsedRoles ){
-    					for( Role role : roles ){
-    						if( roleStr.equals(role.getRole()) ){
-    							this.parsedRoles.add(role);
-    						}
-    					}
-    				}
-    			}
-    			else{
-    				return false;
-    			}
-    		}
+    protected boolean parseRoles(){
+    	if( user == null ){
+    		return false;
     	}
-    	
-    	return true; // not a required field.
+    	return parseRolesList(userRoles, roles, parsedRoles);
     }
     
     private User processUser(User user){
@@ -107,20 +94,5 @@ public class AddAction extends ManagementController implements Preparable{
         
         return user;
     }
-    
-	public User getuser() {
-		return user;
-	}
-	public void setuser(User user) {
-		this.user = user;
-	}
-
-	public String getUserRoles() {
-		return userRoles;
-	}
-
-	public void setUserRoles(String userRoles) {
-		this.userRoles = userRoles;
-	}
 	
 }

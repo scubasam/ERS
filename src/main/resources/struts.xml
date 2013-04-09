@@ -45,17 +45,19 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  
-		<action name="addUserForm" class="addUserFormAction">
-			<result>WEB-INF/content/user/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
 		
 		<action name="userLoginForm" class="baseAction">
 			<result>WEB-INF/content/user/login.jsp</result>
 		</action>
  
 		<action name="addUser" class="addUserAction">
+			<result name="success" type="redirect">userManagement.action</result>
+			<result name="input">WEB-INF/content/user/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
+		<action name="updateUser" class="updateUserAction">
 			<result name="success" type="redirect">userManagement.action</result>
 			<result name="input">WEB-INF/content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>

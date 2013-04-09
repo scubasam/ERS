@@ -1,8 +1,12 @@
 package edu.thangiah.user.action;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
+
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.permission.Role;
@@ -16,6 +20,10 @@ public class ManagementController extends BaseManagementController{
 	private static final String USERS_NULL_MESSAGE = "Unable to connect to the users database.  Please try again.";
 	
 	private List<User> users;
+	
+	protected String userRoles;
+	protected ArrayList<Role> parsedRoles = new ArrayList<Role>();
+	protected String[] defaultRoles;
 	
 	protected User user;
 	
@@ -72,7 +80,7 @@ public class ManagementController extends BaseManagementController{
 		}
 		
 		user = fromDb.get(0);
-		
+		defaultRoles = getDefaultRolesValue(user.getRoles());
 		return SUCCESS;
 	}
 
@@ -89,6 +97,33 @@ public class ManagementController extends BaseManagementController{
 			return ERROR;
 		}
 		return SUCCESS;
+	}
+	
+	public static String[] getDefaultRolesValue(Set<Role> set){
+		String[] values = new String[set.size()];
+		int i = 0;
+		for( Role role: set ){
+			values[i] = role.getRole();
+			i++;
+		}
+		return values;
+	}
+	
+	public static boolean parseRolesList(String userRoles, List<Role> roles, List<Role> parsedRoles) {
+		if( userRoles != null ){
+    		if( userRoles.length() > 0 ){
+				String[] parsedStrRoles = userRoles.split(", ");
+				for( String roleStr : parsedStrRoles ){
+					for( Role role : roles ){
+						if( roleStr.equals(role.getRole()) ){
+							parsedRoles.add(role);
+						}
+					}
+				}
+    		}
+    	}
+    	
+    	return true; // not a required field.
 	}
 	
 	public List<User> getUsers() {
@@ -113,5 +148,21 @@ public class ManagementController extends BaseManagementController{
 
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+	
+	public String getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(String userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public String[] getDefaultRoles() {
+		return defaultRoles;
+	}
+
+	public void setDefaultRoles(String[] defaultRoles) {
+		this.defaultRoles = defaultRoles;
 	}
 }

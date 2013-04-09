@@ -62,15 +62,15 @@
 						</s:if>
 				<s:if test="getMode()=='edit'">
 						
-						<s:url id="editUser" value="addUser.action">
+						<s:url id="updateUser" value="updateUser.action">
 							<s:param name="id" value="id" />
 						</s:url>
 						
-						<s:form name="addForm" method="post" action="%{editUser}">
+						<s:form name="editForm" method="post" action="%{updateUser}">
 	 
 							<s:textfield name="user.username" label="User" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
-							<s:checkboxlist label="User Roles" list="roles" name="userRoles" />
+							<s:checkboxlist label="User Roles" list="roles" name="userRoles" value="defaultRoles" />
 						 
 							<s:submit type="button" name="Add" />
 						 

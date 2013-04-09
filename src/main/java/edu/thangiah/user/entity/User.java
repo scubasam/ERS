@@ -95,10 +95,25 @@ public class User implements Serializable {
 	public void addRole(Role role, RoleDao dao){
 		if( this.roles == null )
 			this.roles = new HashSet<Role>();
-			this.roles.add(role);
-			
-			role.addUser(this);
-			dao.update(role);
+		
+		this.roles.add(role);
+		role.addUser(this);
+		dao.update(role);
 	}
- 
+	
+	public void removeRole(Role role, RoleDao dao) {
+		if( this.roles == null )
+			this.roles = new HashSet<Role>();
+		
+		this.roles.remove(role);
+		role.removeUser(this);
+		dao.update(role);
+	}
+
+	public boolean hasRole(Role parsedRole) {
+		if( this.roles != null ){
+			return this.roles.contains(parsedRole);
+		}
+		return false;
+	}
 }

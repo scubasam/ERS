@@ -24,17 +24,15 @@ public class BaseManagementController extends ValidationAction{
 		
 		errors = null; // reset errors on each page load.
 		
-		if(this.mode != Modes.EDIT)
-			this.id = 0;
-		
 	}
 	
 	protected String initialize(){
 		if( this.id != 0 ){
 			mode = Modes.EDIT;
 		}
-		else{
-			mode = Modes.LIST;
+		
+		if( mode == null ){
+			mode = Modes.LIST; // default to list
 		}
 		
 		return SUCCESS;
@@ -68,7 +66,7 @@ public class BaseManagementController extends ValidationAction{
 	}
 	
 	public boolean hasControllerErrors(){
-		if( errors.size() > 0 )
+		if( errors != null && errors.size() > 0 )
 			return true;
 		else
 			return false;
