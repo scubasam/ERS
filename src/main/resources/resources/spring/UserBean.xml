@@ -19,26 +19,26 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="userManagementAction" class="edu.thangiah.user.action.ManagementController">
+	<bean id="userManagementAction" class="edu.thangiah.user.action.ManagementController" scope="prototype">
 		<property name="roleDao" ref="roleDao" />
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
 	
-	<bean id="addUserAction" class="edu.thangiah.user.action.AddAction">
+	<bean id="addUserAction" class="edu.thangiah.user.action.AddAction" scope="prototype">
 		<property name="roleDao" ref="roleDao" />
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
 	
-	<bean id="loginUserAction" class="edu.thangiah.user.action.LoginAction">
+	<bean id="loginUserAction" class="edu.thangiah.user.action.LoginAction" scope="prototype">
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
-	<bean id="logoutUserAction" class="edu.thangiah.user.action.LogoutAction">
+	<bean id="logoutUserAction" class="edu.thangiah.user.action.LogoutAction" scope="prototype">
 	</bean>
 	
-	<bean id="baseAction" class="edu.thangiah.action.BaseAction">
+	<bean id="baseAction" class="edu.thangiah.action.BaseAction" scope="prototype">
 	</bean>
  
 </beans>
