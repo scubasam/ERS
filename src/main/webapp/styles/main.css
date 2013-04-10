@@ -38,48 +38,6 @@ body {
 	padding-bottom: 30px;
 }
 
-div.buttonDiv {
-	display: inline-block !important;
-	clear: both;
-	width: 120px;
-	
-	margin-top: 12px;
-	margin-left: 12px;
-	text-align: center;
-	
-	background: #eee;
-	
-	border: 1px solid grey;
-	padding: 4px;
-}
-
-div.buttonDiv a {
-	color: black;
-	text-decoration: none;
-}
-
-/** Transitional CSS **/
-#addDiv {
-	display: inline-block !important;
-	clear: both;
-	width: 120px;
-	
-	margin-top: 12px;
-	margin-left: 12px;
-	text-align: center;
-	
-	background: #eee;
-	
-	border: 1px solid grey;
-	padding: 4px;
-}
-
-#addDiv a {
-	color: black;
-	text-decoration: none;
-}
-/** End Transitional CSS**/
-
 #scrollContainer {
 	clear: both;
 	
@@ -89,13 +47,20 @@ div.buttonDiv a {
 }
 
 #editContainer {
-	clear: both;
-	
-	width: 100%;
+	float: left;
+	width: 300px;
 	overflow: auto;
 	margin-top: 12px;
+	margin-bottom: 12px;
 	border: 1px solid grey;
 }
+
+#panel2 {
+	width: 460px;
+	margin: 0 auto;
+}
+
+
 
 table {
 	width: 100%;

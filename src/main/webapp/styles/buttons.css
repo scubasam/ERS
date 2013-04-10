@@ -1,0 +1,22 @@
+div.buttonDiv {
+	display: inline-block !important;
+	width: 120px;
+	
+	margin-top: 12px;
+	margin-right: 12px;
+	text-align: center;
+	
+	background: #eee;
+	
+	border: 1px solid grey;
+	padding: 4px;
+}
+
+div.buttonDiv a {
+	color: black;
+	text-decoration: none;
+}
+
+#buttonContainer {
+	float: right;
+}

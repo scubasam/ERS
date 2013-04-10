@@ -1,4 +1,5 @@
 
+
 function pageSetup(page){
 	$(document).ready(function(){
 		setCurrentPage(page);
@@ -17,21 +18,18 @@ function setCurrentPage(nav){
 }
 
 function interfaceSetup(){
-	var h = ($(window).height() - 354);
-	if(h < 240){ h = 240; }
+	var h1 = $("#editContainer").height();
+	var h2 = $(window).height() - (h1 + 184);
+	if(h2 < 240){ h2 = 240; }
 	
-	$("#scrollContainer").height(h);
-	$("#editContainer").height(140);
+	$("#scrollContainer").height(h2);
+}
+
+function submitForm(form){
+	$(form).submit();
 }
 
 // Dynamically resizes elements
 $(window).resize(function(){
 	interfaceSetup();
 });
-
-// Style the editing panel
-if($(document).getUrlParam("id") != null){
-	$("#addButton").css("color", "grey");
-} else {
-	
-}
