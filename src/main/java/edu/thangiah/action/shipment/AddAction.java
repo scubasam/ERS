@@ -41,7 +41,21 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if(shipment != null && vehicleType != null )
     	{
-    		//placeholder
+    		requiredString(shipment.getTimeEntered().toString(), "shipment.timeEntered");
+    		requiredInt(shipment.getOrderId(), "shipment.orderID");
+    		requiredString(shipment.getVehicleType().toString(), "shipment.vehicleType");
+    		requiredString(shipment.getLocation().toString(), "shipment.location");
+    		requiredString(shipment.getRoute().toString(), "shipment.route");
+    		requiredString(shipment.getAvailableDate().toString(), "shipment.availableDate");
+    		requiredString(shipment.getReleaseDate().toString(), "shipment.releaseDate");
+    		requiredString(shipment.getEarliestDeliveryDate().toString(), "shipment.earliestDeliveryDate");
+    		requiredString(shipment.getLatestDeliveryDate().toString(), "shipment.latestDeliveryDate");
+    		requiredInt(shipment.getServiceTime(), "shipment.serviceTime");
+    		requiredInt(shipment.getCubicWeight(), "shipment.cubicWeight");
+    		requiredString(shipment.getCustomerName(), "shipment.customerName");
+    		requiredString(shipment.getDestination().toString(), "shipment.destination");
+    		requiredString(shipment.getPooledShipment().toString(), "shipment.pooledDestination");
+    		requiredString(shipment.getPooledDestination().toString(), "shipment.pooledDestination");
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
