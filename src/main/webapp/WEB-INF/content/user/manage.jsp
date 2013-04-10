@@ -70,7 +70,7 @@
 	 
 							<s:textfield name="user.username" label="User" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
-							<s:checkboxlist label="User Roles" list="roles" name="userRoles" value="defaultRoles" />
+							<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" value="defaultRoles" />
 						 
 							<s:submit type="button" name="Add" />
 						 
@@ -82,7 +82,7 @@
 						<s:textfield name="user.username" label="User" />
 						<s:password name="user.password" label="Password" />
 						<s:checkbox name="user.admin" label="Is Admin?" />
-						<s:checkboxlist label="User Roles" list="roles" name="userRoles" />
+						<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" />
 					 
 						<s:submit type="button" name="Add" />
 					 
