@@ -71,7 +71,8 @@
 						<s:form name="editForm" method="post" action="%{updateUser}">
 							<s:textfield name="user.username" label="User" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
-							<s:checkboxlist label="User Roles" list="roles" name="userRoles" value="defaultRoles" />
+							<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" value="defaultRoles" />
+						 
 						</s:form>
 					</div>
 					

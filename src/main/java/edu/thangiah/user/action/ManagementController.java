@@ -26,7 +26,16 @@ public class ManagementController extends BaseManagementController{
 	protected User user;
 	
 	protected List<Role> roles;
+	protected List<String> rolesStr;
 	
+	public List<String> getRolesStr() {
+		return rolesStr;
+	}
+
+	public void setRolesStr(List<String> rolesStr) {
+		this.rolesStr = rolesStr;
+	}
+
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
@@ -93,6 +102,11 @@ public class ManagementController extends BaseManagementController{
 			LOGGER.debug("No Roles were able to be retrieved from the database.");
 			return ERROR;
 		}
+		
+		rolesStr = new ArrayList<String>();
+		for( Role role : roles ){
+			rolesStr.add(role.getRole());
+		}
 		return SUCCESS;
 	}
 	
@@ -155,6 +169,7 @@ public class ManagementController extends BaseManagementController{
 		this.userRoles = userRoles;
 	}
 
+	
 	public String[] getDefaultRoles() {
 		return defaultRoles;
 	}
