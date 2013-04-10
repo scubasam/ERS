@@ -6,8 +6,6 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
-
 import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.permission.Role;
 import edu.thangiah.user.entity.User;
@@ -56,7 +54,6 @@ public class ManagementController extends BaseManagementController{
         else{
         	user = null;
         }
-        
         return SUCCESS;
 	}
 
