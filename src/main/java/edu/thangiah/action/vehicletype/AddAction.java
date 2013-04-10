@@ -18,12 +18,14 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (vehicleTypeDao == null || vehicleType == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
         }
 		
 		vehicleTypeDao.add(vehicleType);
+		*/
     	return SUCCESS;
     }
     
@@ -48,11 +50,4 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	{
 		this.vehicleTypeDao = vehicleTypeDao;
 	}
-
-	@Override
-	public void prepare() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

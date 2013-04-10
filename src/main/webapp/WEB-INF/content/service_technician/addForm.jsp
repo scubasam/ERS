@@ -13,7 +13,7 @@
 <body>
 <div id="container"> 
 <jsp:include page="/includes/header.jsp" /> 
-<s:form name="addServiceTechnician" method="post" action="addServiceTechinican.action">
+<s:form name="addServiceTechnician" method="post" action="addServiceTechnician.action">
 
 	<s:textfield name="serviceTechnician.id" label="id" /> 
 	<s:textfield name="serviceTechnician.contact" label="contact" />

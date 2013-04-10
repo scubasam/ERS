@@ -21,10 +21,11 @@
 <s:form name="addContractor" action="addContractor.action">
 
 	<s:textfield name="contractor.contractorName" label="Contractor Name" />
-	<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
-		
+
+	<jsp:include page="fieldForm.jsp" />
+
 	<s:submit type="button" name="Add Contractor" />
-						
+
 	</s:form>
 	</div>
 	<jsp:include page="/includes/footer.jsp" />

@@ -17,17 +17,17 @@
 			<th>State</th><th>Zip</th><th>Road Name</th><th>Road Number</th><th>Latitude</th><th>Longitude</th><th>Location Type</th>
 		</tr>
 			<tr>
-				<td><s:property value="name" /></td>
-				<td><s:property value="streetAddress1" /></td>
-				<td><s:property value="streetAddress2" /></td>
-				<td><s:property value="city" /></td>
-				<td><s:property value="state" /></td>
-				<td><s:property value="zip" /></td>
-				<td><s:property value="roadName" /></td>
-				<td><s:property value="roadNumber" /></td>
-				<td><s:property value="latitude" /></td>
-				<td><s:property value="longitude" /></td>
-				<td><s:property value="locationType" /></td>											
+				<td><s:property value="location.name" /></td>
+				<td><s:property value="location.streetAddress1" /></td>
+				<td><s:property value="location.streetAddress2" /></td>
+				<td><s:property value="location.city" /></td>
+				<td><s:property value="location.state" /></td>
+				<td><s:property value="location.zip" /></td>
+				<td><s:property value="location.roadName" /></td>
+				<td><s:property value="location.roadNumber" /></td>
+				<td><s:property value="location.latitude" /></td>
+				<td><s:property value="location.longitude" /></td>
+				<td><s:property value="location.locationType" /></td>											
 			</tr>
 	</table>
 <jsp:include page="/includes/footer.jsp" />

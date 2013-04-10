@@ -9,7 +9,8 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("contractors");
+		page = "contractors";
+		setCurrentPage(page);
 	</script>
 </head>
 <body>
@@ -19,43 +20,66 @@
 			<h2>Contractor List</h2>
 			
 			<s:if test="contractors.size > 0">
-				<table id="contractors">
-					<thead class="fixedheader">
-						<tr>
-							<th>Contractor</th><th>Contact</th><th>Locations</th>
-						</tr>
-					</thead>
-					<tbody>
-						<s:iterator value="contractors">
-							<s:url id="viewContractor" value="viewContractor.action">
-								<s:param name="id" value="id" />
-							</s:url>
-						
+				<div id="scrollContainer">
+					<table id="contractors">
+						<thead>
 							<tr>
-								<td>
-									<s:a href="%{viewContractor}"><s:property value="contractorName" /></s:a>
-								</td>
-								<td>
-									<s:property value="contact" />
-								</td>
-								<td>
-									<s:iterator value="locations">
-										<s:property value="name" /> 
-									</s:iterator>
-								</td>
+								<th>Contractor</th><th>Contact</th><th>Locations</th>
 							</tr>
-						</s:iterator>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<s:iterator value="contractors">
+								<s:url id="viewContractor" value="viewContractor.action">
+									<s:param name="id" value="id" />
+								</s:url>
+							
+								<tr>
+									<td>
+										<s:a href="%{viewContractor}"><s:property value="contractorName" /></s:a>
+									</td>
+									<td>
+										<s:property value="contact" />
+									</td>
+									<td>
+										<s:iterator value="locations">
+											<s:property value="name" /> 
+										</s:iterator>
+									</td>
+								</tr>
+							</s:iterator>
+						</tbody>
+					</table>
+				</div>
+				
+				<div id="panel2">
+					<div id="editContainer">
+						<s:form name="addContact" action="addContact.action" id="contactForm">
+							<jsp:include page="fieldForm.jsp" />
+						</s:form>
+					</div>
+					<div id="buttonContainer">
+						<div id="modeDiv">
+							<h3 id="modeLabel"></h3>
+						</div>
+						<div class="buttonDiv">
+							<a href="javascript:submitForm(contactForm);">Create</a>
+						</div><br/>
+						<div class="buttonDiv">
+							<a href="javascript:submitForm(contactForm);">Update</a>
+						</div><br/>
+						<div class="buttonDiv">
+							<a href="javascript:submitForm(contactForm);">Delete</a>
+						</div><br/>
+						<div class="buttonDiv">
+							<a href="javascript:submitForm(contactForm);">Clear</a>
+						</div><br/>
+					</div>
+				</div>
 			</s:if>
 			<s:else>
 				No Contractors Found...
 			</s:else>
 			
-			<div id="addDiv">
-				<s:url id="addContractor" value="addContractorForm.action"></s:url>
-				<s:a href="%{addContractor}">Add Contractor</s:a>
-			</div>
 		</div>
 	</div>
 	

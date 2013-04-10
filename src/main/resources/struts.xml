@@ -168,7 +168,7 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 
-		<action name="addTechnicians" class="addServiceTechnicianAction">
+		<action name="addServiceTechnician" class="addServiceTechnicianAction">
 			<result name="success" type="redirect">listAllServiceTechnicians.action</result>
 			<result name="input">WEB-INF/content/service_technician/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
@@ -192,7 +192,7 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 
-		<action name="addShipments" class="addShipmentAction">
+		<action name="addShipment" class="addShipmentAction">
 			<result name="success" type="redirect">listAllShipments.action</result>
 			<result name="input">WEB-INF/content/shipment/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>

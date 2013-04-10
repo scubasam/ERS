@@ -12,5 +12,9 @@
 	<bean id="vehicleTypeListAction" class="edu.thangiah.action.vehicletype.ListAction">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
 	</bean>
+	
+	<bean id="addVehicleTypeAction" class="edu.thangiah.action.vehicletype.AddAction">
+		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+	</bean>
  
 </beans>
