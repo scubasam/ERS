@@ -7,7 +7,8 @@
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("users");
+		page = "users";
+		setCurrentPage(page);
 	</script>
 <s:head />
 </head>
