@@ -1,5 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
- 
+
+<!doctype html>
 <html>
 <head>
 <title>Add User</title>
