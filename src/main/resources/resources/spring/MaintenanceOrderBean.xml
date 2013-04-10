@@ -12,4 +12,9 @@
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
  
+ 	<bean id="addMaintenanceOrdersAction" class="edu.thangiah.action.maintenanceorder.AddAction"> 	
+ 	</bean>
+ 
+ 
+ 
 </beans>

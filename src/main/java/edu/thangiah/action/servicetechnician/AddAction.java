@@ -29,6 +29,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (serviceTechnicianDao == null || serviceTechnician == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
@@ -40,7 +41,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 		//serviceTechnician.setMaintenanceOrders(maintenanceOrders)
 		serviceTechnician.setContact(contact);
 		serviceTechnicianDao.add(serviceTechnician);
-		
+		*/
     	return SUCCESS;
     }
     

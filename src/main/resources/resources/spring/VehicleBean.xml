@@ -3,14 +3,21 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
-
 	<bean id="vehicleDao" class="edu.thangiah.dao.VehicleDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
  	
-	<bean id="vehicleListAction" class="edu.thangiah.action.vehicle.ListAction">
+ 	<bean id="vehicleTypeDao" class="edu.thangiah.dao.VehicleTypeDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+ 	<bean id="vehicleListAction" class="edu.thangiah.action.vehicle.ListAction">
 		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
+ 
+ 	<bean id="addVehicleAction" class="edu.thangiah.action.vehicle.AddAction">
+ 		<property name="vehicleDao" ref="vehicleDao" />
+ 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+ 	</bean>
  
 </beans>

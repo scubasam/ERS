@@ -25,6 +25,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (vehicleDao == null || vehicle == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
@@ -33,6 +34,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 		vehicleDao.add(vehicle);
 		vehicleTypeDao.add(vehicleType);
 		vehicle.setVehicleType(vehicleType);
+		*/
     	return SUCCESS;
     }
     
@@ -40,7 +42,14 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if(vehicle != null && vehicleType != null )
     	{
-    		//placeholder
+    		requiredLong(vehicle.getId(), "vehicle.id");
+    		requiredString(vehicle.getPlateNumber(), "vehicle.plateNumber");
+    		requiredString(vehicle.getVinNumber(), "vehicle.vinNumber");
+    		requiredString(vehicle.getManufacturedYear(), "vehicle.manufacturedYear");
+    		requiredString(vehicle.getStatus(), "vehicle.getStatus");
+    		requiredString(vehicle.getVehicleType().toString(), "vehicle.vehicleType");
+    		requiredString(vehicle.getDrivers().toString(), "vehicle.drivers");
+    		requiredString(vehicle.getLocation().toString(), "vehicle.location");
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
@@ -83,11 +92,4 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	{
 		this.vehicleDao = vehicleDao;
 	}	
-	
-	@Override
-	public void prepare() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
-	
 }

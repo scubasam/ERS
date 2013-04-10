@@ -13,14 +13,20 @@ public class AddAction extends LocationAction implements Preparable{
 	private static final long serialVersionUID = -1708978099566079365L;
 	private Location location;
 	private Contractor contractor;
+	@SuppressWarnings("unused")
 	private Vehicle vehicle;
 	
 	@Autowired
+	protected ContractorDao contractDao;
+	
+	@Autowired
 	protected VehicleDao vehicleDao;
+
 	
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (locationDao == null || location == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
@@ -33,17 +39,23 @@ public class AddAction extends LocationAction implements Preparable{
 		
 		LOGGER.debug("Adding new location: " + location.toString());
 		locationDao.add(location);
-		
+		*/
     	return SUCCESS;
     }
     
     // called automatically
-    public void validate(){
+    public void validate()
+    {	
     	if( location != null && contractor != null )
     	{
+    		requiredString(location.getLocationType(), "location.locationType");
     		requiredString(location.getName(), "location.name");
-    		requiredString(location.getLatitude(), "location.latitude");    		
-    		requiredString(location.getLongitude(), "location.longitude");
+    		requiredString(contractor.getContractorName(), "contractor.name");
+    		requiredString(location.getCity(), "location.city");
+        	//int longit=Integer.parseInt(location.getLongitude());
+        	//int lat = Integer.parseInt(location.getLatitude());
+    		//validateIntegerRange(lat, -90, 90, location.getLatitude());
+    		//validateIntegerRange(longit, -180, 180, location.getLongitude());
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
