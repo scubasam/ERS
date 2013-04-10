@@ -9,7 +9,8 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("vehicletypes");
+		page = "vehicletypes";
+		pageSetup(page);
 	</script>
 </head>
 
@@ -21,7 +22,7 @@
 			
 			<s:if test="types.size > 0">
 				<div id="scrollContainer">
-					<table id="types">
+					<table id="vehicletypes">
 						<tr>
 							<th>Type</th><th>Sub Type</th><th>Description</th><th>Make</th><th>Model</th><th>Minimum Weight</th><th>Maximum Weight</th><th>Capacity</th>
 							<th>Maximum Range</th><th>Restrictions</th><th>Height</th><th>Empty Weight</th><th>Length</th><th>Vehicles</th>
@@ -50,10 +51,6 @@
 			<s:else>
 				No Vehicle Types Found...
 			</s:else>
-	<div id="addDiv">
-		<s:url id="addVehicleType" value="addVehicleTypeForm.action"></s:url>
-		<s:a href="%{addVehicleType}">Add Vehicle Type</s:a>
-	</div>
 			</div>
 	</div>
 	
