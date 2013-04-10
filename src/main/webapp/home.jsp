@@ -17,9 +17,10 @@
 			<jsp:include page="/includes/header.jsp" />
 			<div id="content">
 				<s:if test="loggedIn == true">
-					<div class="login">
+					<!-- <div class="login">
 						Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a>
-					</div>
+					</div> -->
+					
 				</s:if>
 				<s:else>
 					<div class="login">

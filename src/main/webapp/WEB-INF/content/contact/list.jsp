@@ -86,6 +86,9 @@
 					<div class="buttonDiv">
 						<a href="javascript:submitForm(contactForm);">Delete</a>
 					</div><br/>
+					<div class="buttonDiv">
+						<a href="javascript:submitForm(contactForm);">Clear</a>
+					</div><br/>
 				</div>
 			</div>
 		</s:if>
