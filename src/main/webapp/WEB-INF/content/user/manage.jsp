@@ -61,6 +61,18 @@
 			   </div>
 			</s:if>
 			
+			<s:if test="hasActionMessages()">
+			   <div class="welcome">
+			      <s:actionmessage/>
+			   </div>
+			</s:if>
+			
+			<s:if test="deleteSuccessful()">
+				<div class="welcome">
+			     	<s:property value="deleteSuccessfulMessage()" />
+			   </div>
+			</s:if>
+			
 			<s:if test="getMode()=='edit'">
 				<div id="panel2">
 					<s:url id="updateUser" value="updateUser.action">
@@ -84,7 +96,10 @@
 							<a href="javascript:submitForm(editForm);">Update</a>
 						</div><br/>
 						<div class="buttonDiv">
-							<a href="">Delete</a>
+							<s:url id="deleteUrl" value="deleteUser.action">
+								<s:param name="id" value="id" />
+							</s:url>
+							<s:a href="%{deleteUrl}">Delete</s:a>
 						</div><br/>
 						<div class="buttonDiv">
 							<s:url id="clearUrl" value="userManagement.action"></s:url>
@@ -113,13 +128,6 @@
 						</div>
 						<div class="buttonDiv">
 							<a href="javascript:submitForm(addForm);">Create</a>
-						</div><br/>
-						<div class="buttonDiv">
-							<a href="">Delete</a>
-						</div><br/>
-						<div class="buttonDiv">
-							<s:url id="clearUrl" value="userManagement.action"></s:url>
-							<s:a href="%{clearUrl}">Clear</s:a>
 						</div><br/>
 					</div>
 				</div>

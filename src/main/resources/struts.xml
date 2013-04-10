@@ -39,12 +39,6 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  
-		<action name="deleteUser" method="delete" class="userAction">
-			<result type="redirect">listAllUsers.action</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
- 
 		
 		<action name="userLoginForm" class="baseAction">
 			<result>WEB-INF/content/user/login.jsp</result>
@@ -59,6 +53,13 @@
 		
 		<action name="updateUser" class="updateUserAction">
 			<result name="success" type="redirect">userManagement.action</result>
+			<result name="input">WEB-INF/content/user/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
+		<action name="deleteUser" class="deleteUserAction">
+			<result name="success" type="redirect">userManagement.action?deleted=true</result>
 			<result name="input">WEB-INF/content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>

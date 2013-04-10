@@ -30,6 +30,11 @@
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
+	<bean id="deleteUserAction" class="edu.thangiah.user.action.DeleteAction" scope="prototype">
+		<property name="roleDao" ref="roleDao" />
+		<property name="userBo" ref="userBo" />
+	</bean>
+	
 	<bean id="updateUserAction" class="edu.thangiah.user.action.UpdateAction" scope="prototype">
 		<property name="roleDao" ref="roleDao" />
 		<property name="userBo" ref="userBo" />

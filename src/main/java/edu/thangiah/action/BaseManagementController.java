@@ -10,9 +10,10 @@ public class BaseManagementController extends ValidationAction{
 	private static final long serialVersionUID = -2362751985753499059L;
 	
 	protected long id; // used for editing specific records.
+	protected String deleted;
 	
 	protected Modes mode;
-	protected enum Modes {LIST, EDIT, ADD};
+	protected enum Modes {LIST, EDIT, ADD, DELETE};
 	
 	public enum ErrorCode {FATAL, ERROR};
 	
@@ -27,12 +28,14 @@ public class BaseManagementController extends ValidationAction{
 	}
 	
 	protected String initialize(){
-		if( this.id != 0 ){
-			mode = Modes.EDIT;
-		}
-		
 		if( mode == null ){
-			mode = Modes.LIST; // default to list
+			if( this.id != 0 ){
+				mode = Modes.EDIT;
+			}
+			
+			if( mode == null ){
+				mode = Modes.LIST; // default to list
+			}
 		}
 		
 		return SUCCESS;
@@ -70,6 +73,25 @@ public class BaseManagementController extends ValidationAction{
 			return true;
 		else
 			return false;
+	}
+
+	public String getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
+	}
+	
+	public boolean deleteSuccessful(){
+		if( deleted != null && deleted.equals("true") )
+			return true;
+		
+		return false;
+	}
+	
+	public String deleteSuccessfulMessage(){
+		return "User was successfully deleted.";
 	}
 }
 
