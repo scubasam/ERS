@@ -19,7 +19,7 @@ function setCurrentPage(nav){
 
 function interfaceSetup(){
 	var h1 = $("#editContainer").height();
-	var h2 = $(window).height() - (h1 + 184);
+	var h2 = $(window).height() - (h1 + 202);
 	if(h2 < 240){ h2 = 240; }
 	
 	$("#scrollContainer").height(h2);
