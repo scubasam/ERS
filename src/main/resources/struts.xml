@@ -104,9 +104,10 @@
  		
  		
  		<!-- Contractor Actions -->
- 		<action name="listAllContractors" class="contractorListAction">
- 			<result name="success">WEB-INF/content/contractor/list.jsp</result>
+ 		<action name="manageContractors" class="contractorManagement">
+ 			<result name="success">WEB-INF/content/contractor/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="viewContractor" class="contractorViewAction">

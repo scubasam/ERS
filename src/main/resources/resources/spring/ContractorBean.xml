@@ -16,7 +16,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="contractorListAction" class="edu.thangiah.action.contractor.ListAction">
+	<bean id="contractorManagement" class="edu.thangiah.action.contractor.ManagementController">
 		<property name="contractorDao" ref="contractorDao" />
 	</bean>
 	
