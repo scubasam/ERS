@@ -15,7 +15,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	private static final long serialVersionUID = -1708978099566079365L;
 	private ServiceTechnician serviceTechnician;
 	private Contact contact;
-	private MaintenanceOrder maintenanceOrder;
+	//private MaintenanceOrder maintenanceOrder;
 	
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;
@@ -29,6 +29,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (serviceTechnicianDao == null || serviceTechnician == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
@@ -40,7 +41,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 		//serviceTechnician.setMaintenanceOrders(maintenanceOrders)
 		serviceTechnician.setContact(contact);
 		serviceTechnicianDao.add(serviceTechnician);
-		
+		*/
     	return SUCCESS;
     }
     
@@ -48,7 +49,10 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if(serviceTechnician != null && contact != null )
     	{
-    		//placeholder
+    		requiredLong(serviceTechnician.getId(), "serviceTechnician.id");
+    		requiredString(serviceTechnician.getContact().toString(), "serviceTechnician.contact");
+    		requiredString(serviceTechnician.getSkillGrade(), "serviceTechnician.skillGrade");
+    		this.runContactValidation(contact);
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

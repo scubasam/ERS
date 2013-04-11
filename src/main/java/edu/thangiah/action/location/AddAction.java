@@ -13,14 +13,20 @@ public class AddAction extends LocationAction implements Preparable{
 	private static final long serialVersionUID = -1708978099566079365L;
 	private Location location;
 	private Contractor contractor;
+	@SuppressWarnings("unused")
 	private Vehicle vehicle;
 	
 	@Autowired
+	protected ContractorDao contractDao;
+	
+	@Autowired
 	protected VehicleDao vehicleDao;
+
 	
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (locationDao == null || location == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
@@ -33,17 +39,27 @@ public class AddAction extends LocationAction implements Preparable{
 		
 		LOGGER.debug("Adding new location: " + location.toString());
 		locationDao.add(location);
-		
+		*/
     	return SUCCESS;
     }
     
     // called automatically
-    public void validate(){
+    public void validate()
+    {	
     	if( location != null && contractor != null )
     	{
+    		requiredString(location.getLocationType(), "location.locationType");
     		requiredString(location.getName(), "location.name");
-    		requiredString(location.getLatitude(), "location.latitude");    		
+    		requiredString(location.getStreetAddress1(), "location.streetAddress1");
+    		requiredString(location.getStreetAddress2(), "location.streetAddress2");
+    		requiredString(location.getCity(), "location.city");
+    		requiredString(location.getZip(), "location.zip");
+    		requiredString(location.getRoadName(), "location.roadName");
+    		requiredString(location.getLatitude(), "location.latitude");
     		requiredString(location.getLongitude(), "location.longitude");
+    		requiredString(location.getLocationType(), "location.locationType");
+    		requiredString(contractor.getContractorName(), "contractor.name");
+    		//requiredString(vehicle.getViewLink(), "vehicle.vehicles"); ?
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

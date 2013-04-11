@@ -64,6 +64,11 @@ public class AddAction extends ManagementController implements Preparable{
     	if( user.getPassword() == null || user.getPassword().length() < User.minPasswordLength ){
     		this.addFieldError("user.password", "Password must be at least " + User.minPasswordLength + " characters in length.");
     	}
+    	
+    	if( user.getEmail() != null && user.getEmail().length() > 0 ){
+    		// Email was entered.  validate it.
+    		this.validateEmail(user.getEmail(), "user.email");
+    	}
     	   	
     	List<User> users = userBo.findByUsername(user.getUsername());
     	if( users.size() > 0 ){

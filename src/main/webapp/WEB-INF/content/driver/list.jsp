@@ -9,7 +9,8 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("drivers");
+		page = "drivers";
+		pageSetup(page);
 	</script>
 </head>
 <body>
@@ -18,6 +19,7 @@
 		<div id="content">
 			<h2>Driver List</h2>
 			<s:if test="drivers.size > 0">
+				<div id="scrollContainer">
 				<table id="drivers">
 					<tr>
 						<th>License Number</th><th>License Expiration</th><th>License Class</th><th>Contractor</th><th>Vehicle Type</th>
@@ -31,6 +33,7 @@
 								<td><s:property value="vehicles" /></td>
 						</s:iterator>
 				</table>
+				</div>
 			</s:if>
 			<s:else>
 				No Drivers Found....

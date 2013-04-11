@@ -6,7 +6,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 
 public abstract class AbstractDao<Entity> extends HibernateDaoSupport {
-
+	
 	public void add(Entity entity) {
         getHibernateTemplate().save(entity);
     }

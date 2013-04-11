@@ -48,8 +48,12 @@ public class ValidationAction extends AbstractAction {
 	
 	
 	public void requiredString(String value, String field_name){
-		requiredString(value, field_name, "This field is required.");
+		requiredString(value, field_name, "Invlaid Input");
 	}
+
+	public void requiredLong(Long value, String field_name){
+		requiredLong(value, field_name, "Invalid Input");
+	}	
 	
 	public void requiredString(String value, String field_name, String message){
 		if( value == null || value.length() == 0 )
@@ -80,17 +84,22 @@ public class ValidationAction extends AbstractAction {
 	}
 	
 	
-	public void requiredInt(Integer value, String field_name, String message){
+	public void requiredInt(Integer value, String field_name){
+		if( value == null )
+    		this.addFieldError(field_name, "Invalid Input");
+	}
+	
+	public void requiredLong(Long value, String field_name, String message){
 		if( value == null )
     		this.addFieldError(field_name, message);
 	}
 	
-	public void validateIntegerRange(Integer value, int min, int max, String field_name, String message){
-		requiredInt(value, field_name, message);
+	public void validateIntegerRange(Integer value, int min, int max, String field_name){
+		requiredInt(value, field_name);
 		if( value != null ){
 			int intValue = value.intValue();
 			if( intValue < min || intValue > max ){
-				this.addFieldError(field_name, message);
+				this.addFieldError(field_name, "Invlaid Input");
 			}
 		}
 	}

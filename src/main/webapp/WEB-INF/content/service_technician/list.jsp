@@ -9,7 +9,8 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("technicians");
+		page = "technicians";
+		pageSetup(page);
 	</script>
 </head>
 <body>
@@ -19,6 +20,7 @@
 			<h2>Service Technician List</h2>
 			
 			<s:if test="technicians.size > 0">
+				<div id="scrollContainer">
 				<table id="technicians">
 					<tr>
 						<th>Contact</th><th>Skill Grade</th><th>Maintenance Orders</th>
@@ -31,14 +33,11 @@
 						</tr>
 					</s:iterator>
 				</table>
+				</div>
 			</s:if>
 			<s:else>
 				No Technicians Found...
 			</s:else>
-		<div id="addDiv">
-			<s:url id="addServiceTechnician" value="addServiceTechnicianForm.action"></s:url>
-			<s:a href="%{addServiceTechnician}">Add Service Technician</s:a>
-		</div>
 		</div>
 	</div>
 			

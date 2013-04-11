@@ -30,6 +30,7 @@
 							<th>Session ID</th>
 							<th>Salt</th>
 							<th>Admin?</th>
+							<th>Email</th>
 						</tr>
 						
 						<s:iterator value="users">
@@ -44,6 +45,7 @@
 								<td><s:property value="sessionId" /></td>
 								<td><s:property value="salt" /></td>
 								<td><s:property value="admin" /></td>
+								<td><s:property value="email" /></td>
 								
 							</tr>
 						</s:iterator>
@@ -61,6 +63,18 @@
 			   </div>
 			</s:if>
 			
+			<s:if test="hasActionMessages()">
+			   <div class="welcome">
+			      <s:actionmessage/>
+			   </div>
+			</s:if>
+			
+			<s:if test="deleteSuccessful()">
+				<div class="welcome">
+			     	<s:property value="deleteSuccessfulMessage()" />
+			   </div>
+			</s:if>
+			
 			<s:if test="getMode()=='edit'">
 				<div id="panel2">
 					<s:url id="updateUser" value="updateUser.action">
@@ -71,7 +85,9 @@
 						<s:form name="editForm" method="post" action="%{updateUser}">
 							<s:textfield name="user.username" label="User" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
-							<s:checkboxlist label="User Roles" list="roles" name="userRoles" value="defaultRoles" />
+							<s:textfield name="user.email" label="Email" />
+							<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" value="defaultRoles" />
+						 
 						</s:form>
 					</div>
 					
@@ -83,7 +99,10 @@
 							<a href="javascript:submitForm(editForm);">Update</a>
 						</div><br/>
 						<div class="buttonDiv">
-							<a href="">Delete</a>
+							<s:url id="deleteUrl" value="deleteUser.action">
+								<s:param name="id" value="id" />
+							</s:url>
+							<s:a href="%{deleteUrl}">Delete</s:a>
 						</div><br/>
 						<div class="buttonDiv">
 							<s:url id="clearUrl" value="userManagement.action"></s:url>
@@ -100,6 +119,7 @@
 		 
 							<s:textfield name="user.username" label="User" />
 							<s:password name="user.password" label="Password" />
+							<s:textfield name="user.email" label="Email" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
 							
 							<s:checkboxlist label="User Roles" list="roles" name="userRoles" />
@@ -112,13 +132,6 @@
 						</div>
 						<div class="buttonDiv">
 							<a href="javascript:submitForm(addForm);">Create</a>
-						</div><br/>
-						<div class="buttonDiv">
-							<a href="">Delete</a>
-						</div><br/>
-						<div class="buttonDiv">
-							<s:url id="clearUrl" value="userManagement.action"></s:url>
-							<s:a href="%{clearUrl}">Clear</s:a>
 						</div><br/>
 					</div>
 				</div>

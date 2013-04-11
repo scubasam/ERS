@@ -9,7 +9,8 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<link rel="stylesheet" type="text/css" href="/ERS/styles/contacts.css">
 	<script type="text/javascript">
-		pageSetup("contacts");
+		page = "contacts";
+		pageSetup(page);
 	</script>
 </head>
 <body>

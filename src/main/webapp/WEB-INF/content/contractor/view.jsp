@@ -1,14 +1,22 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
- 
+
+<!doctype html>
 <html>
 <head>
-<title>View Contractor</title>
-<sx:head debug="true" cache="false" compressed="false" />
+	<title>View Contractor</title>
+	<sx:head debug="true" cache="false" compressed="false" />
+	<jsp:include page="/includes/decorator.jsp" />
+	<script type="text/javascript">
+		// style the nav bar
+		page = "contractors";
+		pageSetup(page);
+	</script>
 </head>
 <body>
+<div id="container">
  <jsp:include page="/includes/header.jsp" />
-
+<div id="content">
 <h2><s:property value="contractor.contractorName" /></h2>
 <h3>Contact Information</h3>
 <table id="contractor_contactInfo">
@@ -83,7 +91,8 @@
 <s:else>
 	No Vehicles Found...
 </s:else>
-
+</div>
+</div>
 <jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

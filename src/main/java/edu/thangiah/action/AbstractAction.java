@@ -14,6 +14,12 @@ import edu.thangiah.permission.RoleDao;
 import edu.thangiah.user.UserBo;
 import edu.thangiah.user.entity.User;
 
+/**
+ * AbstractAction serves as the foundation for all Action classes within the ERS framework.  Any classes wishing to utilize session
+ * and user authentication functionality must extend either this class, or one of its children.
+ * @author Kelly
+ *
+ */
 public abstract class AbstractAction extends ActionSupport implements Preparable{
 
 	private static final long serialVersionUID = 1L;
@@ -37,11 +43,11 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 	
 	@Autowired
 	protected UserBo userBo;
-    /**
-     * This method should be overridden by subclass actions that wish to require login.
-     * @return boolean
-     */
-
+	
+	/**
+	 * This method runs before execute() and is used for setting up the class for a given request.  This is where
+	 * user session/authentication information is initialized from the data 
+	 */
 	@Override
 	public void prepare() throws Exception {
 		this.clearErrors(); // Prevents errors from persisting accross multiple submits.

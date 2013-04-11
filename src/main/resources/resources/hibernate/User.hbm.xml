@@ -24,6 +24,10 @@
             <column name="ADMIN" />
         </property>
         
+        <property name="email" type="java.lang.String">
+            <column name="email" />
+        </property>
+        
         <set name="roles" table="user_role" lazy="false" cascade="save-update">
             <key>
                 <column name="user_id" />

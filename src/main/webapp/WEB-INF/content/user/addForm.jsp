@@ -1,12 +1,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
- 
+
+<!doctype html>
 <html>
 <head>
 <title>Add User</title>
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("users");
+		page = "users";
+		setCurrentPage(page);
 	</script>
 <s:head />
 </head>

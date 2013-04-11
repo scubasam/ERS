@@ -22,6 +22,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	@Override
     public String execute() throws Exception
     {
+		/*
 		if (maintenanceOrderDao == null || maintenanceOrder == null) 
 		{
             this.addActionError(DB_ERROR_MESSAGE);
@@ -32,7 +33,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 		maintenanceOrder.setVehicle(vehicle);
 		//LOGGER.debug("Adding new maintenance order: " + maintenanceOrder.toString());
 		maintenanceOrderDao.add(maintenanceOrder);
-		
+		*/
     	return SUCCESS;
     }
     
@@ -40,7 +41,17 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if( maintenanceOrder != null && vehicle != null )
     	{
-    		//placeholder
+    		requiredLong(maintenanceOrder.getId(), "maintenanceOrder.id");
+    		requiredString(maintenanceOrder.getRequester().toString(), "maintenanceOrder.requester");
+    		requiredString(maintenanceOrder.getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
+    		requiredString(maintenanceOrder.getScheduledDate().toString(), "maintenanceOrder.scheduleDate");
+    		requiredString(maintenanceOrder.getDetails(), "maintenanceOrder.details");
+    		requiredString(maintenanceOrder.getServiceTypeKey(), "maintenanceOrder.serviceTypeKey");
+    		requiredString(maintenanceOrder.getCost(), "maintenanceOrder.cost");    	
+    		requiredString(maintenanceOrder.getStatusKey(), "maintenanceOrder.statusKey");
+    		requiredString(maintenanceOrder.getVehicle().toString(), "maintenanceOrder.vehicle");
+    		requiredString(maintenanceOrder.getMaintenanceType(), "maintenanceOrder.maintenanceType");
+    	
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
@@ -85,15 +96,6 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 
 	public void setMaintenanceOrderDao(MaintenanceOrderDao maintenanceOrderDao) {
 		this.maintenanceOrderDao = maintenanceOrderDao;
-	}
-
-	
-	
-	
-	@Override
-	public void prepare() throws Exception {
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
