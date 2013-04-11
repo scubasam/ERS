@@ -9,7 +9,8 @@
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
 		// style the nav bar
-		setCurrentPage("shipments");
+		page = "shipments";
+		pageSetup(page);
 	</script>
 </head>
 
