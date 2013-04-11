@@ -9,7 +9,7 @@ public class DeleteAction extends ManagementController {
 			this.mode =  Modes.EDIT;
 			super.prepare();
 		}
-		
+		/*
 		
 		@Override
 	    public String execute(){
@@ -42,5 +42,5 @@ public class DeleteAction extends ManagementController {
 			this.runContactValidation(this.getEntity());
 	    }
 		
-	}
+	} */
 }
