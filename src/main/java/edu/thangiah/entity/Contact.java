@@ -146,4 +146,20 @@ public class Contact implements Serializable {
     public String toString(){
     	return this.firstName + " " + this.lastName;
     }
+
+	public void merge(Contact with) {
+		if( with != null ){
+	        this.firstName = with.firstName;
+	        this.lastName = with.lastName;
+	        this.middleInitial = with.middleInitial;
+	        this.emailAddress = with.emailAddress;
+	        this.streetAddress1 = with.streetAddress1;
+	        this.streetAddress2 = with.streetAddress2;
+	        this.city = with.city;
+	        this.state = with.state;
+	        this.zip = with.zip;
+	        this.primaryPhone = with.primaryPhone;
+	        this.workPhone = with.workPhone;
+		}
+	}
 }

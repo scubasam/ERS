@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.action.BaseManagementController;
+
 import edu.thangiah.dao.ContactDao;
 import edu.thangiah.entity.Contact;
 
@@ -19,6 +20,12 @@ public class ManagementController extends BaseManagementController<Contact>{
 	
 	@Autowired
 	protected ContactDao contactDao;
+	
+	@Override
+	public void prepare() throws Exception {
+		super.prepare();
+		this.initializeEntityList(contactDao);
+	}
 	
 	public String execute() {
         if (contactDao == null) {
@@ -35,9 +42,25 @@ public class ManagementController extends BaseManagementController<Contact>{
         if( !result.equals(SUCCESS) ){
 			return result;
 		}
+        
+        if( mode == Modes.EDIT ){
+        	result = this.initializeEntityById(contactDao, id);
+        }
+        if( !result.equals(SUCCESS) ){
+			return result;
+		}
+        
         LOGGER.debug("Contacts number = " + getContacts().size());
         return Action.SUCCESS;
     }
+	
+	public Contact getContact(){
+		return this.getEntity();
+	}
+	
+	public void setContact(Contact contact){
+		this.setEntity(contact);
+	}
 	
 	public List<Contact> getContacts() {
 		return this.getEntityList();
