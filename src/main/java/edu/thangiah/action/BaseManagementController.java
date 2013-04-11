@@ -27,23 +27,43 @@ public class BaseManagementController<Entity> extends ValidationAction{
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
-		
 		errors = null; // reset errors on each page load.
 		
 	}
 	
 	protected String initialize(){
+		if( this.id != 0 ){
+			mode = Modes.EDIT;
+		}
+		
 		if( mode == null ){
-			if( this.id != 0 ){
-				mode = Modes.EDIT;
-			}
-			
-			if( mode == null ){
-				mode = Modes.LIST; // default to list
-			}
+			mode = Modes.LIST; // default to list
 		}
 		
 		return SUCCESS;
+	}
+	
+	
+	protected Entity retrieveEntityById(AbstractDao<Entity> dao, long id){
+		if( id <= 0 ){
+			this.addActionError("Unable to initialize record");
+		}
+		
+		List<Entity> fromDb = dao.findById(id);
+		if( fromDb == null || fromDb.size() == 0 ){
+			entityNotFoundError();
+			return null;
+		}
+		
+		return fromDb.get(0);
+	}
+	
+	protected String initializeEntityById(AbstractDao<Entity> dao, long id){
+		this.setEntity(this.retrieveEntityById(dao, id));
+		if( this.entity != null )
+			return SUCCESS;
+		else
+			return ERROR;
 	}
 	
 	protected String initializeEntityList(AbstractDao<Entity> dao){

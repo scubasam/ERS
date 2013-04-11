@@ -84,15 +84,16 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
- 		<action name="addContactForm" class="baseAction">
-			<result>WEB-INF/content/contact/addForm.jsp</result>
+		<action name="addContact" class="addContactAction">
+			<result name="success" type="redirect">contactManagement.action</result>
+			<result name="input">WEB-INF/content/contact/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		<action name="addContact" class="addContactAction">
-			<result name="success" type="redirect">listAllContacts.action</result>
-			<result name="input">WEB-INF/content/contact/addForm.jsp</result>
+		<action name="updateContact" class="updateContactAction">
+			<result name="success" type="redirect">contactManagement.action</result>
+			<result name="input">WEB-INF/content/contact/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

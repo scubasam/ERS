@@ -7,11 +7,15 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="contactManagementAction" class="edu.thangiah.action.contact.ManagementController">
+	<bean id="contactManagementAction" class="edu.thangiah.action.contact.ManagementController" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
 	</bean>
 	
-	<bean id="addContactAction" class="edu.thangiah.action.contact.AddAction">
+	<bean id="addContactAction" class="edu.thangiah.action.contact.AddAction" scope="prototype">
+		<property name="contactDao" ref="contactDao" />
+	</bean>
+	
+	<bean id="updateContactAction" class="edu.thangiah.action.contact.UpdateAction" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
 	</bean>
  
