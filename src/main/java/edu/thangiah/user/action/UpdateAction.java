@@ -64,6 +64,11 @@ public class UpdateAction extends ManagementController{
     	if( user.getUsername() == null || user.getUsername().length() == 0 )
     		this.addFieldError("user.username", "Username is a required field.");
     	   	
+    	if( user.getEmail() != null && user.getEmail().length() > 0 ){
+    		// Email was entered.  validate it.
+    		this.validateEmail(user.getEmail(), "user.email");
+    	}
+    	
     	/*List<User> users = userBo.findByUsername(user.getUsername());
     	if( users.size() != 0 ){
     		this.addFieldError("user.username", "Invalid username.  Username doesn't exist.");
@@ -73,6 +78,7 @@ public class UpdateAction extends ManagementController{
 	private void mergeUser(User fromDb, User updated){
 		fromDb.setUsername(updated.getUsername());
 		fromDb.setAdmin(updated.isAdmin());
+		fromDb.setEmail(updated.getEmail());
 		processChangedRoles(fromDb, user);
 		
 	}

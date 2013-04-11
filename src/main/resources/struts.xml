@@ -78,9 +78,10 @@
 		
 		
 		<!-- Contact Actions -->
- 		<action name="listAllContacts" class="contactListAction">
- 			<result name="success">WEB-INF/content/contact/list.jsp</result>
+ 		<action name="contactManagement" class="contactManagementAction">
+ 			<result name="success">WEB-INF/content/contact/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="addContactForm" class="baseAction">

@@ -21,6 +21,7 @@ public class User implements Serializable {
     private String sessionId;
 	private String salt;
 	private String username;
+	private String email;
     private boolean admin;
     
     Set<Role> roles;
@@ -115,5 +116,13 @@ public class User implements Serializable {
 			return this.roles.contains(parsedRole);
 		}
 		return false;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

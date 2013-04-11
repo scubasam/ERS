@@ -30,6 +30,7 @@
 							<th>Session ID</th>
 							<th>Salt</th>
 							<th>Admin?</th>
+							<th>Email</th>
 						</tr>
 						
 						<s:iterator value="users">
@@ -44,6 +45,7 @@
 								<td><s:property value="sessionId" /></td>
 								<td><s:property value="salt" /></td>
 								<td><s:property value="admin" /></td>
+								<td><s:property value="email" /></td>
 								
 							</tr>
 						</s:iterator>
@@ -83,6 +85,7 @@
 						<s:form name="editForm" method="post" action="%{updateUser}">
 							<s:textfield name="user.username" label="User" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
+							<s:textfield name="user.email" label="Email" />
 							<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" value="defaultRoles" />
 						 
 						</s:form>
@@ -116,6 +119,7 @@
 		 
 							<s:textfield name="user.username" label="User" />
 							<s:password name="user.password" label="Password" />
+							<s:textfield name="user.email" label="Email" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
 							
 							<s:checkboxlist label="User Roles" list="roles" name="userRoles" />

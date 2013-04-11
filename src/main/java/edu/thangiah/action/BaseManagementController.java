@@ -1,11 +1,13 @@
 package edu.thangiah.action;
 
-import java.util.ArrayList;
+import java.util.List;
+
 
 import edu.thangiah.action.BaseManagementController.ErrorCode;
+import edu.thangiah.dao.AbstractDao;
 
 
-public class BaseManagementController extends ValidationAction{
+public class BaseManagementController<Entity> extends ValidationAction{
 
 	private static final long serialVersionUID = -2362751985753499059L;
 	
@@ -17,7 +19,10 @@ public class BaseManagementController extends ValidationAction{
 	
 	public enum ErrorCode {FATAL, ERROR};
 	
-	private ArrayList<Error> errors;
+	private List<Error> errors;
+	
+	private List<Entity> entityList;
+	private Entity entity;
 	
 	@Override
 	public void prepare() throws Exception {
@@ -39,6 +44,22 @@ public class BaseManagementController extends ValidationAction{
 		}
 		
 		return SUCCESS;
+	}
+	
+	protected String initializeEntityList(AbstractDao<Entity> dao){
+		if (dao == null) {
+            return ERROR;
+        }
+		entityList = dao.findAll();
+		return SUCCESS;
+	}
+	
+	protected List<Entity> getEntityList(){
+		return entityList;
+	}
+	
+	protected void setEntityList(List<Entity> list){
+		entityList = list;
 	}
 
 	public long getId() {
@@ -92,6 +113,14 @@ public class BaseManagementController extends ValidationAction{
 	
 	public String deleteSuccessfulMessage(){
 		return "User was successfully deleted.";
+	}
+
+	public Entity getEntity() {
+		return entity;
+	}
+
+	public void setEntity(Entity entity) {
+		this.entity = entity;
 	}
 }
 

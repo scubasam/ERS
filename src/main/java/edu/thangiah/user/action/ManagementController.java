@@ -10,7 +10,7 @@ import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.permission.Role;
 import edu.thangiah.user.entity.User;
 
-public class ManagementController extends BaseManagementController{
+public class ManagementController extends BaseManagementController<User>{
 	protected static final Logger LOGGER = Logger.getLogger(UserAction.class.getName());
 	private static final long serialVersionUID = -1725293630396874653L;
 	

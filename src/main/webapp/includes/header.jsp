@@ -18,7 +18,7 @@
 				<a class="navlink" id="nav_users" href="/ERS/userManagement.action">Users</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_contacts" href="/ERS/listAllContacts.action">Contacts</a>
+				<a class="navlink" id="nav_contacts" href="/ERS/contactManagement.action">Contacts</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_contractors" href="/ERS/listAllContractors.action">Contractors</a>

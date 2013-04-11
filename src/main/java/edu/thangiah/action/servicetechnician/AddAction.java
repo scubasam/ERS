@@ -15,7 +15,7 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	private static final long serialVersionUID = -1708978099566079365L;
 	private ServiceTechnician serviceTechnician;
 	private Contact contact;
-	private MaintenanceOrder maintenanceOrder;
+	//private MaintenanceOrder maintenanceOrder;
 	
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;

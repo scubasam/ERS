@@ -7,7 +7,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="contactListAction" class="edu.thangiah.action.contact.ListAction">
+	<bean id="contactManagementAction" class="edu.thangiah.action.contact.ManagementController">
 		<property name="contactDao" ref="contactDao" />
 	</bean>
 	
