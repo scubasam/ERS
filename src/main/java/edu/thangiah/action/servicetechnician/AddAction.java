@@ -49,7 +49,10 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if(serviceTechnician != null && contact != null )
     	{
-    		//placeholder
+    		requiredLong(serviceTechnician.getId(), "serviceTechnician.id");
+    		requiredString(serviceTechnician.getContact().toString(), "serviceTechnician.contact");
+    		requiredString(serviceTechnician.getSkillGrade(), "serviceTechnician.skillGrade");
+    		this.runContactValidation(contact);
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

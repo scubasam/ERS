@@ -50,12 +50,16 @@ public class AddAction extends LocationAction implements Preparable{
     	{
     		requiredString(location.getLocationType(), "location.locationType");
     		requiredString(location.getName(), "location.name");
-    		requiredString(contractor.getContractorName(), "contractor.name");
+    		requiredString(location.getStreetAddress1(), "location.streetAddress1");
+    		requiredString(location.getStreetAddress2(), "location.streetAddress2");
     		requiredString(location.getCity(), "location.city");
-        	//int longit=Integer.parseInt(location.getLongitude());
-        	//int lat = Integer.parseInt(location.getLatitude());
-    		//validateIntegerRange(lat, -90, 90, location.getLatitude());
-    		//validateIntegerRange(longit, -180, 180, location.getLongitude());
+    		requiredString(location.getZip(), "location.zip");
+    		requiredString(location.getRoadName(), "location.roadName");
+    		requiredString(location.getLatitude(), "location.latitude");
+    		requiredString(location.getLongitude(), "location.longitude");
+    		requiredString(location.getLocationType(), "location.locationType");
+    		requiredString(contractor.getContractorName(), "contractor.name");
+    		//requiredString(vehicle.getViewLink(), "vehicle.vehicles"); ?
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

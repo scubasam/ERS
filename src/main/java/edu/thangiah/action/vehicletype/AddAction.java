@@ -33,7 +33,20 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if(vehicleType != null)
     	{
-    		//placeholder
+    		requiredLong(vehicleType.getId(), "vehicleType.id");
+    		requiredString(vehicleType.getType(), "vehicleType.type");
+    		requiredString(vehicleType.getSubType(), "vehicleType.subType");
+    		requiredString(vehicleType.getDescription(), "vehicleType.description");
+    		requiredString(vehicleType.getMake(), "vehicleType.make");
+    		requiredString(vehicleType.getModel(), "vehicleType.model");
+    		requiredInt(vehicleType.getMaximumWeight(), "vehicleType.maximumWeight");
+    		requiredInt(vehicleType.getMinimumWeight(), "vehicleType.minimumWeight");
+    		requiredInt(vehicleType.getMaximumRange(), "vehicleType.maximumRange");
+    		requiredString(vehicleType.getCapacity(), "vehicleType.capacity");
+    		requiredString(vehicleType.getRestrictions(), "vehicleType.restrictions");
+    		requiredInt(vehicleType.getHeight(), "vehicleType.height");
+    		requiredInt(vehicleType.getEmptyWeight(), "vehicleType.emptyWeight");
+    		requiredInt(vehicleType.getLength(), "vehicleType.length");
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
