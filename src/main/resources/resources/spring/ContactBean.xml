@@ -18,5 +18,9 @@
 	<bean id="updateContactAction" class="edu.thangiah.action.contact.UpdateAction" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
 	</bean>
+	
+	<bean id="deleteContactAction" class="edu.thangiah.action.contact.DeleteAction" scope="prototype">
+		<property name="contactDao" ref="contactDao" />
+	</bean>
  
 </beans>

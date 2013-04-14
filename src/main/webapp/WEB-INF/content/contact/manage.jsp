@@ -67,59 +67,58 @@
 					</tbody>
 				</table>
 			</div>
-			
-			<s:if test="getMode()=='edit'">
-				<div id="panel2">
-					<s:url id="updateContact" value="updateContact.action">
-						<s:param name="id" value="id" />
-					</s:url>
-					
-					<div id="editContainer">
-						<s:form name="editForm" action="%{updateContact}" id="contactForm">
-							<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
-						</s:form>
-					</div>
-					
-					<div id="buttonContainer">
-						<div id="modeDiv">
-							<h3 id="modeLabel"></h3>
+			<div id="panel2">
+				<jsp:include page="/includes/error_header.jsp" />
+				<s:if test="getMode()=='edit'">
+						<s:url id="updateContact" value="updateContact.action">
+							<s:param name="id" value="id" />
+						</s:url>
+						
+						<div id="editContainer">
+							<s:form name="editForm" action="%{updateContact}" id="contactForm">
+								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+							</s:form>
 						</div>
-						<div class="buttonDiv">
-							<a href="javascript:submitForm(editForm);">Update</a>
-						</div><br/>
-						<div class="buttonDiv">
-							<s:url id="deleteUrl" value="deleteContact.action">
-								<s:param name="id" value="id" />
-							</s:url>
-							<s:a href="%{deleteUrl}">Delete</s:a>
-						</div><br/>
-						<div class="buttonDiv">
-							<s:url id="clearUrl" value="contactManagement.action"></s:url>
-							<s:a href="%{clearUrl}">Clear</s:a>
-						</div><br/>
-					</div>
-				</div>
-			</s:if>
-			
-			<s:else>
-				<div id="panel2">
-					<div id="editContainer">
-						<s:form name="addForm" action="addContact.action" id="contactForm">
-							<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
-						</s:form>
-					</div>
-					
-					<div id="buttonContainer">
-						<div id="modeDiv">
-							<h3 id="modeLabel"></h3>
+						
+						<div id="buttonContainer">
+							<div id="modeDiv">
+								<h3 id="modeLabel"></h3>
+							</div>
+							<div class="buttonDiv">
+								<a href="javascript:submitForm(editForm);">Update</a>
+							</div><br/>
+							<div class="buttonDiv">
+								<s:url id="deleteUrl" value="deleteContact.action">
+									<s:param name="id" value="id" />
+								</s:url>
+								<s:a href="%{deleteUrl}">Delete</s:a>
+							</div><br/>
+							<div class="buttonDiv">
+								<s:url id="clearUrl" value="contactManagement.action"></s:url>
+								<s:a href="%{clearUrl}">Clear</s:a>
+							</div><br/>
 						</div>
-						<div class="buttonDiv">
-							<a href="javascript:submitForm(addForm);">Create</a>
-						</div><br/>
-					</div>
-				</div>
-			</s:else>
-			
+	
+				</s:if>
+				
+				<s:else>
+						<div id="editContainer">
+							<s:form name="addForm" action="addContact.action" id="contactForm">
+								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+							</s:form>
+						</div>
+						
+						<div id="buttonContainer">
+							<div id="modeDiv">
+								<h3 id="modeLabel"></h3>
+							</div>
+							<div class="buttonDiv">
+								<a href="javascript:submitForm(addForm);">Create</a>
+							</div><br/>
+						</div>
+					
+				</s:else>
+			</div>
 		</s:if>
 		<s:else>
 			No Contacts Found...

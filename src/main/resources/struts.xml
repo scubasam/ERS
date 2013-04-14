@@ -97,6 +97,14 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
+		
+		<action name="deleteContact" class="deleteContactAction">
+			<result name="success" type="redirect">contactManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/contact/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
 		 
 		 <action name="viewContact" class="contactViewAction">
  			<result name="success">WEB-INF/content/contact/view.jsp</result>
@@ -105,7 +113,7 @@
  		
  		
  		<!-- Contractor Actions -->
- 		<action name="manageContractors" class="contractorManagement">
+ 		<action name="contractorManagement" class="contractorManagement">
  			<result name="success">WEB-INF/content/contractor/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
@@ -114,6 +122,7 @@
  		<action name="viewContractor" class="contractorViewAction">
  			<result name="success">WEB-INF/content/contractor/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="addContractorForm" class="baseAction">

@@ -16,16 +16,16 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="contractorManagement" class="edu.thangiah.action.contractor.ManagementController">
+	<bean id="contractorManagement" class="edu.thangiah.action.contractor.ManagementController" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
 	</bean>
 	
-	<bean id="addContractorAction" class="edu.thangiah.action.contractor.AddAction">
+	<bean id="addContractorAction" class="edu.thangiah.action.contractor.AddAction" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="contactDao" ref="contactDao" />
 	</bean>
 	
-	<bean id="contractorViewAction" class="edu.thangiah.action.contractor.ViewAction">
+	<bean id="contractorViewAction" class="edu.thangiah.action.contractor.ViewAction" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="locationDao" ref="locationDao" />
 		<property name="vehicleDao" ref="vehicleDao" />

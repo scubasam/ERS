@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.dao.ContractorDao;
+import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
 
 
@@ -24,6 +25,14 @@ public class ManagementController extends BaseManagementController<Contractor>{
 	@Autowired
 	protected ContractorDao contractorDao;
 	
+	protected Contact contact;
+	
+	@Override
+	public void prepare() throws Exception {
+		super.prepare();
+		this.initializeEntityList(contractorDao);
+	}
+	
 	public String execute() {
         if (contractorDao == null) {
             return Action.ERROR;
@@ -34,12 +43,17 @@ public class ManagementController extends BaseManagementController<Contractor>{
 			return result;
 		}
         
-        LOGGER.debug("Get all contacts");
-        result = initializeEntityList(contractorDao);
-        if( !result.equals(SUCCESS) ){
-			return result;
-		}
-        LOGGER.debug("Contacts number = " + getContractors().size());
+        if( mode == Modes.EDIT ){
+        	result = this.initializeEntityById(contractorDao, id);
+        	if( this.getEntity() != null ){
+    			contact = this.getEntity().getContact();
+    		}
+        	if( !result.equals(SUCCESS) ){
+    			return result;
+    		}
+        }
+        
+        LOGGER.debug("Contractors number = " + getContractors().size());
         return Action.SUCCESS;
     }
 	
@@ -56,5 +70,27 @@ public class ManagementController extends BaseManagementController<Contractor>{
 	}
 	public void setContractorDao(ContractorDao contractorDao) {
 		this.contractorDao = contractorDao;
+	}
+	
+	/**
+	 * @return the contact
+	 */
+	public Contact getContact() {
+		return contact;
+	}
+
+	/**
+	 * @param contact the contact to set
+	 */
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+	
+	public Contractor getContractor(){
+		return this.getEntity();
+	}
+	
+	public void setContractor(Contractor contractor){
+		this.setEntity(contractor);
 	}
 }

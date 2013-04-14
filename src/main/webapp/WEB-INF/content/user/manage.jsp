@@ -52,90 +52,68 @@
 					</table>
 				</div>
 			</s:if>
+			<div id="panel2">
+				<jsp:include page="/includes/error_header.jsp" />
 			
-			<s:if test="isError">
-				<s:property value="errorMessage" />
-			</s:if>
-			
-			<s:if test="hasActionErrors()">
-			   <div class="errors">
-			      <s:actionerror/>
-			   </div>
-			</s:if>
-			
-			<s:if test="hasActionMessages()">
-			   <div class="welcome">
-			      <s:actionmessage/>
-			   </div>
-			</s:if>
-			
-			<s:if test="deleteSuccessful()">
-				<div class="welcome">
-			     	<s:property value="deleteSuccessfulMessage()" />
-			   </div>
-			</s:if>
-			
-			<s:if test="getMode()=='edit'">
-				<div id="panel2">
-					<s:url id="updateUser" value="updateUser.action">
-						<s:param name="id" value="id" />
-					</s:url>
-					
-					<div id="editContainer">
-						<s:form name="editForm" method="post" action="%{updateUser}">
-							<s:textfield name="user.username" label="User" />
-							<s:checkbox name="user.admin" label="Is Admin?" />
-							<s:textfield name="user.email" label="Email" />
-							<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" value="defaultRoles" />
-						 
-						</s:form>
-					</div>
-					
-					<div id="buttonContainer">
-						<div id="modeDiv">
-							<h3 id="modeLabel"></h3>
+				<s:if test="getMode()=='edit'">
+						<s:url id="updateUser" value="updateUser.action">
+							<s:param name="id" value="id" />
+						</s:url>
+						
+						<div id="editContainer">
+							<s:form name="editForm" method="post" action="%{updateUser}">
+								<s:textfield name="user.username" label="User" />
+								<s:checkbox name="user.admin" label="Is Admin?" />
+								<s:textfield name="user.email" label="Email" />
+								<s:checkboxlist label="User Roles" list="rolesStr" name="userRoles" value="defaultRoles" />
+							 
+							</s:form>
 						</div>
-						<div class="buttonDiv">
-							<a href="javascript:submitForm(editForm);">Update</a>
-						</div><br/>
-						<div class="buttonDiv">
-							<s:url id="deleteUrl" value="deleteUser.action">
-								<s:param name="id" value="id" />
-							</s:url>
-							<s:a href="%{deleteUrl}">Delete</s:a>
-						</div><br/>
-						<div class="buttonDiv">
-							<s:url id="clearUrl" value="userManagement.action"></s:url>
-							<s:a href="%{clearUrl}">Clear</s:a>
-						</div><br/>
-					</div>
-				</div>
-			</s:if>
-			
-			<s:else>
-				<div id="panel2">
-					<div id="editContainer">
-						<s:form name="addForm" method="post" action="addUser.action">
-		 
-							<s:textfield name="user.username" label="User" />
-							<s:password name="user.password" label="Password" />
-							<s:textfield name="user.email" label="Email" />
-							<s:checkbox name="user.admin" label="Is Admin?" />
-							
-							<s:checkboxlist label="User Roles" list="roles" name="userRoles" />
-						</s:form>
-					</div>
-					
-					<div id="buttonContainer">
-						<div id="modeDiv">
-							<h3 id="modeLabel"></h3>
+						
+						<div id="buttonContainer">
+							<div id="modeDiv">
+								<h3 id="modeLabel"></h3>
+							</div>
+							<div class="buttonDiv">
+								<a href="javascript:submitForm(editForm);">Update</a>
+							</div><br/>
+							<div class="buttonDiv">
+								<s:url id="deleteUrl" value="deleteUser.action">
+									<s:param name="id" value="id" />
+								</s:url>
+								<s:a href="%{deleteUrl}">Delete</s:a>
+							</div><br/>
+							<div class="buttonDiv">
+								<s:url id="clearUrl" value="userManagement.action"></s:url>
+								<s:a href="%{clearUrl}">Clear</s:a>
+							</div><br/>
 						</div>
-						<div class="buttonDiv">
-							<a href="javascript:submitForm(addForm);">Create</a>
-						</div><br/>
-					</div>
-				</div>
-			</s:else>
+				</s:if>
+				
+				<s:else>
+						<div id="editContainer">
+							<s:form name="addForm" method="post" action="addUser.action">
+			 
+								<s:textfield name="user.username" label="User" />
+								<s:password name="user.password" label="Password" />
+								<s:textfield name="user.email" label="Email" />
+								<s:checkbox name="user.admin" label="Is Admin?" />
+								
+								<s:checkboxlist label="User Roles" list="roles" name="userRoles" />
+							</s:form>
+						</div>
+						
+						<div id="buttonContainer">
+							<div id="modeDiv">
+								<h3 id="modeLabel"></h3>
+							</div>
+							<div class="buttonDiv">
+								<a href="javascript:submitForm(addForm);">Create</a>
+							</div><br/>
+						</div>
+				
+				</s:else>
+			</div>
 		</div>
 	</div>
 	<jsp:include page="/includes/footer.jsp" />
