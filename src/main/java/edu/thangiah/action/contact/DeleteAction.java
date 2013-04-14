@@ -1,46 +1,42 @@
 package edu.thangiah.action.contact;
 
-public class DeleteAction extends ManagementController {
+import org.springframework.dao.DataIntegrityViolationException;
 
-		private static final long serialVersionUID = 4634172821230672694L;
+import edu.thangiah.entity.Contact;
 
-		@Override
-		public void prepare() throws Exception {
-			this.mode =  Modes.EDIT;
-			super.prepare();
-		}
-		/*
-		
-		@Override
-	    public String execute(){
-			// Errors could be thrown by the ManagementController prepare methods.
-	    	if( this.hasControllerErrors() ){
-	    		return ERROR;
-	    	}
-	    	
-	    	Contact fromDb = this.retrieveEntityById(contactDao, id);
-	    	if( fromDb == null ){
-	    		this.addActionError("This contact does not exist.  Please try again.");
-	    		return INPUT;
-	    	}
-	    	
-	    	Contact fromForm = this.getEntity();
-	    	if( fromForm == null ){
-	    		this.addActionError("The form data could not be retrieved from the form.  Please try again.");
-	    		return INPUT;
-	    	}
-	    	
-	    	fromDb.merge(fromForm);
-	    	contactDao.update(fromDb);
-	    	
-	    	return SUCCESS;
-	    }
-
-
-		@Override
-		public void validate(){
-			this.runContactValidation(this.getEntity());
-	    }
-		
-	} */
+	@Override
+	public void prepare() throws Exception {
+		this.mode = Modes.DELETE;
+		super.prepare();
+	}
+	
+	
+	@Override
+    public String execute(){
+		// Errors could be thrown by the ManagementController prepare methods.
+    	if( this.hasControllerErrors() ){
+    		return ERROR;
+    	}
+    	
+    	if( id <= 0 ){
+    		this.addActionError("Must specify which Contact you would like to delete.");
+    		return INPUT;
+    	}
+    	
+    	Contact fromDb = this.retrieveEntityById(contactDao, id);
+    	if( fromDb == null ){
+    		this.addActionError("This contact does not exist.  Please try again.");
+    		return INPUT;
+    	}
+    	
+    	try{
+    		contactDao.delete(fromDb);
+    	}
+    	catch( Exception e ){
+    		this.addActionError("A contractor exists which is connected to this contact information.  Please delete the contractor first.");
+    		return INPUT;
+    	}
+    	
+    	return SUCCESS;
+    }
 }

@@ -37,18 +37,12 @@ public class ManagementController extends BaseManagementController<Contact>{
 			return result;
 		}
         
-        LOGGER.debug("Get all contacts");
-        result = initializeEntityList(contactDao);
-        if( !result.equals(SUCCESS) ){
-			return result;
-		}
-        
         if( mode == Modes.EDIT ){
         	result = this.initializeEntityById(contactDao, id);
+        	if( !result.equals(SUCCESS) ){
+    			return result;
+    		}
         }
-        if( !result.equals(SUCCESS) ){
-			return result;
-		}
         
         LOGGER.debug("Contacts number = " + getContacts().size());
         return Action.SUCCESS;
