@@ -3,7 +3,10 @@ package edu.thangiah.action.contact;
 import org.springframework.dao.DataIntegrityViolationException;
 
 import edu.thangiah.entity.Contact;
+import edu.thangiah.entity.Contractor;
 
+public class DeleteAction extends ManagementController
+{
 	@Override
 	public void prepare() throws Exception {
 		this.mode = Modes.DELETE;
@@ -31,6 +34,10 @@ import edu.thangiah.entity.Contact;
     	
     	try{
     		contactDao.delete(fromDb);
+    		if(fromDb !=null)
+    		{
+    			this.addActionError("A contractor exists which is connected to this contact information. Please delete the contractor first");
+    		}
     	}
     	catch( Exception e ){
     		this.addActionError("A contractor exists which is connected to this contact information.  Please delete the contractor first.");

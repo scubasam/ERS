@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.Action;
 import edu.thangiah.action.BaseManagementController;
 
 import edu.thangiah.dao.ContactDao;
+import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.entity.Contact;
 
 
@@ -20,6 +21,9 @@ public class ManagementController extends BaseManagementController<Contact>{
 	
 	@Autowired
 	protected ContactDao contactDao;
+	
+	@Autowired
+	protected ContractorDao contractorDao;
 	
 	@Override
 	public void prepare() throws Exception {
@@ -69,5 +73,15 @@ public class ManagementController extends BaseManagementController<Contact>{
 	}
 	public void setContactDao(ContactDao contactDao) {
 		this.contactDao = contactDao;
+	}
+	
+	public void setContractorDao(ContractorDao contractorDao)
+	{
+		this.contractorDao = contractorDao;
+	}
+	
+	public ContractorDao getContractorDao()
+	{
+		return contractorDao;
 	}
 }

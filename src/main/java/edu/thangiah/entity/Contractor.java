@@ -104,4 +104,9 @@ public class Contractor extends AbstractEntity implements Serializable {
 	public String toString(){
 		return contractorName;
 	}
+
+	public void merge(Contractor with) {
+			this.contractorName = with.contractorName;
+			this.contact = with.contact;
+	}
 }
