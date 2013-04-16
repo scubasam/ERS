@@ -24,7 +24,7 @@
 				<a class="navlink" id="nav_contractors" href="/ERS/contractorManagement.action">Contractors</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_locations" href="/ERS/listAllLocations.action">Locations</a>
+				<a class="navlink" id="nav_locations" href="/ERS/locationManagement.action">Locations</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_vehicles" href="/ERS/listAllVehicles.action">Vehicles</a>

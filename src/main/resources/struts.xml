@@ -140,9 +140,10 @@
  		
  		
  		<!-- Location Actions -->
- 		<action name="listAllLocations" class="locationListAction">
- 			<result name="success">WEB-INF/content/location/list.jsp</result>
+ 		<action name="locationManagement" class="locationManagementAction">
+ 			<result name="success">WEB-INF/content/location/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		 <action name="viewLocation" class="locationViewAction">
