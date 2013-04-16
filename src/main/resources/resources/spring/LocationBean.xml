@@ -27,4 +27,8 @@
 	<bean id="locationViewAction" class="edu.thangiah.action.location.ViewAction">
 	</bean>
 	
+	<bean id="locationManagementAction" class="edu.thangiah.action.location.ManagementController" scope="prototype">
+		<property name="locationDao" ref="locationDao" />
+	</bean>
+	
 </beans>
