@@ -89,6 +89,7 @@ public class AuthenticationInterceptor implements Interceptor {
 	private String validateLogin(String sessionId)
 			throws Exception {
 		User user;
+		
 		List<User> users = userBo.findBySessionId(sessionId);
 		if( users == null || users.size() != 1 ){
 			currentSession.put(AbstractAction.SESSION_ID_KEY, null);

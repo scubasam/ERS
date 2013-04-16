@@ -1,12 +1,16 @@
 package edu.thangiah.action.contact;
 
-import org.springframework.dao.DataIntegrityViolationException;
 
 import edu.thangiah.entity.Contact;
-import edu.thangiah.entity.Contractor;
 
 public class DeleteAction extends ManagementController
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5049171011473675910L;
+
+
 	@Override
 	public void prepare() throws Exception {
 		this.mode = Modes.DELETE;

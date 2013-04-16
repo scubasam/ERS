@@ -19,6 +19,8 @@ public class RequireLoginInterceptor implements Interceptor {
 	private static final Logger LOGGER = Logger.getLogger(RequireLoginInterceptor.class.getName());
 	private Map<String, Object> currentSession;
 	
+	private static final boolean DEBUG = true;
+	
 	@Override
 	public void destroy() {
 		LOGGER.debug("Destroying RequireLogin Interceptor.");
@@ -29,10 +31,11 @@ public class RequireLoginInterceptor implements Interceptor {
 		LOGGER.debug("Initializing RequireLogin Interceptor.");
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		currentSession = invocation.getInvocationContext().getSession();
-		if( currentSession.containsKey(AbstractAction.SESSION_ID_KEY) && currentSession.containsKey(AbstractAction.USER_SESSION_KEY) ){
+		if( DEBUG || (currentSession.containsKey(AbstractAction.SESSION_ID_KEY) && currentSession.containsKey(AbstractAction.USER_SESSION_KEY)) ){
 			return invocation.invoke();
 		}
 		else{

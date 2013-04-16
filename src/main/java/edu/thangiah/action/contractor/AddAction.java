@@ -21,7 +21,9 @@ public class AddAction extends ManagementController implements Preparable{
         }
 		
 		LOGGER.debug("Adding new contact: " + this.getEntity().toString());
-		//contactDao.add(this.getEntity());
+		contactDao.add(contact);
+		this.getEntity().setContact(contact);
+		contractorDao.add(this.getEntity());
 		
     	return SUCCESS;
     }

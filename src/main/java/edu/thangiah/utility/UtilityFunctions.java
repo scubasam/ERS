@@ -47,12 +47,22 @@ public class UtilityFunctions {
 	
 	
 	public static boolean validatePhone(final String phone){
-		if( phone != null ){
+		/*if( phone != null ){
 			Pattern pattern = Pattern.compile(PHONE_PATTERN);
 			Matcher matcher = pattern.matcher(phone);
 			return matcher.matches();
 		}
-		return false;
+		return false;*/
+		String parsedPhone = phone.replace("(", "");
+		parsedPhone = parsedPhone.replace(")", "");
+		parsedPhone = parsedPhone.replace("-", "");
+		parsedPhone = parsedPhone.replace(" ", "");
+		
+		if( parsedPhone.length() < 10 || parsedPhone.length() > 11 ){
+			return false;
+		}
+		
+		return true;
 	}
 	
 	

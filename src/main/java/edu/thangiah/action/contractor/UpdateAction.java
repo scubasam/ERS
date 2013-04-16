@@ -22,7 +22,7 @@ public class UpdateAction extends ManagementController{
     	
     	Contractor fromDb = this.retrieveEntityById(contractorDao, id);
     	if( fromDb == null ){
-    		this.addActionError("This contact does not exist.  Please try again.");
+    		this.addActionError("This contractor does not exist.  Please try again.");
     		return INPUT;
     	}
     	

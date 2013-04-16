@@ -1,16 +1,15 @@
 package edu.thangiah.action.contractor;
 
-import org.springframework.dao.DataIntegrityViolationException;
+
+import java.util.List;
 
 import edu.thangiah.entity.Contractor;
+import edu.thangiah.entity.Driver;
 
 public class DeleteAction extends ManagementController
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
+	private static final long serialVersionUID = 8689202186518590230L;
 
 	@Override
 	public void prepare() throws Exception {
@@ -27,13 +26,13 @@ public class DeleteAction extends ManagementController
     	}
     	
     	if( id <= 0 ){
-    		this.addActionError("Must specify which Contact you would like to delete.");
+    		this.addActionError("Must specify which contractor you would like to delete.");
     		return INPUT;
     	}
     	
     	Contractor fromDb = this.retrieveEntityById(contractorDao, id);
     	if( fromDb == null ){
-    		this.addActionError("This contact does not exist.  Please try again.");
+    		this.addActionError("This contractor does not exist.  Please try again.");
     		return INPUT;
     	}
     	
@@ -41,7 +40,8 @@ public class DeleteAction extends ManagementController
     		contractorDao.delete(fromDb);
     	}
     	catch( Exception e ){
-    		this.addActionError("Contractor delete failed. This should never happen");
+    		this.addActionError("Drivers, Locations, or Vehicles exist that are connected to this contractor.  It cannot be deleted.");
+    		
     		return INPUT;
     	}
     	

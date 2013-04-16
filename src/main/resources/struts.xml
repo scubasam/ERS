@@ -124,16 +124,10 @@
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
- 		
- 		<action name="addContractorForm" class="baseAction">
-			<result>WEB-INF/content/contractor/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
 		
 		<action name="addContractor" class="addContractorAction">
-			<result name="success" type="redirect">listAllContractors.action</result>
-			<result name="input">WEB-INF/content/contractor/addForm.jsp</result>
+			<result name="success" type="redirect">contractorManagement.action</result>
+			<result name="input">WEB-INF/content/contractor/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

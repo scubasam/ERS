@@ -11,6 +11,8 @@ public class BaseManagementController<Entity> extends ValidationAction{
 
 	private static final long serialVersionUID = -2362751985753499059L;
 	
+	protected static final String CONFIRM = "confirm";
+	
 	protected long id; // used for editing specific records.
 	protected String deleted;
 	

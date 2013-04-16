@@ -2,7 +2,7 @@
  
 <html>
 <head>
-<title>Add Contractor</title>
+<title>Confirm Delete Contractor</title>
 <s:head />
 <jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">

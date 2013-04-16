@@ -29,6 +29,7 @@ public class Contractor extends AbstractEntity implements Serializable {
     protected Long id = null;
     private String contractorName = null;
     private Contact contact = null;
+    private Set<Driver> drivers = null;
     private Set<Location> locations = null;
     private Set<Vehicle> vehicles = null;
 
