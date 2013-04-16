@@ -3,25 +3,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
- 	<bean id="contractorDao" class="edu.thangiah.dao.ContractorDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
- 	
-	<bean id="vehicleDao" class="edu.thangiah.dao.VehicleDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-
-	<bean id="locationDao" class="edu.thangiah.dao.LocationDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
  	
 	<bean id="locationManagementAction" class="edu.thangiah.action.location.ManagementController" scope="prototype">
 		<property name="locationDao" ref="locationDao" />
+		<property name="contractorDao" ref="contractorDao" />
 	</bean>
  	
  	<bean id="addLocationAction" class="edu.thangiah.action.location.AddAction" scope="prototype">
+ 		<property name="locationDao" ref="locationDao" />
 		<property name="contractorDao" ref="contractorDao" />
-		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
  	
 	<bean id="deleteLocationAction" class="edu.thangiah.action.location.DeleteAction" scope="prototype">

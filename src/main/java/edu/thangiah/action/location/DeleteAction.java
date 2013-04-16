@@ -40,11 +40,11 @@ public class DeleteAction extends ManagementController
     		locationDao.delete(fromDb);
     		if(fromDb !=null)
     		{
-    			this.addActionError("A dependency exists and is prohibiting this deletion");
+    			this.addActionError("A dependency exists and is prohibiting this deletion.");
     		}
     	}
     	catch( Exception e ){
-    		this.addActionError("A dependency exists and is prohibiting this deletion");
+    		this.addActionError("A dependency exists and is prohibiting this deletion.");
     		return INPUT;
     	}
     	

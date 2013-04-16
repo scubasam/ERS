@@ -11,7 +11,6 @@ import edu.thangiah.entity.Vehicle;
 public class AddAction extends ManagementController implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;
-	private Location location;
 	private Contractor contractor;
 	@SuppressWarnings("unused")
 	private Vehicle vehicle;
@@ -28,7 +27,7 @@ public class AddAction extends ManagementController implements Preparable{
     {
 		if(this.getEntity().getContractor() == null)
 		{
-			addActionError("Contractor cannot be null");
+			addActionError("Contractor cannot be null.");
 		}
 		this.getEntity().setContractor(contractor);
 		locationDao.add(this.getEntity());
@@ -38,19 +37,19 @@ public class AddAction extends ManagementController implements Preparable{
     // called automatically
     public void validate()
     {	
-    	if( location != null && contractor != null )
+    	if( this.getEntity() != null && contractorId != null )
     	{
-    		requiredString(location.getLocationType(), "location.locationType");
-    		requiredString(location.getName(), "location.name");
-    		requiredString(location.getStreetAddress1(), "location.streetAddress1");
-    		requiredString(location.getStreetAddress2(), "location.streetAddress2");
-    		requiredString(location.getCity(), "location.city");
-    		requiredString(location.getZip(), "location.zip");
-    		requiredString(location.getRoadName(), "location.roadName");
-    		requiredString(location.getLatitude(), "location.latitude");
-    		requiredString(location.getLongitude(), "location.longitude");
-    		requiredString(location.getLocationType(), "location.locationType");
-    		requiredString(contractor.getContractorName(), "contractor.name");
+    		requiredString(this.getEntity().getLocationType(), "location.locationType");
+    		requiredString(this.getEntity().getName(), "location.name");
+    		requiredString(this.getEntity().getStreetAddress1(), "location.streetAddress1");
+    		requiredString(this.getEntity().getStreetAddress2(), "location.streetAddress2");
+    		requiredString(this.getEntity().getCity(), "location.city");
+    		requiredString(this.getEntity().getZip(), "location.zip");
+    		requiredString(this.getEntity().getRoadName(), "location.roadName");
+    		requiredString(this.getEntity().getLatitude(), "location.latitude");
+    		requiredString(this.getEntity().getLongitude(), "location.longitude");
+    		requiredString(this.getEntity().getLocationType(), "location.locationType");
+    		requiredString(this.getContractorId(), "contractorId");
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
@@ -63,7 +62,7 @@ public class AddAction extends ManagementController implements Preparable{
 	 */
 	public Location getLocation()
 	{
-		return location;
+		return this.getEntity();
 	}
 
 	/**
@@ -71,7 +70,7 @@ public class AddAction extends ManagementController implements Preparable{
 	 */
 	public void setLocation(Location location)
 	{
-		this.location = location;
+		this.setEntity(location);
 	}
 	
 	/**

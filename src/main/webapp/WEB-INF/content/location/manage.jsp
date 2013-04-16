@@ -74,6 +74,7 @@
 
 				
 				<div id="panel2">
+				<jsp:include page="/includes/error_header.jsp" />
 				<s:if test="getMode()=='edit'">
 					
 						<s:url id="updateLocation" value="updateLocation.action">
@@ -93,7 +94,7 @@
 								<s:textfield name="location.Latitude" label="Latitude" />
 								<s:textfield name="location.Longitude" label="Longitude" />	
 								<s:textfield name="location.Type" label="Location Type" />
-								<s:textfield name="contractor.contractorName" label="ContractorName" />
+								<s:select name="contractorId" list="contractorList" listKey="id" listValue="contractorName" />
 								<s:textfield name="vehicle.vehicles" label="Vehicles at Location" />								
 		
 							</s:form>
@@ -133,7 +134,7 @@
 								<s:textfield name="location.Latitude" label="Latitude" />
 								<s:textfield name="location.Longitude" label="Longitude" />	
 								<s:textfield name="location.Type" label="Location Type" />
-								<s:textfield name="contractor.contractorName" label="ContractorName" />
+								<s:select label="Contractor" name="contractorId" list="contractorList" listKey="id" listValue="contractorName" />
 								<s:textfield name="vehicle.vehicles" label="Vehicles at Location" />								
 								
 								<s:submit type="button" name="Add Location" />				

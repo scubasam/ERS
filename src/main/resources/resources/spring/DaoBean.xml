@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="contactDao" class="edu.thangiah.dao.ContactDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="contractorDao" class="edu.thangiah.dao.ContractorDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="driverDao" class="edu.thangiah.dao.DriverDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="locationDao" class="edu.thangiah.dao.LocationDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="maintenanceOrderDao" class="edu.thangiah.dao.MaintenanceOrderDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+ 	
+ 	<bean id="serviceTechnicianDao" class="edu.thangiah.dao.ServiceTechnicianDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+ 	
+ 	<bean id="shipmentDao" class="edu.thangiah.dao.ShipmentDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+ 	
+ 	
+ 	<bean id="userBo" class="edu.thangiah.user.UserBoImpl">
+		<property name="userDao" ref="userDao" />
+	</bean>
+ 
+	<bean id="userDao" class="edu.thangiah.user.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="roleDao" class="edu.thangiah.permission.RoleDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="permissionDao" class="edu.thangiah.permission.PermissionDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="vehicleDao" class="edu.thangiah.dao.VehicleDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+ 	
+ 	<bean id="vehicleTypeDao" class="edu.thangiah.dao.VehicleTypeDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+		
+</beans>
