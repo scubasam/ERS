@@ -14,10 +14,10 @@
 	</script>
 </head>
 <body>
-	<div id="container">
+<div id="container">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Location Management</h2>
+			<h2>Location List</h2>
 			
 			<s:if test="locations.size > 0">
 				<div id="scrollContainer">
@@ -95,8 +95,7 @@
 								<s:textfield name="location.Type" label="Location Type" />
 								<s:textfield name="contractor.contractorName" label="ContractorName" />
 								<s:textfield name="vehicle.vehicles" label="Vehicles at Location" />								
-								
-								<s:submit type="button" name="Add Location" />				
+		
 							</s:form>
 						</div>
 						

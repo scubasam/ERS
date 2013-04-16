@@ -10,22 +10,20 @@ import com.opensymphony.xwork2.Action;
 import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.LocationDao;
-import edu.thangiah.entity.Contact;
-import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
 
 public class ManagementController extends BaseManagementController<Location>{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -1194255798482840950L;
 
 	protected static final Logger LOGGER = Logger.getLogger(ManagementController.class.getName());
 	
 	@Autowired
 	protected LocationDao locationDao;
+	
+	@Autowired
+	protected ContractorDao contractorDao;
 	
 	@Override
 	public void prepare() throws Exception {
@@ -50,7 +48,7 @@ public class ManagementController extends BaseManagementController<Location>{
     		}
         }
         
-        LOGGER.debug("Contractors number = " + getLocations().size());
+        LOGGER.debug("Locations number = " + getLocations().size());
         return Action.SUCCESS;
     }
 	

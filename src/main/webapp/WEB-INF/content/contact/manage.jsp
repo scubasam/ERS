@@ -67,6 +67,9 @@
 					</tbody>
 				</table>
 			</div>
+			
+			
+			
 			<div id="panel2">
 				<jsp:include page="/includes/error_header.jsp" />
 				<s:if test="getMode()=='edit'">

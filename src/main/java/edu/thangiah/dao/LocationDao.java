@@ -2,7 +2,6 @@ package edu.thangiah.dao;
 
 import java.util.List;
 
-
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 

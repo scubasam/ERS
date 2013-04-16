@@ -151,19 +151,13 @@
  			<result name="success">WEB-INF/content/location/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
- 		
- 		 <action name="addLocationForm" class="baseAction">
-			<result>WEB-INF/content/location/addForm.jsp</result>
+
+		<action name="addLocation" class="addLocationAction">
+			<result name="success" type="redirect">locationManagement.action</result>
+			<result name="input">WEB-INF/content/location/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
-
-		<action name="addLocation" class="addLocationAction">
-			<result name="success" type="redirect">listAllLocations.action</result>
-			<result name="input">WEB-INF/content/location/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>	
  		
  		<!-- Service Technician Actions -->
  		<action name="listAllServiceTechnicians" class="serviceTechnicianListAction">

@@ -3,12 +3,13 @@ package edu.thangiah.action.location;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Preparable;
 import edu.thangiah.dao.ContractorDao;
+import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Vehicle;
 
-public class AddAction extends LocationAction implements Preparable{
+public class AddAction extends ManagementController implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;
 	private Location location;
@@ -24,22 +25,14 @@ public class AddAction extends LocationAction implements Preparable{
 
 	
 	@Override
-    public String execute() throws Exception
+    public String execute()
     {
-		/*
-		if (locationDao == null || location == null) 
+		if(this.getEntity().getContractor() == null)
 		{
-            this.addActionError(DB_ERROR_MESSAGE);
-        }
-		
-		contractorDao.add(contractor);
-		vehicleDao.add(vehicle);
-		//location.setVehicles(vehicle);
-		location.setContractor(contractor);
-		
-		LOGGER.debug("Adding new location: " + location.toString());
-		locationDao.add(location);
-		*/
+			addActionError("Contractor cannot be null");
+		}
+		this.getEntity().setContractor(contractor);
+		locationDao.add(this.getEntity());
     	return SUCCESS;
     }
     
@@ -59,7 +52,6 @@ public class AddAction extends LocationAction implements Preparable{
     		requiredString(location.getLongitude(), "location.longitude");
     		requiredString(location.getLocationType(), "location.locationType");
     		requiredString(contractor.getContractorName(), "contractor.name");
-    		//requiredString(vehicle.getViewLink(), "vehicle.vehicles"); ?
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
