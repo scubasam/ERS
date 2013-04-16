@@ -3,7 +3,6 @@ package edu.thangiah.action.location;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Preparable;
 import edu.thangiah.dao.ContractorDao;
-import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;

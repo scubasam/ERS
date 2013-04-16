@@ -15,20 +15,20 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
  	
-	<bean id="locationListAction" class="edu.thangiah.action.location.ListAction">
+	<bean id="locationManagementAction" class="edu.thangiah.action.location.ManagementController" scope="prototype">
 		<property name="locationDao" ref="locationDao" />
 	</bean>
- 
- 	<bean id="addLocationAction" class="edu.thangiah.action.location.AddAction">
+ 	
+ 	<bean id="addLocationAction" class="edu.thangiah.action.location.AddAction" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
-	
-	<bean id="locationViewAction" class="edu.thangiah.action.location.ViewAction">
-	</bean>
-	
-	<bean id="locationManagementAction" class="edu.thangiah.action.location.ManagementController" scope="prototype">
+ 	
+	<bean id="deleteLocationAction" class="edu.thangiah.action.location.DeleteAction" scope="prototype">
 		<property name="locationDao" ref="locationDao" />
+	</bean>
+ 		
+	<bean id="locationViewAction" class="edu.thangiah.action.location.ViewAction" scope="protoype">
 	</bean>
 	
 </beans>

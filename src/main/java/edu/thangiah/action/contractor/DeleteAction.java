@@ -1,10 +1,6 @@
 package edu.thangiah.action.contractor;
 
-
-import java.util.List;
-
 import edu.thangiah.entity.Contractor;
-import edu.thangiah.entity.Driver;
 
 public class DeleteAction extends ManagementController
 {

@@ -12,6 +12,7 @@ public class UtilityFunctions {
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 	
 	//http://regexlib.com/DisplayPatterns.aspx?categoryId=7
+	@SuppressWarnings("unused")
 	private static final String PHONE_PATTERN = 
 			"^[\\(]{0,1}([0-9]){3}[\\)]{0,1}[ ]?([^0-1]){1}([0-9]){2}[ ]?[-]?[ ]?([0-9])"
 			+ "{4}[ ]*((x){0,1}([0-9]){1,5}){0,1}$";

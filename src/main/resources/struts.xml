@@ -158,6 +158,13 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
+		
+		<action name="deleteLocation" class="deleteLocationAction">
+			<result name="success" type="redirect">locationManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/location/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
  		
  		<!-- Service Technician Actions -->
  		<action name="listAllServiceTechnicians" class="serviceTechnicianListAction">
