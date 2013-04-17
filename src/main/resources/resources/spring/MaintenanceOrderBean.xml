@@ -3,11 +3,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
-
-	<bean id="maintenanceOrderDao" class="edu.thangiah.dao.MaintenanceOrderDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
- 	
 	<bean id="maintenanceOrderListAction" class="edu.thangiah.action.maintenanceorder.ListAction">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>

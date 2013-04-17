@@ -10,6 +10,7 @@
 
  	
 	<!-- Beans Declaration -->
+	<import resource="classes/resources/spring/DaoBean.xml" />
 	<import resource="classes/resources/spring/UserBean.xml" />
 	<import resource="classes/resources/spring/ContactBean.xml" />
 	<import resource="classes/resources/spring/ContractorBean.xml" />

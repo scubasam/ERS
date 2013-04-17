@@ -2,14 +2,6 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
- 	
-	<bean id="vehicleDao" class="edu.thangiah.dao.VehicleDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
- 	
- 	<bean id="vehicleTypeDao" class="edu.thangiah.dao.VehicleTypeDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 	
  	<bean id="vehicleListAction" class="edu.thangiah.action.vehicle.ListAction">
 		<property name="vehicleDao" ref="vehicleDao" />

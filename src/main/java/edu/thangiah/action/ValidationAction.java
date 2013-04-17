@@ -48,11 +48,11 @@ public class ValidationAction extends AbstractAction {
 	
 	
 	public void requiredString(String value, String field_name){
-		requiredString(value, field_name, "Invlaid Input");
+		requiredString(value, field_name, "This is required.");
 	}
 
 	public void requiredLong(Long value, String field_name){
-		requiredLong(value, field_name, "Invalid Input");
+		requiredLong(value, field_name, "IThis is required.");
 	}	
 	
 	public void requiredString(String value, String field_name, String message){
@@ -86,7 +86,7 @@ public class ValidationAction extends AbstractAction {
 	
 	public void requiredInt(Integer value, String field_name){
 		if( value == null )
-    		this.addFieldError(field_name, "Invalid Input");
+    		this.addFieldError(field_name, "This is required.");
 	}
 	
 	public void requiredLong(Long value, String field_name, String message){
@@ -99,7 +99,7 @@ public class ValidationAction extends AbstractAction {
 		if( value != null ){
 			int intValue = value.intValue();
 			if( intValue < min || intValue > max ){
-				this.addFieldError(field_name, "Invlaid Input");
+				this.addFieldError(field_name, "This is required.");
 			}
 		}
 	}

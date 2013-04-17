@@ -3,10 +3,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
-
-	<bean id="driverDao" class="edu.thangiah.dao.DriverDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
  	
 	<bean id="driverListAction" class="edu.thangiah.action.driver.ListAction">
 		<property name="driverDao" ref="driverDao" />

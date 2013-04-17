@@ -1,5 +1,6 @@
 package edu.thangiah.action;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -108,6 +109,9 @@ public class BaseManagementController<Entity> extends ValidationAction{
 	}
 	
 	protected void addControllerError(ErrorCode code, String errorMessage){
+		if( errors == null ){
+			errors = new ArrayList<Error>();
+		}
 		errors.add(new Error(code, errorMessage));
 	}
 	

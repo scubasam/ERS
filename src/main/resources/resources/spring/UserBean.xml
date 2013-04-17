@@ -3,21 +3,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
-	<bean id="userBo" class="edu.thangiah.user.UserBoImpl">
-		<property name="userDao" ref="userDao" />
-	</bean>
- 
-	<bean id="userDao" class="edu.thangiah.user.UserDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-	<bean id="roleDao" class="edu.thangiah.permission.RoleDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
-	
-	<bean id="permissionDao" class="edu.thangiah.permission.PermissionDao">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 	
 	<bean id="userManagementAction" class="edu.thangiah.user.action.ManagementController" scope="prototype">
 		<property name="roleDao" ref="roleDao" />
