@@ -59,7 +59,7 @@ public class AddAction extends ManagementController implements Preparable{
 		Contractor fromDb = fromDbList.get(0);
 		
 		this.getEntity().setContractor(fromDb);
-		this.getEntity().setVehicles(new HashSet<Vehicle>());
+		//this.getEntity().setVehicles(new HashSet<Vehicle>());
 		try{
 			locationDao.add(this.getEntity());
 		}
