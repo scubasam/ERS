@@ -24,7 +24,6 @@ import edu.thangiah.decorator.HtmlDecorator;
 public class Location extends AbstractEntity implements Serializable {
     public static final String WAREHOUSE_TYPE = "warehouse";
     public static final String DEPOT_TYPE = "depot";
-    private String locationName = null;
 
     private static final long serialVersionUID = 1L;
     protected Long id = null;
@@ -208,12 +207,12 @@ public class Location extends AbstractEntity implements Serializable {
 
 	@Override
 	public String getViewLink() {
-		return HtmlDecorator.generateEntityLink("viewLocation", this.id, this.locationName);
+		return HtmlDecorator.generateEntityLink("viewLocation", this.id, name);
 	}
 	
 	public String toString()
 	{
-		return locationName;
+		return name;
 	}
 
 	public void merge(Location with) {
