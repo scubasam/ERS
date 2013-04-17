@@ -38,7 +38,7 @@ public class AddAction extends ManagementController implements Preparable{
     // called automatically
     public void validate()
     {	
-    	if( location != null && contractor != null )
+    	if( location != null && contractor.getId() != null )
     	{
     		requiredString(location.getLocationType(), "location.locationType");
     		requiredString(location.getName(), "location.name");
@@ -58,32 +58,22 @@ public class AddAction extends ManagementController implements Preparable{
 
     }
 
-	/**
-	 * @return the contact
-	 */
 	public Location getLocation()
 	{
 		return location;
 	}
 
-	/**
-	 * @param contact the contact to set
-	 */
 	public void setLocation(Location location)
 	{
 		this.location = location;
 	}
 	
-	/**
-	 * @return the contact
-	 */
-	public Contractor getContractor() {
-		return contractor;
-	}
 
-	/**
-	 * @param contact the contact to set
-	 */
+	public Contractor getContractor(Contractor contractor)
+	{
+		return this.contractor;
+	}
+	
 	public void setContractor(Contractor contractor) {
 		this.contractor = contractor;
 	}
