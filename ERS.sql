@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.11.1deb1
+-- version 3.5.2.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 11, 2013 at 01:26 PM
--- Server version: 5.5.29
--- PHP Version: 5.4.6-1ubuntu1.2
+-- Host: 127.0.0.1
+-- Generation Time: Apr 17, 2013 at 07:59 PM
+-- Server version: 5.5.27
+-- PHP Version: 5.4.7
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `ERS`
+-- Database: `ers`
 --
 
 -- --------------------------------------------------------
@@ -40,14 +40,14 @@ CREATE TABLE IF NOT EXISTS `contacts` (
   `primary_phone` varchar(45) DEFAULT NULL,
   `work_phone` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Dumping data for table `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `middle_initial`, `email_address`, `street_address_1`, `street_address_2`, `city`, `state`, `zip`, `primary_phone`, `work_phone`) VALUES
-(1, 'Greg', 'Adams', 'J', 'gadams@gmail.com', '123 Main St.', NULL, 'Zelienople', 'PA', '16063', '5558974625', '5551234567'),
+(1, 'Greg2', 'Adams', 'J', 'gadams@gmail.com', '123 Main St.', '', 'Zelienople', 'PA', '16063', '(555) 555-5555', '(555) 555-5555'),
 (2, 'Bob', 'Johnson', 'F', 'bjohnson@gmail.com', '34 Shady Ln.', NULL, 'Cranberry Twp.', 'PA', '16066', '5557894561', '5551234556'),
 (3, 'Sue', 'Niece', 'M', 'sniece@gmail.com', '1020 N. Market St.', 'Apt. 3G', 'Evans City', 'MN', '16007', '5559874563', '5551234568'),
 (4, 'Mike', 'Eliott', 'S', 'melliot@gmail.com', '188 Kiester Rd.', NULL, 'Butler', 'OH', '16001', '5558213467', '5554567891'),
@@ -76,7 +76,9 @@ INSERT INTO `contacts` (`id`, `first_name`, `last_name`, `middle_initial`, `emai
 (27, 'Bill', 'Stewart', 'H', 'bstewart@gmail.com', '', NULL, '', 'WA', '85874', '2351466588', '2351466588'),
 (28, 'Alex', 'McC', 'J', 'alex@a.com', '123 st', '', 'grove city', 'pa', '16124', '7243722629', '8147868937'),
 (29, 'Kelly', 'Smith', '', 'sovzx2@gmail.com', '39 Ravenwood Ln', '', 'Grove City', 'PA', '16127', '7243721425', '7243721425'),
-(30, 'Kelly', 'Smith', '', 'sovzx2@gmail.com', '39 Ravenwood Ln', '', 'Grove City', 'PA', '16127', '7243721425', '7243721425');
+(31, 'Kelly2', 'Smith', '', 'sovzx2@gmail.com', '39 Ravenwood Ln', '', 'Grove City', 'PA', '16127', '(724) 372-1425', '(724) 372-1425'),
+(32, 'Testing', 'Mc Test Test', '', 'test@test.com', '39 Ravenwood Ln', '', 'Grove City', 'PA', '16127', '(724) 372-1425', '(724) 372-1425'),
+(33, 'Greg2', 'Adams', 'J', 'gadams@gmail.com', '123 Main St.', '', 'Zelienople', 'PA', '16063', '(724) 372-1425', '(724) 372-1425');
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `contractors` (
   `contact_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `contractor_contactFK` (`contact_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `contractors`
@@ -103,8 +105,7 @@ INSERT INTO `contractors` (`id`, `contractor_name`, `contact_id`) VALUES
 (4, 'Adams Trucking', 4),
 (5, 'FreightMaster', 18),
 (6, 'Adams Trucking', 22),
-(7, 'Samson Shipping', 6),
-(8, 'Kelly''s Lawn Services', 30);
+(7, 'Samson Shipping', 6);
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `locations` (
   `location_type` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `location_contractorFK` (`contractor_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=48 ;
 
 --
 -- Dumping data for table `locations`
@@ -214,7 +215,8 @@ INSERT INTO `locations` (`id`, `name`, `street_address_1`, `street_address_2`, `
 (43, 'Warehouse 38', '55 Tri-Boro Expy.', NULL, 'Pittsburgh', 'PA', '15223', 'Tri-Boro Expy.', 466, '37', '44', 2, 'warehouse'),
 (44, 'Warehouse 55', '118 Millerstown Rd.', NULL, 'Johnstown', 'PA', '14125', 'Millerstown Rd.', 558, '35', '45', 1, 'warehouse'),
 (45, 'Warehouse A4', '210 Route 8.', NULL, 'Pittsburgh', 'PA', '15221', 'Route 8', 123, '37', '44', 1, 'warehouse'),
-(46, 'Warehouse B2', '1238 N. Plugger St.', NULL, 'Boston', 'MA', '10124', 'Plugger St.', 98, '28', '42', 7, 'warehouse');
+(46, 'Warehouse B2', '1238 N. Plugger St.', NULL, 'Boston', 'MA', '10124', 'Plugger St.', 98, '28', '42', 7, 'warehouse'),
+(47, 'Testing', '39 Ravenwood Ln', '', 'Grove City', 'PA', '16127', 'Ravenwood Ln', 39, '41', '80', 6, 'warehouse');
 
 -- --------------------------------------------------------
 
@@ -430,10 +432,10 @@ INSERT INTO `shipments` (`id`, `time_entered`, `order_id`, `vehicle_type_id`, `r
 -- --------------------------------------------------------
 
 --
--- Table structure for table `USERS`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `USERS` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -447,13 +449,13 @@ CREATE TABLE IF NOT EXISTS `USERS` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
 
 --
--- Dumping data for table `USERS`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `USERS` (`id`, `username`, `password`, `admin`, `salt`, `session_id`, `email`) VALUES
+INSERT INTO `users` (`id`, `username`, `password`, `admin`, `salt`, `session_id`, `email`) VALUES
 (25, 'Jacky', '4904e56f7c6f54e2f6fd897d3e24f108b02b3a05', 0, '21ufq2sdycv2qz6j', '', NULL),
-(24, 'Kelly', '09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735', 1, '7m9hc8fivst1kdwr', 'dtctckh375r02g3igjbhc7xad49zbo7y7yzrzxlf2llv5qvi6tx0ozlo1bi60g0m', 'admin@kelly-smith.me'),
-(23, 'Alex', '5deab2558476e8209ea74da66d756de9a13098b2', 1, 'a3ads3u7flp20mqa', 'vskbos74mpjuzjpr1cubc4f61qersn89cex6xvbop6o3rtufm2surmjp3yz5cp8c', NULL),
+(24, 'Kelly', '09ec11d5f8bb00b6dbd053f1dd8cab5ba10d4735', 1, '7m9hc8fivst1kdwr', '5e4swszllm0qmvc93o6e8gzgdrz2k2xnxucyyfu06jqlx3a2t2w72alc1kcufp6n', 'admin@kelly-smith.me'),
+(23, 'Alex', '5deab2558476e8209ea74da66d756de9a13098b2', 1, 'a3ads3u7flp20mqa', 'as7ks5feo1jme11d2yvvr6rwn0q9fnsf1uhbeh43ev8lrcru2u7ye9ha3smue6fr', NULL),
 (26, 'Default', 'a1ba6591e17699d62d8c94cca46fa2677712f9f9', 1, 'dagvvk36bx4242z7', 'biaqw9ojoev828i00gu7ze77fm2dyetg6ezh7jk5r05wi7ovml5hk6y4qw67km6f', NULL),
 (27, 'TESTING - -1458010628', 'Testing', 1, 'testing', 'tseting', NULL),
 (28, 'TestingTesting', 'f2e4a393d6e9b7343c908521bce2cc8be61378a5', 1, '5gw7olh7f044bmet', '', NULL),
@@ -584,17 +586,17 @@ INSERT INTO `vehicle_types` (`id`, `type`, `sub_type`, `description`, `make`, `m
 (1, 'Flatbed', 'Open', '', 'FreightLiner', 'FL-20134', 20000, 40000, NULL, 400, NULL, 90, 7000, 95),
 (2, 'Flatbed', 'Closed', '', 'Mack', 'M-DJ48DC', 20000, 40000, NULL, 400, NULL, 95, 8000, 88),
 (3, 'Flatbed', 'Refrigerated', '', 'Mack', 'M-DK84VK', 20000, 40000, NULL, 400, NULL, 98, 9000, 88),
-(4, 'Semi-Trailer', '', '', 'FreightLiner', 'FL-38409', 60000, 120000, NULL, 500, NULL, 105, 23000, 160),
-(5, 'Heavy', '', '', 'Mack', 'M-EK38KJ', 5000, 10000, NULL, 400, NULL, 80, 3000, 70),
-(6, 'Tanker', '', '', 'FreightLiner', 'FL-384DK', 20000, 40000, '3000', 400, NULL, 80, 10000, 85),
+(4, 'Semi-Trailer', 'Open', '', 'FreightLiner', 'FL-38409', 60000, 120000, NULL, 500, NULL, 105, 23000, 160),
+(5, 'Heavy', 'Open', '', 'Mack', 'M-EK38KJ', 5000, 10000, NULL, 400, NULL, 80, 3000, 70),
+(6, 'Tanker', 'Open', '', 'FreightLiner', 'FL-384DK', 20000, 40000, '3000', 400, NULL, 80, 10000, 85),
 (7, 'Van', 'Panel', '', 'Dodge', 'DOD-383D', 2000, 7000, NULL, 400, NULL, 65, 3000, 65),
 (8, 'Van', 'Parcel', '', 'GM', 'GM-FJKE3', 2000, 7000, NULL, 400, NULL, 60, 3000, 65),
 (9, 'Flatbed', 'Open', '', 'FreightLiner', 'FL-20134', 20000, 40000, NULL, 400, NULL, 90, 7000, 95),
 (10, 'Flatbed', 'Closed', '', 'Mack', 'M-DJ48DC', 20000, 40000, NULL, 400, NULL, 95, 8000, 88),
 (11, 'Flatbed', 'Refrigerated', '', 'Mack', 'M-DK84VK', 20000, 40000, NULL, 400, NULL, 98, 9000, 88),
-(12, 'Semi-Trailer', '', '', 'FreightLiner', 'FL-38409', 60000, 120000, NULL, 500, NULL, 105, 23000, 160),
-(13, 'Heavy', '', '', 'Mack', 'M-EK38KJ', 5000, 10000, NULL, 400, NULL, 80, 3000, 70),
-(14, 'Tanker', '', '', 'FreightLiner', 'FL-384DK', 20000, 40000, '3000', 400, NULL, 80, 10000, 85),
+(12, 'Semi-Trailer', 'Open', '', 'FreightLiner', 'FL-38409', 60000, 120000, NULL, 500, NULL, 105, 23000, 160),
+(13, 'Heavy', 'Open', '', 'Mack', 'M-EK38KJ', 5000, 10000, NULL, 400, NULL, 80, 3000, 70),
+(14, 'Tanker', 'Open', '', 'FreightLiner', 'FL-384DK', 20000, 40000, '3000', 400, NULL, 80, 10000, 85),
 (15, 'Van', 'Panel', '', 'Dodge', 'DOD-383D', 2000, 7000, NULL, 400, NULL, 65, 3000, 65),
 (16, 'Van', 'Parcel', '', 'GM', 'GM-FJKE3', 2000, 7000, NULL, 400, NULL, 60, 3000, 65);
 

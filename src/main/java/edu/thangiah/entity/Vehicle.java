@@ -24,7 +24,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
     private String plateNumber = null;
     private String vinNumber = null;
     private String manufacturedYear = null;
-    private String status = null;
+    //private String status = null;
     private VehicleType vehicleType = null;
     private Contractor contractor = null;
     private Set<Driver> drivers = null;
@@ -41,14 +41,14 @@ public class Vehicle extends AbstractEntity implements Serializable {
         this.id = id;
     }
 
-    public Vehicle(Long id, String plateNumber, String vinNumber, String manufacturedYear, String status, VehicleType vehicleType,
+    public Vehicle(Long id, String plateNumber, String vinNumber, String manufacturedYear, /*String status,*/ VehicleType vehicleType,
             Contractor contractor, Set<Driver> drivers, Location location) {
         super();
         this.id = id;
         this.plateNumber = plateNumber;
         this.vinNumber = vinNumber;
         this.manufacturedYear = manufacturedYear;
-        this.status = status;
+        //this.status = status;
         this.vehicleType = vehicleType;
         this.contractor = contractor;
         this.drivers = drivers;
@@ -84,7 +84,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
         this.manufacturedYear = manufacturedYear;
     }
 
-    @Column(name="status")
+    /*@Column(name="status")
     @NotEmpty
     public String getStatus() {
         return status;
@@ -92,7 +92,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }
+    }*/
 
     @ManyToOne
     @JoinColumn(name="vehicle_type_id")

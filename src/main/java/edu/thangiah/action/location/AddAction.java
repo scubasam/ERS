@@ -1,6 +1,4 @@
 package edu.thangiah.action.location;
-
-import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.validator.InvalidStateException;
@@ -59,12 +57,12 @@ public class AddAction extends ManagementController implements Preparable{
 		Contractor fromDb = fromDbList.get(0);
 		
 		this.getEntity().setContractor(fromDb);
-		this.getEntity().setVehicles(new HashSet<Vehicle>());
 		try{
 			locationDao.add(this.getEntity());
 		}
 		catch( InvalidStateException e ){
-			System.out.println("");
+			System.out.println("In unknown error occured.  Please contract your system administrator.");
+			return INPUT;
 		}
     	return SUCCESS;
     }
