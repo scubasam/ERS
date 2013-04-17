@@ -46,7 +46,6 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     		requiredString(vehicle.getPlateNumber(), "vehicle.plateNumber");
     		requiredString(vehicle.getVinNumber(), "vehicle.vinNumber");
     		requiredString(vehicle.getManufacturedYear(), "vehicle.manufacturedYear");
-    		requiredString(vehicle.getStatus(), "vehicle.getStatus");
     		requiredString(vehicle.getVehicleType().toString(), "vehicle.vehicleType");
     		requiredString(vehicle.getDrivers().toString(), "vehicle.drivers");
     		requiredString(vehicle.getLocation().toString(), "vehicle.location");

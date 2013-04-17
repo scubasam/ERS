@@ -47,7 +47,7 @@
         <set name="vehicles" table="vehicles" 
 				inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="location_id" not-null="true" />
+                <column name="location_id" />
             </key>
             <one-to-many class="edu.thangiah.entity.Vehicle" />
         </set>

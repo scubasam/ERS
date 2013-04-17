@@ -64,7 +64,8 @@ public class AddAction extends ManagementController implements Preparable{
 			locationDao.add(this.getEntity());
 		}
 		catch( InvalidStateException e ){
-			System.out.println("");
+			System.out.println("In unknown error occured.  Please contract your system administrator.");
+			return INPUT;
 		}
     	return SUCCESS;
     }
