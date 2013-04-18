@@ -29,6 +29,7 @@ public class Vehicle extends AbstractEntity implements Serializable {
     private Contractor contractor = null;
     private Set<Driver> drivers = null;
     private Location location = null;
+    
 
     public static final String[] statuses = {"available", "unavailable"};
 

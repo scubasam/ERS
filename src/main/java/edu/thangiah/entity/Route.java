@@ -23,6 +23,9 @@ public class Route extends AbstractEntity implements Serializable {
     protected Long id;
     private Vehicle vehicle = null;
     private Set<Shipment> shipments = null;
+    
+    private Location startLocation = null;
+    private Location endLocation = null;
 
     public Route() {
         super();
@@ -32,10 +35,12 @@ public class Route extends AbstractEntity implements Serializable {
         this.id = id;
     }
 
-    public Route(Long id, Vehicle vehicle, Set<Shipment> shipments) {
+    public Route(Long id, Vehicle vehicle, Set<Shipment> shipments, Location startLocation, Location endLocation) {
         this.id = id;
         this.vehicle = vehicle;
         this.shipments = shipments;
+        this.startLocation = startLocation;
+        this.endLocation = endLocation;
     }
 
     @ManyToOne
@@ -71,5 +76,21 @@ public class Route extends AbstractEntity implements Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Location getStartLocation() {
+		return startLocation;
+	}
+
+	public void setStartLocation(Location startLocation) {
+		this.startLocation = startLocation;
+	}
+
+	public Location getEndLocation() {
+		return endLocation;
+	}
+
+	public void setEndLocation(Location endLocation) {
+		this.endLocation = endLocation;
 	}
 }

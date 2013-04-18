@@ -8,8 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.action.BaseManagementController;
+import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.RouteDao;
+import edu.thangiah.dao.VehicleDao;
+import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Route;
+import edu.thangiah.entity.Vehicle;
+import edu.thangiah.strutsutility.StrutsSelect;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 
 public class ManagementController extends BaseManagementController<Route>{
@@ -24,20 +30,44 @@ public class ManagementController extends BaseManagementController<Route>{
 	@Autowired
 	protected RouteDao routeDao;
 	
+	@Autowired
+	protected VehicleDao vehicleDao;
+	
+	@Autowired
+	protected LocationDao locationDao;
+	
+	protected StrutsSelect<Vehicle> vehicleSelect;
+	protected StrutsSelect<Location> startLocationSelect;
+	protected StrutsSelect<Location> endLocationSelect;
+	
 	
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
 		this.initializeEntityList(routeDao);
+		
+		if ( routeDao == null ) {
+        	this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
+        }
+		
+		try{
+			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
+			startLocationSelect = new StrutsSelect<Location>(locationDao, "startLocation");
+			endLocationSelect = new StrutsSelect<Location>(locationDao, "endLocation");
+		}
+		catch(StrutsElementException e){
+			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
+		}
 	}
 	
 	public String execute() {
-        if (routeDao == null) {
+        if ( this.hasActionErrors() ) {
             return Action.ERROR;
         }
         
         String result = initialize();
-		if( !result.equals(SUCCESS) ){
+		
+        if( !result.equals(SUCCESS) ){
 			return result;
 		}
         
@@ -77,5 +107,45 @@ public class ManagementController extends BaseManagementController<Route>{
 
 	public void setRouteDao(RouteDao routeDao) {
 		this.routeDao = routeDao;
+	}
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+
+	public LocationDao getLocationDao() {
+		return locationDao;
+	}
+
+	public void setLocationDao(LocationDao locationDao) {
+		this.locationDao = locationDao;
+	}
+
+	public StrutsSelect<Vehicle> getVehicleSelect() {
+		return vehicleSelect;
+	}
+
+	public void setVehicleSelect(StrutsSelect<Vehicle> vehicleSelect) {
+		this.vehicleSelect = vehicleSelect;
+	}
+
+	public StrutsSelect<Location> getStartLocationSelect() {
+		return startLocationSelect;
+	}
+
+	public void setStartLocationSelect(StrutsSelect<Location> startLocationSelect) {
+		this.startLocationSelect = startLocationSelect;
+	}
+
+	public StrutsSelect<Location> getEndLocationSelect() {
+		return endLocationSelect;
+	}
+
+	public void setEndLocationSelect(StrutsSelect<Location> endLocationSelect) {
+		this.endLocationSelect = endLocationSelect;
 	}
 }

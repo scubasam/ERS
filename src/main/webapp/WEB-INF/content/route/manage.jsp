@@ -24,7 +24,7 @@
 					<table id="routes">
 						<thead>
 							<tr>
-								<th></th><th>Route Id</th><th>Vehicle</th><th>Shipments</th>
+								<th></th><th>Route Id</th><th>Vehicle</th><th>Shipments</th><th>Start Location</th><th>End Location</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -47,6 +47,12 @@
 									</td>
 									<td>
 										<s:property value="shipments" />
+									</td>
+									<td>
+										<s:property value="startLocation" />
+									</td>
+									<td>
+										<s:property value="endLocation" />
 									</td>
 								</tr>
 							</s:iterator>
@@ -90,6 +96,9 @@
 				<s:else>
 						<div id="editContainer">
 							<s:form name="addForm" action="addRoute.action" id="routeForm">
+								<s:select label="Vehicle" name="vehicleSelect.selected" list="vehicleSelect.list" listKey="id" listValue="toString()" />
+								<s:select label="Start Location" name="startLocationSelect.selected" list="startLocationSelect.list" listKey="id" listValue="toString()" />
+								<s:select label="End Location" name="endLocationSelect.selected" list="endLocationSelect.list" listKey="id" listValue="toString()" />
 							</s:form>
 						</div>
 						

@@ -333,5 +333,12 @@
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
+ 		<action name="addRoute" class="addRoute">
+ 			<result name="success" type="redirect">routeManagement.action</result>
+			<result name="input">WEB-INF/content/route/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+ 		</action>
+ 		
 	</package>
 </struts>
