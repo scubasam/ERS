@@ -21,7 +21,7 @@ public class UpdateAction extends ManagementController{
     	}
     	
     	Contractor fromDb = this.retrieveEntityById(contractorDao, id);
-    	if( fromDb == null ){
+    	if( fromDb == null){
     		this.addActionError("This contractor does not exist.  Please try again.");
     		return INPUT;
     	}
@@ -32,9 +32,14 @@ public class UpdateAction extends ManagementController{
     		return INPUT;
     	}
     	
+    	if( fromForm.getContact() == null)
+    	{
+    		this.addActionError("Contact not found or null. Please try again.");
+    		return INPUT;
+    	}
+    	
     	fromDb.merge(fromForm);
     	contractorDao.update(fromDb);
-    	
     	return SUCCESS;
 	}
 }

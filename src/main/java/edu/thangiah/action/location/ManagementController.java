@@ -145,6 +145,16 @@ public class ManagementController extends BaseManagementController<Location>{
 	public void setLocationDao(LocationDao locationDao) {
 		this.locationDao = locationDao;
 	}
+	
+	public void setContractor(ContractorDao contractorDao)
+	{
+		this.contractorDao = contractorDao;
+	}
+	
+	public ContractorDao getContractor()
+	{
+		return this.contractorDao;
+	}
 
 	public List<Contractor> getContractorList() {
 		return contractorList;

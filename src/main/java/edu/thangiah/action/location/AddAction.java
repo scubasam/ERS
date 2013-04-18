@@ -55,35 +55,24 @@ public class AddAction extends ManagementController implements Preparable{
     public void validate()
     {	
     	runLocationValidation();
-
     }
 
-	/**
-	 * @return the contact
-	 */
 	public Location getLocation()
 	{
 		return this.getEntity();
 	}
 
-	/**
-	 * @param contact the contact to set
-	 */
 	public void setLocation(Location location)
 	{
 		this.setEntity(location);
 	}
 	
-	/**
-	 * @return the contact
-	 */
-	public Contractor getContractor() {
-		return contractor;
-	}
 
-	/**
-	 * @param contact the contact to set
-	 */
+	public Contractor getContractor(Contractor contractor)
+	{
+		return this.contractor;
+	}
+	
 	public void setContractor(Contractor contractor) {
 		this.contractor = contractor;
 	}

@@ -22,5 +22,9 @@
 	<bean id="deleteContractorAction" class="edu.thangiah.action.contractor.DeleteAction">
 		<property name="contractorDao" ref="contractorDao"/>
 	</bean>
+	
+	<bean id="updateContractorAction" class="edu.thangiah.action.contractor.UpdateAction" scope="prototype">
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
  
 </beans>
