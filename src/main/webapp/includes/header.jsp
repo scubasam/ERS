@@ -44,6 +44,9 @@
 			<li class="navitem">
 				<a class="navlink" id="nav_shipments" href="/ERS/listAllShipments.action">Shipments</a>
 			</li>
+			<li class="navitem">
+				<a class="navlink" id="nav_routes" href="/ERS/routeManagement.action">Routes</a>
+			</li>
 		</ul>
 	</div>
 </div>

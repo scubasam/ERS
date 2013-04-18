@@ -30,6 +30,10 @@
  	<bean id="shipmentDao" class="edu.thangiah.dao.ShipmentDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	<bean id="routeDao" class="edu.thangiah.dao.RouteDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
  	
  	
  	<bean id="userBo" class="edu.thangiah.user.UserBoImpl">

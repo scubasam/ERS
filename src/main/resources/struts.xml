@@ -327,28 +327,11 @@
 		</action>	
 
  		<!-- Route Actions -->
- 		<action name="listAllRoutes" class="routeListAction">
- 			<result name="success">WEB-INF/content/route/list.jsp</result>
+ 		<action name="routeManagement" class="routeManagement">
+ 			<result name="success">WEB-INF/content/route/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
- 		
- 		<action name="viewRouteType" class="routeViewAction">
- 			<result name="success">WEB-INF/content/route/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>
- 		
- 		<action name="addRouteForm" class="baseAction">
-			<result>WEB-INF/content/route/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
-
-		<action name="addRoute" class="addRouteAction">
-			<result name="success" type="redirect">listAllRoutes.action</result>
-			<result name="input">WEB-INF/content/route/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
  		
 	</package>
 </struts>
