@@ -138,6 +138,13 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
+		
+		<action name="updateContractor" class="updateContractorAction">
+			<result name="success" type="redirect">contractorManagement.action</result>
+			<result name="input">WEB-INF/content/contractor/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
  		
  		
  		<!-- Location Actions -->
