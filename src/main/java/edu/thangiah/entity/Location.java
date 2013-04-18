@@ -21,7 +21,7 @@ import edu.thangiah.decorator.HtmlDecorator;
  */
 @Entity
 @Table(name="locations")
-public class Location extends AbstractEntity implements Serializable {
+public class Location extends AbstractEntity implements Serializable, EntityInterface {
     public static final String WAREHOUSE_TYPE = "warehouse";
     public static final String DEPOT_TYPE = "depot";
 

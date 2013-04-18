@@ -20,7 +20,7 @@ import org.hibernate.validator.Valid;
  */
 @Entity
 @Table(name="shipments")
-public class Shipment extends AbstractEntity implements Serializable {
+public class Shipment extends AbstractEntity implements Serializable, EntityInterface {
     private static final long serialVersionUID = 1L;
     protected Long id;
     private Date timeEntered = null;

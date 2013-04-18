@@ -73,9 +73,16 @@ public class ManagementController extends BaseManagementController<Route>{
         
         if( mode == Modes.EDIT ){
         	result = this.initializeEntityById(routeDao, id);
+        	
         	if( !result.equals(SUCCESS) ){
     			return result;
     		}
+        	
+        	if( getRoute() != null && getRoute().getVehicle() != null && getRoute().getStartLocation() != null && getRoute().getEndLocation() != null ){
+	        	vehicleSelect.intializeFromEntity(getRoute().getVehicle());
+	        	startLocationSelect.intializeFromEntity(getRoute().getStartLocation());
+	        	endLocationSelect.intializeFromEntity(getRoute().getEndLocation());
+        	}
         }
         
         LOGGER.debug("Routes number = " + getRoutes().size());

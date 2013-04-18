@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Contact model.
  * @author pbair,ksmith
  */
-public class Contact implements Serializable {
+public class Contact implements Serializable, EntityInterface {
     private static final long serialVersionUID = 1L;
     protected Long id = null;
     private String firstName = null;

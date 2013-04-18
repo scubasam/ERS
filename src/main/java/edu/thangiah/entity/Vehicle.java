@@ -17,7 +17,7 @@ import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
 
 
-public class Vehicle extends AbstractEntity implements Serializable {
+public class Vehicle extends AbstractEntity implements Serializable, EntityInterface {
 	private static final long serialVersionUID = 1L;
 	
 	protected Long id = null;

@@ -18,7 +18,7 @@ import org.hibernate.validator.Valid;
  */
 @Entity
 @Table(name="routes")
-public class Route extends AbstractEntity implements Serializable {
+public class Route extends AbstractEntity implements Serializable, EntityInterface {
     private final static long serialVersionUID = 1L;
     protected Long id;
     private Vehicle vehicle = null;

@@ -25,7 +25,7 @@ import org.hibernate.validator.Valid;
  */
 @Entity
 @Table(name="service_technicians")
-public class ServiceTechnician extends AbstractEntity implements Serializable {
+public class ServiceTechnician extends AbstractEntity implements Serializable, EntityInterface {
     private static final long serialVersionUID = 1L;
     
     protected Long id = null;

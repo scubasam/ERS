@@ -5,6 +5,8 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.dao.AbstractDao;
+import edu.thangiah.entity.EntityInterface;
+import edu.thangiah.entity.Route;
 import edu.thangiah.strutsutility.exception.StrutsElementDaoException;
 import edu.thangiah.strutsutility.exception.StrutsElementDataException;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
@@ -13,7 +15,7 @@ import edu.thangiah.strutsutility.exception.StrutsElementException;
  * Utility class for parsing and generating struts2 jsp select elements from a given datasource.
  * @author Kelly Smith
  */
-public class StrutsSelect<Entity> {
+public class StrutsSelect<Entity extends EntityInterface> {
 	
 	private AbstractDao<Entity> dao;
 	
@@ -71,6 +73,13 @@ public class StrutsSelect<Entity> {
 		
 		return Action.SUCCESS;
 	}
+	
+	public void intializeFromEntity(Entity entity) {
+		if( entity != null ){
+			selected = entity.getId();
+			selectedEntity = entity;
+		}
+	}
 
 	public Entity getSelectedEntity() {
 		return selectedEntity;
@@ -79,4 +88,5 @@ public class StrutsSelect<Entity> {
 	public void setSelectedEntity(Entity selectedEntity) {
 		this.selectedEntity = selectedEntity;
 	}
+
 }

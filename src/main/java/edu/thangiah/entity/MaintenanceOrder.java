@@ -22,7 +22,7 @@ import edu.thangiah.action.ValidationAction;
  */
 @Entity
 @Table(name="maintenance_orders")
-public class MaintenanceOrder extends ValidationAction implements Preparable {
+public class MaintenanceOrder extends ValidationAction implements Preparable, EntityInterface {
 	protected Long id;
     private final static long serialVersionUID = 1L;
     private Driver requester = null;

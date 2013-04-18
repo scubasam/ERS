@@ -24,7 +24,7 @@ import edu.thangiah.decorator.HtmlDecorator;
  */
 @Entity
 @Table(name="contractors")
-public class Contractor extends AbstractEntity implements Serializable {
+public class Contractor extends AbstractEntity implements Serializable, EntityInterface {
     private static final long serialVersionUID = 1L;
     protected Long id = null;
     private String contractorName = null;
