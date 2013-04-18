@@ -1,5 +1,9 @@
 package edu.thangiah.action.location;
 
+import java.util.HashSet;
+import java.util.List;
+
+import org.hibernate.validator.InvalidStateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Preparable;
 import edu.thangiah.dao.ContractorDao;
@@ -25,12 +29,44 @@ public class AddAction extends ManagementController implements Preparable{
 	@Override
     public String execute()
     {
-		if(this.getEntity().getContractor() == null)
+		if(this.getContractorId() == null || this.getContractorId().length() <= 0 )
 		{
-			addActionError("Contractor cannot be null.");
+			addActionError("Contractor is a required field.");
 		}
-		this.getEntity().setContractor(contractor);
-		locationDao.add(this.getEntity());
+		
+		long contId;
+		try{
+			contId = Integer.parseInt(this.getContractorId());
+		}
+		catch(NumberFormatException e){
+			this.addFieldError("contractorId", "Invalid contractor - please try again.");
+			return INPUT;
+		}
+		catch( Exception e ){
+			this.addFieldError("contractorId", "An unknown error has occured. Please try again.");
+			return INPUT;
+		}
+		// at this point contractorId should be a valid long/int.
+		
+		List<Contractor> fromDbList = contractorDao.findById(contId);
+		if( fromDbList == null || fromDbList.size() != 1 ){
+			this.addFieldError("contractorId", "No contractor found with that name.  Please refresh the page.");
+			return INPUT;
+		}
+		
+		// fromDbList contains exactly one valid contractor which the user has chosen.
+		
+		Contractor fromDb = fromDbList.get(0);
+		
+		this.getEntity().setContractor(fromDb);
+		//this.getEntity().setVehicles(new HashSet<Vehicle>());
+		try{
+			locationDao.add(this.getEntity());
+		}
+		catch( InvalidStateException e ){
+			System.out.println("In unknown error occured.  Please contract your system administrator.");
+			return INPUT;
+		}
     	return SUCCESS;
     }
     
@@ -42,7 +78,6 @@ public class AddAction extends ManagementController implements Preparable{
     		requiredString(this.getEntity().getLocationType(), "location.locationType");
     		requiredString(this.getEntity().getName(), "location.name");
     		requiredString(this.getEntity().getStreetAddress1(), "location.streetAddress1");
-    		requiredString(this.getEntity().getStreetAddress2(), "location.streetAddress2");
     		requiredString(this.getEntity().getCity(), "location.city");
     		requiredString(this.getEntity().getZip(), "location.zip");
     		requiredString(this.getEntity().getRoadName(), "location.roadName");
@@ -50,6 +85,15 @@ public class AddAction extends ManagementController implements Preparable{
     		requiredString(this.getEntity().getLongitude(), "location.longitude");
     		requiredString(this.getEntity().getLocationType(), "location.locationType");
     		requiredString(this.getContractorId(), "contractorId");
+    		
+    		
+    		requiredString(this.getEntity().getState(), "location.state");
+    		
+    		if( this.getEntity().getState() != null ){
+    			if( this.getEntity().getState().length() > 2 ){
+    				this.addFieldError("location.state", "Please use the two letter abbreviation for the State.");
+    			}
+    		}
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

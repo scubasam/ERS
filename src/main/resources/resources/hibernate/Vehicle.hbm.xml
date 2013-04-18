@@ -18,9 +18,6 @@
         <property name="manufacturedYear" type="java.lang.String">
             <column name="MANUFACTURED_YEAR" />
         </property>
-        <!--<property name="status" type="java.lang.String">
-            <column name="STATUS" />
-        </property>-->
         <many-to-one name="vehicleType" class="edu.thangiah.entity.VehicleType" fetch="join" lazy="false">
             <column name="VEHICLE_TYPE_ID" />
         </many-to-one>
