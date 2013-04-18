@@ -216,8 +216,6 @@ public class Location extends AbstractEntity implements Serializable {
 	}
 
 	public void merge(Location with) {
-		
-        this.id = with.id;
         this.name = with.name;
         this.streetAddress1 = with.streetAddress1;
         this.streetAddress2 = with.streetAddress2;
@@ -229,9 +227,6 @@ public class Location extends AbstractEntity implements Serializable {
         this.latitude = with.latitude;
         this.longitude = with.longitude;
         this.locationType = with.locationType;
-        this.contractor = with.contractor;
-        this.vehicles = with.vehicles;
-		
 		
 	}
 }

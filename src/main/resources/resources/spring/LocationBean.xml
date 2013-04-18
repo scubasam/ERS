@@ -13,6 +13,11 @@
  		<property name="locationDao" ref="locationDao" />
 		<property name="contractorDao" ref="contractorDao" />
 	</bean>
+	
+	<bean id="updateLocationAction" class="edu.thangiah.action.location.UpdateAction" scope="prototype">
+ 		<property name="locationDao" ref="locationDao" />
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
  	
 	<bean id="deleteLocationAction" class="edu.thangiah.action.location.DeleteAction" scope="prototype">
 		<property name="locationDao" ref="locationDao" />

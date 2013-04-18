@@ -29,6 +29,8 @@ public class ManagementController extends BaseManagementController<Location>{
 	protected List<Contractor> contractorList;
 	
 	protected String contractorId;
+	protected long selectedContractorId; // Holds the contractor id of the current entities contractor for the form.
+	protected long newContractorId;
 	
 	@Override
 	public void prepare() throws Exception {
@@ -67,11 +69,57 @@ public class ManagementController extends BaseManagementController<Location>{
         	if( !result.equals(SUCCESS) ){
     			return result;
     		}
+        	
+        	// this is used to correctly populate the contractor select element.
+        	selectedContractorId = this.getEntity().getContractor().getId();
         }
         
         LOGGER.debug("Locations number = " + getLocations().size());
         return Action.SUCCESS;
     }
+	
+	protected String parseContractorId() {
+		try{
+			newContractorId = Integer.parseInt(this.getContractorId());
+		}
+		catch(NumberFormatException e){
+			this.addFieldError("contractorId", "Invalid contractor - please try again.");
+			return INPUT;
+		}
+		catch( Exception e ){
+			this.addFieldError("contractorId", "An unknown error has occured. Please try again.");
+			return INPUT;
+		}
+		return SUCCESS;
+	}
+	
+	protected void runLocationValidation() {
+		if( this.getEntity() != null && contractorId != null )
+    	{
+    		requiredString(this.getEntity().getLocationType(), "location.locationType");
+    		requiredString(this.getEntity().getName(), "location.name");
+    		requiredString(this.getEntity().getStreetAddress1(), "location.streetAddress1");
+    		requiredString(this.getEntity().getCity(), "location.city");
+    		requiredString(this.getEntity().getZip(), "location.zip");
+    		requiredString(this.getEntity().getRoadName(), "location.roadName");
+    		requiredString(this.getEntity().getLatitude(), "location.latitude");
+    		requiredString(this.getEntity().getLongitude(), "location.longitude");
+    		requiredString(this.getEntity().getLocationType(), "location.locationType");
+    		requiredString(this.getContractorId(), "contractorId");
+    		
+    		
+    		requiredString(this.getEntity().getState(), "location.state");
+    		
+    		if( this.getEntity().getState() != null ){
+    			if( this.getEntity().getState().length() > 2 ){
+    				this.addFieldError("location.state", "Please use the two letter abbreviation for the State.");
+    			}
+    		}
+    	}		
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}
+	}
 	
 	public List<Location> getLocations() {
 		return this.getEntityList();
@@ -120,5 +168,13 @@ public class ManagementController extends BaseManagementController<Location>{
 
 	public void setContractorDao(ContractorDao contractorDao) {
 		this.contractorDao = contractorDao;
+	}
+
+	public long getSelectedContractorId() {
+		return selectedContractorId;
+	}
+
+	public void setSelectedContractorId(long selectedContractorId) {
+		this.selectedContractorId = selectedContractorId;
 	}
 }

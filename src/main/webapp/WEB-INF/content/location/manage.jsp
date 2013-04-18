@@ -82,21 +82,25 @@
 						</s:url>
 						
 						<div id="editContainer">
-							<s:form name="updateLocation" action="updateLocation.action">
+							<s:url id="updateLocation" value="updateLocation.action">
+								<s:param name="id" value="id" />
+							</s:url>
+						
+							<s:form name="editForm" action="%{updateLocation}">
 			
 								<s:textfield name="location.name" label="Location Name" />
-								<s:textfield name="location.StreetAddress1" label="Street Address 1" />
-								<s:textfield name="location.StreetAddress2" label="Street Address 2" />
-								<s:textfield name="location.City" label="City" />
-								<s:textfield name="location.Zip" label="Zip Code" />
-								<s:textfield name="location.RoadName" label="Road" />
-								<s:textfield name="location.RoadNumber" label="Road Number" />
-								<s:textfield name="location.Latitude" label="Latitude" />
-								<s:textfield name="location.Longitude" label="Longitude" />	
-								<s:textfield name="location.Type" label="Location Type" />
-								<s:select name="contractorId" list="contractorList" listKey="id" listValue="contractorName" />
-								<s:textfield name="vehicle.vehicles" label="Vehicles at Location" />								
-		
+								<s:textfield name="location.streetAddress1" label="Street Address 1" />
+								<s:textfield name="location.streetAddress2" label="Street Address 2" />
+								<s:textfield name="location.city" label="City" />
+								<s:textfield name="location.state" label="State" />
+								<s:textfield name="location.zip" label="Zip Code" />
+								<s:textfield name="location.roadName" label="Road" />
+								<s:textfield name="location.roadNumber" label="Road Number" />
+								<s:textfield name="location.latitude" label="Latitude" />
+								<s:textfield name="location.longitude" label="Longitude" />	
+								<s:textfield name="location.locationType" label="Location Type" />
+								<s:select label="Contractor" name="contractorId" list="contractorList" listKey="id" listValue="contractorName" value="selectedContractorId" />
+								
 							</s:form>
 						</div>
 						
@@ -122,7 +126,7 @@
 				
 				<s:else>
 						<div id="editContainer">
-							<s:form name="addLocation" action="addLocation.action">
+							<s:form name="addForm" action="addLocation.action">
 			
 								<s:textfield name="location.name" label="Location Name" />
 								<s:textfield name="location.streetAddress1" label="Street Address 1" />
@@ -135,9 +139,7 @@
 								<s:textfield name="location.latitude" label="Latitude" />
 								<s:textfield name="location.longitude" label="Longitude" />	
 								<s:textfield name="location.locationType" label="Location Type" />
-								<s:select label="Contractor" name="contractorId" list="contractorList" listKey="id" listValue="contractorName" />							
-								
-								<s:submit type="button" name="Add Location" />				
+								<s:select label="Contractor" name="contractorId" list="contractorList" listKey="id" listValue="contractorName" />		
 							</s:form>
 						</div>
 						

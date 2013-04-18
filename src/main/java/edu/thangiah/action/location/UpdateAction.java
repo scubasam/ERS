@@ -1,5 +1,8 @@
 package edu.thangiah.action.location;
 
+import java.util.List;
+
+import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
 public class UpdateAction extends ManagementController{
@@ -36,7 +39,21 @@ public class UpdateAction extends ManagementController{
     		return INPUT;
     	}
     	
-    	fromDb.merge(fromForm);
+    	String result = parseContractorId();
+		if( !result.equals(SUCCESS) )
+			return result;
+		
+		fromDb.merge(fromForm);
+		
+		if( newContractorId != fromDb.getContractor().getId() ){
+			List<Contractor> fromDbList = contractorDao.findById(newContractorId);
+			if( fromDbList == null || fromDbList.size() != 1 ){
+				this.addFieldError("contractorId", "No contractor found with that name.  Please refresh the page.");
+				return INPUT;
+			}
+			fromDb.setContractor(fromDbList.get(0));
+		}
+    	
     	locationDao.update(fromDb);
     	
     	return SUCCESS;
@@ -45,7 +62,7 @@ public class UpdateAction extends ManagementController{
 
 	@Override
 	public void validate(){
-		//this.runContactValidation(this.getEntity());
+		runLocationValidation();
     }
 	
 }
