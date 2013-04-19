@@ -15,5 +15,15 @@
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="locationDao" ref="locationDao" />
 	</bean>
+	
+	<bean id="updateRoute" class="edu.thangiah.action.route.UpdateAction" scope="prototype">
+		<property name="routeDao" ref="routeDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="locationDao" ref="locationDao" />
+	</bean>
+	
+	<bean id="deleteRoute" class="edu.thangiah.action.route.DeleteAction" scope="prototype">
+		<property name="routeDao" ref="routeDao" />
+	</bean>
  
 </beans>

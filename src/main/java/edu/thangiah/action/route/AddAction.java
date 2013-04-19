@@ -14,18 +14,7 @@ public class AddAction extends ManagementController implements Preparable {
     public String execute()
     {
 		try{
-			String result;
-			result = vehicleSelect.initializeSelected();
-			if( !result.equals(SUCCESS) )
-				addFieldError("startLocation.selected", result);
-			
-			result = startLocationSelect.initializeSelected();
-			if( !result.equals(SUCCESS) )
-				addFieldError("startLocation.selected", result);
-			
-			result = endLocationSelect.initializeSelected();
-			if( !result.equals(SUCCESS) )
-				addFieldError("startLocation.selected", result);
+			initializeSelectedElements();
 		}
 		catch( StrutsElementException e ){
 			addActionError("An unknown error occured.  Plase try reloading the page.");

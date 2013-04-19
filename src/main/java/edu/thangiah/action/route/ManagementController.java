@@ -50,13 +50,15 @@ public class ManagementController extends BaseManagementController<Route>{
         	this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
         }
 		
-		try{
-			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
-			startLocationSelect = new StrutsSelect<Location>(locationDao, "startLocation");
-			endLocationSelect = new StrutsSelect<Location>(locationDao, "endLocation");
-		}
-		catch(StrutsElementException e){
-			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
+		if( mode != Modes.DELETE ){
+			try{
+				vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
+				startLocationSelect = new StrutsSelect<Location>(locationDao, "startLocation");
+				endLocationSelect = new StrutsSelect<Location>(locationDao, "endLocation");
+			}
+			catch(StrutsElementException e){
+				this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
+			}
 		}
 	}
 	
@@ -64,13 +66,10 @@ public class ManagementController extends BaseManagementController<Route>{
         if ( this.hasActionErrors() ) {
             return Action.ERROR;
         }
-        
-        String result = initialize();
 		
-        if( !result.equals(SUCCESS) ){
-			return result;
-		}
+        initialize();
         
+        String result;
         if( mode == Modes.EDIT ){
         	result = this.initializeEntityById(routeDao, id);
         	
@@ -88,6 +87,22 @@ public class ManagementController extends BaseManagementController<Route>{
         LOGGER.debug("Routes number = " + getRoutes().size());
         return SUCCESS;
     }
+	
+	
+	protected void initializeSelectedElements() throws StrutsElementException {
+		String result;
+		result = vehicleSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocation.selected", result);
+		
+		result = startLocationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocation.selected", result);
+		
+		result = endLocationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocation.selected", result);
+	}
 	
 	public List<Route> getRoutes() {
 		return this.getEntityList();
