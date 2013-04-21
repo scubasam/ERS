@@ -76,6 +76,13 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 		</action>
 		
+		<action name="manageColumns" class="manageColumnsAction">
+			<result name="success" type="redirect">${action}Management.action</result>
+			<result name="input">WEB-INF/content/error.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
 		
 		<!-- Contact Actions -->
  		<action name="contactManagement" class="contactManagementAction">

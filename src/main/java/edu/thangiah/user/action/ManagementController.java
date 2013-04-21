@@ -35,6 +35,11 @@ public class ManagementController extends BaseManagementController<User>{
 	public void setRolesStr(List<String> rolesStr) {
 		this.rolesStr = rolesStr;
 	}
+	
+	@Override
+	protected String getActionId() {
+		return "user";
+	}
 
 	@Override
 	public void prepare() throws Exception {

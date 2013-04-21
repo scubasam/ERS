@@ -20,14 +20,24 @@
 			<h2>Contractor List</h2>
 			
 			<s:if test="contractors.size > 0">
+				<div id="columnSelect">
+					<s:form name="manageColumns" action="manageColumns.action?action=contractor" id="columnSelectForm">
+						<s:checkboxlist label="Choose Display Columns" list="columnLabels" name="columnLabels" value="visibleColumns" />
+						<s:submit value="Update" />
+					</s:form>
+				</div>
 				<div id="scrollContainer">
 					<table id="contractors">
 						<thead>
 							<tr>
-								<th></th><th>Contractor</th><th>Contact</th><th>Locations</th>
+								<!-- <th></th><th>Contractor</th><th>Contact</th><th>Locations</th>-->
+								<th></th>
+								<s:property value="gridHeaders" escape="false" />
 							</tr>
 						</thead>
 						<tbody>
+							<s:property value="gridBody" escape="false" />
+							<!-- 
 							<s:iterator value="contractors">
 								<s:url id="viewContractor" value="viewContractor.action">
 									<s:param name="id" value="id" />
@@ -56,11 +66,13 @@
 									</td>
 								</tr>
 							</s:iterator>
+							-->
 						</tbody>
 					</table>
 				</div>
 				
 				<div id="panel2">
+				<jsp:include page="/includes/error_header.jsp" />
 				<s:if test="getMode()=='edit'">
 					
 						<s:url id="updateContractor" value="updateContractor.action">

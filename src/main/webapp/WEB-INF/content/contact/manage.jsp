@@ -20,13 +20,18 @@
 		<h2>Contact List</h2>
 		
 		<s:if test="contacts.size > 0">
-			
+			<div id="columnSelect">
+				<s:form name="manageColumns" action="manageColumns.action?action=contact" id="columnSelectForm">
+					<s:checkboxlist label="Choose Display Columns" list="columnLabels" name="columnLabels" value="visibleColumns" />
+					<s:submit value="Update" />
+				</s:form>
+			</div>
 			<div id="scrollContainer">
 				<table id="contacts">
 					<thead>
 						<tr>
 							<th></th>
-							<th>First Name</th>
+							<!--<th>First Name</th>
 							<th>Last Name</th>
 							<th>Middle Initial</th>
 							<th>Email Address</th>
@@ -37,10 +42,13 @@
 							<th>Zip</th>
 							<th>Primary Phone</th>
 							<th>Work Phone</th>
+							-->
+							<s:property value="gridHeaders" escape="false" />
 						</tr>
 					</thead>
 					<tbody>
-						<s:iterator value="contacts">
+						<s:property value="gridBody" escape="false" />
+						<!--<s:iterator value="contacts">
 							<tr>
 								<td>
 									<s:url id="edit" action="contactManagement">
@@ -63,7 +71,7 @@
 								<td><s:property value="primaryPhone" /></td>
 								<td><s:property value="workPhone" /></td>
 							</tr>
-						</s:iterator>
+						</s:iterator>-->
 					</tbody>
 				</table>
 			</div>

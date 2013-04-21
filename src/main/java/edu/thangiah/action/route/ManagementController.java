@@ -1,6 +1,9 @@
 package edu.thangiah.action.route;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,24 +44,44 @@ public class ManagementController extends BaseManagementController<Route>{
 	protected StrutsSelect<Location> endLocationSelect;
 	
 	
+	protected static final Map<String, String> columnMap;
+	static {
+		Map<String, String> columns = new LinkedHashMap<String, String>();
+		columns.put("vehicle", "Vehicle");
+		columns.put("shipments", "Shipments");
+		columns.put("startLocation", "Start Location");
+		columns.put("endLocation", "End Location");
+		columnMap = Collections.unmodifiableMap(columns);
+	}
+	
+	// Feeds the column map specific to this class into the auto field generator.
+	@Override
+	protected Map<String, String> getColumnMap(){
+		return columnMap;
+	}
+	
+	@Override
+	protected String getActionId() {
+		return "route";
+	}
+	
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
 		this.initializeEntityList(routeDao);
+		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), Route.class, "routeManagement.action");
 		
 		if ( routeDao == null ) {
         	this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
         }
 		
-		if( mode != Modes.DELETE ){
-			try{
-				vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
-				startLocationSelect = new StrutsSelect<Location>(locationDao, "startLocation");
-				endLocationSelect = new StrutsSelect<Location>(locationDao, "endLocation");
-			}
-			catch(StrutsElementException e){
-				this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
-			}
+		try{
+			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
+			startLocationSelect = new StrutsSelect<Location>(locationDao, "startLocation");
+			endLocationSelect = new StrutsSelect<Location>(locationDao, "endLocation");
+		}
+		catch(StrutsElementException e){
+			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
 		}
 	}
 	

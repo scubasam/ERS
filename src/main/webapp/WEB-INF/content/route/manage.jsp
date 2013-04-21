@@ -20,47 +20,57 @@
 			<h2>Route Management</h2>
 			
 			<s:if test="routes.size > 0">
+				<div id="columnSelect">
+					<s:form name="manageColumns" action="manageColumns.action?action=route" id="columnSelectForm">
+						<s:checkboxlist label="Choose Display Columns" list="columnLabels" name="columnLabels" value="visibleColumns" />
+						<s:submit value="Update" />
+					</s:form>
+				</div>
 				<div id="scrollContainer">
 					<table id="routes">
 						<thead>
 							<tr>
-								<th></th><th>Route Id</th><th>Vehicle</th><th>Shipments</th><th>Start Location</th><th>End Location</th>
+<!-- 								<th></th><th>Route Id</th><th>Vehicle</th><th>Shipments</th><th>Start Location</th><th>End Location</th> -->
+								<th></th>
+								<s:property value="gridHeaders" escape="false" />
 							</tr>
 						</thead>
 						<tbody>
-							<s:iterator value="routes">							
-								<tr>
-									<td>
-										<s:url id="edit" action="routeManagement">
-											<s:param name="id">
-												<s:property value='id' />
-											</s:param>
-										</s:url>
+							<s:property value="gridBody" escape="false" />
+<%-- 							<s:iterator value="routes">							 --%>
+<!-- 								<tr> -->
+<!-- 									<td> -->
+<%-- 										<s:url id="edit" action="routeManagement"> --%>
+<%-- 											<s:param name="id"> --%>
+<%-- 												<s:property value='id' /> --%>
+<%-- 											</s:param> --%>
+<%-- 										</s:url> --%>
 										
-										<s:a href="%{edit}">Edit</s:a>
-									</td>
-									<td>
-										<s:property value="id" />
-									</td>
-									<td>
-										<s:property value="vehicle" />
-									</td>
-									<td>
-										<s:property value="shipments" />
-									</td>
-									<td>
-										<s:property value="startLocation" />
-									</td>
-									<td>
-										<s:property value="endLocation" />
-									</td>
-								</tr>
-							</s:iterator>
+<%-- 										<s:a href="%{edit}">Edit</s:a> --%>
+<!-- 									</td> -->
+<!-- 									<td> -->
+<%-- 										<s:property value="id" /> --%>
+<!-- 									</td> -->
+<!-- 									<td> -->
+<%-- 										<s:property value="vehicle" /> --%>
+<!-- 									</td> -->
+<!-- 									<td> -->
+<%-- 										<s:property value="shipments" /> --%>
+<!-- 									</td> -->
+<!-- 									<td> -->
+<%-- 										<s:property value="startLocation" /> --%>
+<!-- 									</td> -->
+<!-- 									<td> -->
+<%-- 										<s:property value="endLocation" /> --%>
+<!-- 									</td> -->
+<!-- 								</tr> -->
+<%-- 							</s:iterator> --%>
 						</tbody>
 					</table>
 				</div>
 				
 				<div id="panel2">
+				<jsp:include page="/includes/error_header.jsp" />
 				<s:if test="getMode()=='edit'">
 					
 						<s:url id="updateRoute" value="updateRoute.action">

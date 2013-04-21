@@ -20,53 +20,61 @@
 			<h2>Location List</h2>
 			
 			<s:if test="locations.size > 0">
+				<div id="columnSelect">
+					<s:form name="manageColumns" action="manageColumns.action?action=location" id="columnSelectForm">
+						<s:checkboxlist label="Choose Display Columns" list="columnLabels" name="columnLabels" value="visibleColumns" />
+						<s:submit value="Update" />
+					</s:form>
+				</div>
 				<div id="scrollContainer">
 					<table id="locations">
 						<thead>
 							<tr>
 								<th></th>
-								<th>Name</th>
-								<th>Street Address 1</th>
-								<th>Street Address 2</th>
-								<th>City</th>
-								<th>State</th>
-								<th>Zip</th>
-								<th>Road Name</th>
-								<th>Road Number</th>
-								<th>Latitude</th>
-								<th>Longitude</th>
-								<th>Contractor</th>
-								<th>Location Type</th>
-								<th>Vehicles</th>
+<!-- 								<th>Name</th> -->
+<!-- 								<th>Street Address 1</th> -->
+<!-- 								<th>Street Address 2</th> -->
+<!-- 								<th>City</th> -->
+<!-- 								<th>State</th> -->
+<!-- 								<th>Zip</th> -->
+<!-- 								<th>Road Name</th> -->
+<!-- 								<th>Road Number</th> -->
+<!-- 								<th>Latitude</th> -->
+<!-- 								<th>Longitude</th> -->
+<!-- 								<th>Contractor</th> -->
+<!-- 								<th>Location Type</th> -->
+<!-- 								<th>Vehicles</th> -->
+								<s:property value="gridHeaders" escape="false" />
 							</tr>
 						</thead>
 						<tbody>
-							<s:iterator value="locations">
-								<tr>
-									<td>
-										<s:url id="edit" action="locationManagement">
-											<s:param name="id">
-												<s:property value='id' />
-											</s:param>
-										</s:url>
+							<s:property value="gridBody" escape="false" />
+<%-- 							<s:iterator value="locations"> --%>
+<!-- 								<tr> -->
+<!-- 									<td> -->
+<%-- 										<s:url id="edit" action="locationManagement"> --%>
+<%-- 											<s:param name="id"> --%>
+<%-- 												<s:property value='id' /> --%>
+<%-- 											</s:param> --%>
+<%-- 										</s:url> --%>
 										
-										<s:a href="%{edit}">Edit</s:a>
-									</td>
-									<td><s:property value="name" /></td>
-									<td><s:property value="streetAddress1" /></td>
-									<td><s:property value="streetAddress2" /></td>
-									<td><s:property value="city" /></td>
-									<td><s:property value="state" /></td>
-									<td><s:property value="zip" /></td>
-									<td><s:property value="roadName" /></td>
-									<td><s:property value="roadNumber" /></td>
-									<td><s:property value="latitude" /></td>
-									<td><s:property value="longitude" /></td>
-									<td><s:property value="contractor.contractorName" /></td>
-									<td><s:property value="locationType" /></td>
-									<td><s:property value="vehicles" /></td>
-								</tr>
-							</s:iterator>
+<%-- 										<s:a href="%{edit}">Edit</s:a> --%>
+<!-- 									</td> -->
+<%-- 									<td><s:property value="name" /></td> --%>
+<%-- 									<td><s:property value="streetAddress1" /></td> --%>
+<%-- 									<td><s:property value="streetAddress2" /></td> --%>
+<%-- 									<td><s:property value="city" /></td> --%>
+<%-- 									<td><s:property value="state" /></td> --%>
+<%-- 									<td><s:property value="zip" /></td> --%>
+<%-- 									<td><s:property value="roadName" /></td> --%>
+<%-- 									<td><s:property value="roadNumber" /></td> --%>
+<%-- 									<td><s:property value="latitude" /></td> --%>
+<%-- 									<td><s:property value="longitude" /></td> --%>
+<%-- 									<td><s:property value="contractor.contractorName" /></td> --%>
+<%-- 									<td><s:property value="locationType" /></td> --%>
+<%-- 									<td><s:property value="vehicles" /></td> --%>
+<!-- 								</tr> -->
+<%-- 							</s:iterator> --%>
 						</tbody>
 					</table>
 				</div>

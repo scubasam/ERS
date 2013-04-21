@@ -9,6 +9,10 @@
 		<property name="userBo" ref="userBo" />
 	</bean>
 	
+	<bean id="manageColumnsAction" class="edu.thangiah.user.action.ManageColumnsAction" scope="prototype">
+		<property name="userBo" ref="userBo" />
+	</bean>
+	
 	
 	<bean id="addUserAction" class="edu.thangiah.user.action.AddAction" scope="prototype">
 		<property name="roleDao" ref="roleDao" />

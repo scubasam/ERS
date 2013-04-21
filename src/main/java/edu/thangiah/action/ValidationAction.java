@@ -11,7 +11,7 @@ import edu.thangiah.utility.UtilityFunctions;
  * @author Kelly
  * @version 1.0
  */
-public class ValidationAction extends AbstractAction {
+public abstract class ValidationAction extends AbstractAction {
 	private static final long serialVersionUID = -6766865678238928057L;
 	
 	
