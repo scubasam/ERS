@@ -110,6 +110,9 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
     	}
     	
     	String bodyOutput = "";
+    	if( entityList == null ){
+    		return "An unknown error occured while generating this grid.  Please contact your system administrator.";
+    	}
     	for( Entity entity : entityList ){
     		bodyOutput += "<tr>\n";
     		bodyOutput += "<td><a href=\"" + editLink + "?id=" + entity.getId() + "\">Edit</a></td>\n";

@@ -1,7 +1,10 @@
 package edu.thangiah.user.action;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -28,12 +31,19 @@ public class ManagementController extends BaseManagementController<User>{
 	protected List<Role> roles;
 	protected List<String> rolesStr;
 	
-	public List<String> getRolesStr() {
-		return rolesStr;
+	protected static final Map<String, String> columnMap;
+	static {
+		Map<String, String> columns = new LinkedHashMap<String, String>();
+		columns.put("username", "Username");
+		columns.put("email", "Email");
+		columns.put("sessionId", "Session Id");
+		columnMap = Collections.unmodifiableMap(columns);
 	}
-
-	public void setRolesStr(List<String> rolesStr) {
-		this.rolesStr = rolesStr;
+	
+	// Feeds the column map specific to this class into the auto field generator.
+	@Override
+	protected Map<String, String> getColumnMap(){
+		return columnMap;
 	}
 	
 	@Override
@@ -51,6 +61,8 @@ public class ManagementController extends BaseManagementController<User>{
 		if( initializeUserList() != SUCCESS ){
 			addControllerError(ErrorCode.FATAL, USERS_NULL_MESSAGE);
 		}
+		
+		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.users, User.class, "userManagement.action");
 	}
 	
 	@Override
@@ -181,5 +193,13 @@ public class ManagementController extends BaseManagementController<User>{
 
 	public void setDefaultRoles(String[] defaultRoles) {
 		this.defaultRoles = defaultRoles;
+	}
+	
+	public List<String> getRolesStr() {
+		return rolesStr;
+	}
+
+	public void setRolesStr(List<String> rolesStr) {
+		this.rolesStr = rolesStr;
 	}
 }

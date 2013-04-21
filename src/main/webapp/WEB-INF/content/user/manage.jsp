@@ -21,34 +21,41 @@
 			<h2>User List</h2>
 		
 			<s:if test="users.size > 0">
+				<div id="columnSelect">
+					<s:form name="manageColumns" action="manageColumns.action?action=user" id="columnSelectForm">
+						<s:checkboxlist label="Choose Display Columns" list="columnLabels" name="columnLabels" value="visibleColumns" />
+						<s:submit value="Update" />
+					</s:form>
+				</div>
 				<div id="scrollContainer">
 					<table id="users">
 						<tr>
 							<th></th>
-							<th>Username</th>
-							<th>Password</th>
-							<th>Session ID</th>
-							<th>Salt</th>
-							<th>Admin?</th>
-							<th>Email</th>
+							<s:property value="gridHeaders" escape="false" />
+<!-- 							<th>Username</th> -->
+<!-- 							<th>Password</th> -->
+<!-- 							<th>Session ID</th> -->
+<!-- 							<th>Salt</th> -->
+<!-- 							<th>Admin?</th> -->
+<!-- 							<th>Email</th> -->
 						</tr>
-						
-						<s:iterator value="users">
-							<tr>
-								<td><s:url id="editUser" value="userManagement.action">
-										<s:param name="id" value="id" />
-									</s:url>
-									<s:a href="%{editUser}">Edit</s:a>
-								</td>
-								<td><s:property value="username" /></td>
-								<td><s:property value="password" /></td>
-								<td><s:property value="sessionId" /></td>
-								<td><s:property value="salt" /></td>
-								<td><s:property value="admin" /></td>
-								<td><s:property value="email" /></td>
+							<s:property value="gridBody" escape="false" />
+<%-- 						<s:iterator value="users"> --%>
+<!-- 							<tr> -->
+<%-- 								<td><s:url id="editUser" value="userManagement.action"> --%>
+<%-- 										<s:param name="id" value="id" /> --%>
+<%-- 									</s:url> --%>
+<%-- 									<s:a href="%{editUser}">Edit</s:a> --%>
+<!-- 								</td> -->
+<%-- 								<td><s:property value="username" /></td> --%>
+<%-- 								<td><s:property value="password" /></td> --%>
+<%-- 								<td><s:property value="sessionId" /></td> --%>
+<%-- 								<td><s:property value="salt" /></td> --%>
+<%-- 								<td><s:property value="admin" /></td> --%>
+<%-- 								<td><s:property value="email" /></td> --%>
 								
-							</tr>
-						</s:iterator>
+<!-- 							</tr> -->
+<%-- 						</s:iterator> --%>
 					</table>
 				</div>
 			</s:if>
