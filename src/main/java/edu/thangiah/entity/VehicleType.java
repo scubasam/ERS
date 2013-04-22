@@ -215,4 +215,24 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
 		return this.make + " " + this.model;
 	}
 
+	public void merge(VehicleType with) {
+		if( with != null ){
+	        this.type = with.type;
+	        this.subType = with.subType;
+	        this.description = with.description;
+	        this.make = with.make;
+	        this.model = with.model;
+	        this.minimumWeight = with.minimumWeight;
+	        this.maximumWeight = with.maximumWeight;
+	        this.maximumRange = with.maximumRange;
+	        this.capacity = with.capacity;
+	        this.restrictions = with.restrictions;
+	        this.height = with.height;
+	        this.emptyWeight = with.emptyWeight;
+	        this.length = with.length;
+	        this.vehicles = with.vehicles;
+	        
+		}
+	}
+
 }

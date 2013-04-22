@@ -308,6 +308,20 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>	
+		
+		<action name="updateVehicleType" class="updateVehicleTypeAction">
+			<result name="success" type="redirect">vehicleTypeManagement.action</result>
+			<result name="input">WEB-INF/content/vehicle_type/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
+		<action name="deleteVehicleType" class="deleteVehicleTypeAction">
+			<result name="success" type="redirect">vehicleTypeManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/vehicleType/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
 
  		
  		<!-- Driver Actions -->

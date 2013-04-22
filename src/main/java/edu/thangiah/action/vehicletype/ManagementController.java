@@ -11,9 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.action.BaseManagementController;
+import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.dao.VehicleTypeDao;
-import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.VehicleType;
+import edu.thangiah.entity.Vehicle;
 
 
 public class ManagementController extends BaseManagementController<VehicleType>{
@@ -24,7 +25,9 @@ public class ManagementController extends BaseManagementController<VehicleType>{
 	@Autowired
 	protected VehicleTypeDao vehicleTypeDao;
 	
-	protected Contact contact;
+	protected long newVehicleId;
+	protected VehicleDao vehicleDao;
+	protected Vehicle vehicle;
 	
 	protected static final Map<String, String> columnMap;
 	static {
@@ -106,4 +109,19 @@ public class ManagementController extends BaseManagementController<VehicleType>{
 		this.vehicleTypeDao = vehicleTypeDao;
 	}
 
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+
+	public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
 }

@@ -59,6 +59,7 @@
 								<s:textfield name="vehicleType.model" label="Model" />
 								<s:textfield name="vehicleType.maximumWeight" label="Minimum Weight" />
 								<s:textfield name="vehicleType.minimumWeight" label="Maximum Weight" />
+								<s:textfield name="vehicleType.maximumRange" label="Maximum Range" />
 								<s:textfield name="vehicleType.capacity" label="Capacity" />
 								<s:textfield name="vehicleType.restrictions" label="Restrictions" />
 								<s:textfield name="vehicleType.height" label="Height" />
