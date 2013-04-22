@@ -285,9 +285,10 @@
 		</action>	
 
  		<!-- Vehicle Type Actions -->
- 		<action name="listAllVehicleTypes" class="vehicleTypeListAction">
- 			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
+ 		<action name="vehicleTypeManagement" class="vehicleTypeManagementAction">
+ 			<result name="success">WEB-INF/content/vehicle_type/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		 <action name="viewVehicleTypes" class="vehicleTypeViewAction">
@@ -302,8 +303,8 @@
 		</action>
 
 		<action name="addVehicleType" class="addVehicleTypeAction">
-			<result name="success" type="redirect">listAllVehicleTypes.action</result>
-			<result name="input">WEB-INF/content/vehicle_type/addForm.jsp</result>
+			<result name="success" type="redirect">vehicleTypeManagement.action</result>
+			<result name="input">WEB-INF/content/vehicle_type/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>	

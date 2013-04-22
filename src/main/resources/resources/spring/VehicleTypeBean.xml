@@ -2,14 +2,12 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
- 	
 	
- 	
-	<bean id="vehicleTypeListAction" class="edu.thangiah.action.vehicletype.ListAction">
+	<bean id="addVehicleTypeAction" class="edu.thangiah.action.vehicletype.AddAction" scope="prototype">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
 	</bean>
 	
-	<bean id="addVehicleTypeAction" class="edu.thangiah.action.vehicletype.AddAction">
+	<bean id="vehicleTypeManagementAction" class="edu.thangiah.action.vehicletype.ManagementController" scope="prototype">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
 	</bean>
  
