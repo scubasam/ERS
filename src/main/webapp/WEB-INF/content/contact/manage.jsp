@@ -1,3 +1,5 @@
+<%-- @authors Mitchell Nemitz, Kelly Smith, Alex McCracken --%>
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
@@ -26,6 +28,7 @@
 					<s:submit value="Update" />
 				</s:form>
 			</div>
+			
 			<div id="scrollContainer">
 				<table id="contacts">
 					<thead>
@@ -46,9 +49,10 @@
 							<s:property value="gridHeaders" escape="false" />
 						</tr>
 					</thead>
+					
 					<tbody>
 						<s:property value="gridBody" escape="false" />
-						<!--<s:iterator value="contacts">
+						<!-- <s:iterator value="contacts">
 							<tr>
 								<td>
 									<s:url id="edit" action="contactManagement">
@@ -71,7 +75,7 @@
 								<td><s:property value="primaryPhone" /></td>
 								<td><s:property value="workPhone" /></td>
 							</tr>
-						</s:iterator>-->
+						</s:iterator> -->
 					</tbody>
 				</table>
 			</div>
@@ -80,54 +84,53 @@
 			
 			<div id="panel2">
 				<jsp:include page="/includes/error_header.jsp" />
+				
 				<s:if test="getMode()=='edit'">
-						<s:url id="updateContact" value="updateContact.action">
-							<s:param name="id" value="id" />
-						</s:url>
-						
-						<div id="editContainer">
-							<s:form name="editForm" action="%{updateContact}" id="contactForm">
-								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
-							</s:form>
+					<s:url id="updateContact" value="updateContact.action">
+						<s:param name="id" value="id" />
+					</s:url>
+					
+					<div id="editContainer">
+						<s:form name="editForm" action="%{updateContact}" id="contactForm">
+							<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+						</s:form>
+					</div>
+					
+					<div id="buttonContainer">
+						<div id="modeDiv">
+							<h3 id="modeLabel"></h3>
 						</div>
-						
-						<div id="buttonContainer">
-							<div id="modeDiv">
-								<h3 id="modeLabel"></h3>
-							</div>
-							<div class="buttonDiv">
-								<a href="javascript:submitForm(editForm);">Update</a>
-							</div><br/>
-							<div class="buttonDiv">
-								<s:url id="deleteUrl" value="deleteContact.action">
-									<s:param name="id" value="id" />
-								</s:url>
-								<s:a href="%{deleteUrl}">Delete</s:a>
-							</div><br/>
-							<div class="buttonDiv">
-								<s:url id="clearUrl" value="contactManagement.action"></s:url>
-								<s:a href="%{clearUrl}">Clear</s:a>
-							</div><br/>
-						</div>
-	
+						<div class="buttonDiv">
+							<a href="javascript:submitForm(editForm);">Update</a>
+						</div><br/>
+						<div class="buttonDiv">
+							<s:url id="deleteUrl" value="deleteContact.action">
+								<s:param name="id" value="id" />
+							</s:url>
+							<s:a href="%{deleteUrl}">Delete</s:a>
+						</div><br/>
+						<div class="buttonDiv">
+							<s:url id="clearUrl" value="contactManagement.action"></s:url>
+							<s:a href="%{clearUrl}">Clear</s:a>
+						</div><br/>
+					</div>
 				</s:if>
 				
 				<s:else>
-						<div id="editContainer">
-							<s:form name="addForm" action="addContact.action" id="contactForm">
-								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
-							</s:form>
-						</div>
-						
-						<div id="buttonContainer">
-							<div id="modeDiv">
-								<h3 id="modeLabel"></h3>
-							</div>
-							<div class="buttonDiv">
-								<a href="javascript:submitForm(addForm);">Create</a>
-							</div><br/>
-						</div>
+					<div id="editContainer">
+						<s:form name="addForm" action="addContact.action" id="contactForm">
+							<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+						</s:form>
+					</div>
 					
+					<div id="buttonContainer">
+						<div id="modeDiv">
+							<h3 id="modeLabel"></h3>
+						</div>
+						<div class="buttonDiv">
+							<a href="javascript:submitForm(addForm);">Create</a>
+						</div><br/>
+					</div>
 				</s:else>
 			</div>
 		</s:if>

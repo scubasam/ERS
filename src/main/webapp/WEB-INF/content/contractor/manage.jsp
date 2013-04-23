@@ -72,9 +72,8 @@
 				</div>
 				
 				<div id="panel2">
-				<jsp:include page="/includes/error_header.jsp" />
-				<s:if test="getMode()=='edit'">
-					
+					<jsp:include page="/includes/error_header.jsp" />
+					<s:if test="getMode()=='edit'">
 						<s:url id="updateContractor" value="updateContractor.action">
 							<s:param name="id" value="id" />
 						</s:url>
@@ -104,9 +103,9 @@
 								<s:a href="%{clearUrl}">Clear</s:a>
 							</div><br/>
 						</div>
-				</s:if>
+					</s:if>
 				
-				<s:else>
+					<s:else>
 						<div id="editContainer">
 							<s:form name="addForm" action="addContractor.action" id="contractorForm">
 								<s:textfield name="contractor.contractorName" label="Name" />
@@ -122,8 +121,8 @@
 								<a href="javascript:submitForm(addForm);">Create</a>
 							</div><br/>
 						</div>
-				</s:else>
-			</div>
+					</s:else>
+				</div>
 			</s:if>
 			<s:else>
 				No Contractors Found...

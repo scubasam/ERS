@@ -1,3 +1,4 @@
+<%-- @authors Mitchell Nemitz, Kelly Smith --%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <div id="debug">
