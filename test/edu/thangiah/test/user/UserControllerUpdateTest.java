@@ -18,7 +18,8 @@ import edu.thangiah.user.action.UpdateAction;
 import edu.thangiah.user.entity.User;
 
 /**
- * @author Kelly
+ * Tests the functionality for updating User entities within the database.
+ * @author Kelly Smith
  *
  */
 public class UserControllerUpdateTest {

@@ -5,6 +5,11 @@ import java.util.Set;
 
 import edu.thangiah.user.entity.User;
 
+/**
+ * Role is an entity class for assigning specific roles to each user.  These roles are used to calculate permissions for given resources.
+ * @author Kelly Smith
+ *
+ */
 public class Role implements Serializable {
 	private static final long serialVersionUID = 8495265479602255906L;
 	

@@ -18,7 +18,8 @@ import edu.thangiah.user.action.AddAction;
 import edu.thangiah.user.entity.User;
 
 /**
- * @author Kelly
+ * Tests the functionality for adding User entities to the database.
+ * @author Kelly Smith
  *
  */
 public class UserControllerAddTest {

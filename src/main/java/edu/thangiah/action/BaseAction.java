@@ -2,7 +2,7 @@ package edu.thangiah.action;
 
 /**
  * BaseAction is a simple class, the function of which is serving up static or simple pages that require user authentication information.
- * @author Kelly
+ * @author Kelly Smith
  *
  */
 public class BaseAction extends AbstractAction {

@@ -4,7 +4,13 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-
+/**
+ * This serves as an abstract parent class for each Entity Dao class.  Creates an interface and base functionality for all database access
+ * using hibernate.
+ * @author Kelly Smith
+ *
+ * @param <Entity> Generic type that should be set to one of the Entity classes.
+ */
 public abstract class AbstractDao<Entity> extends HibernateDaoSupport {
 	
 	public void add(Entity entity) {

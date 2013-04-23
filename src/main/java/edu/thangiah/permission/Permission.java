@@ -2,11 +2,13 @@ package edu.thangiah.permission;
 
 import java.io.Serializable;
 
+/**
+ * Entity class for managing, storing, and accessing permission information in the database.  Relates a role to a specific resource.
+ * @author Kelly Smith
+ *
+ */
 public class Permission implements Serializable {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1759769035285717499L;
 	
 	private String id;

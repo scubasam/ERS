@@ -17,7 +17,7 @@ import edu.thangiah.user.entity.User;
 /**
  * AbstractAction serves as the foundation for all Action classes within the ERS framework.  Any classes wishing to utilize session
  * and user authentication functionality must extend either this class, or one of its children.
- * @author Kelly
+ * @author Kelly Smith
  *
  */
 public abstract class AbstractAction extends ActionSupport implements Preparable{

@@ -4,6 +4,11 @@ import java.util.HashSet;
 
 import edu.thangiah.user.entity.User;
 
+/**
+ * Used to calculate permissions for a given resource.  More complicated permission control code will be implemented here.
+ * @author Kelly Smith
+ *
+ */
 public class PermissionController {
 	private User currentUser;
 	@SuppressWarnings("unused")
@@ -27,6 +32,10 @@ public class PermissionController {
 		}
 	}
 	
+	/**
+	 * Performs a calculation on a given resource to determine if a user should be allowed access.
+	 * @return true if permission should be given, false otherwise.
+	 */
 	public boolean calculatePermission(){
 		if( hasRole(GLOBAL_ADMIN) ){
 			return true;

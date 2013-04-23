@@ -2,6 +2,11 @@ package edu.thangiah.utility;
 
 import java.util.Random;
 
+/**
+ * http://stackoverflow.com/questions/41107/how-to-generate-a-random-alpha-numeric-string
+ * @author http://stackoverflow.com/users/3474/erickson
+ *
+ */
 public class RandomString {
 	private static final char[] symbols = new char[36];
 
