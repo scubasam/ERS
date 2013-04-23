@@ -138,11 +138,13 @@ public class User implements Serializable, EntityInterface {
 		this.email = email;
 	}
 
+	@SuppressWarnings("unchecked")
 	public Map<String, Set<String>> getColumnVisibilityMap() {
 		if( columnVisibilityMap == null ){
 			if( this.serializedVisibilityMap != null && this.serializedVisibilityMap.length() > 0 ){
 				XMLDecoder xmlDecoder = new XMLDecoder(new ByteArrayInputStream(this.serializedVisibilityMap.getBytes()));
 				this.columnVisibilityMap = (Map<String, Set<String>>) xmlDecoder.readObject();
+				xmlDecoder.close();
 			}
 			else{
 				columnVisibilityMap = new HashMap<String, Set<String>>();
