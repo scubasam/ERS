@@ -1,3 +1,5 @@
+/* @author Mitchell Nemitz */
+
 * {
 	margin: 0px;
 	font-family: Tahoma;
@@ -48,7 +50,7 @@ body {
 
 #editContainer {
 	float: left;
-	width: 300px;
+	width: 440px;
 	overflow: auto;
 	margin-top: 12px;
 	margin-bottom: 12px;
@@ -56,12 +58,12 @@ body {
 }
 
 #panel2 {
-	width: 460px;
+	width: 600px;
 	margin: 0 auto;
 }
 
 
-
+/* Defaults for data display*/
 table {
 	width: 100%;
 	overflow: auto;

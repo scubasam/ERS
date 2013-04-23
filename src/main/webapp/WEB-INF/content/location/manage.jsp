@@ -1,3 +1,5 @@
+<%-- @author Mitchell Nemitz, Kelly Smith, Alex McCracken --%>
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
  
@@ -7,14 +9,15 @@
 	<title>Location Management</title>
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
+	<link rel="stylesheet" type="text/css" href="/ERS/styles/locations.css">
 	<script type="text/javascript">
 		// style the nav bar
 		page = "locations";
-		setCurrentPage(page);
+		pageSetup(page);
 	</script>
 </head>
 <body>
-<div id="container">
+	<div id="container">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Location List</h2>
@@ -26,6 +29,7 @@
 						<s:submit value="Update" />
 					</s:form>
 				</div>
+				
 				<div id="scrollContainer">
 					<table id="locations">
 						<thead>
@@ -82,9 +86,8 @@
 
 				
 				<div id="panel2">
-				<jsp:include page="/includes/error_header.jsp" />
-				<s:if test="getMode()=='edit'">
-					
+					<jsp:include page="/includes/error_header.jsp" />
+					<s:if test="getMode()=='edit'">
 						<s:url id="updateLocation" value="updateLocation.action">
 							<s:param name="id" value="id" />
 						</s:url>
@@ -130,9 +133,9 @@
 								<s:a href="%{clearUrl}">Clear</s:a>
 							</div><br/>
 						</div>
-				</s:if>
-				
-				<s:else>
+					</s:if>
+					
+					<s:else>
 						<div id="editContainer">
 							<s:form name="addForm" action="addLocation.action">
 			
@@ -159,8 +162,8 @@
 								<a href="javascript:submitForm(addForm);">Create</a>
 							</div><br/>
 						</div>
-				</s:else>
-			</div>
+					</s:else>
+				</div>
 			</s:if>
 			
 			<s:else>

@@ -1,3 +1,5 @@
+<%-- @author Mitchell Nemitz, Kelly Smith, Alex McCracken --%>
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
  
@@ -7,6 +9,7 @@
 	<title>Contractor List</title>
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
+	<link rel="stylesheet" type="text/css" href="/ERS/styles/contractors.css">
 	<script type="text/javascript">
 		// style the nav bar
 		page = "contractors";
