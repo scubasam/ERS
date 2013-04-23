@@ -7,14 +7,14 @@
 	<title>Vehicle Type Management</title>
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
+	<link rel="stylesheet" type="text/css" href="/ERS/styles/vehicletypes.css">
 	<script type="text/javascript">
-		// style the nav bar
 		page = "vehicletypes";
-		setCurrentPage(page);
+		pageSetup(page);
 	</script>
 </head>
 <body>
-<div id="container">
+	<div id="container">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Vehicle Type Management</h2>
@@ -26,8 +26,9 @@
 						<s:submit value="Update" />
 					</s:form>
 				</div>
+				
 				<div id="scrollContainer">
-					<table id="vehicleTypes">
+					<table id="vehicletypes">
 						<thead>
 							<tr>
 								<th></th>

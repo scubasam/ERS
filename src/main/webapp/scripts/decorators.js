@@ -24,7 +24,7 @@ function setCurrentPage(nav){
 
 // Sets up the dual pane interface, keeping a sensible minimum height
 function interfaceSetup(){
-	var h2 = $(window).height() - ($("#editContainer").height() + 202);
+	var h2 = $(window).height() - ($("#editContainer").height() + 264);
 	
 	if(h2 < 300){
 		h2 = 300; 
