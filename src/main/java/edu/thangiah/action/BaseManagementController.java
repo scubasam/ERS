@@ -13,7 +13,14 @@ import edu.thangiah.action.BaseManagementController.ErrorCode;
 import edu.thangiah.dao.AbstractDao;
 import edu.thangiah.entity.EntityInterface;
 
-
+/**
+ * This class servers as the parent class for all ManagementController classes.  It provides all the core functionality for loading up the
+ * entity list grid on each management page.  Additionally, it provides functionality for changing which columns are visible on each
+ * management page.
+ * @author Kelly
+ *
+ * @param <Entity> 
+ */
 public abstract class BaseManagementController<Entity extends EntityInterface> extends ValidationAction{
 
 	protected static final String MISSING_COLUMNS_ERROR = "Child management classes must initialize the columnMap attribute.";

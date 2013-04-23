@@ -2,7 +2,6 @@ package edu.thangiah.action.vehicletype;
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.entity.VehicleType;
 
 public class AddAction extends ManagementController implements Preparable{
 

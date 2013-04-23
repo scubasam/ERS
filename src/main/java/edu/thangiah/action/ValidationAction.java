@@ -6,7 +6,7 @@ import edu.thangiah.utility.UtilityFunctions;
 /**
  * This class is meant to be extended by Action classes wishing to utilize Struts2 validation on form input.
  * 
- * This class should be extended by base action classes.  See edu.thangiah.action.contact.ContactAction for reference.
+ * This is primarily extended by ManagementController classes.  See edu.thangiah.action.BaseManagementController for reference.
  * 
  * @author Kelly
  * @version 1.0
