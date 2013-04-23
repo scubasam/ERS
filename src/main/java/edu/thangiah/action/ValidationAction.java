@@ -8,7 +8,7 @@ import edu.thangiah.utility.UtilityFunctions;
  * 
  * This is primarily extended by ManagementController classes.  See edu.thangiah.action.BaseManagementController for reference.
  * 
- * @author Kelly
+ * @author Kelly Smith
  * @version 1.0
  */
 public abstract class ValidationAction extends AbstractAction {

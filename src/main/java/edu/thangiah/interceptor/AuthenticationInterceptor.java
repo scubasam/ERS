@@ -24,6 +24,12 @@ import edu.thangiah.user.entity.User;
 import edu.thangiah.utility.RandomString;
 import edu.thangiah.action.AbstractAction;
 
+/**
+ * AuthenticationInterceptor implements all authentication functionality for the user authentication system.  It determines whether a
+ * user is currently logged in, and manages session information.
+ * @author Kelly Smith
+ *
+ */
 public class AuthenticationInterceptor implements Interceptor {
 	private static final long serialVersionUID = -5372938707215213072L;
 	

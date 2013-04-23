@@ -18,7 +18,6 @@ import edu.thangiah.permission.RoleDao;
  * The persistent class for the users database table.
  * 
  */
-
 public class User implements Serializable, EntityInterface {
  
 	private static final long serialVersionUID = 1L;

@@ -17,7 +17,7 @@ import edu.thangiah.entity.EntityInterface;
  * This class servers as the parent class for all ManagementController classes.  It provides all the core functionality for loading up the
  * entity list grid on each management page.  Additionally, it provides functionality for changing which columns are visible on each
  * management page.
- * @author Kelly
+ * @author Kelly Smith
  *
  * @param <Entity> 
  */
