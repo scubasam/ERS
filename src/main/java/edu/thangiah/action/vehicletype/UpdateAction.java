@@ -5,6 +5,15 @@ import java.util.List;
 import edu.thangiah.entity.Vehicle;
 import edu.thangiah.entity.VehicleType;
 
+/**
+ * This class extends the management controller. Its primary function
+ * is to handle everything realted to updating and Vehicle Type entity.
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
 public class UpdateAction extends ManagementController{
 
 	private static final long serialVersionUID = 4634172821230672694L;

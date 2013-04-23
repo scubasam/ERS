@@ -2,6 +2,12 @@ package edu.thangiah.action.vehicletype;
 
 import com.opensymphony.xwork2.Preparable;
 
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Vehicle Type entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
 
 public class AddAction extends ManagementController implements Preparable{
 

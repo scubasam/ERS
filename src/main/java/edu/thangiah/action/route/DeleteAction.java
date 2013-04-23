@@ -2,6 +2,15 @@ package edu.thangiah.action.route;
 
 import edu.thangiah.entity.Route;
 
+/**
+ * This class extends the management controller. It's primary function is to handle everything
+ * releated to deleting a Route entity
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
 public class DeleteAction extends ManagementController{
 	private static final long serialVersionUID = -8519029040295534966L;
 

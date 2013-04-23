@@ -3,6 +3,14 @@ package edu.thangiah.action.contact;
 
 import edu.thangiah.entity.Contact;
 
+/**
+ * This class extends the management controller. It's primary function is to handle everything
+ * releated to deleting a Contact entity
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class DeleteAction extends ManagementController
 {
 	/**

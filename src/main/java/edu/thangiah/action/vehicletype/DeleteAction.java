@@ -3,6 +3,16 @@ package edu.thangiah.action.vehicletype;
 
 import edu.thangiah.entity.VehicleType;
 
+/**
+ * This class extends the management controller. It's primary function is to handle everything
+ * releated to deleting a Vehicle Type entity
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
+
 public class DeleteAction extends ManagementController
 {
 	/**

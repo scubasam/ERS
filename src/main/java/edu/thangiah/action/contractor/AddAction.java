@@ -7,6 +7,14 @@ import com.opensymphony.xwork2.Preparable;
 import edu.thangiah.dao.ContactDao;
 import edu.thangiah.entity.Contractor;
 
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Contractor entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
+
+
 public class AddAction extends ManagementController implements Preparable{
 	
 	private static final long serialVersionUID = -5800683108151609064L;

@@ -5,6 +5,15 @@ import java.util.List;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
+/**
+ * This class extends the management controller. Its primary function
+ * is to handle everything realted to updating and Location entity.
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
 public class UpdateAction extends ManagementController{
 
 	/**

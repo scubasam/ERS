@@ -7,6 +7,14 @@ import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Vehicle;
 
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Maintenance Order entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
+
+
 public class AddAction extends MaintenanceOrder implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;

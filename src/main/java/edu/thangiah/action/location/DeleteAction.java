@@ -3,6 +3,16 @@ package edu.thangiah.action.location;
 
 import edu.thangiah.entity.Location;
 
+/**
+ * This class extends the management controller. It's primary function is to handle everything
+ * releated to deleting a Location entity
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
+
 public class DeleteAction extends ManagementController
 {
 	/**
