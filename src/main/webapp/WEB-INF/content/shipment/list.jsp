@@ -1,3 +1,5 @@
+<%-- @authors Mitchell Nemitz, Kelly Smith, Alex McCracken --%>
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
@@ -8,7 +10,6 @@
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
-		// style the nav bar
 		page = "shipments";
 		pageSetup(page);
 	</script>
@@ -19,16 +20,31 @@
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Shipment List</h2>
-			
+
 			<s:if test="shipments.size > 0">
 				<div id="scrollContainer">
 					<table id="shipments">
 						<tr>
-							<th>Time Entered</th><th>Order Id</th><th>Vehicle Type</th><th>Location</th>
-							<th>Route</th><th>Available Date</th><th>Available Time</th><th>Release Date</th>
-							<th>Release Time</th><th>Earliest Delivery</th><th></th><th>Latest Delivery</th><th></th>
-							<th>Service Time</th><th>Weight</th><th>Cubic Weight</th><th>Customer Name</th>
-							<th>Destination</th><th>Pooled Shipment</th><th>Pooled Destination</th>
+							<th>Time Entered</th>
+							<th>Order Id</th>
+							<th>Vehicle Type</th>
+							<th>Location</th>
+							<th>Route</th>
+							<th>Available Date</th>
+							<th>Available Time</th>
+							<th>Release Date</th>
+							<th>Release Time</th>
+							<th>Earliest Delivery</th>
+							<th></th>
+							<th>Latest Delivery</th>
+							<th></th>
+							<th>Service Time</th>
+							<th>Weight</th>
+							<th>Cubic Weight</th>
+							<th>Customer Name</th>
+							<th>Destination</th>
+							<th>Pooled Shipment</th>
+							<th>Pooled Destination</th>
 						</tr>
 						<s:iterator value="shipments">
 							<tr>
@@ -60,13 +76,13 @@
 			<s:else>
 				No Shipments Found...
 			</s:else>
-	<div id="addDiv">
-		<s:url id="addShipment" value="addShipmentForm.action"></s:url>
-		<s:a href="%{addShipment}">Add Shipment</s:a>
-	</div>
+			<div id="addDiv">
+				<s:url id="addShipment" value="addShipmentForm.action"></s:url>
+				<s:a href="%{addShipment}">Add Shipment</s:a>
 			</div>
+		</div>
 	</div>
-	
+
 	<jsp:include page="/includes/footer.jsp" />
 </body>
 </html>

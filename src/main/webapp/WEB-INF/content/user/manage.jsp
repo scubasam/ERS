@@ -9,7 +9,7 @@
 	<title>User List</title>
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css" href="/ERS/styles/users.css">
+	<link rel="stylesheet" type="text/css" href="/ERS/styles/page/users.css">
 	<script type="text/javascript">
 		page = "users";
 		setCurrentPage(page);
@@ -35,30 +35,8 @@
 						<tr>
 							<th></th>
 							<s:property value="gridHeaders" escape="false" />
-<!-- 							<th>Username</th> -->
-<!-- 							<th>Password</th> -->
-<!-- 							<th>Session ID</th> -->
-<!-- 							<th>Salt</th> -->
-<!-- 							<th>Admin?</th> -->
-<!-- 							<th>Email</th> -->
 						</tr>
 							<s:property value="gridBody" escape="false" />
-<%-- 						<s:iterator value="users"> --%>
-<!-- 							<tr> -->
-<%-- 								<td><s:url id="editUser" value="userManagement.action"> --%>
-<%-- 										<s:param name="id" value="id" /> --%>
-<%-- 									</s:url> --%>
-<%-- 									<s:a href="%{editUser}">Edit</s:a> --%>
-<!-- 								</td> -->
-<%-- 								<td><s:property value="username" /></td> --%>
-<%-- 								<td><s:property value="password" /></td> --%>
-<%-- 								<td><s:property value="sessionId" /></td> --%>
-<%-- 								<td><s:property value="salt" /></td> --%>
-<%-- 								<td><s:property value="admin" /></td> --%>
-<%-- 								<td><s:property value="email" /></td> --%>
-								
-<!-- 							</tr> -->
-<%-- 						</s:iterator> --%>
 					</table>
 				</div>
 			</s:if>

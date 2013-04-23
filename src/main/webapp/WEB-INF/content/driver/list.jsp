@@ -1,3 +1,5 @@
+<%-- @authors Mitchell Nemitz, Kelly Smith, Alex McCracken --%>
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
@@ -15,24 +17,28 @@
 </head>
 <body>
 	<div id="container">
- 		<jsp:include page="/includes/header.jsp" />
+		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Driver List</h2>
 			<s:if test="drivers.size > 0">
 				<div id="scrollContainer">
-				<table id="drivers">
-					<tr>
-						<th>License Number</th><th>License Expiration</th><th>License Class</th><th>Contractor</th><th>Vehicle Type</th>
-					</tr>
-					<s:iterator value="drivers">
+					<table id="drivers">
 						<tr>
-							<td><s:property value="licenseNumber" /></td>
-							<td><s:property value="licenseExpiration" /></td>
-							<td><s:property value="licenseClass" /></td>
+							<th>License Number</th>
+							<th>License Expiration</th>
+							<th>License Class</th>
+							<th>Contractor</th>
+							<th>Vehicle Type</th>
+						</tr>
+						<s:iterator value="drivers">
+							<tr>
+								<td><s:property value="licenseNumber" /></td>
+								<td><s:property value="licenseExpiration" /></td>
+								<td><s:property value="licenseClass" /></td>
 								<td><s:property value="contractor" /></td>
 								<td><s:property value="vehicles" /></td>
 						</s:iterator>
-				</table>
+					</table>
 				</div>
 			</s:if>
 			<s:else>
