@@ -57,7 +57,7 @@ public class UpdateAction extends ManagementController{
 
 	@Override
 	public void validate(){
-		//validate up in here
+		validateInput();
     }
 	
 }

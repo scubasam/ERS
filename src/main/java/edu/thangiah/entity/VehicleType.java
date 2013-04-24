@@ -26,6 +26,8 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
     private String model = null;
     private Integer minimumWeight = null;
     private Integer maximumWeight = null;
+    private Integer minimumCubicWeight = null;
+    private Integer maximumCubicWeight = null;
     private Integer maximumRange = null;
     private String capacity = null;
     private String restrictions = null;
@@ -42,6 +44,7 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
         this.id = id;
     }
 
+    /*
     public VehicleType(Long id, String type, String subType, String description, String make, String model, Integer minimumWeight,
             Integer maximumWeight, Integer maximumRange, String capacity, String restrictions, Integer height, Integer emptyWeight, Integer length,
             Set<Vehicle> vehicles) {
@@ -60,7 +63,7 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
         this.emptyWeight = emptyWeight;
         this.length = length;
         this.vehicles = vehicles;
-    }
+    }*/
 
     public Long getId() {
 		return id;
@@ -224,6 +227,8 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
 	        this.model = with.model;
 	        this.minimumWeight = with.minimumWeight;
 	        this.maximumWeight = with.maximumWeight;
+	        this.minimumCubicWeight = with.minimumCubicWeight;
+	        this.maximumCubicWeight = with.maximumCubicWeight;
 	        this.maximumRange = with.maximumRange;
 	        this.capacity = with.capacity;
 	        this.restrictions = with.restrictions;
@@ -234,5 +239,22 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
 	        
 		}
 	}
+
+	public Integer getMinimumCubicWeight() {
+		return minimumCubicWeight;
+	}
+
+	public void setMinimumCubicWeight(Integer minimumCubicWeight) {
+		this.minimumCubicWeight = minimumCubicWeight;
+	}
+
+	public Integer getMaximumCubicWeight() {
+		return maximumCubicWeight;
+	}
+
+	public void setMaximumCubicWeight(Integer maximumCubicWeight) {
+		this.maximumCubicWeight = maximumCubicWeight;
+	}
+
 
 }
