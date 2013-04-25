@@ -43,7 +43,7 @@
 				<a class="navlink" id="nav_maintenanceorders" href="/ERS/maintenanceOrderManagement.action">Maintenance Orders</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_shipments" href="/ERS/listAllShipments.action">Shipments</a>
+				<a class="navlink" id="nav_shipments" href="/ERS/shipmentManagement.action">Shipments</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_routes" href="/ERS/routeManagement.action">Routes</a>

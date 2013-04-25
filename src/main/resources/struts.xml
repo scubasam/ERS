@@ -216,9 +216,10 @@
 		</action>
 		 		
  		<!--Shipment Actions -->
- 		<action name="listAllShipments" class="shipmentListAction">
- 			<result name="success">WEB-INF/content/shipment/list.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		<action name="shipmentManagement" class="shipmentManagement">
+			<result name="success">WEB-INF/content/shipment/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
  		 <action name="viewShipments" class="shipmentViewAction">

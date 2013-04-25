@@ -3,11 +3,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
-	<bean id="shipmentListAction" class="edu.thangiah.action.shipment.ListAction">
+	<bean id="shipmentManagement" class="edu.thangiah.action.shipment.ManagementController" scope="prototype">
 		<property name="shipmentDao" ref="shipmentDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="routeDao" ref="routeDao" />
 	</bean>
 	
-	<bean id="addShipmentAction" class="edu.thangiah.action.shipment.AddAction">
+	<bean id="addShipmentAction" class="edu.thangiah.action.shipment.AddAction" scope="prototype">
+		<property name="shipmentDao" ref="shipmentDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="routeDao" ref="routeDao" />
 	</bean>
 	
 </beans>
