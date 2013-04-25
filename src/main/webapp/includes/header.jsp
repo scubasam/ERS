@@ -40,7 +40,7 @@
 				<a class="navlink" id="nav_technicians" href="/ERS/listAllServiceTechnicians.action">Technicians</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_maintenanceorders" href="/ERS/listAllMaintenanceOrders.action">Maintenance Orders</a>
+				<a class="navlink" id="nav_maintenanceorders" href="/ERS/maintenanceOrderManagement.action">Maintenance Orders</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_shipments" href="/ERS/listAllShipments.action">Shipments</a>

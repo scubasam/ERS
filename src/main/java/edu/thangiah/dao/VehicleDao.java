@@ -47,5 +47,6 @@ public class VehicleDao extends AbstractDao<Vehicle> {
 	@SuppressWarnings("unchecked")
 	public List<Vehicle> findByDriver(Driver driver){
 		return getHibernateTemplate().find("from Vehicle where contractor_id=?", driver.getId());
-	}	
+	}
+
 }
