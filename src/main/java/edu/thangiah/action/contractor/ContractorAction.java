@@ -14,6 +14,9 @@ import edu.thangiah.entity.Location;
 
 import com.opensymphony.xwork2.Preparable;
  
+
+
+
 public class ContractorAction extends AbstractAction implements Preparable {
 	private static final long serialVersionUID = -8291864018797596756L;
 

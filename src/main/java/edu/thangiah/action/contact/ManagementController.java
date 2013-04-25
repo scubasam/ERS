@@ -16,7 +16,16 @@ import edu.thangiah.dao.ContactDao;
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.entity.Contact;
 
-
+/**
+ * 
+ * This class extends our base management controller class and handles
+ * the specific get and sets to the database for all actions pertaining to the 
+ * entity Contact
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 public class ManagementController extends BaseManagementController<Contact>{
 	private static final long serialVersionUID = -8958648148807210458L;
 	

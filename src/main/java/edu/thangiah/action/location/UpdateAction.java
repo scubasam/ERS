@@ -7,7 +7,7 @@ import edu.thangiah.entity.Location;
 
 /**
  * This class extends the management controller. Its primary function
- * is to handle everything realted to updating and Location entity.
+ * is to handle everything related to updating and Location entity.
  * 
  * @author Alex McCracken, Kelly Smith
  *

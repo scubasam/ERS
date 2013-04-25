@@ -5,7 +5,7 @@ import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  * This class extends the management controller. Its primary function
- * is to handle everything realted to updating and Route entity.
+ * is to handle everything related to updating and Route entity.
  * 
  * @author Alex McCracken, Kelly Smith
  *

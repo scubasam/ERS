@@ -16,7 +16,16 @@ import edu.thangiah.dao.VehicleTypeDao;
 import edu.thangiah.entity.VehicleType;
 import edu.thangiah.entity.Vehicle;
 
-
+/**
+ * 
+ * This class extends our base management controller class and handles
+ * the specific get and sets to the database for all actions pertaning to the 
+ * entity Vehicle Type
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 public class ManagementController extends BaseManagementController<VehicleType>{
 	private static final long serialVersionUID = -1194255798482840950L;
 

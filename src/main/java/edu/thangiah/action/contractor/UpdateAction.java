@@ -4,7 +4,7 @@ import edu.thangiah.entity.Contractor;
 
 /**
  * This class extends the management controller. Its primary function
- * is to handle everything realted to updating and Contractor entity.
+ * is to handle everything related to updating and Contractor entity.
  * 
  * 
  * 

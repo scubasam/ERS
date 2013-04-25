@@ -17,6 +17,17 @@ import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
 
+/**
+ * 
+ * This class extends our base management controller class and handles
+ * the specific get and sets to the database for all actions pertaining to the 
+ * entity Location
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class ManagementController extends BaseManagementController<Location>{
 	
 	private static final long serialVersionUID = -1194255798482840950L;

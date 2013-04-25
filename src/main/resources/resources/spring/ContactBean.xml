@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
- 	
 	<bean id="contactManagementAction" class="edu.thangiah.action.contact.ManagementController" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
 	</bean>

@@ -4,7 +4,7 @@ import edu.thangiah.entity.Route;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
- * releated to deleting a Route entity
+ * related to deleting a Route entity
  * 
  * @author Alex McCracken, Kelly Smith
  *

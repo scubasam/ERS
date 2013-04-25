@@ -4,7 +4,7 @@ import edu.thangiah.entity.Contractor;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
- * releated to deleting a Contractor entity
+ * related to deleting a Contractor entity
  * 
  * @author Alex McCracken, Kelly Smith
  *

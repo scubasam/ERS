@@ -20,12 +20,20 @@ import edu.thangiah.entity.Vehicle;
 import edu.thangiah.strutsutility.StrutsSelect;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
+/**
+ * 
+ * This class extends our base management controller class and handles
+ * the specific get and sets to the database for all actions pertaining to the 
+ * entity Routes
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 
 public class ManagementController extends BaseManagementController<Route>{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1194255798482840950L;
 
 	protected static final Logger LOGGER = Logger.getLogger(ManagementController.class.getName());

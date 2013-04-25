@@ -7,7 +7,7 @@ import edu.thangiah.entity.VehicleType;
 
 /**
  * This class extends the management controller. Its primary function
- * is to handle everything realted to updating and Vehicle Type entity.
+ * is to handle everything related to updating and Vehicle Type entity.
  * 
  * @author Alex McCracken, Kelly Smith
  *
