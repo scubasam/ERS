@@ -48,6 +48,8 @@ public class ManagementController extends BaseManagementController<VehicleType>{
 		columns.put("model", "Model");
 		columns.put("minimumWeight", "Minimum Weight");
 		columns.put("maximumWeight", "Maximum Weight");
+		columns.put("minimumCubicWeight", "Minimum Cubic Weight");
+		columns.put("maximumCubicWeight", "Maximum Cubic Weight");
 		columns.put("capacity", "Capacity");
 		columns.put("maximumRange", "Maximum Range");
 		columns.put("restrictions", "Restrictions");
@@ -93,6 +95,28 @@ public class ManagementController extends BaseManagementController<VehicleType>{
         LOGGER.debug("Vehicle Types number = " + getVehicleTypes().size());
         return Action.SUCCESS;
     }
+	
+	protected void validateInput() {
+		if(getEntity() != null)
+    	{
+    		requiredString(getEntity().getType(), "vehicleType.type");
+    		requiredString(getEntity().getSubType(), "vehicleType.subType");
+    		requiredString(getEntity().getMake(), "vehicleType.make");
+    		requiredString(getEntity().getModel(), "vehicleType.model");
+    		requiredInt(getEntity().getMaximumWeight(), "vehicleType.maximumWeight");
+    		requiredInt(getEntity().getMinimumWeight(), "vehicleType.minimumWeight");
+    		requiredInt(getEntity().getMaximumCubicWeight(), "vehicleType.maximumCubicWeight");
+    		requiredInt(getEntity().getMinimumCubicWeight(), "vehicleType.minimumCubicWeight");
+    		requiredInt(getEntity().getMaximumRange(), "vehicleType.maximumRange");
+    		requiredString(getEntity().getCapacity(), "vehicleType.capacity");
+    		requiredInt(getEntity().getHeight(), "vehicleType.height");
+    		requiredInt(getEntity().getEmptyWeight(), "vehicleType.emptyWeight");
+    		requiredInt(getEntity().getLength(), "vehicleType.length");
+    	}		
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}
+	}
 	
 	public List<VehicleType> getVehicleTypes() {
 		return this.getEntityList();

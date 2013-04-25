@@ -69,7 +69,6 @@ public class StrutsSelect<Entity extends EntityInterface> {
 			
 			setSelectedEntity(fromDb.get(0));
 		}
-		
 		return Action.SUCCESS;
 	}
 	

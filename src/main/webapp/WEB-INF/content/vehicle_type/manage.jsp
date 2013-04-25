@@ -3,6 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
+
 <!doctype html>
 <html>
 <head>
@@ -68,6 +69,10 @@
 									label="Minimum Weight" />
 								<s:textfield name="vehicleType.minimumWeight"
 									label="Maximum Weight" />
+									<s:textfield name="vehicleType.maximumCubicWeight"
+									label="Minimum Cubic Weight" />
+								<s:textfield name="vehicleType.minimumCubicWeight"
+									label="Maximum Cubic Weight" />
 								<s:textfield name="vehicleType.maximumRange"
 									label="Maximum Range" />
 								<s:textfield name="vehicleType.capacity" label="Capacity" />
@@ -114,6 +119,10 @@
 									label="Minimum Weight" />
 								<s:textfield name="vehicleType.minimumWeight"
 									label="Maximum Weight" />
+								<s:textfield name="vehicleType.maximumCubicWeight"
+									label="Minimum Cubic Weight" />
+								<s:textfield name="vehicleType.minimumCubicWeight"
+									label="Maximum Cubic Weight" />
 								<s:textfield name="vehicleType.capacity" label="Capacity" />
 								<s:textfield name="vehicleType.maximumRange"
 									label="Maximum Range" />

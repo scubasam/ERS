@@ -93,4 +93,41 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 	public void setEndLocation(Location endLocation) {
 		this.endLocation = endLocation;
 	}
+	
+	public Integer getMinimumCubicWeight() {
+		if( this.getVehicle() != null && this.getVehicle().getVehicleType() != null )
+			return this.getVehicle().getVehicleType().getMinimumCubicWeight();
+		else
+			return null;
+	}
+
+	public Integer getMaximumCubicWeight() {
+		if( this.getVehicle() != null && this.getVehicle().getVehicleType() != null )
+			return this.getVehicle().getVehicleType().getMaximumCubicWeight();
+		else
+			return null;
+	}
+	
+	public Integer getMinimumWeight() {
+		if( this.getVehicle() != null && this.getVehicle().getVehicleType() != null )
+			return this.getVehicle().getVehicleType().getMinimumWeight();
+		else
+			return null;
+	}
+
+	public Integer getMaximumWeight() {
+		if( this.getVehicle() != null && this.getVehicle().getVehicleType() != null )
+			return this.getVehicle().getVehicleType().getMaximumWeight();
+		else
+			return null;
+	}
+	
+	public String getCapacity() {
+		if( this.getVehicle() != null && this.getVehicle().getVehicleType() != null )
+			return this.getVehicle().getVehicleType().getCapacity();
+		else
+			return null;
+	}
+
+	
 }
