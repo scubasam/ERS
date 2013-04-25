@@ -161,7 +161,6 @@ public class MaintenanceOrder extends ValidationAction implements Preparable, En
 	}
 	
 	public void merge(MaintenanceOrder with) {
-        this.id = with.id;
         this.requester = with.requester;
         this.serviceTechnician = with.serviceTechnician;
         this.scheduledDate = with.scheduledDate;

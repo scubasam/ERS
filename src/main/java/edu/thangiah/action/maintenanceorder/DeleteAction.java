@@ -45,7 +45,6 @@ public class DeleteAction extends ManagementController
     	}
     	catch( Exception e ){
     		this.addActionError("Drivers, Service Technicians, or Vehicles exist connected to this Maintenance Order.  It cannot be deleted.");
-    		
     		return INPUT;
     	}
     	

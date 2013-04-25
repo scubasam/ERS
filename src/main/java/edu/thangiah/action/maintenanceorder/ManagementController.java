@@ -11,11 +11,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.action.BaseManagementController;
+import edu.thangiah.dao.DriverDao;
 import edu.thangiah.dao.MaintenanceOrderDao;
+import edu.thangiah.dao.ServiceTechnicianDao;
+import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Driver;
 import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.ServiceTechnician;
 import edu.thangiah.entity.Vehicle;
+import edu.thangiah.strutsutility.StrutsSelect;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 public class ManagementController extends BaseManagementController<MaintenanceOrder>{
 	
@@ -34,12 +39,24 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 
 	@Autowired
 	protected MaintenanceOrderDao maintenanceOrderDao;
+	
+	@Autowired
+	protected VehicleDao vehicleDao;
+	
+	@Autowired
+	protected ServiceTechnicianDao serviceTechnicianDao;
+	
+	@Autowired DriverDao driverDao;
 
 	protected ServiceTechnician serviceTechnician;
 	
 	protected Driver driver;
 	
 	protected Vehicle vehicle;
+	
+	protected StrutsSelect<Vehicle> vehicleSelect;
+	protected StrutsSelect<Driver> driverSelect;
+	protected StrutsSelect<ServiceTechnician> serviceTechnicianSelect;
 	
 	protected static final Map<String, String> columnMap;
 	static {
@@ -74,32 +91,66 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		super.prepare();
 		this.initializeEntityList(maintenanceOrderDao);
 		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), MaintenanceOrder.class, "maintenanceOrderManagement.action");
+		
+		if(maintenanceOrderDao == null){
+			
+			this.addActionError("unable to connect to the database contact a sys admin");
+		}
+		
+		try{
+			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
+			driverSelect = new StrutsSelect<Driver>(driverDao, "requester");
+			serviceTechnicianSelect = new StrutsSelect<ServiceTechnician>(serviceTechnicianDao, "serviceTechnician");
+		}
+		catch(StrutsElementException e){
+			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
+		}
 	}
 	
 	public String execute() {
-        if (maintenanceOrderDao == null) {
+		
+		if ( this.hasActionErrors() ) {
             return Action.ERROR;
         }
+		
+        initialize();
         
-        String result = initialize();
-		if( !result.equals(SUCCESS) ){
-			return result;
-		}
-        
+        String result;
         if( mode == Modes.EDIT ){
         	result = this.initializeEntityById(maintenanceOrderDao, id);
-        	if( this.getEntity() != null ){
-    			vehicle = this.getEntity().getVehicle();
-    			serviceTechnician = this.getEntity().getServiceTechnician();
-    		}
+        	
         	if( !result.equals(SUCCESS) ){
     			return result;
     		}
+        	
+        	if(getMaintenanceOrder() != null && getMaintenanceOrder().getDriver() != null && getMaintenanceOrder().getServiceTechnician() != null && getMaintenanceOrder().getVehicle() != null ){
+	        	vehicleSelect.intializeFromEntity(getMaintenanceOrder().getVehicle());
+	        	driverSelect.intializeFromEntity(getMaintenanceOrder().getDriver());
+	        	serviceTechnicianSelect.intializeFromEntity(getMaintenanceOrder().getServiceTechnician());
+        	}
         }
         
-        LOGGER.debug("Maintenance Order = " + getMaintenanceOrders().size());
-        return Action.SUCCESS;
+        LOGGER.debug("Maintenance Order number " + getMaintenanceOrder().toString());
+        return SUCCESS;
+
     }
+	
+	protected void initializeSelectedElements() throws StrutsElementException {
+		String result;
+		result = vehicleSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocationSelect.selected", result);
+		
+		result = driverSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocationSelect.selected", result);
+		
+		result = serviceTechnicianSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocationSelect.selected", result);
+	}
+	
+	
 	
 	public List<MaintenanceOrder> getMaintenanceOrders() {
 		return this.getEntityList();
@@ -135,6 +186,41 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 
 	public void setDriver(Driver driver) {
 		this.driver = driver;
+	}
+
+	public StrutsSelect<Vehicle> getVehicleSelect() {
+		return vehicleSelect;
+	}
+
+	public void setVehicleSelect(StrutsSelect<Vehicle> vehicleSelect) {
+		this.vehicleSelect = vehicleSelect;
+	}
+
+	public StrutsSelect<Driver> getDriverSelect() {
+		return driverSelect;
+	}
+
+	public void setDriverSelect(StrutsSelect<Driver> driverSelect) {
+		this.driverSelect = driverSelect;
+	}
+
+	public StrutsSelect<ServiceTechnician> getServiceTechnicianSelect() {
+		return serviceTechnicianSelect;
+	}
+
+	public void setServiceTechnicianSelect(
+			StrutsSelect<ServiceTechnician> serviceTechnicianSelect) {
+		this.serviceTechnicianSelect = serviceTechnicianSelect;
+	}
+	
+	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder){
+		this.setEntity(maintenanceOrder);
+		
+	}
+	
+	public MaintenanceOrder getMaintenanceOrder()
+	{
+		return this.getEntity();
 	}
 	
 

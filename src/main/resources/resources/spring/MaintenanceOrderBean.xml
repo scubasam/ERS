@@ -9,10 +9,14 @@
 	
 	<bean id="addMaintenanceOrder" class="edu.thangiah.action.maintenanceorder.AddAction" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
 	
 	<bean id="updateMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.UpdateAction" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
 	
 	<bean id="deleteMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.DeleteAction" scope="prototype">

@@ -8,6 +8,7 @@ import edu.thangiah.dao.DriverDao;
 import edu.thangiah.dao.ServiceTechnicianDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.MaintenanceOrder;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  *This class extends the management controller and implements preparable. It's primary function
@@ -32,29 +33,33 @@ public class AddAction extends ManagementController implements Preparable{
 	
 	@Override
     public String execute(){
-		if (vehicleDao == null || driverDao == null || serviceTechnicianDao == null || this.getEntity() == null) {
-            this.addActionError(DB_ERROR_MESSAGE);
-        }
-		vehicleDao.add(vehicle);
-		this.getEntity().setVehicle(vehicle);
-		driverDao.add(driver);
-		this.getEntity().setDriver(driver);
-		serviceTechnicianDao.add(serviceTechnician);
-		this.getEntity().setServiceTechnician(serviceTechnician);
-		maintenanceOrderDao.add(this.getEntity());
+		try{
+			initializeSelectedElements();
+		}
+		catch( StrutsElementException e ){
+			addActionError("An unknown error occured.  Plase try reloading the page.");
+			return ERROR;
+		}
 		
+		if( this.hasActionErrors() || this.hasFieldErrors() )
+			return INPUT;
+
+		
+		MaintenanceOrder newMaintenanceOrder = new MaintenanceOrder();
+		newMaintenanceOrder.setVehicle(vehicleSelect.getSelectedEntity());
+		newMaintenanceOrder.setDriver(driverSelect.getSelectedEntity());
+		newMaintenanceOrder.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
+		
+		try{
+			maintenanceOrderDao.add(newMaintenanceOrder);
+		}
+		catch(Exception e){
+			return ERROR;
+		}
     	return SUCCESS;
     }
     
-    // called automatically
-    public void validate(){
-    	if( this.getEntity() != null ){
-    		
-    	}
-    	else{
-    		addActionError("Unknown error.  Please try again.");
-    	}
-    }
+
 
     
     public MaintenanceOrder getMaintenanceOrder()

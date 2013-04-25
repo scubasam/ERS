@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css"
 		href="/ERS/styles/page/routes.css">
 	<script type="text/javascript">
-		page = "maintenance_order";
+		page = "maintenanceorders";
 		pageSetup(page);
 	</script>
 </head>
@@ -22,10 +22,10 @@
 		<div id="content">
 			<h2>Maintenance Order</h2>
 
-			<s:if test="maintenanceOrder.size > 0">
+			<s:if test="maintenanceOrders.size > 0">
 				<div id="columnSelect">
 					<s:form name="manageColumns"
-						action="manageColumns.action?action=route" id="columnSelectForm">
+						action="manageColumns.action?action=maintenanceOrder" id="columnSelectForm">
 						<s:checkboxlist label="Choose Display Columns" list="columnLabels"
 							name="columnLabels" value="visibleColumns" />
 						<s:submit value="Update" />
@@ -58,9 +58,13 @@
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
-								<s:select label="ServiceTechnician" name="serviceTechnicianSelect.selected"
+								<s:select label="ServiceTechnician" 
+									name="serviceTechnicianSelect.selected"
 									list="serviceTechnicianSelect.list" listKey="id" listValue="toString()"
 									value="serviceTechnicianSelect.selected" />
+								<s:select label="Driver" name="drierSelect.selected"
+									list="driverSelectList.list" listKey="id" listValue="toString()"
+									value="driverSelect.selected" />
 							</s:form>
 						</div>
 
@@ -95,6 +99,9 @@
 								<s:select label="ServiceTechnician" name="serviceTechnicianSelect.selected"
 									list="serviceTechnicianSelect.list" listKey="id" listValue="toString()"
 									value="serviceTechnicianSelect.selected" />
+								<s:select label="Driver" name="drierSelect.selected"
+									list="driverSelectList.list" listKey="id" listValue="toString()"
+									value="driverSelect.selected" />
 							</s:form>
 						</div>
 

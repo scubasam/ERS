@@ -1,6 +1,7 @@
 package edu.thangiah.action.maintenanceorder;
 
 import edu.thangiah.entity.MaintenanceOrder;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  * This class extends the management controller. Its primary function
@@ -33,36 +34,32 @@ public class UpdateAction extends ManagementController{
     	
     	MaintenanceOrder fromDb = this.retrieveEntityById(maintenanceOrderDao, id);
     	if( fromDb == null){
-    		this.addActionError("This maintenance order does not exist.  Please try again.");
+    		this.addActionError("This contractor does not exist.  Please try again.");
     		return INPUT;
     	}
     	
-    	MaintenanceOrder fromForm = this.getEntity();
-    	if( fromForm == null ){
-    		this.addActionError("The form data could not be retrieved from the form.  Please try again.");
-    		return INPUT;
-    	}
+    	// Get the selected values from the form.
+    	try{
+			initializeSelectedElements();
+		}
+		catch( StrutsElementException e ){
+			addActionError("An unknown error occured.  Plase try reloading the page.");
+			return ERROR;
+		}
+		
+		if( this.hasActionErrors() || this.hasFieldErrors() )
+			return INPUT;
     	
-    	if( fromForm.getDriver() == null)
-    	{
-    		this.addActionError("Driver not found or null. Please try again.");
-    		return INPUT;
-    	}
-    	
-    	if( fromForm.getVehicle() == null)
-    	{
-    		this.addActionError("Vehicle not found or null. Please try again.");
-    		return INPUT;
-    	}
-    	
-    	if( fromForm.getServiceTechnician() == null)
-    	{
-    		this.addActionError("Service Technician not found or null. Please try again.");
-    		return INPUT;
-    	}
-    	
-    	fromDb.merge(fromForm);
-    	maintenanceOrderDao.update(fromDb);
-    	return SUCCESS;
+		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
+		fromDb.setDriver(driverSelect.getSelectedEntity());
+		fromDb.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
+
+		try{
+			maintenanceOrderDao.update(fromDb);
+		}
+		catch(Exception e){
+			return ERROR;
+		}
+		return SUCCESS;
 	}
 }

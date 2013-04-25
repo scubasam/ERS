@@ -188,25 +188,29 @@
 		</action>
  		
  		<!-- Service Technician Actions -->
- 		<action name="listAllServiceTechnicians" class="serviceTechnicianListAction">
- 			<result name="success">WEB-INF/content/service_technician/list.jsp</result>
+ 		<action name="serviceTechnicianManagement" class="serviceTechnicianManagementAction">
+ 			<result name="success">WEB-INF/content/service_technician/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
- 		 <action name="viewServiceTechnicians" class="serviceTechnicianViewAction">
- 			<result name="success">WEB-INF/content/service_technician/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>
- 		
- 		 <action name="addServiceTechnicianForm" class="baseAction">
-			<result>WEB-INF/content/service_technician/addForm.jsp</result>
+		<action name="addServiceTechnician" class="addServiceTechnicianAction">
+			<result name="success" type="redirect">serviceTechnicianManagement.action</result>
+			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
-
-		<action name="addServiceTechnician" class="addServiceTechnicianAction">
-			<result name="success" type="redirect">listAllServiceTechnicians.action</result>
-			<result name="input">WEB-INF/content/service_technician/addForm.jsp</result>
+		
+		<action name="updateServiceTechnician" class="updateServiceTechnicianAction">
+			<result name="success" type="redirect">serviceTechnicianManagement.action</result>
+			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
+		<action name="deleteServiceTechnician" class="deleteServiceTechnicianAction">
+			<result name="success" type="redirect">serviceTechnicianManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

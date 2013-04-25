@@ -97,4 +97,11 @@ public class ServiceTechnician extends AbstractEntity implements Serializable, E
 	public String toString(){
 		return contact.toString();
 	}
+
+	public void merge(ServiceTechnician with) {
+        this.contact = with.contact;
+        this.skillGrade = with.skillGrade;
+        this.maintenanceOrders = with.maintenanceOrders;
+		
+	}
 }
