@@ -76,6 +76,13 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 		</action>
 		
+		<action name="manageColumns" class="manageColumnsAction">
+			<result name="success" type="redirect">${action}Management.action</result>
+			<result name="input">WEB-INF/content/error.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
 		
 		<!-- Contact Actions -->
  		<action name="contactManagement" class="contactManagementAction">
@@ -278,9 +285,10 @@
 		</action>	
 
  		<!-- Vehicle Type Actions -->
- 		<action name="listAllVehicleTypes" class="vehicleTypeListAction">
- 			<result name="success">WEB-INF/content/vehicle_type/list.jsp</result>
+ 		<action name="vehicleTypeManagement" class="vehicleTypeManagementAction">
+ 			<result name="success">WEB-INF/content/vehicle_type/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		 <action name="viewVehicleTypes" class="vehicleTypeViewAction">
@@ -295,11 +303,25 @@
 		</action>
 
 		<action name="addVehicleType" class="addVehicleTypeAction">
-			<result name="success" type="redirect">listAllVehicleTypes.action</result>
-			<result name="input">WEB-INF/content/vehicle_type/addForm.jsp</result>
+			<result name="success" type="redirect">vehicleTypeManagement.action</result>
+			<result name="input">WEB-INF/content/vehicle_type/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>	
+		
+		<action name="updateVehicleType" class="updateVehicleTypeAction">
+			<result name="success" type="redirect">vehicleTypeManagement.action</result>
+			<result name="input">WEB-INF/content/vehicle_type/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+		
+		<action name="deleteVehicleType" class="deleteVehicleTypeAction">
+			<result name="success" type="redirect">vehicleTypeManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/vehicleType/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
 
  		
  		<!-- Driver Actions -->
@@ -334,6 +356,20 @@
  		</action>
  		
  		<action name="addRoute" class="addRoute">
+ 			<result name="success" type="redirect">routeManagement.action</result>
+			<result name="input">WEB-INF/content/route/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="updateRoute" class="updateRoute">
+ 			<result name="success" type="redirect">routeManagement.action</result>
+			<result name="input">WEB-INF/content/route/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+ 		</action>
+ 		
+ 		<action name="deleteRoute" class="deleteRoute">
  			<result name="success" type="redirect">routeManagement.action</result>
 			<result name="input">WEB-INF/content/route/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>

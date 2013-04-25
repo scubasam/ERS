@@ -29,6 +29,12 @@
         <property name="maximumWeight" type="java.lang.Integer">
             <column name="MAXIMUM_WEIGHT" />
         </property>
+        <property name="minimumCubicWeight" type="java.lang.Integer">
+            <column name="minimum_cubic_weight" />
+        </property>
+        <property name="maximumCubicWeight" type="java.lang.Integer">
+            <column name="maximum_cubic_weight" />
+        </property>
         <property name="maximumRange" type="java.lang.Integer">
             <column name="MAXIMUM_RANGE" />
         </property>

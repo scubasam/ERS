@@ -7,6 +7,7 @@
 	<title>Vehicle Type List</title>
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
+	<link rel="stylesheet" type="text/css" href="/ERS/styles/page/vehicletypes.css">
 	<script type="text/javascript">
 		// style the nav bar
 		page = "vehicletypes";

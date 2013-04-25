@@ -6,6 +6,14 @@ import edu.thangiah.dao.ContactDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Driver;
 
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Driver entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
+
+
 public class AddAction extends DriverAction implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;

@@ -17,7 +17,7 @@ import edu.thangiah.user.entity.User;
 /**
  * AbstractAction serves as the foundation for all Action classes within the ERS framework.  Any classes wishing to utilize session
  * and user authentication functionality must extend either this class, or one of its children.
- * @author Kelly
+ * @author Kelly Smith
  *
  */
 public abstract class AbstractAction extends ActionSupport implements Preparable{
@@ -37,6 +37,7 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 	public static final String SESSION_ID_KEY = "sessionId";
 	public static final String USER_SESSION_KEY = "sessionUser";
 	
+	
 	@Autowired
 	protected RoleDao roleDao;
 	
@@ -50,7 +51,7 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 	 */
 	@Override
 	public void prepare() throws Exception {
-		this.clearErrors(); // Prevents errors from persisting accross multiple submits.
+		this.clearErrors(); // Prevents errors from persisting across multiple submits.
 		
 		currentSession = ActionContext.getContext().getSession();
 		String sessionId = (String) currentSession.get(SESSION_ID_KEY);

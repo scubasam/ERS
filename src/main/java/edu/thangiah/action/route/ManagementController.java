@@ -1,6 +1,9 @@
 package edu.thangiah.action.route;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +20,20 @@ import edu.thangiah.entity.Vehicle;
 import edu.thangiah.strutsutility.StrutsSelect;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
+/**
+ * 
+ * This class extends our base management controller class and handles
+ * the specific get and sets to the database for all actions pertaining to the 
+ * entity Routes
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 
 public class ManagementController extends BaseManagementController<Route>{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -1194255798482840950L;
 
 	protected static final Logger LOGGER = Logger.getLogger(ManagementController.class.getName());
@@ -41,10 +52,32 @@ public class ManagementController extends BaseManagementController<Route>{
 	protected StrutsSelect<Location> endLocationSelect;
 	
 	
+	protected static final Map<String, String> columnMap;
+	static {
+		Map<String, String> columns = new LinkedHashMap<String, String>();
+		columns.put("vehicle", "Vehicle");
+		columns.put("shipments", "Shipments");
+		columns.put("startLocation", "Start Location");
+		columns.put("endLocation", "End Location");
+		columnMap = Collections.unmodifiableMap(columns);
+	}
+	
+	// Feeds the column map specific to this class into the auto field generator.
+	@Override
+	protected Map<String, String> getColumnMap(){
+		return columnMap;
+	}
+	
+	@Override
+	protected String getActionId() {
+		return "route";
+	}
+	
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
 		this.initializeEntityList(routeDao);
+		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), Route.class, "routeManagement.action");
 		
 		if ( routeDao == null ) {
         	this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
@@ -64,13 +97,10 @@ public class ManagementController extends BaseManagementController<Route>{
         if ( this.hasActionErrors() ) {
             return Action.ERROR;
         }
-        
-        String result = initialize();
 		
-        if( !result.equals(SUCCESS) ){
-			return result;
-		}
+        initialize();
         
+        String result;
         if( mode == Modes.EDIT ){
         	result = this.initializeEntityById(routeDao, id);
         	
@@ -88,6 +118,22 @@ public class ManagementController extends BaseManagementController<Route>{
         LOGGER.debug("Routes number = " + getRoutes().size());
         return SUCCESS;
     }
+	
+	
+	protected void initializeSelectedElements() throws StrutsElementException {
+		String result;
+		result = vehicleSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocation.selected", result);
+		
+		result = startLocationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocation.selected", result);
+		
+		result = endLocationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("startLocation.selected", result);
+	}
 	
 	public List<Route> getRoutes() {
 		return this.getEntityList();

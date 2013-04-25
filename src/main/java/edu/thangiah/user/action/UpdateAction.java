@@ -53,6 +53,7 @@ public class UpdateAction extends ManagementController{
     	}
         
     	mergeUser(fromDbUser, user);
+    	processChangedRoles(fromDbUser, user);
     	userBo.update(fromDbUser);
     	
     	return SUCCESS;
@@ -79,8 +80,6 @@ public class UpdateAction extends ManagementController{
 		fromDb.setUsername(updated.getUsername());
 		fromDb.setAdmin(updated.isAdmin());
 		fromDb.setEmail(updated.getEmail());
-		processChangedRoles(fromDb, user);
-		
 	}
 	
 	private void processChangedRoles(User fromDb, User user){

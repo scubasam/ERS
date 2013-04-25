@@ -1,5 +1,13 @@
 package edu.thangiah.action.contact;
 
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Contact entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
+
+
 import com.opensymphony.xwork2.Preparable;
 
 import edu.thangiah.entity.Contact;

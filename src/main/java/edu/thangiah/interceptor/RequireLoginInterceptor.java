@@ -13,6 +13,12 @@ import com.opensymphony.xwork2.interceptor.Interceptor;
 
 import edu.thangiah.action.AbstractAction;
 
+/**
+ * RequireLoginInterceptor is invoked within struts.xml on any action that requires a user to be logged in to access.  If the current
+ * user is not logged in, they will be redirected to a login page.
+ * @author Kelly Smith
+ *
+ */
 public class RequireLoginInterceptor implements Interceptor {
 	private static final long serialVersionUID = -5372938707215213072L;
 	

@@ -1,3 +1,5 @@
+<%-- @author Mitchell Nemitz, Kelly Smith, Alex McCracken --%>
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
 
@@ -9,7 +11,8 @@
 		<jsp:include page="/includes/decorator.jsp" />
 		<script type="text/javascript">
 			// style the nav bar
-			pageSetup("home");
+			page = "home";
+			pageSetup(page);
 		</script>
 	</head>
 	<body>
@@ -17,10 +20,7 @@
 			<jsp:include page="/includes/header.jsp" />
 			<div id="content">
 				<s:if test="loggedIn == true">
-					<!-- <div class="login">
-						Hello <s:property value="currentUser" /> | <a href="logout.action">Logout</a>
-					</div> -->
-					
+					<p>Welcome, <s:property value="currentUser.username"/>!</p>
 				</s:if>
 				<s:else>
 					<div class="login">

@@ -5,6 +5,12 @@ import com.opensymphony.xwork2.Preparable;
 import edu.thangiah.entity.Route;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Route entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
 
 public class AddAction extends ManagementController implements Preparable {
 
@@ -14,18 +20,7 @@ public class AddAction extends ManagementController implements Preparable {
     public String execute()
     {
 		try{
-			String result;
-			result = vehicleSelect.initializeSelected();
-			if( !result.equals(SUCCESS) )
-				addFieldError("startLocation.selected", result);
-			
-			result = startLocationSelect.initializeSelected();
-			if( !result.equals(SUCCESS) )
-				addFieldError("startLocation.selected", result);
-			
-			result = endLocationSelect.initializeSelected();
-			if( !result.equals(SUCCESS) )
-				addFieldError("startLocation.selected", result);
+			initializeSelectedElements();
 		}
 		catch( StrutsElementException e ){
 			addActionError("An unknown error occured.  Plase try reloading the page.");

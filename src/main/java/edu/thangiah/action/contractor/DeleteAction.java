@@ -2,6 +2,14 @@ package edu.thangiah.action.contractor;
 
 import edu.thangiah.entity.Contractor;
 
+/**
+ * This class extends the management controller. It's primary function is to handle everything
+ * related to deleting a Contractor entity
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class DeleteAction extends ManagementController
 {
 

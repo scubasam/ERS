@@ -1,66 +1,32 @@
 package edu.thangiah.action.vehicletype;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.dao.VehicleTypeDao;
-import edu.thangiah.entity.MaintenanceOrder;
-import edu.thangiah.entity.VehicleType;
+/**
+ *This class extends the management controller and implements preparable. It's primary function
+ *is to to handle everything related to adding and Vehicle Type entity 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ */
 
-public class AddAction extends MaintenanceOrder implements Preparable{
+public class AddAction extends ManagementController implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;
-	private VehicleType vehicleType;
-	
-	@Autowired
-	protected VehicleTypeDao vehicleTypeDao;
 	
 	@Override
-    public String execute() throws Exception
-    {
-		/*
-		if (vehicleTypeDao == null || vehicleType == null) 
-		{
+    public String execute(){
+		if (vehicleTypeDao == null || this.getEntity() == null) {
             this.addActionError(DB_ERROR_MESSAGE);
         }
 		
-		vehicleTypeDao.add(vehicleType);
-		*/
+		LOGGER.debug("Adding new Vehicle Type: " + this.getEntity().toString());
+		vehicleTypeDao.add(this.getEntity());
+		
     	return SUCCESS;
     }
     
     // called automatically
     public void validate(){
-    	if(vehicleType != null)
-    	{
-    		requiredLong(vehicleType.getId(), "vehicleType.id");
-    		requiredString(vehicleType.getType(), "vehicleType.type");
-    		requiredString(vehicleType.getSubType(), "vehicleType.subType");
-    		requiredString(vehicleType.getDescription(), "vehicleType.description");
-    		requiredString(vehicleType.getMake(), "vehicleType.make");
-    		requiredString(vehicleType.getModel(), "vehicleType.model");
-    		requiredInt(vehicleType.getMaximumWeight(), "vehicleType.maximumWeight");
-    		requiredInt(vehicleType.getMinimumWeight(), "vehicleType.minimumWeight");
-    		requiredInt(vehicleType.getMaximumRange(), "vehicleType.maximumRange");
-    		requiredString(vehicleType.getCapacity(), "vehicleType.capacity");
-    		requiredString(vehicleType.getRestrictions(), "vehicleType.restrictions");
-    		requiredInt(vehicleType.getHeight(), "vehicleType.height");
-    		requiredInt(vehicleType.getEmptyWeight(), "vehicleType.emptyWeight");
-    		requiredInt(vehicleType.getLength(), "vehicleType.length");
-    	}		
-    	else{
-    		addActionError("Unknown error.  Please try again.");
-    	}
-
+    	validateInput();
     }
-    
-	public VehicleTypeDao getVehicleTypeDao()
-	{
-		return vehicleTypeDao;
-	}
-
-	public void setVehicleTypeDao(VehicleTypeDao vehicleTypeDao)
-	{
-		this.vehicleTypeDao = vehicleTypeDao;
-	}
 }

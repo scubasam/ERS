@@ -2,6 +2,17 @@ package edu.thangiah.action.contact;
 
 import edu.thangiah.entity.Contact;
 
+/**
+ * This class extends the management controller. Its primary function
+ * is to handle everything related to updating and Contact entity.
+ * 
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
 public class UpdateAction extends ManagementController{
 
 	private static final long serialVersionUID = 4634172821230672694L;

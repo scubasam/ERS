@@ -157,4 +157,6 @@ public class Vehicle extends AbstractEntity implements Serializable, EntityInter
 	public String getViewLink() {
 		return null;
 	}
+	
+
 }

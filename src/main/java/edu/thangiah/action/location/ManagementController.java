@@ -1,6 +1,9 @@
 package edu.thangiah.action.location;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,17 @@ import edu.thangiah.dao.LocationDao;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
+
+/**
+ * 
+ * This class extends our base management controller class and handles
+ * the specific get and sets to the database for all actions pertaining to the 
+ * entity Location
+ * 
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 
 public class ManagementController extends BaseManagementController<Location>{
 	
@@ -32,10 +46,41 @@ public class ManagementController extends BaseManagementController<Location>{
 	protected long selectedContractorId; // Holds the contractor id of the current entities contractor for the form.
 	protected long newContractorId;
 	
+	protected static final Map<String, String> columnMap;
+	static {
+		Map<String, String> columns = new LinkedHashMap<String, String>();
+		columns.put("name", "Name");
+		columns.put("streetAddress1", "Street Address 1");
+		columns.put("streetAddress2", "Street Address 2");
+		columns.put("city", "City");
+		columns.put("state", "State");
+		columns.put("zip", "Zip");
+		columns.put("roadName", "Road Name");
+		columns.put("roadNumber", "Road Number");
+		columns.put("latitude", "Latitude");
+		columns.put("longitude", "Longitude");
+		columns.put("contractor", "Contractor");
+		columns.put("locationType", "Location Type");
+		columns.put("vehicles", "Vehicles");
+		columnMap = Collections.unmodifiableMap(columns);
+	}
+	
+	// Feeds the column map specific to this class into the auto field generator.
+	@Override
+	protected Map<String, String> getColumnMap(){
+		return columnMap;
+	}
+	
+	@Override
+	protected String getActionId() {
+		return "location";
+	}
+	
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
 		String result = this.initializeEntityList(locationDao);
+		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), Location.class, "locationManagement.action");
 		if( !result.equals(SUCCESS) ){
 			this.addControllerError(ErrorCode.FATAL, "Unable to access the database.  Please try reloading the page.");
 			return;

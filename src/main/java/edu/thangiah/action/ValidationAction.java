@@ -6,12 +6,12 @@ import edu.thangiah.utility.UtilityFunctions;
 /**
  * This class is meant to be extended by Action classes wishing to utilize Struts2 validation on form input.
  * 
- * This class should be extended by base action classes.  See edu.thangiah.action.contact.ContactAction for reference.
+ * This is primarily extended by ManagementController classes.  See edu.thangiah.action.BaseManagementController for reference.
  * 
- * @author Kelly
+ * @author Kelly Smith
  * @version 1.0
  */
-public class ValidationAction extends AbstractAction {
+public abstract class ValidationAction extends AbstractAction {
 	private static final long serialVersionUID = -6766865678238928057L;
 	
 	

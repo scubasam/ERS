@@ -4,9 +4,9 @@
 <!-- Generated Feb 28, 2013 6:06:56 PM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="edu.thangiah.user.entity.User" table="USERS">
-        <id name="id" type="int">
+        <id name="id" type="java.lang.Long" unsaved-value="null">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
@@ -26,6 +26,10 @@
         
         <property name="email" type="java.lang.String">
             <column name="email" />
+        </property>
+        
+        <property name="serializedVisibilityMap" type="java.lang.String">
+            <column name="serializedVisibilityMap" />
         </property>
         
         <set name="roles" table="user_role" lazy="false" cascade="save-update">
