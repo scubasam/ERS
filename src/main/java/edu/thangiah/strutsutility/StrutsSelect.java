@@ -6,7 +6,6 @@ import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.dao.AbstractDao;
 import edu.thangiah.entity.EntityInterface;
-import edu.thangiah.entity.Route;
 import edu.thangiah.strutsutility.exception.StrutsElementDaoException;
 import edu.thangiah.strutsutility.exception.StrutsElementDataException;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
@@ -70,7 +69,6 @@ public class StrutsSelect<Entity extends EntityInterface> {
 			
 			setSelectedEntity(fromDb.get(0));
 		}
-		
 		return Action.SUCCESS;
 	}
 	
