@@ -28,7 +28,7 @@
 				<a class="navlink" id="nav_locations" href="/ERS/locationManagement.action">Locations</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_vehicles" href="/ERS/listAllVehicles.action">Vehicles</a>
+				<a class="navlink" id="nav_vehicles" href="/ERS/vehicleManagement.action">Vehicles</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_vehicletypes" href="/ERS/vehicleTypeManagement.action">Vehicle Types</a>

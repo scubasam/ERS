@@ -1,6 +1,6 @@
 package edu.thangiah.action.vehicle;
 
-import edu.thangiah.entity.MaintenanceOrder;
+import edu.thangiah.entity.Vehicle;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
@@ -34,14 +34,14 @@ public class DeleteAction extends ManagementController
     		return INPUT;
     	}
     	
-    	MaintenanceOrder fromDb = this.retrieveEntityById(maintenanceOrderDao, id);
+    	Vehicle fromDb = this.retrieveEntityById(vehicleDao, id);
     	if( fromDb == null ){
     		this.addActionError("This maintenance order does not exist.  Please try again.");
     		return INPUT;
     	}
     	
     	try{
-    		maintenanceOrderDao.delete(fromDb);
+    		vehicleDao.delete(fromDb);
     	}
     	catch( Exception e ){
     		this.addActionError("Drivers, Service Technicians, or Vehicles exist connected to this Maintenance Order.  It cannot be deleted.");

@@ -3,13 +3,27 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
- 	<bean id="vehicleListAction" class="edu.thangiah.action.vehicle.ListAction">
+	<bean id="vehicleManagement" class="edu.thangiah.action.vehicle.ManagementController" scope="prototype">
+		<property name="vehicleDao" ref="vehicleDao" />
+
+	</bean>
+	
+	<bean id="addVehicle" class="edu.thangiah.action.vehicle.AddAction" scope="prototype">
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
+	
+	<bean id="updateVehicle" class="edu.thangiah.action.vehicle.UpdateAction" scope="prototype">
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
+	
+	<bean id="deleteVehicle" class="edu.thangiah.action.vehicle.DeleteAction" scope="prototype">
 		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
- 
- 	<bean id="addVehicleAction" class="edu.thangiah.action.vehicle.AddAction">
- 		<property name="vehicleDao" ref="vehicleDao" />
- 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
- 	</bean>
  
 </beans>

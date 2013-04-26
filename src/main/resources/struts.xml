@@ -277,28 +277,38 @@
  		</action>
  		
  		<!-- Vehicle Actions -->
- 		<action name="listAllVehicles" class="vehicleListAction">
- 			<result name="success">WEB-INF/content/vehicle/list.jsp</result>
+ 		<action name="vehicleManagement" class="vehicleManagementAction">
+ 			<result name="success">WEB-INF/content/vehicle/manage.jsp</result>
+			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
- 		
- 		 <action name="viewVehicles" class="vehicleViewAction">
- 			<result name="success">WEB-INF/content/vehicle/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>
- 		
- 		<action name="addVehicleForm" class="baseAction">
-			<result>WEB-INF/content/vehicle/addForm.jsp</result>
+
+		<action name="addVehicle" class="addVehicleAction">
+			<result name="success" type="redirect">vehicleManagement.action</result>
+			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
-
-		<action name="addVehicle" class="addVehicleAction">
-			<result name="success" type="redirect">listAllVehicles.action</result>
-			<result name="input">WEB-INF/content/vehicle/addForm.jsp</result>
+		
+		<action name="updateVehicle" class="updateVehicleAction">
+			<result name="success" type="redirect">vehicleManagement.action</result>
+			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>	
+		</action>
+		
+		<action name="deleteVehicle" class="deleteVehicleAction">
+			<result name="success" type="redirect">vehicleManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
+ 		
+ 		 <action name="viewVehicle" class="vehicleViewAction">
+ 			<result name="success">WEB-INF/content/vehicle/view.jsp</result>
+ 			<interceptor-ref name="authStack"></interceptor-ref>
+ 		</action>	
 
  		<!-- Vehicle Type Actions -->
  		<action name="vehicleTypeManagement" class="vehicleTypeManagementAction">

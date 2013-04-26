@@ -50,9 +50,10 @@ public class UpdateAction extends ManagementController{
 		if( this.hasActionErrors() || this.hasFieldErrors() ){
 			return INPUT;
 		}
-		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
-		fromDb.setDriver(driverSelect.getSelectedEntity());
-		fromDb.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
+		fromDb.setVehicleType(vehicleTypeSelect.getSelectedEntity());
+		fromDb.setContractor(contractorSelect.getSelectedEntity());
+		fromDb.setLocation(locationSelect.getSelectedEntity());
+		//fromDb.setDriver(driverSelect.getSelectedEntity());
 
 		try{
 			vehicleDao.update(fromDb);
