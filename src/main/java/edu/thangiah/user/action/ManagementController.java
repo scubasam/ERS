@@ -96,7 +96,7 @@ public class ManagementController extends BaseManagementController<User>{
 	}
 
 	protected String initializeEditUser() {
-		List<User> fromDb = userBo.findById((int)id);
+		List<User> fromDb = userBo.findById(id);
 		if( fromDb == null || fromDb.size() == 0 ){
 			entityNotFoundError();
 			return SUCCESS; // Error will be displayed.
