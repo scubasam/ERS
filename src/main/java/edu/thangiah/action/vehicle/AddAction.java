@@ -2,9 +2,7 @@ package edu.thangiah.action.vehicle;
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Vehicle;
-import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  *This class extends the management controller and implements preparable. It's primary function
@@ -20,15 +18,15 @@ public class AddAction extends ManagementController implements Preparable {
 	@Override
     public String execute()
     {
-		/*
+		
 		try{
 		//	initializeSelectedElements();
 		}
-		catch( StrutsElementException e ){
+		catch(StrutsElementException e){
 			addActionError("An unknown error occured.  Plase try reloading the page.");
 			return ERROR;
 		}
-		*/
+		
 		if( this.hasActionErrors() || this.hasFieldErrors() )
 			return INPUT;
 		
