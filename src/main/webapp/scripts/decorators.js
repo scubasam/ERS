@@ -4,6 +4,8 @@
 // more dynamic sections of the app, allowing custom form
 // submissions and providing onready style changes.
 
+
+
 // Called on each page to dynamically style the interface
 // to match each management page. 
 function pageSetup(page){
@@ -16,25 +18,24 @@ function pageSetup(page){
 // Styles the navbar, brings the current tab forward
 function setCurrentPage(nav){
 	$("#nav_" + nav).addClass("currentpage");
-	
-	$(document).ready(function(){
-		$("#nav_" + nav).addClass("currentpage");
-	});
 }
 
-// Sets up the dual pane interface, keeping a sensible minimum height
+// Sets up the dual pane interface, keeping sensible minimum heights
 function interfaceSetup(){
 	var h2 = $(window).height() - ($("#editContainer").height() + 264);
 	
-	if(h2 < 300){
-		h2 = 300; 
-	}
-	
-	if(h2 > $("#"+page).height()){
-		h2 = $("#"+page).height;
-	}
+	if(h2 < 300){ h2 = 300; }
+	if(h2 > $("#"+page).height()){ h2 = $("#"+page).height; }
 	
 	$("#scrollContainer").height(h2);
+}
+
+function toggleColumnSelect(){
+	if($("#columnSelect").is(":visible")){
+		$("#columnSelect").hide();
+	} else {
+		$("#columnSelect").show();
+	}
 }
 
 // convenience function for submitting complex forms

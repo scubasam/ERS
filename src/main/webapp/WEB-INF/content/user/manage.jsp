@@ -3,22 +3,29 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
  
- <!doctype html>
+<!doctype html>
 <html>
 <head>
 	<title>User List</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
+	
 	<link rel="stylesheet" type="text/css" href="/ERS/styles/page/users.css">
 	<script type="text/javascript">
 		page = "users";
-		setCurrentPage(page);
+		pageSetup(page);
 	</script>
 </head>
 
 <body>
 	<div id="container">
 		<jsp:include page="/includes/header.jsp" />
+		
+		<div class="buttonDiv" id="columnSelectButton">
+			<a href="javascript:toggleColumnSelect()">Select Columns</a>
+		</div>
+			
 		<div id="content">
 			<h2>User List</h2>
 		
