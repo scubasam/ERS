@@ -1,0 +1,19 @@
+/* Defaults for data display*/
+table {
+	width: 100%;
+	overflow: auto;
+	border-collapse: separate;
+}
+
+th {
+	margin: 0px;
+	padding: 4px;
+	text-decoration: underline;
+	background: #eee;
+}
+
+td {
+	border: 1px solid #ccc;
+	margin: 0px;
+	padding: 4px;
+}

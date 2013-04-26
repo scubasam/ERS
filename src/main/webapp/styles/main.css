@@ -1,4 +1,9 @@
 /* @author Mitchell Nemitz */
+@import url("buttons.css");
+@import url("tables.css");
+@import url("login.css");
+
+
 
 * {
 	margin: 0px;
@@ -18,19 +23,9 @@ body {
 	font-family: Sans-serif;
 }
 
-#debug {
-	display: none;
-}
-
-#heading {
-	color: white;
-	height: 64px;
-	line-height: 64px;
-	padding-left: 12px;
-	background: #006438;
-}
 
 
+/* ------------------ */
 /* Container elements */
 #container {
 	width: 100%;
@@ -45,58 +40,68 @@ body {
 	margin: 0px auto -24px;
 }
 
-#content {
-	padding: 6px;
-	padding-bottom: 30px;
-}
+	#debug {
+		display: none;
+	}
 
+	/* Column Selection elements */
+	#columnSelectButton {
+		float: right;
+		margin-top: 2px;
+		margin-bottom: 2px;
+	}
 
-/* Column Selection elements */
-#columnSelectButton {
-	float: right;
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
+	#columnSelectForm {
+		clear: both;
+		width: 100%;
+		
+		margin: 0px auto;
+		border: 1px solid grey;
+		margin-top: 6px;
+		margin-bottom: 12px;
+	}
 
-#columnSelectForm {
-	clear: both;
-	width: 100%;
-	
-	margin: 0px auto;
-	border: 1px solid grey;
-	margin-top: 6px;
-	margin-bottom: 12px;
-}
+	#heading {
+		color: white;
+		height: 64px;
+		line-height: 64px;
+		padding-left: 12px;
+		background: #006438;
+	}
 
-/* Secondary panel */
-#panel2 {
-	width: 600px;
-	margin: 0 auto;
-}
+	#content {
+		padding: 6px;
+		padding-bottom: 30px;
+	}
 
-#scrollContainer {
-	clear: both;
-	
-	width: 100%;
-	overflow: auto;
-	border: 1px solid grey;
-}
+		#scrollContainer {
+		clear: both;
+		
+		width: 100%;
+		overflow: auto;
+		border: 1px solid grey;
+		}
 
-#editContainer {
-	float: left;
-	width: 440px;
-	overflow: auto;
-	margin-top: 12px;
-	margin-bottom: 12px;
-	border: 1px solid grey;
-}
+		/* Secondary panel */
+		#panel2 {
+			width: 600px;
+			margin: 0 auto;
+		}
 
+		#editContainer {
+			float: left;
+			width: 440px;
+			overflow: auto;
+			margin-top: 12px;
+			margin-bottom: 12px;
+			border: 1px solid grey;
+		}
 
-/* Footer */
-.push {
-	clear: both;
-	height: 24px;
-}
+	/* Footer */
+	.push {
+		clear: both;
+		height: 24px;
+	}
 
 .footer {
 	clear: both;
@@ -110,26 +115,4 @@ body {
 	background: #134b33;
 	text-align: center;
 	margin: 0px auto;
-}
-
-
-
-/* Defaults for data display*/
-table {
-	width: 100%;
-	overflow: auto;
-	border-collapse: separate;
-}
-
-th {
-	margin: 0px;
-	padding: 4px;
-	text-decoration: underline;
-	background: #eee;
-}
-
-td {
-	border: 1px solid #ccc;
-	margin: 0px;
-	padding: 4px;
 }
