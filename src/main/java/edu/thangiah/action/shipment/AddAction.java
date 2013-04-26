@@ -59,27 +59,7 @@ public class AddAction extends ManagementController implements Preparable{
 
 	// called automatically
     public void validate(){
-    	
-    	if(getEntity() != null )
-    	{
-    		//requiredString(getEntity().getTimeEntered().toString(), "shipment.timeEntered");
-    		requiredInt(getEntity().getOrderId(), "shipment.orderId");
-    		//requiredString(getEntity().getVehicleType().toString(), "shipment.vehicleType");
-    		//requiredString(getEntity().getLocation().toString(), "shipment.location");
-    		//requiredString(getEntity().getRoute().toString(), "shipment.route");
-    		//requiredString(getEntity().getAvailableDate().toString(), "shipment.availableDate");
-    		//requiredString(getEntity().getReleaseDate().toString(), "shipment.releaseDate");
-    		//requiredString(getEntity().getEarliestDeliveryDate().toString(), "shipment.earliestDeliveryDate");
-    		//requiredString(getEntity().getLatestDeliveryDate().toString(), "shipment.latestDeliveryDate");
-    		requiredInt(getEntity().getServiceTime(), "shipment.serviceTime");
-    		requiredInt(getEntity().getCubicWeight(), "shipment.cubicWeight");
-    		requiredString(getEntity().getCustomerName(), "shipment.customerName");
-    		//requiredString(getEntity().getDestination().toString(), "shipment.destination");
-    		//requiredString(getEntity().getPooledShipment().toString(), "shipment.pooledDestination");
-    	}		
-    	else{
-    		addActionError("Unknown error.  Please try again.");
-    	}
+    	shipmentValidation();
 
     }
 	

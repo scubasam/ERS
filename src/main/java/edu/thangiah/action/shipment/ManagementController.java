@@ -168,6 +168,19 @@ public class ManagementController extends BaseManagementController<Shipment>{
 		if( !result.equals(SUCCESS) )
 			addFieldError("vehicleTypeSelect.selected", result);
 	}
+	 
+	 protected void shipmentValidation() {
+			if(getEntity() != null )
+	    	{
+	    		requiredInt(getEntity().getOrderId(), "shipment.orderId");
+	    		requiredInt(getEntity().getServiceTime(), "shipment.serviceTime");
+	    		requiredInt(getEntity().getCubicWeight(), "shipment.cubicWeight");
+	    		requiredString(getEntity().getCustomerName(), "shipment.customerName");
+	    	}		
+	    	else{
+	    		addActionError("Unknown error.  Please try again.");
+	    	}
+		}
 	
 	public List<Shipment> getShipments() {
 		return this.getEntityList();

@@ -240,6 +240,13 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
+		
+		<action name="updateShipment" class="updateShipmentAction">
+			<result name="success" type="redirect">shipmentManagement.action</result>
+			<result name="input">WEB-INF/content/shipment/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
 
  		
  		<!-- Maintenance Order Actions -->

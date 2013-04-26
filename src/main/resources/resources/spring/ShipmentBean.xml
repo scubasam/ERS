@@ -17,4 +17,11 @@
 		<property name="routeDao" ref="routeDao" />
 	</bean>
 	
+	<bean id="updateShipmentAction" class="edu.thangiah.action.shipment.UpdateAction" scope="prototype">
+		<property name="shipmentDao" ref="shipmentDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="routeDao" ref="routeDao" />
+	</bean>
+	
 </beans>

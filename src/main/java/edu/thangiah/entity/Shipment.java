@@ -284,4 +284,22 @@ public class Shipment extends AbstractEntity implements Serializable, EntityInte
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public void merge(Shipment with) {
+		this.timeEntered = with.timeEntered;
+        this.orderId = with.orderId;
+        this.availableDate = with.availableDate;
+        this.availableTime = with.availableTime;
+        this.releaseDate = with.releaseDate;
+        this.releaseTime = with.releaseTime;
+        this.earliestDeliveryDate = with.earliestDeliveryDate;
+        this.earliestDeliveryTime = with.earliestDeliveryTime;
+        this.latestDeliveryDate = with.latestDeliveryDate;
+        this.latestDeliveryTime = with.latestDeliveryTime;
+        this.serviceTime = with.serviceTime;
+        this.weight = with.weight;
+        this.cubicWeight = with.cubicWeight;
+        this.customerName = with.customerName;
+        this.pooledShipment = with.pooledShipment;
+	}
 }
