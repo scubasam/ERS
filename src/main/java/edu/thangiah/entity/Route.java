@@ -128,6 +128,10 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 		else
 			return null;
 	}
+	
+	public String toString(){
+		return "Route from " + startLocation.toString() + " to " + endLocation.toString();
+	}
 
 	
 }

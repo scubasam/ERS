@@ -17,20 +17,14 @@ import edu.thangiah.entity.VehicleType;
  */
 
 
-public class AddAction extends MaintenanceOrder implements Preparable{
+public class AddAction extends ManagementController implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;
 	private Shipment shipment;
 	private VehicleType vehicleType;
 	
-	@Autowired
-	protected ShipmentDao shipmentDao;
-	
-	@Autowired
-	protected VehicleTypeDao vehicleTypeDao;
-	
 	@Override
-    public String execute() throws Exception
+    public String execute()
     {
 		/*
 		if (shipmentDao == null || shipment == null) 
@@ -70,47 +64,5 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     	}
 
     }
-
-	/**
-	 * @return the contact
-	 */
-	public Shipment getShipment()
-	{
-		return shipment;
-	}
-
-	/**
-	 * @param contact the contact to set
-	 */
-	public void setShipment(Shipment shipment)
-	{
-		this.shipment = shipment;
-	}
-	
-	public VehicleTypeDao getVehicleTypeDao()
-	{
-		return vehicleTypeDao;
-	}
-
-	public void setVehicleTypeDao(VehicleTypeDao vehicleTypeDao)
-	{
-		this.vehicleTypeDao = vehicleTypeDao;
-	}
-
-	public ShipmentDao getShipmentDao()
-	{
-		return shipmentDao;
-	}
-
-	public void setShipmentDao(ShipmentDao shipmentDao)
-	{
-		this.shipmentDao = shipmentDao;
-	}	
-	
-	@Override
-	public void prepare() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
