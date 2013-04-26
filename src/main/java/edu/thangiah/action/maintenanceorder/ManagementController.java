@@ -39,19 +39,15 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 
 	@Autowired
 	protected MaintenanceOrderDao maintenanceOrderDao;
-	
 	@Autowired
 	protected VehicleDao vehicleDao;
-	
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;
-	
-	@Autowired DriverDao driverDao;
+	@Autowired 
+	DriverDao driverDao;
 
 	protected ServiceTechnician serviceTechnician;
-	
 	protected Driver driver;
-	
 	protected Vehicle vehicle;
 	
 	protected StrutsSelect<Vehicle> vehicleSelect;
@@ -139,18 +135,16 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		String result;
 		result = vehicleSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocationSelect.selected", result);
+			addFieldError("vehicleSelect.selected", result);
 		
 		result = driverSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocationSelect.selected", result);
+			addFieldError("driverSelect.selected", result);
 		
 		result = serviceTechnicianSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocationSelect.selected", result);
+			addFieldError("serviceTechnicianSelect.selected", result);
 	}
-	
-	
 	
 	public List<MaintenanceOrder> getMaintenanceOrders() {
 		return this.getEntityList();

@@ -1,11 +1,7 @@
 package edu.thangiah.action.shipment;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.dao.ShipmentDao;
-import edu.thangiah.dao.VehicleTypeDao;
-import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Shipment;
 import edu.thangiah.entity.VehicleType;
 

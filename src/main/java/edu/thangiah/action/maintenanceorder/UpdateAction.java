@@ -47,9 +47,9 @@ public class UpdateAction extends ManagementController{
 			return ERROR;
 		}
 		
-		if( this.hasActionErrors() || this.hasFieldErrors() )
+		if( this.hasActionErrors() || this.hasFieldErrors() ){
 			return INPUT;
-    	
+		}
 		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
 		fromDb.setDriver(driverSelect.getSelectedEntity());
 		fromDb.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());

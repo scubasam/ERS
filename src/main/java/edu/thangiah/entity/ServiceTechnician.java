@@ -104,4 +104,5 @@ public class ServiceTechnician extends AbstractEntity implements Serializable, E
         this.maintenanceOrders = with.maintenanceOrders;
 		
 	}
+
 }

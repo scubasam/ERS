@@ -190,6 +190,7 @@
  		<!-- Service Technician Actions -->
  		<action name="serviceTechnicianManagement" class="serviceTechnicianManagementAction">
  			<result name="success">WEB-INF/content/service_technician/manage.jsp</result>
+			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
@@ -244,6 +245,7 @@
  		<!-- Maintenance Order Actions -->
  		<action name="maintenanceOrderManagement" class="maintenanceOrderManagementAction">
  			<result name="success">WEB-INF/content/maintenance_order/manage.jsp</result>
+			<result name="input">WEB-INF/content/maintenance_order/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>

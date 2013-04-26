@@ -58,8 +58,7 @@
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
-								<s:select label="ServiceTechnician" 
-									name="serviceTechnicianSelect.selected"
+								<s:select label="Service Technician" name="serviceTechnicianSelect.selected"
 									list="serviceTechnicianSelect.list" listKey="id" listValue="toString()"
 									value="serviceTechnicianSelect.selected" />
 								<s:select label="Driver" name="drierSelect.selected"
@@ -84,7 +83,7 @@
 							</div>
 							<br />
 							<div class="buttonDiv">
-								<s:url id="clearUrl" value="mainteanceOrdersManagement.action"></s:url>
+								<s:url id="clearUrl" value="mainteanceOrderManagement.action"></s:url>
 								<s:a href="%{clearUrl}">Clear</s:a>
 							</div>
 							<br />
@@ -95,8 +94,9 @@
 						<div id="editContainer">
 							<s:form name="addForm" action="addMaintenanceOrder.action" id="mainteanceOrderForm">
 								<s:select label="Vehicle" name="vehicleSelect.selected"
-									list="vehicleSelect.list" listKey="id" listValue="toString()" />
-								<s:select label="ServiceTechnician" name="serviceTechnicianSelect.selected"
+									list="vehicleSelect.list" listKey="id" listValue="toString()"
+									value="vehicleSelect.selected" />
+								<s:select label="Service Technician" name="serviceTechnicianSelect.selected"
 									list="serviceTechnicianSelect.list" listKey="id" listValue="toString()"
 									value="serviceTechnicianSelect.selected" />
 								<s:select label="Driver" name="drierSelect.selected"
