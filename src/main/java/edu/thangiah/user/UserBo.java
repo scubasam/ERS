@@ -14,7 +14,7 @@ public interface UserBo {
  
     List<User> findAll();
  
-    List<User> findById(int id);
+    List<User> findById(Long id);
  
     List<User> findByUsername(String username);
     

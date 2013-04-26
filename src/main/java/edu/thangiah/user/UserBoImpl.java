@@ -45,7 +45,7 @@ public class UserBoImpl implements UserBo {
         return userDao.findAll();
     }
  
-    public List<User> findById(int id) {
+    public List<User> findById(Long id) {
         return userDao.findById(id);
     }
  

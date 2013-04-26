@@ -25,7 +25,7 @@ public class UpdateAction extends ManagementController{
     		return ERROR;
     	}
     	
-    	List<User> userList = userBo.findById((int) id);
+    	List<User> userList = userBo.findById(id);
     	if( userList == null || userList.size() == 0 ){
     		this.addFieldError("user.username", "This user does not exist.  Please try again.");
     		return INPUT;

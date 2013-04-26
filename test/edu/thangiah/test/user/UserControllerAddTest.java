@@ -62,7 +62,7 @@ public class UserControllerAddTest {
 			}
 
 			@Override
-			public List<User> findById(int id) {
+			public List<User> findById(Long id) {
 				return null;
 			}
 

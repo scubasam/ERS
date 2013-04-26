@@ -29,7 +29,7 @@ public class DeleteAction extends ManagementController implements Preparable{
     		return ERROR;
     	}
     	
-    	List<User> userList = userBo.findById((int) id);
+    	List<User> userList = userBo.findById(id);
     	if( userList == null || userList.size() == 0 ){
     		this.addActionError("This user does not exist.  Please try again.");
     		return INPUT;
@@ -41,7 +41,7 @@ public class DeleteAction extends ManagementController implements Preparable{
     	userBo.delete(fromDbUser);
     	
     	
-    	userList = userBo.findById((int) id);
+    	userList = userBo.findById(id);
     	if( userList == null || userList.size() == 0 ){
     		return SUCCESS;
     	}

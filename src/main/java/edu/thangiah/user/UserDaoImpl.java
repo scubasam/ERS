@@ -23,7 +23,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     }
  
     @SuppressWarnings("unchecked")
-	public List<User> findById(int id) {
+	public List<User> findById(Long id) {
         return getHibernateTemplate().find("from User where id=?", id);
     }
  
