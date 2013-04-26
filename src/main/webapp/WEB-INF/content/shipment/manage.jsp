@@ -85,8 +85,7 @@
 					<s:else>
 						<div id="editContainer">
 							<s:form name="addForm" action="addShipment.action" id="routeForm">
-								<s:textfield name="shipment.timeEntered" label="Time Entered" />
-								<s:textfield name="shipment.orderID" label="Order Id" />
+								<s:textfield name="shipment.orderId" label="Order Id" />
 								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"
 									list="vehicleTypeSelect.list" listKey="id" listValue="toString()"
 									value="vehicleTypeSelect.selected" />
@@ -96,12 +95,12 @@
 								<s:select label="Route" name="routeSelect.selected"
 									list="routeSelect.list" listKey="id" listValue="toString()"
 									value="routeSelect.selected" />
-								<s:textfield name="shipment.availableDate" label="Available Date" />
-								<s:textfield name="shipment.releaseDate" label="Release Date" />
+								<sx:datetimepicker name="shipment.availableDate" displayFormat="dd-MMM-yyyy" label="Available Date" />
+								<sx:datetimepicker name="shipment.releaseDate" displayFormat="dd-MMM-yyyy" label="Release Date" />
 								<s:textfield name="shipment.releaseTime" label="Release Time" />
-								<s:textfield name="shipment.earliestDelieveryDate" label="Earliest Delivery Date" />
+								<sx:datetimepicker name="shipment.earliestDeliveryDate" displayFormat="dd-MMM-yyyy" label="Earliest Delivery Date" />
 								<s:textfield name="shipment.earliestDelieveryTime" label="Earliest Delievery Time" />
-								<s:textfield name="shipment.latestDeliveryDate" label="Latest Delivery Date" />
+								<sx:datetimepicker name="shipment.latestDeliveryDate" displayFormat="dd-MMM-yyyy" label="Latest Delivery Date" />
 								<s:textfield name="shipment.latestDeliveryTime" label="Latest Delivery Time" />
 								<s:textfield name="shipment.serviceTime" label="Service Time" />
 								<s:textfield name="shipment.weight" label="Weight" />
@@ -113,7 +112,7 @@
 								<s:textfield name="shipment.pooledShipment" label="Pooled Shipment" />
 								<s:select label="Pooled Destination" name="pooledDestinationSelect.selected"
 									list="pooledDestinationSelect.list" listKey="id" listValue="toString()"
-									value="pooledDestinationSelect.selected" />
+									value="pooledDestinationSelect.selected" emptyOption="true" />
 							</s:form>
 						</div>
 

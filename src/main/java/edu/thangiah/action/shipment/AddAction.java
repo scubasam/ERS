@@ -1,13 +1,11 @@
 package edu.thangiah.action.shipment;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Date;
+
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.dao.ShipmentDao;
-import edu.thangiah.dao.VehicleTypeDao;
-import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Shipment;
-import edu.thangiah.entity.VehicleType;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  *This class extends the management controller and implements preparable. It's primary function
@@ -20,12 +18,32 @@ import edu.thangiah.entity.VehicleType;
 public class AddAction extends ManagementController implements Preparable{
 
 	private static final long serialVersionUID = -1708978099566079365L;
-	private Shipment shipment;
-	private VehicleType vehicleType;
 	
 	@Override
     public String execute()
     {
+		try{
+			initializeSelectedElements();
+		}
+		catch( StrutsElementException e ){
+			addActionError("An unknown error occured.  Plase try reloading the page.");
+			return ERROR;
+		}
+		
+		if( this.hasActionErrors() || this.hasFieldErrors() )
+			return INPUT;
+		
+		Shipment shipment = this.getEntity();
+		
+		shipment.setTimeEntered(new Date()); // set the entered time to right now.
+		
+		shipment.setVehicleType(vehicleTypeSelect.getSelectedEntity());
+		shipment.setLocation(locationSelect.getSelectedEntity());
+		shipment.setRoute(routeSelect.getSelectedEntity());
+		shipment.setDestination(destinationSelect.getSelectedEntity());
+		shipment.setPooledDestination(pooledDestinationSelect.getSelectedEntity());
+		
+		shipmentDao.add(shipment);
 		/*
 		if (shipmentDao == null || shipment == null) 
 		{
@@ -38,26 +56,26 @@ public class AddAction extends ManagementController implements Preparable{
 		 */
     	return SUCCESS;
     }
-    
-    // called automatically
+
+	// called automatically
     public void validate(){
-    	if(shipment != null && vehicleType != null )
+    	
+    	if(getEntity() != null )
     	{
-    		requiredString(shipment.getTimeEntered().toString(), "shipment.timeEntered");
-    		requiredInt(shipment.getOrderId(), "shipment.orderID");
-    		requiredString(shipment.getVehicleType().toString(), "shipment.vehicleType");
-    		requiredString(shipment.getLocation().toString(), "shipment.location");
-    		requiredString(shipment.getRoute().toString(), "shipment.route");
-    		requiredString(shipment.getAvailableDate().toString(), "shipment.availableDate");
-    		requiredString(shipment.getReleaseDate().toString(), "shipment.releaseDate");
-    		requiredString(shipment.getEarliestDeliveryDate().toString(), "shipment.earliestDeliveryDate");
-    		requiredString(shipment.getLatestDeliveryDate().toString(), "shipment.latestDeliveryDate");
-    		requiredInt(shipment.getServiceTime(), "shipment.serviceTime");
-    		requiredInt(shipment.getCubicWeight(), "shipment.cubicWeight");
-    		requiredString(shipment.getCustomerName(), "shipment.customerName");
-    		requiredString(shipment.getDestination().toString(), "shipment.destination");
-    		requiredString(shipment.getPooledShipment().toString(), "shipment.pooledDestination");
-    		requiredString(shipment.getPooledDestination().toString(), "shipment.pooledDestination");
+    		//requiredString(getEntity().getTimeEntered().toString(), "shipment.timeEntered");
+    		requiredInt(getEntity().getOrderId(), "shipment.orderId");
+    		//requiredString(getEntity().getVehicleType().toString(), "shipment.vehicleType");
+    		//requiredString(getEntity().getLocation().toString(), "shipment.location");
+    		//requiredString(getEntity().getRoute().toString(), "shipment.route");
+    		//requiredString(getEntity().getAvailableDate().toString(), "shipment.availableDate");
+    		//requiredString(getEntity().getReleaseDate().toString(), "shipment.releaseDate");
+    		//requiredString(getEntity().getEarliestDeliveryDate().toString(), "shipment.earliestDeliveryDate");
+    		//requiredString(getEntity().getLatestDeliveryDate().toString(), "shipment.latestDeliveryDate");
+    		requiredInt(getEntity().getServiceTime(), "shipment.serviceTime");
+    		requiredInt(getEntity().getCubicWeight(), "shipment.cubicWeight");
+    		requiredString(getEntity().getCustomerName(), "shipment.customerName");
+    		//requiredString(getEntity().getDestination().toString(), "shipment.destination");
+    		//requiredString(getEntity().getPooledShipment().toString(), "shipment.pooledDestination");
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

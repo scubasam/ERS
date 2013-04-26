@@ -49,7 +49,6 @@ public class AddAction extends MaintenanceOrder implements Preparable{
     public void validate(){
     	if( maintenanceOrder != null && vehicle != null )
     	{
-    		requiredLong(maintenanceOrder.getId(), "maintenanceOrder.id");
     		requiredString(maintenanceOrder.getRequester().toString(), "maintenanceOrder.requester");
     		requiredString(maintenanceOrder.getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
     		requiredString(maintenanceOrder.getScheduledDate().toString(), "maintenanceOrder.scheduleDate");
