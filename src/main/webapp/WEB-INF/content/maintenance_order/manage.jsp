@@ -62,7 +62,7 @@
 									list="serviceTechnicianSelect.list" listKey="id" listValue="toString()"
 									value="serviceTechnicianSelect.selected" />
 								<s:select label="Driver" name="drierSelect.selected"
-									list="driverSelectList.list" listKey="id" listValue="toString()"
+									list="driverSelect.list" listKey="id" listValue="toString()"
 									value="driverSelect.selected" />
 							</s:form>
 						</div>
@@ -100,7 +100,7 @@
 									list="serviceTechnicianSelect.list" listKey="id" listValue="toString()"
 									value="serviceTechnicianSelect.selected" />
 								<s:select label="Driver" name="drierSelect.selected"
-									list="driverSelectList.list" listKey="id" listValue="toString()"
+									list="driverSelect.list" listKey="id" listValue="toString()"
 									value="driverSelect.selected" />
 							</s:form>
 						</div>

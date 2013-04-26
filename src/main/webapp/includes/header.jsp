@@ -59,4 +59,8 @@
 	<s:else>
 		<div id="loginLinkDiv"><a id="loginLink" href="userLoginForm.action">Login</a></div>
 	</s:else>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 571a810334a7a3eabad7dcbd2b704b648b782e19

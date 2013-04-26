@@ -14,17 +14,21 @@ import edu.thangiah.strutsutility.exception.StrutsElementException;
  * Utility class for parsing and generating struts2 jsp select elements from a given datasource.
  * @author Kelly Smith
  */
-public class StrutsSelect<Entity extends EntityInterface> {
+public class StrutsSelect<Entity extends EntityInterface> implements StrutsElementValidator {
 	
 	private AbstractDao<Entity> dao;
 	
 	private List<Entity> entityList;
 	private String elementId;
+	private boolean required;
 	
 	private Long selected;
 	private Entity selectedEntity;
 	
 	public StrutsSelect(AbstractDao<Entity> daoObject, String elementId) throws StrutsElementException{
+		this(daoObject, elementId, true);
+	}
+	public StrutsSelect(AbstractDao<Entity> daoObject, String elementId, boolean required) throws StrutsElementException{
 		dao = daoObject;
 		if( dao == null ){
 			throw new StrutsElementDaoException(elementId, "Entity Dao was never instantiated.");
@@ -33,10 +37,11 @@ public class StrutsSelect<Entity extends EntityInterface> {
 		this.elementId = elementId;
 		entityList = dao.findAll();
 		
+		this.required = required;
+		
 		if( entityList == null ){
 			throw new StrutsElementDataException(elementId, "An unknown data error occured.  Could not get the list of entities from the database.");
 		}
-		
 	}
 
 	public List<Entity> getList() {
@@ -61,13 +66,18 @@ public class StrutsSelect<Entity extends EntityInterface> {
 			throw new StrutsElementDaoException(elementId, "Entity Dao was never instantiated.");
 		}
 		
-		if( selected != 0 ){
+		if( selected != null && selected != 0 ){
 			List<Entity> fromDb = dao.findById(selected);
 			if( fromDb == null || fromDb.size() != 1 ){
 				return "No element exists with that id.";
 			}
 			
 			setSelectedEntity(fromDb.get(0));
+		}
+		else{
+			if( isRequired() ){
+				return "This field is required.";
+			}
 		}
 		return Action.SUCCESS;
 	}
@@ -85,6 +95,17 @@ public class StrutsSelect<Entity extends EntityInterface> {
 
 	public void setSelectedEntity(Entity selectedEntity) {
 		this.selectedEntity = selectedEntity;
+	}
+
+	@Override
+	public boolean hasSelectedValue() {
+		if( selected == 0 && selectedEntity == null )
+			return false;
+		return true;
+	}
+	
+	public boolean isRequired() {
+		return required;
 	}
 
 }

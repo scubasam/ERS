@@ -59,13 +59,34 @@ public class AddAction extends ManagementController implements Preparable{
     	return SUCCESS;
     }
     
+    // called automatically
+    public void validate(){
+    	if( getEntity() != null && vehicle != null )
+    	{
+    		requiredString(getEntity().getRequester().toString(), "maintenanceOrder.requester");
+    		requiredString(getEntity().getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
+    		requiredString(getEntity().getScheduledDate().toString(), "maintenanceOrder.scheduleDate");
+    		requiredString(getEntity().getDetails(), "maintenanceOrder.details");
+    		requiredString(getEntity().getServiceTypeKey(), "maintenanceOrder.serviceTypeKey");
+    		requiredString(getEntity().getCost(), "maintenanceOrder.cost");    	
+    		requiredString(getEntity().getStatusKey(), "maintenanceOrder.statusKey");
+    		requiredString(getEntity().getVehicle().toString(), "maintenanceOrder.vehicle");
+    		requiredString(getEntity().getMaintenanceType(), "maintenanceOrder.maintenanceType");
+    	
+    	}		
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}
 
-
-    
-    public MaintenanceOrder getMaintenanceOrder()
-    {
-    	return this.getEntity();
     }
+
+	/**
+	 * @return the contact
+	 */
+	public MaintenanceOrder getMaintenanceOrder()
+	{
+		return getEntity();
+	}
     
     public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder)
     {

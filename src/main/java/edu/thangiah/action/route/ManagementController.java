@@ -119,15 +119,15 @@ public class ManagementController extends BaseManagementController<Route>{
 		String result;
 		result = vehicleSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocation.selected", result);
+			addFieldError("startLocationSelect.selected", result);
 		
 		result = startLocationSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocation.selected", result);
+			addFieldError("startLocationSelect.selected", result);
 		
 		result = endLocationSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocation.selected", result);
+			addFieldError("startLocationSelect.selected", result);
 	}
 	
 	public List<Route> getRoutes() {

@@ -1,6 +1,7 @@
 package edu.thangiah.action.shipment;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -96,7 +97,7 @@ public class ManagementController extends BaseManagementController<Shipment>{
 			vehicleTypeSelect = new StrutsSelect<VehicleType>(vehicleTypeDao, "vehicleType");
 			locationSelect = new StrutsSelect<Location>(locationDao, "location");
 			destinationSelect = new StrutsSelect<Location>(locationDao, "destination");
-			pooledDestinationSelect = new StrutsSelect<Location>(locationDao, "pooledDestination");
+			pooledDestinationSelect = new StrutsSelect<Location>(locationDao, "pooledDestination", false);
 			routeSelect = new StrutsSelect<Route>(routeDao, "route");
 		}
 		catch(StrutsElementException e){
@@ -120,20 +121,7 @@ public class ManagementController extends BaseManagementController<Shipment>{
     		}
         	
         	if( getShipment() != null ){
-        		if( getShipment().getRoute() != null )
-        			routeSelect.intializeFromEntity(getShipment().getRoute());
-        		
-        		if( getShipment().getLocation() != null )
-        			locationSelect.intializeFromEntity(getShipment().getLocation());
-        		
-        		if( getShipment().getDestination() != null )
-        			destinationSelect.intializeFromEntity(getShipment().getDestination());
-        		
-        		if( getShipment().getPooledDestination() != null )
-        			pooledDestinationSelect.intializeFromEntity(getShipment().getPooledDestination());
-        		
-        		if( getShipment().getVehicleType() != null )
-        			vehicleTypeSelect.intializeFromEntity(getShipment().getVehicleType());
+        		initializeDropDownLists();
         		
         	}
         }
@@ -141,6 +129,46 @@ public class ManagementController extends BaseManagementController<Shipment>{
         LOGGER.debug("Routes number = " + getShipments().size());
         return SUCCESS;
     }
+
+	protected void initializeDropDownLists() {
+		if( getShipment().getRoute() != null )
+			routeSelect.intializeFromEntity(getShipment().getRoute());
+		
+		if( getShipment().getLocation() != null )
+			locationSelect.intializeFromEntity(getShipment().getLocation());
+		
+		if( getShipment().getDestination() != null )
+			destinationSelect.intializeFromEntity(getShipment().getDestination());
+		
+		if( getShipment().getPooledDestination() != null )
+			pooledDestinationSelect.intializeFromEntity(getShipment().getPooledDestination());
+		
+		if( getShipment().getVehicleType() != null )
+			vehicleTypeSelect.intializeFromEntity(getShipment().getVehicleType());
+	}
+	
+	 protected void initializeSelectedElements() throws StrutsElementException {
+		String result;
+		result = routeSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("routeSelect.selected", result);
+		
+		result = locationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("locationSelect.selected", result);
+		
+		result = destinationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("destinationSelect.selected", result);
+		
+		result = pooledDestinationSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("pooledDestinationSelect.selected", result);
+		
+		result = vehicleTypeSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("vehicleTypeSelect.selected", result);
+	}
 	
 	public List<Shipment> getShipments() {
 		return this.getEntityList();

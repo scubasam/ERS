@@ -235,8 +235,8 @@
 		</action>
 
 		<action name="addShipment" class="addShipmentAction">
-			<result name="success" type="redirect">listAllShipments.action</result>
-			<result name="input">WEB-INF/content/shipment/addForm.jsp</result>
+			<result name="success" type="redirect">shipmentManagement.action</result>
+			<result name="input">WEB-INF/content/shipment/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

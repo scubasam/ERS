@@ -1,6 +1,7 @@
 package edu.thangiah.action;
 
 import edu.thangiah.entity.Contact;
+import edu.thangiah.strutsutility.StrutsElementValidator;
 import edu.thangiah.utility.UtilityFunctions;
 
 /**
@@ -12,6 +13,7 @@ import edu.thangiah.utility.UtilityFunctions;
  * @version 1.0
  */
 public abstract class ValidationAction extends AbstractAction {
+	private static final String THIS_FIELD_IS_REQUIRED = "This field is required.";
 	private static final long serialVersionUID = -6766865678238928057L;
 	
 	
@@ -48,11 +50,11 @@ public abstract class ValidationAction extends AbstractAction {
 	
 	
 	public void requiredString(String value, String field_name){
-		requiredString(value, field_name, "This is required.");
+		requiredString(value, field_name, THIS_FIELD_IS_REQUIRED);
 	}
 
 	public void requiredLong(Long value, String field_name){
-		requiredLong(value, field_name, "IThis is required.");
+		requiredLong(value, field_name, THIS_FIELD_IS_REQUIRED);
 	}	
 	
 	public void requiredString(String value, String field_name, String message){
@@ -60,6 +62,16 @@ public abstract class ValidationAction extends AbstractAction {
     		this.addFieldError(field_name, message);
 	}
 	
+	
+	public void requiredSelectElement(StrutsElementValidator element, String field_name){
+		this.requiredSelectElement(element, field_name, THIS_FIELD_IS_REQUIRED);
+	}
+	
+	public void requiredSelectElement(StrutsElementValidator element, String field_name, String message){
+		if( !element.hasSelectedValue() ){
+			this.addFieldError(field_name, message);
+		}
+	}
 	
 	
 	public void validateEmail(String email, String field_name){
@@ -86,7 +98,7 @@ public abstract class ValidationAction extends AbstractAction {
 	
 	public void requiredInt(Integer value, String field_name){
 		if( value == null )
-    		this.addFieldError(field_name, "This is required.");
+    		this.addFieldError(field_name, THIS_FIELD_IS_REQUIRED);
 	}
 	
 	public void requiredLong(Long value, String field_name, String message){
@@ -94,13 +106,13 @@ public abstract class ValidationAction extends AbstractAction {
     		this.addFieldError(field_name, message);
 	}
 	
-	public void validateIntegerRange(Integer value, int min, int max, String field_name){
+	/*public void validateIntegerRange(String value, int min, int max, String field_name){
 		requiredInt(value, field_name);
 		if( value != null ){
 			int intValue = value.intValue();
 			if( intValue < min || intValue > max ){
-				this.addFieldError(field_name, "This is required.");
+				this.addFieldError(field_name, "Invalid integer range - Must be between " + min + " and " + max + ".");
 			}
 		}
-	}
+	}*/
 }
