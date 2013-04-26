@@ -3,13 +3,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
-	<bean id="maintenanceOrderListAction" class="edu.thangiah.action.maintenanceorder.ListAction">
+	<bean id="maintenanceOrderManagementAction" class="edu.thangiah.action.maintenanceorder.ManagementController" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
- 
- 	<bean id="addMaintenanceOrdersAction" class="edu.thangiah.action.maintenanceorder.AddAction"> 	
- 	</bean>
- 
- 
- 
+	
+	<bean id="addMaintenanceOrder" class="edu.thangiah.action.maintenanceorder.AddAction" scope="prototype">
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+	</bean>
+	
+	<bean id="updateMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.UpdateAction" scope="prototype">
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+	</bean>
+	
+	<bean id="deleteMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.DeleteAction" scope="prototype">
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+	</bean>
 </beans>

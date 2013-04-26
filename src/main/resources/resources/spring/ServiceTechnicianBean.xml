@@ -3,18 +3,19 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
-	<bean id="serviceTechnicianListAction" class="edu.thangiah.action.servicetechnician.ListAction">
+	<bean id="serviceTechnicianManagementAction" class="edu.thangiah.action.servicetechnician.ManagementController" scope="prototype">
 		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
-
-	<bean id="addServiceTechnicianAction" class="edu.thangiah.action.servicetechnician.AddAction">
+	
+	<bean id="addServiceTechnicianAction" class="edu.thangiah.action.servicetechnician.AddAction" scope="prototype">
 		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
-
-	<bean id="serviceTechnicianViewAction" class="edu.thangiah.action.servicetechnician.ViewAction">
+	
+	<bean id="updateServiceTechnicianAction" class="edu.thangiah.action.servicetechnician.UpdateAction" scope="prototype">
 		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
-
-
- 
+	
+	<bean id="deleteServiceTechnicianAction" class="edu.thangiah.action.servicetechnician.DeleteAction" scope="prototype">
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+	</bean>
 </beans>

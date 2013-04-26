@@ -1,63 +1,77 @@
 package edu.thangiah.action.maintenanceorder;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.Preparable;
-import edu.thangiah.dao.MaintenanceOrderDao;
+
+import edu.thangiah.dao.DriverDao;
+import edu.thangiah.dao.ServiceTechnicianDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.MaintenanceOrder;
-import edu.thangiah.entity.Vehicle;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  *This class extends the management controller and implements preparable. It's primary function
- *is to to handle everything related to adding and Maintenance Order entity 
+ *is to to handle everything related to adding and Maintenance Orders entity 
  * 
  * @author Alex McCracken, Kelly Smith
  */
 
 
-public class AddAction extends MaintenanceOrder implements Preparable{
-
-	private static final long serialVersionUID = -1708978099566079365L;
-	private MaintenanceOrder maintenanceOrder;
-	private Vehicle vehicle;
+public class AddAction extends ManagementController implements Preparable{
 	
-	@Autowired
-	protected MaintenanceOrderDao maintenanceOrderDao;
+	private static final long serialVersionUID = -5800683108151609064L;
 	
 	@Autowired
 	protected VehicleDao vehicleDao;
 	
+	@Autowired
+	protected DriverDao driverDao;
+	
+	@Autowired
+	protected ServiceTechnicianDao serviceTechnicianDao;
+	
 	@Override
-    public String execute() throws Exception
-    {
-		/*
-		if (maintenanceOrderDao == null || maintenanceOrder == null) 
-		{
-            this.addActionError(DB_ERROR_MESSAGE);
-        }
+    public String execute(){
+		try{
+			initializeSelectedElements();
+		}
+		catch( StrutsElementException e ){
+			addActionError("An unknown error occured.  Plase try reloading the page.");
+			return ERROR;
+		}
 		
-		maintenanceOrderDao.add(maintenanceOrder);
-		vehicleDao.add(vehicle);
-		maintenanceOrder.setVehicle(vehicle);
-		//LOGGER.debug("Adding new maintenance order: " + maintenanceOrder.toString());
-		maintenanceOrderDao.add(maintenanceOrder);
-		*/
+		if( this.hasActionErrors() || this.hasFieldErrors() )
+			return INPUT;
+
+		
+		MaintenanceOrder newMaintenanceOrder = new MaintenanceOrder();
+		newMaintenanceOrder.setVehicle(vehicleSelect.getSelectedEntity());
+		newMaintenanceOrder.setDriver(driverSelect.getSelectedEntity());
+		newMaintenanceOrder.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
+		
+		try{
+			maintenanceOrderDao.add(newMaintenanceOrder);
+		}
+		catch(Exception e){
+			return ERROR;
+		}
     	return SUCCESS;
     }
     
     // called automatically
     public void validate(){
-    	if( maintenanceOrder != null && vehicle != null )
+    	if( getEntity() != null && vehicle != null )
     	{
-    		requiredString(maintenanceOrder.getRequester().toString(), "maintenanceOrder.requester");
-    		requiredString(maintenanceOrder.getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
-    		requiredString(maintenanceOrder.getScheduledDate().toString(), "maintenanceOrder.scheduleDate");
-    		requiredString(maintenanceOrder.getDetails(), "maintenanceOrder.details");
-    		requiredString(maintenanceOrder.getServiceTypeKey(), "maintenanceOrder.serviceTypeKey");
-    		requiredString(maintenanceOrder.getCost(), "maintenanceOrder.cost");    	
-    		requiredString(maintenanceOrder.getStatusKey(), "maintenanceOrder.statusKey");
-    		requiredString(maintenanceOrder.getVehicle().toString(), "maintenanceOrder.vehicle");
-    		requiredString(maintenanceOrder.getMaintenanceType(), "maintenanceOrder.maintenanceType");
+    		requiredString(getEntity().getRequester().toString(), "maintenanceOrder.requester");
+    		requiredString(getEntity().getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
+    		requiredString(getEntity().getScheduledDate().toString(), "maintenanceOrder.scheduleDate");
+    		requiredString(getEntity().getDetails(), "maintenanceOrder.details");
+    		requiredString(getEntity().getServiceTypeKey(), "maintenanceOrder.serviceTypeKey");
+    		requiredString(getEntity().getCost(), "maintenanceOrder.cost");    	
+    		requiredString(getEntity().getStatusKey(), "maintenanceOrder.statusKey");
+    		requiredString(getEntity().getVehicle().toString(), "maintenanceOrder.vehicle");
+    		requiredString(getEntity().getMaintenanceType(), "maintenanceOrder.maintenanceType");
     	
     	}		
     	else{
@@ -71,24 +85,14 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 	 */
 	public MaintenanceOrder getMaintenanceOrder()
 	{
-		return maintenanceOrder;
+		return getEntity();
 	}
-
-	/**
-	 * @param contact the contact to set
-	 */
-	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder)
-	{
-		this.maintenanceOrder = maintenanceOrder;
-	}
-	
-	/**
-	 * @return the contact
-	 */
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
+    
+    public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder)
+    {
+    	this.setEntity(maintenanceOrder);
+    }
+    
 	public VehicleDao getVehicleDao() {
 		return vehicleDao;
 	}
@@ -97,12 +101,22 @@ public class AddAction extends MaintenanceOrder implements Preparable{
 		this.vehicleDao = vehicleDao;
 	}
 
-	public MaintenanceOrderDao getMaintenanceOrderDao() {
-		return maintenanceOrderDao;
+	public DriverDao getDriverDao() {
+		return driverDao;
 	}
 
-	public void setMaintenanceOrderDao(MaintenanceOrderDao maintenanceOrderDao) {
-		this.maintenanceOrderDao = maintenanceOrderDao;
+	public void setDriverDao(DriverDao driverDao) {
+		this.driverDao = driverDao;
 	}
+
+	public ServiceTechnicianDao getServiceTechnicianDao() {
+		return serviceTechnicianDao;
+	}
+
+	public void setServiceTechnicianDao(ServiceTechnicianDao serviceTechnicianDao) {
+		this.serviceTechnicianDao = serviceTechnicianDao;
+	}
+
+
 	
 }

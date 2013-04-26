@@ -13,7 +13,7 @@
 <div id="container">
 <jsp:include page="/includes/header.jsp" />
 
-<s:form name="addForm" method="post" action="addMaintenanceOrders.action">
+<s:form name="addForm" method="post" action="addMaintenanceOrder.action">
 
 	<s:textfield name="maintenanceOrder.id" label="id" /> 
 	<s:textfield name="maintenanceOrder.requester" label="requester" />

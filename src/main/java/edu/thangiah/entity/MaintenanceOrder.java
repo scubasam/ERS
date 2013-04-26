@@ -18,7 +18,7 @@ import edu.thangiah.action.ValidationAction;
 
 /**
  * MaintenanceOrder model.
- * @author pbair
+ * @author Kelly Smith
  */
 @Entity
 @Table(name="maintenance_orders")
@@ -159,4 +159,29 @@ public class MaintenanceOrder extends ValidationAction implements Preparable, En
 	public String toString(){
 		return "Order: " + this.getMaintenanceType() + " " + this.getScheduledDate();
 	}
+	
+	public void merge(MaintenanceOrder with) {
+        this.requester = with.requester;
+        this.serviceTechnician = with.serviceTechnician;
+        this.scheduledDate = with.scheduledDate;
+        this.details = with.details;
+        this.serviceTypeKey = with.serviceTypeKey;
+        this.cost = with.cost;
+        this.statusKey = with.statusKey;
+        this.vehicle = with.vehicle;
+        this.maintenanceType = with.maintenanceType;
+	}
+
+	public void setDriver(Driver requester){
+		this.requester = requester;
+	}
+	
+	public Driver getDriver() {
+	
+		return this.requester;
+	}
+	
+	
+	
+	
 }
