@@ -44,7 +44,7 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;
 	@Autowired 
-	DriverDao driverDao;
+	protected DriverDao driverDao;
 
 	protected ServiceTechnician serviceTechnician;
 	protected Driver driver;
@@ -126,7 +126,7 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
         	}
         }
         
-        LOGGER.debug("Maintenance Order number " + getMaintenanceOrder().toString());
+        LOGGER.debug("Maintenance Order number " + getMaintenanceOrders().toString());
         return SUCCESS;
 
     }
@@ -146,9 +146,25 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 			addFieldError("serviceTechnicianSelect.selected", result);
 	}
 	
+	// ALWAYS REMEMBER THE SET AND GET FOR LIST AND ENTITY!!!!!
+	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder){
+		this.setEntity(maintenanceOrder);
+		
+	}
+	public MaintenanceOrder getMaintenanceOrder()
+	{
+		return this.getEntity();
+	}
+	
+	public void setMaintenanceOrders(List<MaintenanceOrder> list) {
+		this.setEntityList(list);
+	}
+	
 	public List<MaintenanceOrder> getMaintenanceOrders() {
 		return this.getEntityList();
 	}
+	//////////////////////////////////////////////
+
 	
 	public MaintenanceOrderDao getMaintenanceOrderDao() {
 		return maintenanceOrderDao;
@@ -206,15 +222,29 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 			StrutsSelect<ServiceTechnician> serviceTechnicianSelect) {
 		this.serviceTechnicianSelect = serviceTechnicianSelect;
 	}
-	
-	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder){
-		this.setEntity(maintenanceOrder);
-		
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
 	}
-	
-	public MaintenanceOrder getMaintenanceOrder()
-	{
-		return this.getEntity();
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+
+	public ServiceTechnicianDao getServiceTechnicianDao() {
+		return serviceTechnicianDao;
+	}
+
+	public void setServiceTechnicianDao(ServiceTechnicianDao serviceTechnicianDao) {
+		this.serviceTechnicianDao = serviceTechnicianDao;
+	}
+
+	public DriverDao getDriverDao() {
+		return driverDao;
+	}
+
+	public void setDriverDao(DriverDao driverDao) {
+		this.driverDao = driverDao;
 	}
 	
 

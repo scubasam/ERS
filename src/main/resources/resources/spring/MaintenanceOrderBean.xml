@@ -5,6 +5,9 @@
  	
 	<bean id="maintenanceOrderManagementAction" class="edu.thangiah.action.maintenanceorder.ManagementController" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
 	
 	<bean id="addMaintenanceOrder" class="edu.thangiah.action.maintenanceorder.AddAction" scope="prototype">
