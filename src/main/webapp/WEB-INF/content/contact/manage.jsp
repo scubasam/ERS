@@ -16,7 +16,7 @@
 	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Contact List</h2>

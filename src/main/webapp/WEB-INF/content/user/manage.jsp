@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		
 		<div class="buttonDiv" id="columnSelectButton">
@@ -66,18 +66,17 @@
 					</div>
 					
 					<div id="buttonContainer">
-						<div id="modeDiv">
-							<h3 id="modeLabel"></h3>
-						</div>
 						<div class="buttonDiv">
 							<a href="javascript:submitForm(editForm);">Update</a>
 						</div><br/>
+						
 						<div class="buttonDiv">
 							<s:url id="deleteUrl" value="deleteUser.action">
 								<s:param name="id" value="id" />
 							</s:url>
 							<s:a href="%{deleteUrl}">Delete</s:a>
 						</div><br/>
+						
 						<div class="buttonDiv">
 							<s:url id="clearUrl" value="userManagement.action"></s:url>
 							<s:a href="%{clearUrl}">Clear</s:a>

@@ -16,7 +16,7 @@
 		</script>
 	</head>
 	<body>
-		<div id="container">
+		<div id="wrapper">
 			<jsp:include page="/includes/header.jsp" />
 			<div id="content">
 				<s:if test="loggedIn == true">

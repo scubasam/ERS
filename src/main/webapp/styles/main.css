@@ -1,4 +1,5 @@
 /* @author Mitchell Nemitz */
+@import url("menubar.css");
 @import url("buttons.css");
 @import url("tables.css");
 @import url("login.css");
@@ -27,7 +28,7 @@ body {
 
 /* ------------------ */
 /* Container elements */
-#container {
+#wrapper {
 	width: 100%;
 	min-width: 1230px;
 	
@@ -97,12 +98,15 @@ body {
 			border: 1px solid grey;
 		}
 
-	/* Footer */
+	/* ------------- */
+	/* sticky footer */
 	.push {
 		clear: both;
 		height: 24px;
 	}
 
+/* ------------- */
+/* actual footer */
 .footer {
 	clear: both;
 	
