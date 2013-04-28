@@ -5,24 +5,24 @@
 <html>
 <head>
 	<title>Vehicle Type List</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css" href="/ERS/styles/page/vehicletypes.css">
+
 	<script type="text/javascript">
-		// style the nav bar
 		page = "vehicletypes";
 		pageSetup(page);
 	</script>
 </head>
 
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Vehicle Type List</h2>
 			
 			<s:if test="types.size > 0">
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="vehicletypes">
 						<tr>
 							<th>Type</th><th>Sub Type</th><th>Description</th><th>Make</th><th>Model</th><th>Minimum Weight</th><th>Maximum Weight</th><th>Capacity</th>

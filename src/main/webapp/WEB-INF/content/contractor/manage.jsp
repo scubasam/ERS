@@ -7,18 +7,19 @@
 <html>
 <head>
 	<title>Contractor List</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css"
-		href="/ERS/styles/page/contractors.css">
+
 	<script type="text/javascript">
 		page = "contractors";
-		setCurrentPage(page);
+		pageSetup(page);
 	</script>
 </head>
 <body>
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
+		
 		<div id="content">
 			<h2>Contractor List</h2>
 
@@ -32,7 +33,7 @@
 						<s:submit value="Update" />
 					</s:form>
 				</div>
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="contractors">
 						<thead>
 							<tr>
@@ -46,18 +47,28 @@
 					</table>
 				</div>
 
-				<div id="panel2">
+				<div id="editContainer">
 					<jsp:include page="/includes/error_header.jsp" />
 					<s:if test="getMode()=='edit'">
 						<s:url id="updateContractor" value="updateContractor.action">
 							<s:param name="id" value="id" />
 						</s:url>
 
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="editForm" action="%{updateContractor}"
 								id="contractorForm">
 								<s:textfield name="contractor.contractorName" label="Name" />
-								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+								<s:textfield name="contact.firstName" label="First Name" />
+								<s:textfield name="contact.lastName" label="Last Name" />
+								<s:textfield name="contact.middleInitial" label="Middle Initial" />
+								<s:textfield name="contact.emailAddress" label="Email Address" />
+								<s:textfield name="contact.streetAddress1" label="Street Address 1" />
+								<s:textfield name="contact.streetAddress2" label="Street Address 2" />
+								<s:textfield name="contact.city" label="City" />
+								<s:textfield name="contact.state" label="State" />
+								<s:textfield name="contact.zip" label="Zip" />
+								<s:textfield name="contact.primaryPhone" label="Primary Phone" />
+								<s:textfield name="contact.workPhone" label="Work Phone" />
 							</s:form>
 						</div>
 
@@ -85,11 +96,22 @@
 					</s:if>
 
 					<s:else>
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="addForm" action="addContractor.action"
 								id="contractorForm">
 								<s:textfield name="contractor.contractorName" label="Name" />
-								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+								<s:textfield name="contractor.contractorName" label="Name" />
+								<s:textfield name="contact.firstName" label="First Name" />
+								<s:textfield name="contact.lastName" label="Last Name" />
+								<s:textfield name="contact.middleInitial" label="Middle Initial" />
+								<s:textfield name="contact.emailAddress" label="Email Address" />
+								<s:textfield name="contact.streetAddress1" label="Street Address 1" />
+								<s:textfield name="contact.streetAddress2" label="Street Address 2" />
+								<s:textfield name="contact.city" label="City" />
+								<s:textfield name="contact.state" label="State" />
+								<s:textfield name="contact.zip" label="Zip" />
+								<s:textfield name="contact.primaryPhone" label="Primary Phone" />
+								<s:textfield name="contact.workPhone" label="Work Phone" />
 							</s:form>
 						</div>
 

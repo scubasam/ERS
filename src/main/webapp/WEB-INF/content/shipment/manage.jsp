@@ -17,8 +17,9 @@
 	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
+		
 		<div id="content">
 			<h2>Shipment Management</h2>
 
@@ -31,7 +32,7 @@
 						<s:submit value="Update" />
 					</s:form>
 				</div>
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="shipments">
 						<thead>
 							<tr>
@@ -45,7 +46,7 @@
 					</table>
 				</div>
 
-				<div id="panel2">
+				<div id="editContainer">
 					<jsp:include page="/includes/error_header.jsp" />
 					<s:if test="getMode()=='edit'">
 
@@ -53,7 +54,7 @@
 							<s:param name="id" value="id" />
 						</s:url>
 
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="editForm" action="%{updateShipment}" id="shipmentForm">
 								<s:textfield name="shipment.orderId" label="Order Id" />
 								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"
@@ -110,7 +111,7 @@
 					</s:if>
 
 					<s:else>
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="addForm" action="addShipment.action" id="routeForm">
 								<s:textfield name="shipment.orderId" label="Order Id" />
 								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"

@@ -15,13 +15,13 @@
 	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Vehicle List</h2>
 
 			<s:if test="vehicles.size > 0">
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="vehicles">
 						<tr>
 							<th>Type</th>

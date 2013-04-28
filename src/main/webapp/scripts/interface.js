@@ -10,32 +10,21 @@
 // to match each management page. 
 function pageSetup(page){
 	$(document).ready(function(){
-		setCurrentPage(page);
+		$("#nav_" + page).addClass("currentpage");
+		$("#columnSelect").hide();
+
 		interfaceSetup();
 	});
 }
 
-// Styles the navbar, brings the current tab forward
-function setCurrentPage(nav){
-	$("#nav_" + nav).addClass("currentpage");
-}
-
 // Sets up the dual pane interface, keeping sensible minimum heights
 function interfaceSetup(){
-	var h2 = $(window).height() - ($("#editContainer").height() + 264);
+	var h2 = $(window).height() - ($("#formContainer").height() + 264);
 	
 	if(h2 < 300){ h2 = 300; }
 	if(h2 > $("#"+page).height()){ h2 = $("#"+page).height; }
 	
-	$("#scrollContainer").height(h2);
-}
-
-function toggleColumnSelect(){
-	if($("#columnSelect").is(":visible")){
-		$("#columnSelect").hide();
-	} else {
-		$("#columnSelect").show();
-	}
+	$("#dataContainer").height(h2);
 }
 
 // convenience function for submitting complex forms

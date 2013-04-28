@@ -7,21 +7,22 @@
 <html>
 <head>
 	<title>View Driver</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
+	
 	<script type="text/javascript">
-		// style the nav bar
 		page = "drivers";
 		pageSetup(page);
 	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Driver List</h2>
 			<s:if test="drivers.size > 0">
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="drivers">
 						<tr>
 							<th>License Number</th>

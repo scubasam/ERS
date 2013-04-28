@@ -48,8 +48,8 @@ body {
 	/* Column Selection elements */
 	#columnSelectButton {
 		float: right;
-		margin-top: 2px;
-		margin-bottom: 2px;
+		margin-top: 4px;
+		margin-bottom:4px;
 	}
 
 	#columnSelectForm {
@@ -75,7 +75,7 @@ body {
 		padding-bottom: 30px;
 	}
 
-		#scrollContainer {
+		#dataContainer {
 		clear: both;
 		
 		width: 100%;
@@ -84,12 +84,12 @@ body {
 		}
 
 		/* Secondary panel */
-		#panel2 {
+		#editContainer {
 			width: 600px;
 			margin: 0 auto;
 		}
 
-		#editContainer {
+		#formContainer {
 			float: left;
 			width: 440px;
 			overflow: auto;

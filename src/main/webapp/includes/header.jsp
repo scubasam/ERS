@@ -60,3 +60,7 @@
 		<div id="loginLinkDiv"><a id="loginLink" href="userLoginForm.action">Login</a></div>
 	</s:else>
 </div>
+
+<div class="buttonDiv" id="columnSelectButton">
+	<a href="javascript:$('#columnSelect').toggle()">Select Columns</a>
+</div>

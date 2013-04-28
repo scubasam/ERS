@@ -7,9 +7,10 @@
 <html>
 <head>
 	<title>Contact List</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css" href="/ERS/styles/page/contacts.css">
+
 	<script type="text/javascript">
 		page = "contacts";
 		pageSetup(page);
@@ -31,7 +32,7 @@
 					</s:form>
 				</div>
 
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="contacts">
 						<thead>
 							<tr>
@@ -46,7 +47,7 @@
 					</table>
 				</div>
 
-				<div id="panel2">
+				<div id="editContainer">
 					<jsp:include page="/includes/error_header.jsp" />
 
 					<s:if test="getMode()=='edit'">
@@ -54,10 +55,20 @@
 							<s:param name="id" value="id" />
 						</s:url>
 
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="editForm" action="%{updateContact}"
 								id="contactForm">
-								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+								<s:textfield name="contact.firstName" label="First Name" />
+								<s:textfield name="contact.lastName" label="Last Name" />
+								<s:textfield name="contact.middleInitial" label="Middle Initial" />
+								<s:textfield name="contact.emailAddress" label="Email Address" />
+								<s:textfield name="contact.streetAddress1" label="Street Address 1" />
+								<s:textfield name="contact.streetAddress2" label="Street Address 2" />
+								<s:textfield name="contact.city" label="City" />
+								<s:textfield name="contact.state" label="State" />
+								<s:textfield name="contact.zip" label="Zip" />
+								<s:textfield name="contact.primaryPhone" label="Primary Phone" />
+								<s:textfield name="contact.workPhone" label="Work Phone" />
 							</s:form>
 						</div>
 
@@ -85,10 +96,20 @@
 					</s:if>
 
 					<s:else>
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="addForm" action="addContact.action"
 								id="contactForm">
-								<jsp:include page="/WEB-INF/content/contact/fieldForm.jsp" />
+								<s:textfield name="contact.firstName" label="First Name" />
+								<s:textfield name="contact.lastName" label="Last Name" />
+								<s:textfield name="contact.middleInitial" label="Middle Initial" />
+								<s:textfield name="contact.emailAddress" label="Email Address" />
+								<s:textfield name="contact.streetAddress1" label="Street Address 1" />
+								<s:textfield name="contact.streetAddress2" label="Street Address 2" />
+								<s:textfield name="contact.city" label="City" />
+								<s:textfield name="contact.state" label="State" />
+								<s:textfield name="contact.zip" label="Zip" />
+								<s:textfield name="contact.primaryPhone" label="Primary Phone" />
+								<s:textfield name="contact.workPhone" label="Work Phone" />
 							</s:form>
 						</div>
 

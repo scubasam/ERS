@@ -11,7 +11,6 @@
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 	
-	<link rel="stylesheet" type="text/css" href="/ERS/styles/page/users.css">
 	<script type="text/javascript">
 		page = "users";
 		pageSetup(page);
@@ -21,10 +20,6 @@
 <body>
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
-		
-		<div class="buttonDiv" id="columnSelectButton">
-			<a href="javascript:toggleColumnSelect()">Select Columns</a>
-		</div>
 			
 		<div id="content">
 			<h2>User List</h2>
@@ -37,7 +32,7 @@
 					</s:form>
 				</div>
 				
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="users">
 						<tr>
 							<th></th>
@@ -48,7 +43,7 @@
 				</div>
 			</s:if>
 			
-			<div id="panel2">
+			<div id="editContainer">
 				<jsp:include page="/includes/error_header.jsp" />
 			
 				<s:if test="getMode()=='edit'">
@@ -56,7 +51,7 @@
 						<s:param name="id" value="id" />
 					</s:url>
 					
-					<div id="editContainer">
+					<div id="formContainer">
 						<s:form name="editForm" method="post" action="%{updateUser}">
 							<s:textfield name="user.username" label="User" />
 							<s:checkbox name="user.admin" label="Is Admin?" />
@@ -85,7 +80,7 @@
 				</s:if>
 				
 				<s:else>
-					<div id="editContainer">
+					<div id="formContainer">
 						<s:form name="addForm" method="post" action="addUser.action">
 		 
 							<s:textfield name="user.username" label="User" />
