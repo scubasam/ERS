@@ -7,13 +7,13 @@
 	<s:head />
 	<jsp:include page="/includes/decorator.jsp" />
 	<script type="text/javascript">
-		// style the nav bar
-		setCurrentPage("home");
+		page="home"
+		pageSetup(page);
 	</script>
 </head>
 
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 		
