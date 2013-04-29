@@ -62,6 +62,11 @@ public class ManagementController extends BaseManagementController<Route>{
 		columnMap = Collections.unmodifiableMap(columns);
 	}
 	
+	// Feeds the column map specific to this class into the auto field generator.
+	@Override
+	protected Map<String, String> getColumnMap(){
+		return columnMap;
+	}
 	
 	@Override
 	protected String getActionId() {
