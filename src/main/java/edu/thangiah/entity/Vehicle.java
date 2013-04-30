@@ -3,7 +3,6 @@ package edu.thangiah.entity;
 import java.io.Serializable;
 import java.util.Set;
 
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -24,11 +23,11 @@ public class Vehicle extends AbstractEntity implements Serializable, EntityInter
     private String plateNumber = null;
     private String vinNumber = null;
     private String manufacturedYear = null;
-    //private String status = null;
     private VehicleType vehicleType = null;
     private Contractor contractor = null;
     private Set<Driver> drivers = null;
     private Location location = null;
+    private Driver driver = null;
     
 
     public static final String[] statuses = {"available", "unavailable"};
@@ -49,7 +48,6 @@ public class Vehicle extends AbstractEntity implements Serializable, EntityInter
         this.plateNumber = plateNumber;
         this.vinNumber = vinNumber;
         this.manufacturedYear = manufacturedYear;
-        //this.status = status;
         this.vehicleType = vehicleType;
         this.contractor = contractor;
         this.drivers = drivers;
@@ -85,16 +83,6 @@ public class Vehicle extends AbstractEntity implements Serializable, EntityInter
         this.manufacturedYear = manufacturedYear;
     }
 
-    /*@Column(name="status")
-    @NotEmpty
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }*/
-
     @ManyToOne
     @JoinColumn(name="vehicle_type_id")
     @NotNull
@@ -124,6 +112,13 @@ public class Vehicle extends AbstractEntity implements Serializable, EntityInter
     @Valid
     public Set<Driver> getDrivers() {
         return drivers;
+    }
+    public void setDriver(Driver driver) {
+    	this.driver = driver;
+    }
+    
+    public Driver getDriver() {
+    	return driver;
     }
 
     public void setDrivers(Set<Driver> drivers) {

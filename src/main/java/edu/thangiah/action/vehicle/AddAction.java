@@ -36,7 +36,7 @@ public class AddAction extends ManagementController implements Preparable {
 		
 		newVehicle.setVehicleType(vehicleTypeSelect.getSelectedEntity());
 		newVehicle.setContractor(contractorSelect.getSelectedEntity());
-		//newVehicle.setDrivers(driverSelect.getSelectedEntity());
+		newVehicle.setDriver(driverSelect.getSelectedEntity());
 		newVehicle.setLocation(locationSelect.getSelectedEntity());
 		
 		try{

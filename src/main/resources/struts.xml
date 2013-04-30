@@ -284,7 +284,7 @@
  		</action>
  		
  		<!-- Vehicle Actions -->
- 		<action name="vehicleManagement" class="vehicleManagementAction">
+ 		<action name="vehicleManagement" class="vehicleManagement">
  			<result name="success">WEB-INF/content/vehicle/manage.jsp</result>
 			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>

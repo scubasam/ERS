@@ -44,16 +44,12 @@ public class ManagementController extends BaseManagementController<Vehicle>{
 	
 	@Autowired
 	protected VehicleTypeDao vehicleTypeDao;
-	
 	@Autowired
 	protected ContractorDao contractorDao;
-	
 	@Autowired
 	protected LocationDao locationDao;
-	
 	@Autowired
 	protected DriverDao driverDao;
-	
 	@Autowired
 	protected VehicleDao vehicleDao;
 	
@@ -66,24 +62,32 @@ public class ManagementController extends BaseManagementController<Vehicle>{
 	protected static final Map<String, String> columnMap;
 	static {
 		Map<String, String> columns = new LinkedHashMap<String, String>();
-		columns.put("vehicle", "Vehicle");
-		columns.put("shipments", "Shipments");
-		columns.put("startLocation", "Start Location");
-		columns.put("endLocation", "End Location");
+		columns.put("plateNumber", "Plate Number");
+		columns.put("vinNumber", "Vin");
+		columns.put("manufacturedYear", "Manufactured Year");
+		columns.put("vehicleType", "Vehicle Type");
+		columns.put("contractor", "Contractor");
+		columns.put("drivers", "Drivers");
+		columns.put("location", "Location");
 		columnMap = Collections.unmodifiableMap(columns);
 	}
 	
+	// Feeds the column map specific to this class into the auto field generator.
+	@Override
+	protected Map<String, String> getColumnMap(){
+		return columnMap;
+	}
 	
 	@Override
 	protected String getActionId() {
-		return "route";
+		return "vehicle";
 	}
 	
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
 		this.initializeEntityList(vehicleDao);
-		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), Vehicle.class, "routeManagement.action");
+		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), Vehicle.class, "vehicleManagement.action");
 		
 		if ( vehicleDao == null ) {
         	this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
@@ -119,7 +123,7 @@ public class ManagementController extends BaseManagementController<Vehicle>{
 	        	contractorSelect.intializeFromEntity(getVehicle().getContractor());
 	        	vehicleTypeSelect.intializeFromEntity(getVehicle().getVehicleType());
 	        	locationSelect.intializeFromEntity(getVehicle().getLocation());
-	        	//driverSelect.intializeFromEntity(getVehicle().getDrivers());
+	        	driverSelect.intializeFromEntity(getVehicle().getDriver());
         	}
         }
         

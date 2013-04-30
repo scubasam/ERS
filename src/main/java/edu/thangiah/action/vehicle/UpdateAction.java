@@ -53,7 +53,7 @@ public class UpdateAction extends ManagementController{
 		fromDb.setVehicleType(vehicleTypeSelect.getSelectedEntity());
 		fromDb.setContractor(contractorSelect.getSelectedEntity());
 		fromDb.setLocation(locationSelect.getSelectedEntity());
-		//fromDb.setDriver(driverSelect.getSelectedEntity());
+		fromDb.setDriver(driverSelect.getSelectedEntity());
 
 		try{
 			vehicleDao.update(fromDb);
