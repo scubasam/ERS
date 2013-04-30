@@ -6,13 +6,13 @@
 <!doctype html>
 <html>
 <head>
-	<title>Maintenance Order</title>
+	<title>Driver</title>
 	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 
 	<script type="text/javascript">
-		page = "vehicle";
+		page = "driver";
 		pageSetup(page);
 	</script>
 </head>
@@ -20,19 +20,19 @@
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Maintenance Order</h2>
+			<h2>Driver</h2>
 
-			<s:if test="vehicle.size > 0">
+			<s:if test="drivers.size > 0">
 				<div id="columnSelect">
 					<s:form name="manageColumns"
-						action="manageColumns.action?action=vehicle" id="columnSelectForm">
+						action="manageColumns.action?action=driver" id="columnSelectForm">
 						<s:checkboxlist label="Choose Display Columns" list="columnLabels"
 							name="columnLabels" value="visibleColumns" />
 						<s:submit value="Update" />
 					</s:form>
 				</div>
 				<div id="dataContainer">
-					<table id="vehicle">
+					<table id="driver">
 						<thead>
 							<tr>
 								<th></th>
@@ -49,23 +49,20 @@
 					<jsp:include page="/includes/error_header.jsp" />
 					<s:if test="getMode()=='edit'">
 
-						<s:url id="updateVehicle" value="updateVehicle.action">
+						<s:url id="updateDriver" value="updateDriver.action">
 							<s:param name="id" value="id" />
 						</s:url>
 
 						<div id="formContainer">
-							<s:form name="editForm" action="%{updateVehicle}" id="vehicleForm">
-								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"
-									list="vehicleTypeSelect.list" listKey="id" listValue="toString()"
-									value="vehicleTypeSelect.selected" />
-								<s:select label="Location" name="locationSelect.selected"
-									list="locationSelect.list" listKey="id" listValue="toString()"
-									value="locationSelect.selected" />
-								<s:select label="Driver" name="drierSelect.selected"
-									list="driverSelectList.list" listKey="id" listValue="toString()"
-									value="driverSelect.selected" />
+							<s:form name="editForm" action="%{updateDriver}" id="driverForm">
+								<s:select label="Vehicle" name="vehicleSelect.selected"
+									list="vehicleSelect.list" listKey="id" listValue="toString()"
+									value="vehicleSelect.selected" />
+								<s:select label="Contact" name="contactSelect.selected"
+									list="contactSelect.list" listKey="id" listValue="toString()"
+									value="contactSelect.selected" />
 								<s:select label="Contractor" name="contractorSelect.selected"
-									list="contractorSelectList.list" listKey="id" listValue="toString()"
+									list="contractorSelect.list" listKey="id" listValue="toString()"
 									value="contractorSelect.selected" />
 							</s:form>
 						</div>
@@ -79,14 +76,14 @@
 							</div>
 							<br />
 							<div class="buttonDiv">
-								<s:url id="deleteUrl" value="deleteMaintenanceOrder.action">
+								<s:url id="deleteUrl" value="deleteDriver.action">
 									<s:param name="id" value="id" />
 								</s:url>
 								<s:a href="%{deleteUrl}">Delete</s:a>
 							</div>
 							<br />
 							<div class="buttonDiv">
-								<s:url id="clearUrl" value="mainteanceOrderManagement.action"></s:url>
+								<s:url id="clearUrl" value="driverManagement.action"></s:url>
 								<s:a href="%{clearUrl}">Clear</s:a>
 							</div>
 							<br />
@@ -95,18 +92,15 @@
 
 					<s:else>
 						<div id="formContainer">
-							<s:form name="editForm" action="%{updateVehicle}" id="vehicleForm">
-								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"
-									list="vehicleTypeSelect.list" listKey="id" listValue="toString()"
-									value="vehicleTypeSelect.selected" />
-								<s:select label="Location" name="locationSelect.selected"
-									list="locationSelect.list" listKey="id" listValue="toString()"
-									value="locationSelect.selected" />
-								<s:select label="Driver" name="drierSelect.selected"
-									list="driverSelectList.list" listKey="id" listValue="toString()"
-									value="driverSelect.selected" />
+							<s:form name="editForm" action="%{updateDriver}" id="driverForm">
+								<s:select label="Vehicle" name="vehicleSelect.selected"									
+									list="vehicleSelect.list" listKey="id" listValue="toString()"
+									value="vehicleSelect.selected" />
+								<s:select label="Contact" name="contactSelect.selected"
+									list="contactSelect.list" listKey="id" listValue="toString()"
+									value="contactSelect.selected" />
 								<s:select label="Contractor" name="contractorSelect.selected"
-									list="contractorSelectList.list" listKey="id" listValue="toString()"
+									list="contractorSelect.list" listKey="id" listValue="toString()"
 									value="contractorSelect.selected" />
 							</s:form>
 						</div>
@@ -124,7 +118,7 @@
 				</div>
 			</s:if>
 			<s:else>
-				No Maintenance Order
+				No Driver...
 			</s:else>
 		</div>
 	</div>

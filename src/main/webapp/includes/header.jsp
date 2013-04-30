@@ -34,7 +34,7 @@
 				<a class="navlink" id="nav_vehicletypes" href="/ERS/vehicleTypeManagement.action">Vehicle Types</a>
 			</li>
 			<li class="navitem">
-				<a class="navlink" id="nav_drivers" href="/ERS/listAllDrivers.action">Drivers</a>
+				<a class="navlink" id="nav_drivers" href="/ERS/driverManagement.action">Drivers</a>
 			</li>
 			<li class="navitem">
 				<a class="navlink" id="nav_technicians" href="/ERS/serviceTechnicianManagement.action">Technicians</a>

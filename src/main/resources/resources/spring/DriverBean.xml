@@ -3,15 +3,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
- 	
-	<bean id="driverListAction" class="edu.thangiah.action.driver.ListAction">
+	<bean id="driverManagement" class="edu.thangiah.action.driver.ManagementController" scope="prototype">
+		<property name="contactDao" ref="contactDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
+	
+	<bean id="addDriverAction" class="edu.thangiah.action.driver.AddAction" scope="prototype">
+		<property name="contactDao" ref="contactDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
+	
+	<bean id="updateDriverAction" class="edu.thangiah.action.driver.UpdateAction" scope="prototype">
+		<property name="contactDao" ref="contactDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="contractorDao" ref="contractorDao" />
+	</bean>
+	
+	<bean id="deleteDriverAction" class="edu.thangiah.action.driver.DeleteAction" scope="prototype">
 		<property name="driverDao" ref="driverDao" />
 	</bean>
- 
- 	<bean id="addDriverAction" class="edu.thangiah.action.driver.AddAction">
-	</bean>
-	
-	<bean id="driverViewAction" class="edu.thangiah.action.driver.ViewAction">
-	</bean>
-	
 </beans>

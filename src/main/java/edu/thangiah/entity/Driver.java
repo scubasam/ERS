@@ -34,8 +34,11 @@ public class Driver extends AbstractEntity implements Serializable, EntityInterf
     private Date licenseExpiration = null;
     private String licenseClass = null;
     private Contractor contractor = null;
+    private Vehicle vehicle = null;
 
-    public Driver() {
+
+
+	public Driver() {
         super();
     }
 
@@ -75,6 +78,14 @@ public class Driver extends AbstractEntity implements Serializable, EntityInterf
     public void setVehicles(Set<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
+    
+    public Vehicle getVehicle() {
+		return vehicle;
+	}
+
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
+	}
 
     @Column(name="license_number")
     public String getLicenseNumber() {
