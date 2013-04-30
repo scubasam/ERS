@@ -33,6 +33,7 @@ public class AddAction extends ManagementController implements Preparable {
 		
 		ServiceTechnician newServiceTechnician = new ServiceTechnician();
 		newServiceTechnician.setContact(contactSelect.getSelectedEntity());
+		newServiceTechnician.setMaintenanceOrder(maintenanceOrderSelect.getSelectedEntity());
 		
 		try{
 			serviceTechnicianDao.add(newServiceTechnician);

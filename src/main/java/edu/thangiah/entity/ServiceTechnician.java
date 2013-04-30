@@ -32,8 +32,11 @@ public class ServiceTechnician extends AbstractEntity implements Serializable, E
     private Contact contact = null;
     private String skillGrade = null;
     private Set<MaintenanceOrder> maintenanceOrders = null;
+    private MaintenanceOrder maintenanceOrder = null;
 
-    public ServiceTechnician() {
+
+
+	public ServiceTechnician() {
         super();
     }
 
@@ -88,6 +91,14 @@ public class ServiceTechnician extends AbstractEntity implements Serializable, E
     public void setMaintenanceOrders(Set<MaintenanceOrder> maintenanceOrders) {
         this.maintenanceOrders = maintenanceOrders;
     }
+    
+    public MaintenanceOrder getMaintenanceOrder() {
+		return maintenanceOrder;
+	}
+
+	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder) {
+		this.maintenanceOrder = maintenanceOrder;
+	}
 
 	@Override
 	public String getViewLink() {

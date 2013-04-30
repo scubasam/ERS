@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,16 +37,13 @@ public class ManagementController extends BaseManagementController<ServiceTechni
 
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;
-
 	@Autowired
 	protected ContactDao contactDao;
-	
 	@Autowired
-	protected MaintenanceOrderDao mainteanceOrderDao;
+	protected MaintenanceOrderDao maintenanceOrderDao;
 	
 	protected Contact contact;
-	
-	protected Set<MaintenanceOrder> maintenanceOrder;
+	protected MaintenanceOrder maintenanceOrder;
 	
 	
 	protected StrutsSelect<Contact> contactSelect;
@@ -86,7 +82,7 @@ public class ManagementController extends BaseManagementController<ServiceTechni
 		
 		try{
 			contactSelect = new StrutsSelect<Contact>(contactDao, "contact");
-			maintenanceOrderSelect = new StrutsSelect<MaintenanceOrder>(mainteanceOrderDao, "mainteanceOrder");
+			maintenanceOrderSelect = new StrutsSelect<MaintenanceOrder>(maintenanceOrderDao, "mainteanceOrder");
 		}
 		catch(StrutsElementException e){
 			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
@@ -109,7 +105,7 @@ public class ManagementController extends BaseManagementController<ServiceTechni
 	        	
 	        	if( getServiceTechnician() != null && getServiceTechnician().getContact() != null && getServiceTechnician().getMaintenanceOrders() != null){
 		        	contactSelect.intializeFromEntity(getServiceTechnician().getContact());
-		        	//maintenanceOrderSelect.intializeFromEntity(getServiceTechnician().getMaintenanceOrders());
+		        	maintenanceOrderSelect.intializeFromEntity(getServiceTechnician().getMaintenanceOrder());
 	        	}
 	        }
 	        
@@ -151,12 +147,45 @@ public class ManagementController extends BaseManagementController<ServiceTechni
 		this.contact = contact;
 	}
 
-	public Set<MaintenanceOrder> getMaintenanceOrder() {
+	public ContactDao getContactDao() {
+		return contactDao;
+	}
+
+	public void setContactDao(ContactDao contactDao) {
+		this.contactDao = contactDao;
+	}
+
+	public MaintenanceOrderDao getMaintenanceOrderDao() {
+		return maintenanceOrderDao;
+	}
+
+	public void setMaintenanceOrderDao(MaintenanceOrderDao maintenanceOrderDao) {
+		this.maintenanceOrderDao = maintenanceOrderDao;
+	}
+
+	public MaintenanceOrder getMaintenanceOrder() {
 		return maintenanceOrder;
 	}
 
-	public void setMaintenanceOrder(Set<MaintenanceOrder> maintenanceOrder) {
+	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder) {
 		this.maintenanceOrder = maintenanceOrder;
+	}
+
+	public StrutsSelect<Contact> getContactSelect() {
+		return contactSelect;
+	}
+
+	public void setContactSelect(StrutsSelect<Contact> contactSelect) {
+		this.contactSelect = contactSelect;
+	}
+
+	public StrutsSelect<MaintenanceOrder> getMaintenanceOrderSelect() {
+		return maintenanceOrderSelect;
+	}
+
+	public void setMaintenanceOrderSelect(
+			StrutsSelect<MaintenanceOrder> maintenanceOrderSelect) {
+		this.maintenanceOrderSelect = maintenanceOrderSelect;
 	}
 
 	

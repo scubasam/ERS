@@ -52,6 +52,7 @@ public class UpdateAction extends ManagementController{
     	
 		
 		fromDb.setContact(contactSelect.getSelectedEntity());
+		fromDb.setMaintenanceOrder(maintenanceOrderSelect.getSelectedEntity());
 		
 		try{
 			serviceTechnicianDao.update(fromDb);

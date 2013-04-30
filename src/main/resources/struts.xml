@@ -188,7 +188,7 @@
 		</action>
  		
  		<!-- Service Technician Actions -->
- 		<action name="serviceTechnicianManagement" class="serviceTechnicianManagementAction">
+ 		<action name="serviceTechnicianManagement" class="serviceTechnicianManagement">
  			<result name="success">WEB-INF/content/service_technician/manage.jsp</result>
 			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
