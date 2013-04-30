@@ -358,28 +358,33 @@
 
  		
  		<!-- Driver Actions -->
- 		<action name="listAllDrivers" class="driverListAction">
- 			<result name="success">WEB-INF/content/driver/list.jsp</result>
+ 		<action name="driverManagement" class="driverManagement">
+ 			<result name="success">WEB-INF/content/driver/manage.jsp</result>
+			<result name="input">WEB-INF/content/driver/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
+ 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
- 		
- 		<action name="viewDriver" class="driverViewAction">
- 			<result name="success">WEB-INF/content/driver/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>
- 		
- 		<action name="addDriverForm" class="baseAction">
-			<result>WEB-INF/content/driver/addForm.jsp</result>
+
+		<action name="addDriver" class="addDriverAction">
+			<result name="success" type="redirect">driverManagement.action</result>
+			<result name="input">WEB-INF/content/driver/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
-
-		<action name="addDriver" class="addDriverAction">
-			<result name="success" type="redirect">listAllDrivers.action</result>
-			<result name="input">WEB-INF/content/driver/addForm.jsp</result>
+		
+		<action name="updateDriver" class="updateDriverAction">
+			<result name="success" type="redirect">driverManagement.action</result>
+			<result name="input">WEB-INF/content/driver/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>	
+		</action>
+		
+		<action name="deleteDriver" class="deleteDriverAction">
+			<result name="success" type="redirect">driverManagement.action?deleted=true</result>
+			<result name="input">WEB-INF/content/driver/manage.jsp</result>
+			<interceptor-ref name="authStack"></interceptor-ref>
+			<interceptor-ref name="requireLogin"></interceptor-ref>
+		</action>
 
  		<!-- Route Actions -->
  		<action name="routeManagement" class="routeManagement">

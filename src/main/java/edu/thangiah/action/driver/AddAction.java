@@ -1,86 +1,74 @@
 package edu.thangiah.action.driver;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.opensymphony.xwork2.Preparable;
+
 import edu.thangiah.dao.ContactDao;
-import edu.thangiah.entity.Contact;
+import edu.thangiah.dao.ContractorDao;
+import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Driver;
+import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  *This class extends the management controller and implements preparable. It's primary function
- *is to to handle everything related to adding and Driver entity 
+ *is to to handle everything related to adding and Maintenance Orders entity 
  * 
  * @author Alex McCracken, Kelly Smith
  */
 
 
-public class AddAction extends DriverAction implements Preparable{
-
-	private static final long serialVersionUID = -1708978099566079365L;
-	private Driver driver;
-	private Contact contact;
+public class AddAction extends ManagementController implements Preparable{
+	
+	private static final long serialVersionUID = -5800683108151609064L;
 	
 	@Autowired
 	protected ContactDao contactDao;
+	@Autowired
+	protected VehicleDao vehicleDao;
+	@Autowired
+	protected ContractorDao contractorDao;
+	
 	
 	@Override
-    public String execute() throws Exception
-    {
-		if (driverDao == null || driver == null) 
-		{
-            this.addActionError(DB_ERROR_MESSAGE);
-        }
+    public String execute(){
+		try{
+			initializeSelectedElements();
+		}
+		catch( StrutsElementException e ){
+			addActionError("An unknown error occured.  Plase try reloading the page.");
+			return ERROR;
+		}
 		
-		contactDao.add(contact);
-		driver.setContact(contact);
+		if( this.hasActionErrors() || this.hasFieldErrors() )
+			return INPUT;
+
 		
-		LOGGER.debug("Adding new driver: " + driver.toString());
-		driverDao.add(driver);
+		Driver newDriver = new Driver();
+		newDriver.setVehicle(vehicleSelect.getSelectedEntity());
+		newDriver.setContact(contactSelect.getSelectedEntity());
+		newDriver.setContractor(contractorSelect.getSelectedEntity());
 		
+		try{
+			driverDao.add(newDriver);
+		}
+		catch(Exception e){
+			return ERROR;
+		}
     	return SUCCESS;
     }
     
     // called automatically
     public void validate(){
-    	if( driver != null && contact != null )
+    	if( getEntity() != null)
     	{
-    		requiredString(driver.getLicenseNumber(), "driver.licenseNumber");
-    		
-    		this.runContactValidation(contact);
+    	
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");
     	}
+
     }
-
-	/**
-	 * @return the contact
-	 */
-	public Driver getDriver()
-	{
-		return driver;
-	}
-
-	/**
-	 * @param contact the contact to set
-	 */
-	public void setDriver(Driver driver) {
-		this.driver = driver;
-	}
-	
-	/**
-	 * @return the contact
-	 */
-	public Contact getContact() {
-		return contact;
-	}
-
-	/**
-	 * @param contact the contact to set
-	 */
-	public void setContact(Contact contact) {
-		this.contact = contact;
-	}
 
 	public ContactDao getContactDao() {
 		return contactDao;
@@ -89,5 +77,21 @@ public class AddAction extends DriverAction implements Preparable{
 	public void setContactDao(ContactDao contactDao) {
 		this.contactDao = contactDao;
 	}
-	
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+
+	public ContractorDao getContractorDao() {
+		return contractorDao;
+	}
+
+	public void setContractorDao(ContractorDao contractorDao) {
+		this.contractorDao = contractorDao;
+	}
+    
 }
