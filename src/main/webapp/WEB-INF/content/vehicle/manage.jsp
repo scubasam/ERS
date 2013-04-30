@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css"
 		href="/ERS/styles/page/routes.css">
 	<script type="text/javascript">
-		page = "vehicle";
+		page = "vehicles";
 		pageSetup(page);
 	</script>
 </head>

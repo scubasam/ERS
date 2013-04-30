@@ -7,17 +7,17 @@
 <html>
 <head>
 	<title>Route Management</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css"
-		href="/ERS/styles/page/routes.css">
+	
 	<script type="text/javascript">
 		page = "routes";
 		pageSetup(page);
 	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Route Management</h2>
@@ -31,7 +31,7 @@
 						<s:submit value="Update" />
 					</s:form>
 				</div>
-				<div id="scrollContainer">
+				<div id="dataContainer">
 					<table id="routes">
 						<thead>
 							<tr>
@@ -45,7 +45,7 @@
 					</table>
 				</div>
 
-				<div id="panel2">
+				<div id="editContainer">
 					<jsp:include page="/includes/error_header.jsp" />
 					<s:if test="getMode()=='edit'">
 
@@ -53,7 +53,7 @@
 							<s:param name="id" value="id" />
 						</s:url>
 
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="editForm" action="%{updateRoute}" id="routeForm">
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
@@ -92,7 +92,7 @@
 					</s:if>
 
 					<s:else>
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="addForm" action="addRoute.action" id="routeForm">
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()" />

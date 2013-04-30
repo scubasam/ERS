@@ -12,7 +12,7 @@
 	<jsp:include page="/includes/decorator.jsp" />
 
 	<script type="text/javascript">
-		page = "driver";
+		page = "drivers";
 		pageSetup(page);
 	</script>
 </head>
