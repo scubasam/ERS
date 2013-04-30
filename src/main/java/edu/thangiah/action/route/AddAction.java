@@ -18,7 +18,7 @@ public class AddAction extends ManagementController implements Preparable {
 
 	@Override
     public String execute()
-    {
+    {	
 		try{
 			initializeSelectedElements();
 		}
@@ -29,6 +29,11 @@ public class AddAction extends ManagementController implements Preparable {
 		
 		if( this.hasActionErrors() || this.hasFieldErrors() )
 			return INPUT;
+		
+		
+		String result = this.parseShipmentList();
+		if( !result.equals(SUCCESS) )
+			return result;
 		
 		
 		Route newRoute = new Route();

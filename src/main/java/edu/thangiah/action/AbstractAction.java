@@ -54,13 +54,14 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 		this.clearErrors(); // Prevents errors from persisting across multiple submits.
 		
 		currentSession = ActionContext.getContext().getSession();
-		String sessionId = (String) currentSession.get(SESSION_ID_KEY);
-		
-		this.setLoggedIn(checkLogin(sessionId));
+		this.setLoggedIn(checkLogin());
 		
 	}
 	
-	// Retrieves login redirect information for proper redirection after login.
+	/**
+	 * Populates the current session with redirect information which can be used to dynamically redirect back to a particular
+	 * page after a successful login.
+	 */
 	protected void invokeLoginRedirect(){
 		if( currentSession != null ){
 			this.setLoginUrl((String) currentSession.get("loginRedirect"));
@@ -70,15 +71,21 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 		}
 	}
 	
-	protected boolean logoutUser(){
+	/**
+	 * Clears the session of user information so that the current user is no longer logged in.
+	 */
+	protected void logoutUser(){
 		setLoggedIn(false);
 		currentUser = null;
 		currentSession.put(SESSION_ID_KEY, null);
-		
-		return true;
 	}
 	
-	private boolean checkLogin(String sessionId){
+	/**
+	 * Retrieves the current logged in user from the session.
+	 * Session information is initialized in {@link edu.thangiah.interceptor.AuthenticationInterceptor}.
+	 * @return true if a user is logged in, false otherwise.
+	 */
+	private boolean checkLogin(){
 		if( currentSession.containsKey(SESSION_ID_KEY) && currentSession.containsKey(USER_SESSION_KEY) ){
 			currentUser = (User) currentSession.get(USER_SESSION_KEY);
 			return true;

@@ -3,6 +3,8 @@ package edu.thangiah.entity;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.TreeSet;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,6 +25,8 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
     protected Long id;
     private Vehicle vehicle = null;
     private Set<Shipment> shipments = null;
+    
+    private TreeSet<Shipment> orderedShipments;
     
     private Location startLocation = null;
     private Location endLocation = null;
@@ -62,6 +66,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
     }
 
     public void setShipments(Set<Shipment> shipments) {
+    	this.setOrderedShipments(new TreeSet<Shipment>(shipments));
         this.shipments = shipments;
     }
 
@@ -131,6 +136,14 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 	
 	public String toString(){
 		return "Route from " + startLocation.toString() + " to " + endLocation.toString();
+	}
+
+	public TreeSet<Shipment> getOrderedShipments() {
+		return orderedShipments;
+	}
+
+	public void setOrderedShipments(TreeSet<Shipment> orderedShipments) {
+		this.orderedShipments = orderedShipments;
 	}
 
 	

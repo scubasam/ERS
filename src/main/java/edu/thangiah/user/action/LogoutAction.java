@@ -12,12 +12,10 @@ public class LogoutAction extends UserAction implements Preparable{
     @Override
     public String execute() throws Exception{
     	
-    	boolean result = this.logoutUser();
+    	this.logoutUser();
        
-    	if( result )
-    		return SUCCESS;
-    	else
-    		return ERROR;
+    	return SUCCESS;
+
     }
     
 }

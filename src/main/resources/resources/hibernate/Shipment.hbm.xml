@@ -68,5 +68,8 @@
         <many-to-one name="pooledDestination" class="edu.thangiah.entity.Location" fetch="join" lazy="false">
             <column name="POOLED_DESTINATION_ID" />
         </many-to-one>
+        <property name="routeOrder" type="java.lang.Integer">
+            <column name="route_order_value" />
+        </property>
     </class>
 </hibernate-mapping>

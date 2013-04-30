@@ -20,7 +20,7 @@ import org.hibernate.validator.Valid;
  */
 @Entity
 @Table(name="shipments")
-public class Shipment extends AbstractEntity implements Serializable, EntityInterface {
+public class Shipment extends AbstractEntity implements Serializable, EntityInterface, Comparable<Shipment> {
     private static final long serialVersionUID = 1L;
     protected Long id;
     private Date timeEntered = null;
@@ -43,6 +43,7 @@ public class Shipment extends AbstractEntity implements Serializable, EntityInte
     private Location destination = null;
     private Boolean pooledShipment = null;
     private Location pooledDestination = null;
+    private Integer routeOrder = null;
 
     public Shipment() {
         super();
@@ -55,7 +56,7 @@ public class Shipment extends AbstractEntity implements Serializable, EntityInte
     public Shipment(Long id, Date timeEntered, Integer orderId, VehicleType vehicleType, Location location, Route route, Date availableDate,
                     Time availableTime, Date releaseDate, Time releaseTime, Date earliestDeliveryDate, Time earliestDeliveryTime,
                     Date latestDeliveryDate, Time latestDeliveryTime, Integer serviceTime, Integer weight, Integer cubicWeight, String customerName,
-                    Location destination, Boolean pooledShipment, Location pooledDestination) {
+                    Location destination, Boolean pooledShipment, Location pooledDestination, Integer routeOrder) {
         this.id = id;
         this.timeEntered = timeEntered;
         this.orderId = orderId;
@@ -77,6 +78,7 @@ public class Shipment extends AbstractEntity implements Serializable, EntityInte
         this.destination = destination;
         this.pooledShipment = pooledShipment;
         this.pooledDestination = pooledDestination;
+        this.routeOrder = routeOrder;
     }
 
     @Column(name="time_entered")
@@ -301,5 +303,35 @@ public class Shipment extends AbstractEntity implements Serializable, EntityInte
         this.cubicWeight = with.cubicWeight;
         this.customerName = with.customerName;
         this.pooledShipment = with.pooledShipment;
+        this.routeOrder = with.routeOrder;
+	}
+
+	public Integer getRouteOrder() {
+		return routeOrder;
+	}
+
+	public void setRouteOrder(Integer routeOrder) {
+		this.routeOrder = routeOrder;
+	}
+	
+	@Override
+	public String toString(){
+		String out = "";
+		if( this.getRouteOrder() != null ){
+			out += "(" + this.getRouteOrder() + ") ";
+		}
+		out += this.getTimeEntered() + " - " + this.getDestination();
+		return out;
+	}
+	
+	@Override
+	public int compareTo(Shipment o) {
+		// TODO Auto-generated method stub
+		if( o == null )
+			return 1;
+		if( this.routeOrder == null || o.getRouteOrder() == null )
+			return 0;
+		
+		return this.routeOrder.compareTo(o.getRouteOrder());
 	}
 }

@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.Action;
 import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.RouteDao;
+import edu.thangiah.dao.ShipmentDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Route;
@@ -47,16 +48,21 @@ public class ManagementController extends BaseManagementController<Route>{
 	@Autowired
 	protected LocationDao locationDao;
 	
+	@Autowired
+	protected ShipmentDao shipmentDao;
+	
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	protected StrutsSelect<Location> startLocationSelect;
 	protected StrutsSelect<Location> endLocationSelect;
+	
+	protected String shipmentList;
 	
 	
 	protected static final Map<String, String> columnMap;
 	static {
 		Map<String, String> columns = new LinkedHashMap<String, String>();
 		columns.put("vehicle", "Vehicle");
-		columns.put("shipments", "Shipments");
+		columns.put("orderedShipments", "Shipments");
 		columns.put("startLocation", "Start Location");
 		columns.put("endLocation", "End Location");
 		columnMap = Collections.unmodifiableMap(columns);
@@ -118,6 +124,46 @@ public class ManagementController extends BaseManagementController<Route>{
         LOGGER.debug("Routes number = " + getRoutes().size());
         return SUCCESS;
     }
+	
+	/**
+	 * Takes the shipmentList that should be supplied to the Add or Update action and parses it for individual shipments.
+	 * It then passes them along to {@link #parseShipmentListArray(String[])} for processing.
+	 * @return SUCCESS or ERROR constant
+	 */
+	protected String parseShipmentList() {
+		this.shipmentList = "1,3,4,2,7";
+		
+		if( this.shipmentList == null || this.shipmentList.length() == 0 ){
+			return SUCCESS; // Not every route has to have shipments at all times.
+		}
+		
+		String[] shipments = shipmentList.split(",");
+		if( shipments == null || shipments.length == 0 ){
+			return ERROR; // If the string wasn't empty but the array is, an error occured.
+		}
+		
+		if( shipmentList.contains(",") ){
+			this.addControllerError(ErrorCode.FATAL, "Invalid list of shipments.  Improper format.");
+			return ERROR;
+		}
+		
+		parseShipmentListArray(shipments);
+		
+		return SUCCESS;
+	}
+	
+	/**
+	 * Processes an array of shipment ids and inserts them into the route in a specific order.
+	 * @param shipments An array of shipment ids for parsing.
+	 * @return SUCCESS or ERROR constant
+	 */
+	private String parseShipmentListArray(String[] shipments){
+		for( String shipment : shipments ){
+			
+		}
+
+		return SUCCESS;
+	}
 	
 	
 	protected void initializeSelectedElements() throws StrutsElementException {
