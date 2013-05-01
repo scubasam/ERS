@@ -44,16 +44,7 @@ public class AddAction extends ManagementController implements Preparable{
 		shipment.setPooledDestination(pooledDestinationSelect.getSelectedEntity());
 		
 		shipmentDao.add(shipment);
-		/*
-		if (shipmentDao == null || shipment == null) 
-		{
-            this.addActionError(DB_ERROR_MESSAGE);
-        }
-		
-		shipmentDao.add(shipment);
-		vehicleTypeDao.add(vehicleType);
-		//serviceTechnician.setMaintenanceOrders(maintenanceOrders)
-		 */
+
     	return SUCCESS;
     }
 

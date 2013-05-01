@@ -55,6 +55,9 @@
 
 						<div id="formContainer">
 							<s:form name="editForm" action="%{updateVehicle}" id="vehicleForm">
+								<s:textfield name="vehicle.plateNumber" label="Plate Number" />
+								<s:textfield name="vehicle.vinNumber" label="Vin" />
+								<s:textfield name="vehicle.manufacturedYear" label="Manufactured Year" />
 								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"
 									list="vehicleTypeSelect.list" listKey="id" listValue="toString()"
 									value="vehicleTypeSelect.selected" />
@@ -89,6 +92,9 @@
 					<s:else>
 						<div id="formContainer">
 							<s:form name="addForm" action="addVehicle.action" id="vehicleForm">
+								<s:textfield name="vehicle.plateNumber" label="Plate Number" />
+								<s:textfield name="vehicle.vinNumber" label="Vin" />
+								<s:textfield name="vehicle.manufacturedYear" label="Manufactured Year" />								
 								<s:select label="Vehicle Type" name="vehicleTypeSelect.selected"
 									list="vehicleTypeSelect.list" listKey="id" listValue="toString()"
 									value="vehicleTypeSelect.selected" />
