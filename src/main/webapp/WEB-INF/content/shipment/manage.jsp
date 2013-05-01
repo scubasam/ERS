@@ -91,7 +91,7 @@
 							<a class="ui-button edit-button" href="javascript:submitForm(editForm);">Update</a>
 							<br />
 
-							<s:url id="deleteUrl" value="deleteRoute.action">
+							<s:url id="deleteUrl" value="deleteShipment.action">
 								<s:param name="id" value="id" />
 							</s:url>
 							<s:a cssClass="ui-button edit-button" href="%{deleteUrl}">Delete</s:a>
