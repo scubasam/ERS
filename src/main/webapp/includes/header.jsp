@@ -55,7 +55,7 @@
 <div id="sub_heading">
 	<div id="loginDiv">
 		<s:if test="loggedIn == true">
-			<a href="javascript:$('#columnSelect').toggle()" class="ui-button">Select Columns</a>
+			<a id="columnSelectButton" href="javascript:$('#columnSelect').toggle()" class="ui-button">Select Columns</a>
 			
 			Hello <s:property value="currentUser" />
 			<div class="ui-button">

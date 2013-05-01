@@ -30,5 +30,10 @@
             <one-to-many class="edu.thangiah.entity.Shipment" />
         </set>
         
+        
+        <property name="startDate" type="java.sql.Date">
+            <column name="start_date" />
+        </property>
+        
     </class>
 </hibernate-mapping>

@@ -31,5 +31,10 @@
 			</div>
 		</div>
 		<jsp:include page="/includes/footer.jsp" />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#columnSelectButton").hide();
+			});
+		</script>
 	</body>
 </html>

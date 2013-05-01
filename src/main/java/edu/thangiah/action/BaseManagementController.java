@@ -1,6 +1,7 @@
 package edu.thangiah.action;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import java.util.Set;
 import edu.thangiah.action.BaseManagementController.ErrorCode;
 import edu.thangiah.dao.AbstractDao;
 import edu.thangiah.entity.EntityInterface;
+import edu.thangiah.user.entity.User;
 
 /**
  * This class servers as the parent class for all ManagementController classes.  It provides all the core functionality for loading up the
@@ -120,24 +122,33 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
     	if( entityList == null ){
     		return "An unknown error occured while generating this grid.  Please contact your system administrator.";
     	}
+    	
+    	@SuppressWarnings("unchecked")
+    	Class<User>[] noParameters = (Class<User>[]) new Class[0];
+    	
     	for( Entity entity : entityList ){
     		bodyOutput += "<tr>\n";
     		bodyOutput += "<td><a href=\"" + editLink + "?id=" + entity.getId() + "\">Edit</a></td>\n";
     		for( String fieldName : getColumnMap().keySet() ){
     			if( visibilitySet == null || visibilitySet.contains(fieldName) ){
 	    			try {
-						Field thisField = classInstance.getDeclaredField(fieldName);
-						thisField.setAccessible(true);
+	    				String getFieldName = "get" + fieldName.substring(0,1).toUpperCase() + fieldName.substring(1, fieldName.length());
+	    				Method getMethod = classInstance.getDeclaredMethod(getFieldName, noParameters);
+						//Field thisField = classInstance.getDeclaredField(fieldName);
+						//thisField.setAccessible(true);
 						String fieldValue = "";
-						if( thisField != null && entity != null )
-							if( thisField.get(entity) != null ){
-								fieldValue = thisField.get(entity).toString();
+						if( getMethod != null && entity != null ){
+							Object returnObj = getMethod.invoke(entity, (Object [])null);
+							if( returnObj != null ){
+								fieldValue = returnObj.toString();
 							}
+						}
 						bodyOutput += "<td>" + fieldValue + "</td>\n";
-					} catch (NoSuchFieldException e) {
+	    			}
+	    			catch (NoSuchMethodException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					} catch (SecurityException e) {
+					}catch (SecurityException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IllegalArgumentException e) {
@@ -148,6 +159,9 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 						e.printStackTrace();
 					}
 	    			catch (ClassCastException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
