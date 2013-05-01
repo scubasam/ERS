@@ -55,6 +55,9 @@
 
 						<div id="formContainer">
 							<s:form name="editForm" action="%{updateDriver}" id="driverForm">
+								<s:textfield name="driver.licenseNumber" label="License Number" />
+								<s:textfield name="driver.licenseExpiration" label="License Expiration" />
+								<s:textfield name="driver.licenseClass" label="License Class" />
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
@@ -86,6 +89,9 @@
 					<s:else>
 						<div id="formContainer">
 							<s:form name="editForm" action="%{updateDriver}" id="driverForm">
+								<s:textfield name="driver.licenseNumber" label="License Number" />
+								<s:textfield name="driver.licenseExpiration" label="License Expiration" />
+								<s:textfield name="driver.licenseClass" label="License Class" />
 								<s:select label="Vehicle" name="vehicleSelect.selected"									
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
