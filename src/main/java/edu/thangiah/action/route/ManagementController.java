@@ -51,6 +51,8 @@ public class ManagementController extends BaseManagementController<Route>{
 	@Autowired
 	protected ShipmentDao shipmentDao;
 	
+
+
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	protected StrutsSelect<Location> startLocationSelect;
 	protected StrutsSelect<Location> endLocationSelect;
