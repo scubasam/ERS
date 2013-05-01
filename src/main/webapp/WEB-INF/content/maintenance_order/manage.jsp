@@ -55,6 +55,11 @@
 
 						<div id="formContainer">
 							<s:form name="editForm" action="%{updateMainteanceOrder}" id="mainteanceOrderForm">
+								<s:textfield name="maintenanceOrder.scheduledDate" label="Scheduled Date" />															
+								<s:textfield name="maintenanceOrder.details" label="Details" />
+								<s:textfield name="maintenanceOrder.serviceTypeKey" label="Service Type Key" />
+								<s:textfield name="maintenanceOrder.cost" label="Cost" />
+								<s:textfield name="maintenanceOrder.statusKey" label="Status Key" />																
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
@@ -86,6 +91,11 @@
 					<s:else>
 						<div id="formContainer">
 							<s:form name="addForm" action="addMaintenanceOrder.action" id="mainteanceOrderForm">
+								<s:textfield name="maintenanceOrder.scheduledDate" label="Scheduled Date" />															
+								<s:textfield name="maintenanceOrder.details" label="Details" />
+								<s:textfield name="maintenanceOrder.serviceTypeKey" label="Service Type Key" />
+								<s:textfield name="maintenanceOrder.cost" label="Cost" />
+								<s:textfield name="maintenanceOrder.statusKey" label="Status Key" />
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
