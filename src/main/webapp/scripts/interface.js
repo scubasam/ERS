@@ -37,3 +37,12 @@ function submitForm(form){
 $(window).resize(function(){
 	interfaceSetup();
 });
+
+// jQuery UI element styling onready
+$(document).ready(function () {
+	$("#deleteButton").addClass("ui-button edit-button");
+	$("#clearButton").addClass("ui-button edit-button");
+	
+	$(".buttonDiv").button();
+	$(".ui-button").button();
+});

@@ -7,17 +7,17 @@
 <html>
 <head>
 	<title>Maintenance Order</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css"
-		href="/ERS/styles/page/servicetechnician.css">
+
 	<script type="text/javascript">
 		page = "technicians";
 		pageSetup(page);
 	</script>
 </head>
 <body>
-	<div id="container">
+	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
 			<h2>Maintenance Order</h2>
@@ -31,8 +31,8 @@
 						<s:submit value="Update" />
 					</s:form>
 				</div>
-				<div id="scrollContainer">
-					<table id="serviceTechnician">
+				<div id="dataContainer">
+					<table id="serviceTechnician" class="dataTable">
 						<thead>
 							<tr>
 								<th></th>
@@ -45,7 +45,7 @@
 					</table>
 				</div>
 
-				<div id="panel2">
+				<div id="editContainer">
 					<jsp:include page="/includes/error_header.jsp" />
 					<s:if test="getMode()=='edit'">
 
@@ -53,7 +53,7 @@
 							<s:param name="id" value="id" />
 						</s:url>
 
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="editForm" action="%{updateServiceTechnician}" id="serviceTechnicianForm">
 								<s:select label="Contact" name="contactSelect.selected"
 									list="contactSelect.list" listKey="id" listValue="toString()"
@@ -65,30 +65,23 @@
 						</div>
 
 						<div id="buttonContainer">
-							<div id="modeDiv">
-								<h3 id="modeLabel"></h3>
-							</div>
-							<div class="buttonDiv">
-								<a href="javascript:submitForm(editForm);">Update</a>
-							</div>
+							<a class="ui-button edit-button" href="javascript:submitForm(editForm);">Update</a>
 							<br />
-							<div class="buttonDiv">
-								<s:url id="deleteUrl" value="deleteServiceTechnician.action">
-									<s:param name="id" value="id" />
-								</s:url>
-								<s:a href="%{deleteUrl}">Delete</s:a>
-							</div>
+
+							<s:url id="deleteUrl" value="deleteServiceTechnician.action">
+								<s:param name="id" value="id" />
+							</s:url>
+							<s:a cssClass="ui-button edit-button" href="%{deleteUrl}">Delete</s:a>
 							<br />
-							<div class="buttonDiv">
-								<s:url id="clearUrl" value="serviceTechnicianManagement.action"></s:url>
-								<s:a href="%{clearUrl}">Clear</s:a>
-							</div>
+
+							<s:url id="clearUrl" value="serviceTechnicianManagement.action"></s:url>
+							<s:a cssClass="ui-button edit-button" href="%{clearUrl}">Clear</s:a>
 							<br />
 						</div>
 					</s:if>
 
 					<s:else>
-						<div id="editContainer">
+						<div id="formContainer">
 							<s:form name="addForm" action="addServiceTechnician.action" id="serviceTechnicianForm">
 								<s:select label="Contact" name="contactSelect.selected"
 									list="contactSelect.list" listKey="id" listValue="toString()"
@@ -100,12 +93,7 @@
 						</div>
 
 						<div id="buttonContainer">
-							<div id="modeDiv">
-								<h3 id="modeLabel"></h3>
-							</div>
-							<div class="buttonDiv">
-								<a href="javascript:submitForm(addForm);">Create</a>
-							</div>
+							<a class="ui-button edit-button" href="javascript:submitForm(addForm);">Create</a>
 							<br />
 						</div>
 					</s:else>

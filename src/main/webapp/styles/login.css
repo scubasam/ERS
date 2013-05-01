@@ -25,10 +25,6 @@ div.login table {
 	width: 240px;
 }
 
-#loginUser_Login {
-	
-}
-
 #userLoginForm table {
 	width: 348px !important;
 	
@@ -42,17 +38,7 @@ div.login table {
 	border: none !important;
 }
 
-#loginLinkDiv {
-	width: 48px;
-	text-align: center;
-	border: 1px solid grey;
-	margin: 4px;
-	padding: 4px;
-	background: #eee;
+#loginDiv {
 	float: right;
-}
-
-#loginLink {
-	text-decoration: none;
-	color: black;
+	margin: 6px;
 }

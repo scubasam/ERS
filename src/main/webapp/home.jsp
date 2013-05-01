@@ -10,7 +10,6 @@
 		<s:head />
 		<jsp:include page="/includes/decorator.jsp" />
 		<script type="text/javascript">
-			// style the nav bar
 			page = "home";
 			pageSetup(page);
 		</script>

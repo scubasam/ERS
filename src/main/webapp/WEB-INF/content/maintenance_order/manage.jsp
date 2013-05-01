@@ -7,10 +7,10 @@
 <html>
 <head>
 	<title>Maintenance Order</title>
+	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
-	<link rel="stylesheet" type="text/css"
-		href="/ERS/styles/page/routes.css">
+	
 	<script type="text/javascript">
 		page = "maintenanceorders";
 		pageSetup(page);
@@ -32,7 +32,7 @@
 					</s:form>
 				</div>
 				<div id="dataContainer">
-					<table id="mainteanceOrder">
+					<table id="mainteanceOrder" class="dataTable">
 						<thead>
 							<tr>
 								<th></th>
@@ -68,24 +68,17 @@
 						</div>
 
 						<div id="buttonContainer">
-							<div id="modeDiv">
-								<h3 id="modeLabel"></h3>
-							</div>
-							<div class="buttonDiv">
-								<a href="javascript:submitForm(editForm);">Update</a>
-							</div>
+							<a class="ui-button edit-button" href="javascript:submitForm(editForm);">Update</a>
 							<br />
-							<div class="buttonDiv">
-								<s:url id="deleteUrl" value="deleteMaintenanceOrder.action">
-									<s:param name="id" value="id" />
-								</s:url>
-								<s:a href="%{deleteUrl}">Delete</s:a>
-							</div>
+
+							<s:url id="deleteUrl" value="deleteMaintenanceOrder.action">
+								<s:param name="id" value="id" />
+							</s:url>
+							<s:a cssClass="ui-button edit-button" href="%{deleteUrl}">Delete</s:a>
 							<br />
-							<div class="buttonDiv">
-								<s:url id="clearUrl" value="mainteanceOrderManagement.action"></s:url>
-								<s:a href="%{clearUrl}">Clear</s:a>
-							</div>
+
+							<s:url id="clearUrl" value="mainteanceOrderManagement.action"></s:url>
+							<s:a cssClass="ui-button edit-button" href="%{clearUrl}">Clear</s:a>
 							<br />
 						</div>
 					</s:if>
@@ -106,12 +99,7 @@
 						</div>
 
 						<div id="buttonContainer">
-							<div id="modeDiv">
-								<h3 id="modeLabel"></h3>
-							</div>
-							<div class="buttonDiv">
-								<a href="javascript:submitForm(addForm);">Create</a>
-							</div>
+							<a class="ui-button edit-button" href="javascript:submitForm(addForm);">Create</a>
 							<br />
 						</div>
 					</s:else>
