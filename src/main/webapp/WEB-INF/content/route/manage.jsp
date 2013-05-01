@@ -58,13 +58,6 @@
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
-								<s:select label="Start Location"
-									name="startLocationSelect.selected"
-									list="startLocationSelect.list" listKey="id"
-									listValue="toString()" value="startLocationSelect.selected" />
-								<s:select label="End Location" name="endLocationSelect.selected"
-									list="endLocationSelect.list" listKey="id"
-									listValue="toString()" value="endLocationSelect.selected" />
 							</s:form>
 						</div>
 
@@ -89,13 +82,6 @@
 							<s:form name="addForm" action="addRoute.action" id="routeForm">
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()" />
-								<s:select label="Start Location"
-									name="startLocationSelect.selected"
-									list="startLocationSelect.list" listKey="id"
-									listValue="toString()" />
-								<s:select label="End Location" name="endLocationSelect.selected"
-									list="endLocationSelect.list" listKey="id"
-									listValue="toString()" />
 							</s:form>
 						</div>
 

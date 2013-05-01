@@ -2,6 +2,8 @@ package edu.thangiah.entity;
 
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -13,6 +15,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.IndexColumn;
 import org.hibernate.validator.Valid;
+
+import edu.thangiah.dao.ShipmentDao;
 
 /**
  * Route model.
@@ -28,8 +32,19 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
     
     private TreeSet<Shipment> orderedShipments;
     
+    // Start Calculated Shipment Values
     private Location startLocation = null;
     private Location endLocation = null;
+    
+    private Date startDate = null;
+    private Date endDate = null;
+    
+    private Integer totalWeight = null;
+    private Integer totalCubicWeight = null;
+    
+    private Double totalMiles = null;
+    private Integer totalTime = null;
+    private Integer totalDays = null;
 
     public Route() {
         super();
@@ -144,6 +159,78 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 
 	public void setOrderedShipments(TreeSet<Shipment> orderedShipments) {
 		this.orderedShipments = orderedShipments;
+	}
+
+
+	public void addShipment(Shipment ship, ShipmentDao shipmentDao) {
+		if( shipments == null )
+			shipments = new HashSet<Shipment>();
+		
+		if( orderedShipments == null )
+			orderedShipments = new TreeSet<Shipment>();
+		
+		shipments.add(ship);
+		orderedShipments.add(ship);
+		
+		ship.setRoute(this);
+		shipmentDao.update(ship);
+		
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public Integer getTotalWeight() {
+		return totalWeight;
+	}
+
+	public Integer getTotalCubicWeight() {
+		return totalCubicWeight;
+	}
+
+	public Double getTotalMiles() {
+		return totalMiles;
+	}
+
+	public Integer getTotalTime() {
+		return totalTime;
+	}
+
+	public Integer getTotalDays() {
+		return totalDays;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public void setTotalWeight(Integer totalWeight) {
+		this.totalWeight = totalWeight;
+	}
+
+	public void setTotalCubicWeight(Integer totalCubicWeight) {
+		this.totalCubicWeight = totalCubicWeight;
+	}
+
+	public void setTotalMiles(Double totalMiles) {
+		this.totalMiles = totalMiles;
+	}
+
+	public void setTotalTime(Integer totalTime) {
+		this.totalTime = totalTime;
+	}
+
+	public void setTotalDays(Integer totalDays) {
+		this.totalDays = totalDays;
 	}
 
 	

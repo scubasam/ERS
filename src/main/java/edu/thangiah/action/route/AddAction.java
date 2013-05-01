@@ -3,6 +3,7 @@ package edu.thangiah.action.route;
 import com.opensymphony.xwork2.Preparable;
 
 import edu.thangiah.entity.Route;
+import edu.thangiah.entity.Shipment;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
@@ -38,13 +39,20 @@ public class AddAction extends ManagementController implements Preparable {
 		
 		Route newRoute = new Route();
 		newRoute.setVehicle(vehicleSelect.getSelectedEntity());
-		newRoute.setStartLocation(startLocationSelect.getSelectedEntity());
-		newRoute.setEndLocation(endLocationSelect.getSelectedEntity());
+		
 		
 		try{
 			routeDao.add(newRoute);
+			
+			if( this.getParsedShipments() != null ){
+				for( Shipment ship : getParsedShipments() ){
+					newRoute.addShipment(ship, shipmentDao);
+				}
+				routeDao.update(newRoute);
+			}
 		}
 		catch( Exception e ){
+			e.printStackTrace();
 			return ERROR;
 		}
 		

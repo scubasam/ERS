@@ -50,8 +50,6 @@ public class UpdateAction extends ManagementController{
     	
 		
 		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
-		fromDb.setStartLocation(startLocationSelect.getSelectedEntity());
-		fromDb.setEndLocation(endLocationSelect.getSelectedEntity());
 		
 		try{
 			routeDao.update(fromDb);

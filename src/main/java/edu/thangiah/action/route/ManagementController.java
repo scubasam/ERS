@@ -2,6 +2,7 @@ package edu.thangiah.action.route;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,8 +16,8 @@ import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.RouteDao;
 import edu.thangiah.dao.ShipmentDao;
 import edu.thangiah.dao.VehicleDao;
-import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Route;
+import edu.thangiah.entity.Shipment;
 import edu.thangiah.entity.Vehicle;
 import edu.thangiah.strutsutility.StrutsSelect;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
@@ -54,10 +55,13 @@ public class ManagementController extends BaseManagementController<Route>{
 
 
 	protected StrutsSelect<Vehicle> vehicleSelect;
-	protected StrutsSelect<Location> startLocationSelect;
-	protected StrutsSelect<Location> endLocationSelect;
 	
 	protected String shipmentList;
+	
+	/**
+	 * Parsed, ordered list of shipments from an Add or Update action form.
+	 */
+	protected LinkedList<Shipment> parsedShipments;
 	
 	
 	protected static final Map<String, String> columnMap;
@@ -67,6 +71,11 @@ public class ManagementController extends BaseManagementController<Route>{
 		columns.put("orderedShipments", "Shipments");
 		columns.put("startLocation", "Start Location");
 		columns.put("endLocation", "End Location");
+		columns.put("minimumCubicWeight", "Minimum Cubic Weight");
+		columns.put("maximumCubicWeight", "Maximum Cubic Weight");
+		columns.put("minimumWeight", "Minimum Weight");
+		columns.put("maximumWeight", "Maximum Weight");
+		columns.put("capacity", "Capacity");
 		columnMap = Collections.unmodifiableMap(columns);
 	}
 	
@@ -93,8 +102,6 @@ public class ManagementController extends BaseManagementController<Route>{
 		
 		try{
 			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
-			startLocationSelect = new StrutsSelect<Location>(locationDao, "startLocation");
-			endLocationSelect = new StrutsSelect<Location>(locationDao, "endLocation");
 		}
 		catch(StrutsElementException e){
 			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
@@ -116,10 +123,8 @@ public class ManagementController extends BaseManagementController<Route>{
     			return result;
     		}
         	
-        	if( getRoute() != null && getRoute().getVehicle() != null && getRoute().getStartLocation() != null && getRoute().getEndLocation() != null ){
+        	if( getRoute() != null && getRoute().getVehicle() != null ){
 	        	vehicleSelect.intializeFromEntity(getRoute().getVehicle());
-	        	startLocationSelect.intializeFromEntity(getRoute().getStartLocation());
-	        	endLocationSelect.intializeFromEntity(getRoute().getEndLocation());
         	}
         }
         
@@ -144,12 +149,9 @@ public class ManagementController extends BaseManagementController<Route>{
 			return ERROR; // If the string wasn't empty but the array is, an error occured.
 		}
 		
-		if( shipmentList.contains(",") ){
-			this.addControllerError(ErrorCode.FATAL, "Invalid list of shipments.  Improper format.");
-			return ERROR;
-		}
-		
-		parseShipmentListArray(shipments);
+		String result = parseShipmentListArray(shipments);
+		if( !result.equals(SUCCESS) )
+			return result;
 		
 		return SUCCESS;
 	}
@@ -160,8 +162,28 @@ public class ManagementController extends BaseManagementController<Route>{
 	 * @return SUCCESS or ERROR constant
 	 */
 	private String parseShipmentListArray(String[] shipments){
+		
+		this.parsedShipments = new LinkedList<Shipment>();
+		int i = 0;
 		for( String shipment : shipments ){
-			
+			try{
+				Long shipmentId = Long.parseLong(shipment);
+				List<Shipment> fromDbList = shipmentDao.findById(shipmentId);
+				if( fromDbList == null || fromDbList.size() != 1 ){
+					this.addActionError("One or more of the shipments specified does not exist in the database.  Please try refreshing the page.");
+					return INPUT;
+				}
+				
+				Shipment fromDb = fromDbList.get(0);
+				fromDb.setRouteOrder(i);
+				i++;
+				parsedShipments.add(fromDb);
+					
+			}
+			catch(NumberFormatException e){
+				LOGGER.fatal("Invalid shipment list.  One or more of the shipment ids could not be parsed to a number.");
+				return ERROR;
+			}
 		}
 
 		return SUCCESS;
@@ -172,15 +194,8 @@ public class ManagementController extends BaseManagementController<Route>{
 		String result;
 		result = vehicleSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("startLocationSelect.selected", result);
+			addFieldError("vehicleSelect.selected", result);
 		
-		result = startLocationSelect.initializeSelected();
-		if( !result.equals(SUCCESS) )
-			addFieldError("startLocationSelect.selected", result);
-		
-		result = endLocationSelect.initializeSelected();
-		if( !result.equals(SUCCESS) )
-			addFieldError("startLocationSelect.selected", result);
 	}
 	
 	public List<Route> getRoutes() {
@@ -234,19 +249,15 @@ public class ManagementController extends BaseManagementController<Route>{
 		this.vehicleSelect = vehicleSelect;
 	}
 
-	public StrutsSelect<Location> getStartLocationSelect() {
-		return startLocationSelect;
+	public ShipmentDao getShipmentDao() {
+		return shipmentDao;
 	}
 
-	public void setStartLocationSelect(StrutsSelect<Location> startLocationSelect) {
-		this.startLocationSelect = startLocationSelect;
+	public void setShipmentDao(ShipmentDao shipmentDao) {
+		this.shipmentDao = shipmentDao;
 	}
 
-	public StrutsSelect<Location> getEndLocationSelect() {
-		return endLocationSelect;
-	}
-
-	public void setEndLocationSelect(StrutsSelect<Location> endLocationSelect) {
-		this.endLocationSelect = endLocationSelect;
+	public LinkedList<Shipment> getParsedShipments() {
+		return parsedShipments;
 	}
 }
