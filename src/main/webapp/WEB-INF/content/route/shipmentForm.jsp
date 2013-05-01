@@ -16,8 +16,8 @@
 </s:form>
 
 <script type="text/javascript">
-$("#addShipmentRoute").disableSelection();
-$("#addShipmentRoute").sortable({
+$("#shipmentList").disableSelection();
+$("#shipmentList").sortable({
     placeholder: "ui-state-highlight",
     cursor: 'crosshair',
     update: function(event, ui) {

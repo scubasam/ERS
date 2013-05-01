@@ -12,6 +12,10 @@
 		<script type="text/javascript">
 			page = "home";
 			pageSetup(page);
+			
+			$(document).ready(function(){
+				$("#columnSelectButton").hide();
+			});
 		</script>
 	</head>
 	<body>
@@ -31,10 +35,5 @@
 			</div>
 		</div>
 		<jsp:include page="/includes/footer.jsp" />
-		<script type="text/javascript">
-			$(document).ready(function(){
-				$("#columnSelectButton").hide();
-			});
-		</script>
 	</body>
 </html>
