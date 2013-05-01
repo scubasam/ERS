@@ -16,14 +16,14 @@
 </s:form>
 
 <script type="text/javascript">
-$("#addShipmentRoute").disableSelection();
-$("#addShipmentRoute").sortable({
+$("#shipmentList").disableSelection();
+$("#shipmentList").sortable({
     placeholder: "ui-state-highlight",
     cursor: 'crosshair',
     update: function(event, ui) {
         var order = $("#shipmentList").sortable("toArray");
         $('#orderedShipmentList').val(order.join(","));
-        alert($('#orderedShipmentList').val());
+        console.log($('#orderedShipmentList').val());
     }
 });
 </script>

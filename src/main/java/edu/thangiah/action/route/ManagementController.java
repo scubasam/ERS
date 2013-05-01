@@ -52,7 +52,8 @@ public class ManagementController extends BaseManagementController<Route>{
 	@Autowired
 	protected ShipmentDao shipmentDao;
 	
-
+	
+	protected List<Shipment> allShipments;
 
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	
@@ -93,6 +94,11 @@ public class ManagementController extends BaseManagementController<Route>{
 	@Override
 	public void prepare() throws Exception {
 		super.prepare();
+		
+		if( shipmentDao != null ){
+			allShipments = shipmentDao.findAll();
+		}
+		
 		this.initializeEntityList(routeDao);
 		gridBody = this.generateGridBody(this.getColumnVisibilitySet(), this.getEntityList(), Route.class, "routeManagement.action");
 		
@@ -138,7 +144,6 @@ public class ManagementController extends BaseManagementController<Route>{
 	 * @return SUCCESS or ERROR constant
 	 */
 	protected String parseShipmentList() {
-		this.shipmentList = "1,3,4,2,7";
 		
 		if( this.shipmentList == null || this.shipmentList.length() == 0 ){
 			return SUCCESS; // Not every route has to have shipments at all times.
@@ -259,5 +264,21 @@ public class ManagementController extends BaseManagementController<Route>{
 
 	public LinkedList<Shipment> getParsedShipments() {
 		return parsedShipments;
+	}
+
+	public List<Shipment> getAllShipments() {
+		return allShipments;
+	}
+
+	public void setAllShipments(List<Shipment> allShipments) {
+		this.allShipments = allShipments;
+	}
+
+	public String getShipmentList() {
+		return shipmentList;
+	}
+
+	public void setShipmentList(String shipmentList) {
+		this.shipmentList = shipmentList;
 	}
 }
