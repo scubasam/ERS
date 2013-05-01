@@ -23,7 +23,7 @@ $("#shipmentList").sortable({
     update: function(event, ui) {
         var order = $("#shipmentList").sortable("toArray");
         $('#orderedShipmentList').val(order.join(","));
-        alert($('#orderedShipmentList').val());
+        console.log($('#orderedShipmentList').val());
     }
 });
 </script>

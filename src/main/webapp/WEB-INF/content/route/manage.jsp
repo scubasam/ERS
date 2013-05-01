@@ -82,6 +82,14 @@
 							<s:form name="addForm" action="addRoute.action" id="routeForm">
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()" />
+									<h3>Shipment Order</h3>
+									<ul id="shipmentList" style="height: 300px; display: block; clear: both; overflow: scroll;">
+										<s:iterator value="allShipments">
+											<li class="ui-state-default" style="height: 25px; padding-top: 5px;" value="<s:property value="id" />">
+											<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+										</s:iterator>
+									</ul>
+									<s:hidden id="orderedShipmentList" type="hidden" name="shipmentList" />
 							</s:form>
 						</div>
 
@@ -100,5 +108,17 @@
 	</div>
 
 	<jsp:include page="/includes/footer.jsp" />
+	<script type="text/javascript">
+		$("#shipmentList").disableSelection();
+		$("#shipmentList").sortable({
+		    placeholder: "ui-state-highlight",
+		    cursor: 'crosshair',
+		    update: function(event, ui) {
+		        var order = $("#shipmentList").sortable("toArray", {attribute: 'value'});
+		        $('#orderedShipmentList').val(order.join(","));
+		        console.log($('#orderedShipmentList').val());
+		    }
+		});
+	</script>
 </body>
 </html>

@@ -8,6 +8,7 @@
 		<property name="routeDao" ref="routeDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="locationDao" ref="locationDao" />
+		<property name="shipmentDao" ref="shipmentDao" />
 	</bean>
 	
 	<bean id="addRoute" class="edu.thangiah.action.route.AddAction" scope="prototype">
