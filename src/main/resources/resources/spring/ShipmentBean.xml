@@ -23,5 +23,14 @@
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
 		<property name="routeDao" ref="routeDao" />
 	</bean>
+
+	<bean id="deleteShipmentAction" class="edu.thangiah.action.shipment.DeleteAction" scope="prototype">
+		<property name="shipmentDao" ref="shipmentDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="routeDao" ref="routeDao" />
+	</bean>
+
+
 	
 </beans>
