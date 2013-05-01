@@ -20,7 +20,7 @@ import edu.thangiah.dao.ShipmentDao;
 
 /**
  * Route model.
- * @author pbair
+ * @author pbair, Kelly Smith
  */
 @Entity
 @Table(name="routes")

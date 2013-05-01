@@ -35,5 +35,29 @@
             <column name="start_date" />
         </property>
         
+        <property name="endDate" type="java.sql.Date">
+            <column name="end_date" />
+        </property>
+        
+        <property name="totalWeight" type="java.lang.Integer">
+            <column name="total_weight" />
+        </property>
+        
+        <property name="totalCubicWeight" type="java.lang.Integer">
+            <column name="total_cubic_weight" />
+        </property>
+        
+        <property name="totalMiles" type="java.lang.Integer">
+            <column name="total_miles" />
+        </property>
+        
+        <property name="totalTime" type="java.lang.Integer">
+            <column name="total_time" />
+        </property>
+        
+        <property name="totalDays" type="java.lang.Integer">
+            <column name="total_days" />
+        </property>
+        
     </class>
 </hibernate-mapping>
