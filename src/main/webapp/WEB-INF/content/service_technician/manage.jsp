@@ -55,6 +55,7 @@
 
 						<div id="formContainer">
 							<s:form name="editForm" action="%{updateServiceTechnician}" id="serviceTechnicianForm">
+								<s:textfield name="serviceTechnician.skillGrade" label="Skill Grade" />							
 								<s:select label="Contact" name="contactSelect.selected"
 									list="contactSelect.list" listKey="id" listValue="toString()"
 									value="contactSelect.selected" />
@@ -83,6 +84,7 @@
 					<s:else>
 						<div id="formContainer">
 							<s:form name="addForm" action="addServiceTechnician.action" id="serviceTechnicianForm">
+								<s:textfield name="serviceTechnician.skillGrade" label="Skill Grade" />							
 								<s:select label="Contact" name="contactSelect.selected"
 									list="contactSelect.list" listKey="id" listValue="toString()"
 									value="contactSelect.selected" />
