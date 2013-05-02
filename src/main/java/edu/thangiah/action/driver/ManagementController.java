@@ -150,6 +150,10 @@ public class ManagementController extends BaseManagementController<Driver>{
 	public List<Driver> getDrivers() {
 		return this.getEntityList();
 	}
+	
+	public Driver getDriver() {
+		return this.getEntity();
+	}
 
 	public VehicleDao getVehicleDao() {
 		return vehicleDao;
@@ -189,10 +193,6 @@ public class ManagementController extends BaseManagementController<Driver>{
 
 	public void setContact(Contact contact) {
 		this.contact = contact;
-	}
-
-	public Driver getDriver() {
-		return driver;
 	}
 
 	public void setDriver(Driver driver) {
