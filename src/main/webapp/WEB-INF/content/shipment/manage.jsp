@@ -21,7 +21,6 @@
 		<jsp:include page="/includes/header.jsp" />
 		
 		<div id="content">
-			<h2>Shipment Management</h2>
 
 			<s:if test="shipments.size > 0">
 				<div id="columnSelect">

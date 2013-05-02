@@ -52,7 +52,6 @@
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Route Management</h2>
 
 			<s:if test="routes.size > 0">
 				<div id="columnSelect">

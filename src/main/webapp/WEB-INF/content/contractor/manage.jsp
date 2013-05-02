@@ -6,7 +6,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Contractor List</title>
+	<title>Contractor Management</title>
 	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
@@ -21,7 +21,6 @@
 		<jsp:include page="/includes/header.jsp" />
 		
 		<div id="content">
-			<h2>Contractor List</h2>
 
 			<s:if test="contractors.size > 0">
 				<div id="columnSelect">

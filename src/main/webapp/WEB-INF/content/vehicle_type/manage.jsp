@@ -21,7 +21,6 @@
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Vehicle Type Management</h2>
 
 			<s:if test="vehicleTypes.size > 0">
 				<div id="columnSelect">

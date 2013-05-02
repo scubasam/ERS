@@ -6,7 +6,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>Contact List</title>
+	<title>Contact Management</title>
 	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
@@ -20,7 +20,6 @@
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Contact List</h2>
 
 			<s:if test="contacts.size > 0">
 				<div id="columnSelect">

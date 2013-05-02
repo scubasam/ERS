@@ -20,7 +20,6 @@
 	<div id="wrapper">
 		<jsp:include page="/includes/header.jsp" />
 		<div id="content">
-			<h2>Location List</h2>
 
 			<s:if test="locations.size > 0">
 				<div id="columnSelect">
