@@ -42,7 +42,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
     private Integer totalWeight = null;
     private Integer totalCubicWeight = null;
     
-    private Double totalMiles = null;
+    private Integer totalMiles = null;
     private Integer totalTime = null;
     private Integer totalDays = null;
 
@@ -208,7 +208,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 		return totalCubicWeight;
 	}
 
-	public Double getTotalMiles() {
+	public Integer getTotalMiles() {
 		return totalMiles;
 	}
 
@@ -236,7 +236,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 		this.totalCubicWeight = totalCubicWeight;
 	}
 
-	public void setTotalMiles(Double totalMiles) {
+	public void setTotalMiles(Integer totalMiles) {
 		this.totalMiles = totalMiles;
 	}
 

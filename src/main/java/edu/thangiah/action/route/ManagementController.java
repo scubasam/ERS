@@ -77,6 +77,11 @@ public class ManagementController extends BaseManagementController<Route>{
 		columns.put("minimumWeight", "Minimum Weight");
 		columns.put("maximumWeight", "Maximum Weight");
 		columns.put("capacity", "Capacity");
+		columns.put("totalWeight", "Total Weight");
+		columns.put("totalCubicWeight", "Total Cubic Weight");
+		columns.put("totalMiles", "Total Miles");
+		columns.put("totalTime", "Total Time (sec)");
+		columns.put("totalDays", "Total Days");
 		columnMap = Collections.unmodifiableMap(columns);
 	}
 	
