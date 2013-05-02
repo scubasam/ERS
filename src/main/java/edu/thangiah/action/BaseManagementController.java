@@ -291,7 +291,7 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 	}
 	
 	public String deleteSuccessfulMessage(){
-		return "User was successfully deleted.";
+		return "Entity was deleted";
 	}
 
 	public Entity getEntity() {

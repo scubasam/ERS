@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ public class ManagementController extends BaseManagementController<VehicleType>{
 	protected long newVehicleId;
 	protected VehicleDao vehicleDao;
 	protected Vehicle vehicle;
+	protected Set<Vehicle> vehicles;
 	
 	protected static final Map<String, String> columnMap;
 	static {
@@ -157,4 +159,12 @@ public class ManagementController extends BaseManagementController<VehicleType>{
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
+	
+    public Set<Vehicle> getVehicles() {
+		return vehicles;
+    }
+
+    public void setVehicles(Set<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
 }

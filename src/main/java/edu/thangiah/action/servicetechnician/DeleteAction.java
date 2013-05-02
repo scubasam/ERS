@@ -46,6 +46,10 @@ public class DeleteAction extends ManagementController{
 			{
 				serviceTechnicianDao.delete(fromDb);
 			}
+			else {
+				this.addActionError("Dependencies Exist. You cannot delete it.");
+				return INPUT;
+			}
 		}
 		catch( Exception e ){
 			this.addActionError("Dependencies Exist. You cannot delete it.");
