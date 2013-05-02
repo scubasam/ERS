@@ -116,7 +116,7 @@ public class ManagementController extends BaseManagementController<Driver>{
     			return result;
     		}
         	
-        	if(getDriver() != null && getDriver().getContact() != null && getDriver().getContractor() != null && getDriver().getVehicle() != null ){
+        	if(getDriver() != null && getDriver().getContact() != null && getDriver().getContractor() != null){
 	        	vehicleSelect.intializeFromEntity(getDriver().getVehicle());
 	        	contactSelect.intializeFromEntity(getDriver().getContact());
 	        	contractorSelect.intializeFromEntity(getDriver().getContractor());
