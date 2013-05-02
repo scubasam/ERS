@@ -23,5 +23,7 @@
 	
 	<bean id="deleteServiceTechnicianAction" class="edu.thangiah.action.servicetechnician.DeleteAction" scope="prototype">
 		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="contactDao" ref="contactDao" />
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
 </beans>

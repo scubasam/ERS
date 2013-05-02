@@ -92,7 +92,6 @@
 							<s:form name="addForm" action="addContractor.action"
 								id="contractorForm">
 								<s:textfield name="contractor.contractorName" label="Name" />
-								<s:textfield name="contractor.contractorName" label="Name" />
 								<s:textfield name="contact.firstName" label="First Name" />
 								<s:textfield name="contact.lastName" label="Last Name" />
 								<s:textfield name="contact.middleInitial" label="Middle Initial" />
