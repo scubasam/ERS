@@ -19,7 +19,7 @@ function pageSetup(page){
 
 // Sets up the dual pane interface, keeping sensible minimum heights
 function interfaceSetup(){
-	var h2 = $(window).height() - ($("#formContainer").height() + 264);
+	var h2 = $(window).height() - ($("#editContainer").height() + 340);
 	
 	if(h2 < 300){ h2 = 300; }
 	if(h2 > $("#"+page).height()){ h2 = $("#"+page).height; }
