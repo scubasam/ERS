@@ -45,23 +45,6 @@ body {
 		display: none;
 	}
 
-	/* Column Selection elements */
-	#columnSelectButton {
-		float: right;
-		margin-top: 4px;
-		margin-bottom:4px;
-	}
-
-	#columnSelectForm {
-		clear: both;
-		width: 100%;
-		
-		margin: 0px auto;
-		border: 1px solid grey;
-		margin-top: 6px;
-		margin-bottom: 12px;
-	}
-
 	#heading {
 		color: white;
 		height: 64px;
