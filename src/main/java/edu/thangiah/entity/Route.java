@@ -42,7 +42,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
     private Integer totalWeight = null;
     private Integer totalCubicWeight = null;
     
-    private Double totalMiles = null;
+    private Integer totalMiles = null;
     private Integer totalTime = null;
     private Integer totalDays = null;
 
@@ -150,7 +150,10 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 	}
 	
 	public String toString(){
-		return "Route from " + startLocation.toString() + " to " + endLocation.toString();
+		if( startLocation != null && endLocation != null )
+			return "Route from " + startLocation.toString() + " to " + endLocation.toString();
+		else
+			return "Route(" + id + ")";
 	}
 
 	public TreeSet<Shipment> getOrderedShipments() {
@@ -205,7 +208,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 		return totalCubicWeight;
 	}
 
-	public Double getTotalMiles() {
+	public Integer getTotalMiles() {
 		return totalMiles;
 	}
 
@@ -233,7 +236,7 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 		this.totalCubicWeight = totalCubicWeight;
 	}
 
-	public void setTotalMiles(Double totalMiles) {
+	public void setTotalMiles(Integer totalMiles) {
 		this.totalMiles = totalMiles;
 	}
 

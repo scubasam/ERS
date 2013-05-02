@@ -1,6 +1,5 @@
 package edu.thangiah.action.route;
 
-import java.util.Set;
 import java.util.TreeSet;
 
 import com.opensymphony.xwork2.Preparable;
@@ -74,19 +73,28 @@ public class AddAction extends ManagementController implements Preparable {
     }
 
 	private String calculateRouteFields(Route newRoute) {
-		String result = getGoogleDirectionsRequest(newRoute);
+		String result = calcGoogleDirectionsValues(newRoute);
 		if( !result.equals(SUCCESS) )
 			return result;
 		
 		if( request == null )
 			return ERROR;
 		
+		int totalWeight = 0;
+		int totalCubicWeight = 0;
+		for( Shipment ship : newRoute.getOrderedShipments() ){
+			totalWeight += ship.getWeight();
+			totalCubicWeight += ship.getCubicWeight();
+		}
+		
+		newRoute.setTotalWeight(new Integer(totalWeight));
+		newRoute.setTotalCubicWeight(new Integer(totalCubicWeight));
 		
 		
 		return SUCCESS;
 	}
 	
-	private String getGoogleDirectionsRequest(Route newRoute){
+	private String calcGoogleDirectionsValues(Route newRoute){
 		
 		Location origin;
 		Location destination;
@@ -96,7 +104,7 @@ public class AddAction extends ManagementController implements Preparable {
 			return ERROR;
 		}
 		else{
-			newRoute.setStartLocation(shipments.first().getDestination());
+			newRoute.setStartLocation(shipments.first().getLocation());
 			newRoute.setEndLocation(shipments.last().getDestination());
 		}
 		
@@ -104,13 +112,13 @@ public class AddAction extends ManagementController implements Preparable {
 		destination = newRoute.getEndLocation();
 		
 		try{
-			if( shipments.size() > 1 ){
-				Location[] waypoints = new Location[shipments.size()-2];
+			if( shipments.size() >= 1 ){
+				Location[] waypoints = new Location[shipments.size()-1];
 				// Step through the shipments in order
 				int i = 0;
 				for( Shipment ship : shipments ){
-					if( i > 0 && i < shipments.size()- 1 ){
-						waypoints[i-1] = ship.getDestination();
+					if( i < shipments.size()- 1 ){
+						waypoints[i] = ship.getDestination();
 					}
 					i++;
 				}
@@ -122,6 +130,11 @@ public class AddAction extends ManagementController implements Preparable {
 			}
 			
 			GoogleMapsDirectionsResponse response = request.makeRequest();
+			if( response != null && !response.hasErrors() ){
+				newRoute.setTotalTime(response.getDuration());
+				newRoute.setTotalMiles(response.getDistance()/GoogleMapsDirectionsResponse.FEET_PER_MILE);
+				newRoute.setTotalDays(response.getDuration()/GoogleMapsDirectionsResponse.SECONDS_PER_DAY);
+			}
 			
 			return SUCCESS;
 		}
