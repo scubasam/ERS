@@ -39,6 +39,7 @@ div.login table {
 }
 
 #loginDiv {
+	width: 100%;
 	float: right;
-	margin: 6px;
+	padding: 6px;
 }

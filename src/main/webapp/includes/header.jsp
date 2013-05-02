@@ -55,12 +55,17 @@
 <div id="sub_heading">
 	<div id="loginDiv">
 		<s:if test="loggedIn == true">
-			<a href="javascript:$('#columnSelect').toggle()" class="ui-button" id="columnSelectButton">Select Columns</a>
+			<a href="javascript:toggleColumnSelect();" class="ui-button" id="columnSelectButton">Select Columns</a>
 			
-			Hello <s:property value="currentUser" /> <a class="ui-button" href="logout.action" style="color: black !important;">Logout</a>
+			<div style="float: right;">
+				Hello <s:property value="currentUser" /> 
+				<a class="ui-button" href="logout.action" style="color: black !important;">Logout</a>
+			</div>
 		</s:if>
 		<s:else>
-			<a id="loginLink" class="ui-button" href="userLoginForm.action">Login</a>
+			<div style="float: right;">
+				<a id="loginLink" class="ui-button" href="userLoginForm.action">Login</a>
+			</div>
 		</s:else>
 	</div>
 </div>
