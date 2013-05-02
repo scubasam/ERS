@@ -41,7 +41,9 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		driverDao.delete(fromDb);
+    		if(fromDb != null) {
+        		driverDao.delete(fromDb);    			
+    		}
     	}
     	catch( Exception e ){
     		this.addActionError("Contractors, contacts, or vehicles exist connected to this Maintenance Order.  It cannot be deleted.");
