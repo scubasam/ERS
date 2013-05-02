@@ -8,13 +8,14 @@
 <head>
 	<title>Location Management</title>
 	
-	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 
 	<script type="text/javascript">
 		page = "locations";
 		pageSetup(page);
 	</script>
+	
+	<sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
 	<div id="wrapper">

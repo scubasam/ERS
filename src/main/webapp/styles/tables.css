@@ -10,10 +10,35 @@
 	padding: 4px;
 	text-decoration: underline;
 	background: #eee;
+	border-bottom: 1px solid grey;
 }
 
 .dataTable td, .wwFormTable td {
 	border: 1px solid #ccc;
 	margin: 0px;
 	padding: 4px;
+}
+
+
+/* Column selection */
+#columnSelect {
+	margin: 6px 0px;
+}
+
+#columnSelectForm table {
+	border: 1px solid grey;
+}
+
+#columnSelectForm table td {
+	border: none;
+	border-bottom: 1px solid #ddd;
+}
+
+#columnSelectForm table td input {
+	margin-left: 8px;
+	margin-bottom: 12px;
+}
+
+#columnSelectForm table td.tdLabel {
+	width: 75px;
 }

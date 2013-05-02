@@ -8,13 +8,14 @@
 <head>
 	<title>User Management</title>
 	
-	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 	
 	<script type="text/javascript">
 		page = "users";
 		pageSetup(page);
 	</script>
+	
+	<sx:head debug="true" cache="false" compressed="false" />
 </head>
 
 <body>

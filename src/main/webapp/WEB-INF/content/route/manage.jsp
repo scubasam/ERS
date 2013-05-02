@@ -8,7 +8,6 @@
 <head>
 	<title>Route Management</title>
 	
-	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 	
 	<style type="text/css">
@@ -47,6 +46,8 @@
 		page = "routes";
 		pageSetup(page);
 	</script>
+	
+	<sx:head debug="true" cache="false" compressed="false" />
 </head>
 <body>
 	<div id="wrapper">
@@ -127,7 +128,10 @@
 									<div id="rightPanel">
 										<h3>Shipment Order</h3>
 										<ul id="shipmentList">
-											<!-- Selected shipments will be copied here -->
+											<s:iterator value="route.orderedShipments">
+												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+											</s:iterator>
 										</ul>
 									</div>
 									

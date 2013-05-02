@@ -25,6 +25,7 @@ function interfaceSetup(){
 	if(h2 > $("#"+page).height()){ h2 = $("#"+page).height; }
 	
 	$("#dataContainer").height(h2);
+	$("#"+page).height(h2);
 }
 
 // convenience function for submitting complex forms
@@ -48,4 +49,6 @@ $(window).resize(function(){
 $(document).ready(function () {
 	$(".buttonDiv").button();
 	$(".ui-button").button();
+	
+	$("#"+page).fixheadertable();
 });
