@@ -6,7 +6,7 @@
 <!doctype html>
 <html>
 <head>
-	<title>User List</title>
+	<title>User Management</title>
 	
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
@@ -22,7 +22,6 @@
 		<jsp:include page="/includes/header.jsp" />
 			
 		<div id="content">
-			<h2>User List</h2>
 		
 			<s:if test="users.size > 0">
 				<div id="columnSelect">
