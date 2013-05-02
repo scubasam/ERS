@@ -32,6 +32,12 @@ function submitForm(form){
 	$(form).submit();
 }
 
+// IE compatibility function. Internet Explorer doesn't
+// like having jquery inline, so this is the simple solution.
+function toggleColumnSelect() {
+	$('#columnSelect').toggle();
+}
+
 // Resizes static elements when the window
 // is resized to keep the UI consistent.
 $(window).resize(function(){

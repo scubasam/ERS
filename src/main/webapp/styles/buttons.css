@@ -17,6 +17,10 @@ div.buttonDiv a {
 	float: right;
 }
 
+#columnSelectButton {
+	margin-left: 12px;
+}
+
 .ui-button {
 	color: black !important;
 	padding: 0px !important;
