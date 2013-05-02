@@ -334,4 +334,14 @@ public class Shipment extends AbstractEntity implements Serializable, EntityInte
 		
 		return this.routeOrder.compareTo(o.getRouteOrder());
 	}
+	
+	@Override
+	public boolean equals(Object o){
+		Shipment ship = (Shipment)o;
+		if( this.id.equals(ship.getId()) )
+			return true;
+		else
+			return false;
+	}
+	
 }

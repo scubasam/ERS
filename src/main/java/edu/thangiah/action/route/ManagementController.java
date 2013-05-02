@@ -129,6 +129,15 @@ public class ManagementController extends BaseManagementController<Route>{
     			return result;
     		}
         	
+        	if( getEntity() != null && getEntity().getOrderedShipments() != null ){
+	        	StringBuilder currentShipmentList = new StringBuilder();
+	        	for( Shipment ship : getEntity().getOrderedShipments() ){
+	        		currentShipmentList.append(ship.getId());
+	        		currentShipmentList.append(",");
+	        	}
+	        	shipmentList = currentShipmentList.substring(0,currentShipmentList.length()-1).toString();
+        	}
+        	
         	if( getRoute() != null && getRoute().getVehicle() != null ){
 	        	vehicleSelect.intializeFromEntity(getRoute().getVehicle());
         	}
@@ -144,7 +153,6 @@ public class ManagementController extends BaseManagementController<Route>{
 	 * @return SUCCESS or ERROR constant
 	 */
 	protected String parseShipmentList() {
-		
 		if( this.shipmentList == null || this.shipmentList.length() == 0 ){
 			return SUCCESS; // Not every route has to have shipments at all times.
 		}
@@ -167,7 +175,7 @@ public class ManagementController extends BaseManagementController<Route>{
 	 * @return SUCCESS or ERROR constant
 	 */
 	private String parseShipmentListArray(String[] shipments){
-		
+		// TODO This method needs to be optimized.
 		this.parsedShipments = new LinkedList<Shipment>();
 		int i = 0;
 		for( String shipment : shipments ){

@@ -47,7 +47,7 @@ public class DeleteAction extends ManagementController{
 		
 		try{
 			routeDao.delete(fromDb);
-			if(fromDb !=null)
+			if(fromDb != null )
 			{
 				this.addActionError("Shipments depend on this Route. You cannot delete it.");
 			}
