@@ -81,7 +81,7 @@
 							<s:a cssClass="ui-button edit-button" href="%{deleteUrl}">Delete</s:a>
 							<br />
 
-							<s:url id="clearUrl" value="mainteanceOrderManagement.action"></s:url>
+							<s:url id="clearUrl" value="maintenanceOrderManagement.action"></s:url>
 							<s:a cssClass="ui-button edit-button" href="%{clearUrl}">Clear</s:a>
 							<br />
 						</div>
