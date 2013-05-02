@@ -150,7 +150,10 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 	}
 	
 	public String toString(){
-		return "Route from " + startLocation.toString() + " to " + endLocation.toString();
+		if( startLocation != null && endLocation != null )
+			return "Route from " + startLocation.toString() + " to " + endLocation.toString();
+		else
+			return "Route(" + id + ")";
 	}
 
 	public TreeSet<Shipment> getOrderedShipments() {

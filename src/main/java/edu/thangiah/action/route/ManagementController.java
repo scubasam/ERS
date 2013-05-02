@@ -129,7 +129,7 @@ public class ManagementController extends BaseManagementController<Route>{
     			return result;
     		}
         	
-        	if( getEntity() != null && getEntity().getOrderedShipments() != null ){
+        	if( getEntity() != null && getEntity().getOrderedShipments() != null && getEntity().getOrderedShipments().size() > 0 ){
 	        	StringBuilder currentShipmentList = new StringBuilder();
 	        	for( Shipment ship : getEntity().getOrderedShipments() ){
 	        		currentShipmentList.append(ship.getId());
