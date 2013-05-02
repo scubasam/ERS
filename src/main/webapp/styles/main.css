@@ -80,6 +80,19 @@ body {
 			margin-bottom: 12px;
 			border: 1px solid grey;
 		}
+		
+		#dualFormContainer {
+			float: left;
+			width: 440px;
+			overflow: auto;
+			margin-top: 12px;
+			margin-bottom: 12px;
+			border: 1px solid grey;
+		}
+		
+		#dualFormButtonContainer {
+			
+		}
 
 	/* ------------- */
 	/* sticky footer */

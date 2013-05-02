@@ -11,6 +11,38 @@
 	<sx:head debug="true" cache="false" compressed="false" />
 	<jsp:include page="/includes/decorator.jsp" />
 	
+	<style type="text/css">
+	#leftPanel {
+		float: left;
+		width: 50%;
+		height: 300px;
+		margin-top: 4px;
+		margin-bottom: 23px;
+	}
+	
+	#rightPanel {
+		float: right;
+		width: 50%;
+		height: 300px;
+		margin-top: 4px;
+		margin-bottom: 23px;
+	}
+	
+	#allShipments {
+		height: 100%;
+		display: block;
+		overflow: auto;
+		margin-top: 4px;
+	}
+	
+	#shipmentList {
+		height: 100%;
+		display: block;
+		overflow: auto;
+		margin-top: 4px;
+	}
+	</style>
+	
 	<script type="text/javascript">
 		page = "routes";
 		pageSetup(page);
@@ -78,17 +110,27 @@
 					</s:if>
 
 					<s:else>
-						<div id="formContainer">
+						<div id="dualFormContainer">
 							<s:form name="addForm" action="addRoute.action" id="routeForm">
-								<s:select label="Vehicle" name="vehicleSelect.selected"
-									list="vehicleSelect.list" listKey="id" listValue="toString()" />
-									<h3>Shipment Order</h3>
-									<ul id="shipmentList" style="height: 300px; display: block; clear: both; overflow: scroll;">
-										<s:iterator value="allShipments">
-											<li class="ui-state-default" style="height: 25px; padding-top: 5px;" value="<s:property value="id" />">
-											<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
-										</s:iterator>
-									</ul>
+								<s:select label="Vehicle" name="vehicleSelect.selected" list="vehicleSelect.list" listKey="id" listValue="toString()" />
+									
+									<div id="leftPanel">
+										<h3>All Shipments</h3>
+										<ul id="allShipments">
+											<s:iterator value="allShipments">
+												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+											</s:iterator>
+										</ul>
+									</div>
+									
+									<div id="rightPanel">
+										<h3>Shipment Order</h3>
+										<ul id="shipmentList">
+											<!-- Selected shipments will be copied here -->
+										</ul>
+									</div>
+									
 									<s:hidden id="orderedShipmentList" type="hidden" name="shipmentList" />
 							</s:form>
 						</div>
@@ -110,9 +152,18 @@
 	<jsp:include page="/includes/footer.jsp" />
 	<script type="text/javascript">
 		$("#shipmentList").disableSelection();
+		$("#allShipments").disableSelection();
+
+		$("#allShipments").sortable({
+			placeholder: "ui-state-highlight",
+		    cursor: 'crosshair',
+		    connectWith: '#shipmentList'
+		});
+		
 		$("#shipmentList").sortable({
 		    placeholder: "ui-state-highlight",
 		    cursor: 'crosshair',
+		    connectWith: '#allShipments',
 		    update: function(event, ui) {
 		        var order = $("#shipmentList").sortable("toArray", {attribute: 'value'});
 		        $('#orderedShipmentList').val(order.join(","));
