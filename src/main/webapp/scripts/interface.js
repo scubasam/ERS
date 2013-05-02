@@ -49,6 +49,4 @@ $(window).resize(function(){
 $(document).ready(function () {
 	$(".buttonDiv").button();
 	$(".ui-button").button();
-	
-	$("#"+page).fixheadertable();
 });
