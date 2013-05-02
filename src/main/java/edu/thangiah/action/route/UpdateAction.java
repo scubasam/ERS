@@ -1,6 +1,7 @@
 package edu.thangiah.action.route;
 
 import edu.thangiah.entity.Route;
+import edu.thangiah.entity.Shipment;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
@@ -32,7 +33,7 @@ public class UpdateAction extends ManagementController{
     	
     	Route fromDb = this.retrieveEntityById(routeDao, id);
     	if( fromDb == null){
-    		this.addActionError("This contractor does not exist.  Please try again.");
+    		this.addActionError("This route does not exist.  Please try again.");
     		return INPUT;
     	}
     	
@@ -49,9 +50,26 @@ public class UpdateAction extends ManagementController{
 			return INPUT;
     	
 		
+		String result = this.parseShipmentList();
+		if( !result.equals(SUCCESS) )
+			return result;
+		
 		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
 		
 		try{
+			if( this.getParsedShipments() != null ){
+				
+				for( Shipment ship : fromDb.getOrderedShipments() ){
+					if( !getParsedShipments().contains(ship) ){
+						fromDb.removeShipment(ship, shipmentDao);
+					}
+				}
+				
+				for( Shipment ship : getParsedShipments() ){
+					if( !fromDb.getOrderedShipments().contains(ship) )
+						fromDb.addShipment(ship, shipmentDao);
+				}
+			}
 			routeDao.update(fromDb);
 		}
 		catch( Exception e ){
