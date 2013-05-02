@@ -24,5 +24,8 @@
 	
 	<bean id="deleteMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.DeleteAction" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
 </beans>

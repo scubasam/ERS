@@ -45,10 +45,10 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		contactDao.delete(fromDb);
+    		
     		if(fromDb !=null)
     		{
-    			this.addActionError("A contractor exists which is connected to this contact information. Please delete the contractor first");
+    			contactDao.delete(fromDb);
     		}
     	}
     	catch( Exception e ){

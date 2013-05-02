@@ -278,9 +278,9 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		<action name="deleteMainteanceOrder" class="deleteMaintenanceOrderAction">
+		<action name="deleteMaintenanceOrder" class="deleteMaintenanceOrderAction">
 			<result name="success" type="redirect">maintenanceOrderManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/mainteance_order/manage.jsp</result>
+			<result name="input">WEB-INF/content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>

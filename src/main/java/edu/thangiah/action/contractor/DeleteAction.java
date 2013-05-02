@@ -41,7 +41,10 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		contractorDao.delete(fromDb);
+    		if(fromDb != null && fromDb.getLocations() == null && fromDb.getVehicles() == null) {
+    			contractorDao.delete(fromDb);	
+    		}
+    		
     	}
     	catch( Exception e ){
     		this.addActionError("Drivers, Locations, or Vehicles exist that are connected to this contractor.  It cannot be deleted.");

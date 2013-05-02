@@ -41,10 +41,10 @@ public class DeleteAction extends ManagementController{
 		}
 		
 		try{
-			serviceTechnicianDao.delete(fromDb);
-			if(fromDb !=null)
+			
+			if(fromDb !=null && fromDb.getMaintenanceOrders() ==  null)
 			{
-				this.addActionError("Dependencies Exist. You cannot delete it.");
+				serviceTechnicianDao.delete(fromDb);
 			}
 		}
 		catch( Exception e ){

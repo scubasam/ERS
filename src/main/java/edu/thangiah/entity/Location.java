@@ -229,4 +229,25 @@ public class Location extends AbstractEntity implements Serializable, EntityInte
         this.locationType = with.locationType;
 		
 	}
+
+	public String getQualifiedName() {
+		String name = "";
+		
+		if( this.streetAddress1 != null )
+			name += streetAddress1;
+		
+		if( this.streetAddress2 != null )
+			name += " " + streetAddress2;
+		
+		if( this.city != null )
+			name += " " + city;
+		
+		if( this.state != null )
+			name += ", " + state;
+		
+		if( this.zip != null )
+			name += " " + zip;
+		
+		return name;
+	}
 }

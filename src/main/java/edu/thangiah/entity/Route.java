@@ -176,6 +176,18 @@ public class Route extends AbstractEntity implements Serializable, EntityInterfa
 		shipmentDao.update(ship);
 		
 	}
+	
+	public void removeShipment(Shipment ship, ShipmentDao shipmentDao) {
+		// TODO Auto-generated method stub
+		if( shipments == null || orderedShipments == null )
+			return;
+		
+		shipments.remove(ship);
+		orderedShipments.remove(ship);
+		
+		ship.setRoute(null);
+		shipmentDao.update(ship);
+	}
 
 	public Date getStartDate() {
 		return startDate;
