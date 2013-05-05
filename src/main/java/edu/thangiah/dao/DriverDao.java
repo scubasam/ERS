@@ -4,6 +4,12 @@ import java.util.List;
 
 import edu.thangiah.entity.Driver;
 
+/**
+ * This codes primary function is to pull the database references for a driver to be manipulated by the entity classes
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 
 public class DriverDao extends AbstractDao<Driver> {
 	

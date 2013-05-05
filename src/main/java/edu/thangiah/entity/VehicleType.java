@@ -13,6 +13,12 @@ import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
 
+/**
+ * 
+ * vehicle type model
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 
 @Entity
 @Table(name="vehicle_types")

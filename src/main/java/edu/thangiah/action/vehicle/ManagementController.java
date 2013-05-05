@@ -28,7 +28,7 @@ import edu.thangiah.strutsutility.StrutsSelect;
  * 
  * This class extends our base management controller class and handles
  * the specific get and sets to the database for all actions pertaining to the 
- * entity Routes
+ * entity vehicle
  * 
  * 
  * @author Alex McCracken, Kelly Smith

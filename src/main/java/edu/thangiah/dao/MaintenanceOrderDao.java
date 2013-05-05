@@ -4,6 +4,14 @@ import java.util.List;
 
 import edu.thangiah.entity.MaintenanceOrder;
 
+/**
+ * This codes primary function is to pull the database references for a maintenance order to be manipulated by the entity classes
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
+
 public class MaintenanceOrderDao extends AbstractDao<MaintenanceOrder> {
 	
 	@SuppressWarnings("unchecked")

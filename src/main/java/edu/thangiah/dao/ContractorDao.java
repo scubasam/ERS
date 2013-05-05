@@ -6,6 +6,14 @@ import java.util.List;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
+
+/**
+ * This codes primary function is to pull the database references for a contractor to be manipulated by the entity classes
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class ContractorDao extends AbstractDao<Contractor> {
 	
 	@SuppressWarnings("unchecked")

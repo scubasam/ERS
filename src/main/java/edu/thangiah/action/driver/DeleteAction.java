@@ -4,7 +4,7 @@ import edu.thangiah.entity.Driver;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
- * related to deleting a Maintenance Order entity
+ * related to deleting a Driver entity
  * 
  * @author Alex McCracken, Kelly Smith
  *

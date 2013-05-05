@@ -12,7 +12,7 @@ import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
  *This class extends the management controller and implements preparable. It's primary function
- *is to to handle everything related to adding and Maintenance Orders entity 
+ *is to to handle everything related to adding and Drivers entity 
  * 
  * @author Alex McCracken, Kelly Smith
  */

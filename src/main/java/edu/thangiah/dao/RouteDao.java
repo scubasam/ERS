@@ -3,6 +3,13 @@ import java.util.List;
 
 import edu.thangiah.entity.Route;
 
+/**
+ * This codes primary function is to pull the database references for a route to be manipulated by the entity classes
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class RouteDao extends AbstractDao<Route> {
 	
 	@SuppressWarnings("unchecked")

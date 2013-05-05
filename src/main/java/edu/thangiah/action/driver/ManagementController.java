@@ -18,6 +18,7 @@ import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Vehicle;
 import edu.thangiah.strutsutility.StrutsSelect;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
@@ -28,7 +29,7 @@ public class ManagementController extends BaseManagementController<Driver>{
 	 * 
 	 * This class extends our base management controller class and handles
 	 * the specific get and sets to the database for all actions pertaining to the 
-	 * entity Maintenance Order
+	 * entity Driver
 	 * 
 	 * @author Alex McCracken, Kelly Smith
 	 *
@@ -50,7 +51,9 @@ public class ManagementController extends BaseManagementController<Driver>{
 	protected Driver driver;
 	protected Vehicle vehicle;
 	protected Contractor contractor;
-	
+	protected MaintenanceOrder maintenanceOrder;
+
+
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	protected StrutsSelect<Contact> contactSelect;
 	protected StrutsSelect<Contractor> contractorSelect;
@@ -237,6 +240,14 @@ public class ManagementController extends BaseManagementController<Driver>{
 
 	public void setContractorSelect(StrutsSelect<Contractor> contractorSelect) {
 		this.contractorSelect = contractorSelect;
+	}
+	
+	public MaintenanceOrder getMaintenanceOrder() {
+		return maintenanceOrder;
+	}
+
+	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder) {
+		this.maintenanceOrder = maintenanceOrder;
 	}
 
 }

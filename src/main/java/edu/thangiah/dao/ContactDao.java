@@ -5,6 +5,13 @@ import java.util.List;
  
 import edu.thangiah.entity.Contact;
  
+/**
+ * This codes primary function is to pull the database references for a contact to be manipulated by the entity classes
+ * 
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class ContactDao extends AbstractDao<Contact> {
 	
 	@SuppressWarnings("unchecked")

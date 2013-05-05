@@ -4,6 +4,13 @@ import java.util.List;
 
 import edu.thangiah.dao.AbstractDao;
 
+/**
+ * 
+ * this codes primary function is to work as a database object to pull permissions for each user from the databse
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
+
 public class PermissionDao extends AbstractDao<Permission> {
 	
 	@SuppressWarnings("unchecked")

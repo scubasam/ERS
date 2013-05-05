@@ -4,7 +4,7 @@ import edu.thangiah.entity.Vehicle;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
- * related to deleting a Maintenance Order entity
+ * related to deleting a vehicle entity
  * 
  * @author Alex McCracken, Kelly Smith
  *

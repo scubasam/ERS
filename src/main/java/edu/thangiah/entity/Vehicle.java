@@ -14,7 +14,12 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.validator.NotEmpty;
 import org.hibernate.validator.NotNull;
 import org.hibernate.validator.Valid;
-
+/**
+ * 
+ * vehicle model
+ * @author Alex McCracken, Kelly Smith
+ *
+ */
 
 public class Vehicle extends AbstractEntity implements Serializable, EntityInterface {
 	private static final long serialVersionUID = 1L;
