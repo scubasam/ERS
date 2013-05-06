@@ -4,7 +4,7 @@
  
 <struts>
  
-	<constant name="struts.devMode" value="true" />
+	<constant name="struts.devMode" value="false" />
  
 	<package name="default" extends="struts-default">
  		
@@ -15,17 +15,51 @@
 		    <interceptor name="requireLogin"
 		    	class="requireLogin">
 		    </interceptor>
+		    
+		  	<!--  Redifines the default stack to insert authentication before prepare -->
+		    <interceptor-stack name="defaultStack">
+                <interceptor-ref name="exception"/>
+                <interceptor-ref name="alias"/>
+                <interceptor-ref name="servletConfig"/>
+                <interceptor-ref name="authIntercept"/>
+                <interceptor-ref name="prepare"/>
+                <interceptor-ref name="i18n"/>
+                <interceptor-ref name="chain"/>
+                <interceptor-ref name="debugging"/>
+                <interceptor-ref name="profiling"/>
+                <interceptor-ref name="scopedModelDriven"/>
+                <interceptor-ref name="modelDriven"/>
+                <interceptor-ref name="fileUpload"/>
+                <interceptor-ref name="checkbox"/>
+                <interceptor-ref name="staticParams"/>
+                <interceptor-ref name="params">
+                  <param name="excludeParams">dojo\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError"/>
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+		    
  			<interceptor-stack name="authStack">
- 				<interceptor-ref name="authIntercept" />
  				<interceptor-ref name="defaultStack" />
  			</interceptor-stack>
  		</interceptors>
 
  		<global-results>
  			<result name="error">WEB-INF/content/error.jsp</result>
+ 			<result name="database_error">WEB-INF/content/database_error.jsp</result>
  			<result name="login">WEB-INF/content/user/login.jsp</result>
  			<result name="permission">WEB-INF/content/permission.jsp</result>
  		</global-results>
+ 		
+ 		<global-exception-mappings>
+ 			<exception-mapping exception="org.springframework.dao.DataAccessResourceFailureException" result="database_error" />
+			 <exception-mapping exception="java.lang.Exception" result="error" />
+	    </global-exception-mappings>
  		
  		<action name="home" class="baseAction">
  			<result name="success">home.jsp</result>

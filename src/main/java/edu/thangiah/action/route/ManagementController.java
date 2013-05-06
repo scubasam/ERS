@@ -1,10 +1,12 @@
 package edu.thangiah.action.route;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +18,14 @@ import edu.thangiah.dao.LocationDao;
 import edu.thangiah.dao.RouteDao;
 import edu.thangiah.dao.ShipmentDao;
 import edu.thangiah.dao.VehicleDao;
+import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Route;
 import edu.thangiah.entity.Shipment;
 import edu.thangiah.entity.Vehicle;
+import edu.thangiah.service.GoogleMapsDirectionsRequest;
+import edu.thangiah.service.GoogleMapsDirectionsResponse;
+import edu.thangiah.service.ServiceException;
+import edu.thangiah.service.GoogleMapsDirectionsRequest.Output;
 import edu.thangiah.strutsutility.StrutsSelect;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
@@ -54,6 +61,7 @@ public class ManagementController extends BaseManagementController<Route>{
 	
 	
 	protected List<Shipment> allShipments;
+	protected List<Shipment> unselectedShipments;
 
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	
@@ -63,6 +71,9 @@ public class ManagementController extends BaseManagementController<Route>{
 	 * Parsed, ordered list of shipments from an Add or Update action form.
 	 */
 	protected LinkedList<Shipment> parsedShipments;
+	
+	
+	private GoogleMapsDirectionsRequest request;
 	
 	
 	protected static final Map<String, String> columnMap;
@@ -141,7 +152,28 @@ public class ManagementController extends BaseManagementController<Route>{
 	        		currentShipmentList.append(",");
 	        	}
 	        	shipmentList = currentShipmentList.substring(0,currentShipmentList.length()-1).toString();
+	        	
+	        	if( allShipments != null ){
+	        		unselectedShipments = new ArrayList<Shipment>();
+		        	for( Shipment ship : allShipments ){
+		        		boolean unselected = true;
+		        		for( Shipment selectedShip : getEntity().getOrderedShipments() ){
+		        			if( selectedShip.getId().equals(ship.getId()) ){
+		        				unselected = false;
+		        				break;
+		        			}
+		        		}
+		        		if(unselected)
+		        			unselectedShipments.add(ship);
+		        	}
+	        	}
         	}
+        	else{
+        		if( allShipments != null ){
+	        		unselectedShipments = new ArrayList<Shipment>(allShipments);
+	        	}
+        	}
+        	
         	
         	if( getRoute() != null && getRoute().getVehicle() != null ){
 	        	vehicleSelect.intializeFromEntity(getRoute().getVehicle());
@@ -205,6 +237,80 @@ public class ManagementController extends BaseManagementController<Route>{
 		}
 
 		return SUCCESS;
+	}
+	
+	protected String calculateRouteFields(Route newRoute) {
+		String result = calcGoogleDirectionsValues(newRoute);
+		if( !result.equals(SUCCESS) )
+			return result;
+		
+		if( request == null )
+			return ERROR;
+		
+		int totalWeight = 0;
+		int totalCubicWeight = 0;
+		for( Shipment ship : newRoute.getOrderedShipments() ){
+			totalWeight += ship.getWeight();
+			totalCubicWeight += ship.getCubicWeight();
+		}
+		
+		newRoute.setTotalWeight(new Integer(totalWeight));
+		newRoute.setTotalCubicWeight(new Integer(totalCubicWeight));
+		
+		
+		return SUCCESS;
+	}
+	
+	private String calcGoogleDirectionsValues(Route newRoute){
+		
+		Location origin;
+		Location destination;
+		
+		TreeSet<Shipment> shipments = newRoute.getOrderedShipments();
+		if( shipments == null || shipments.size() <= 0 ){
+			return ERROR;
+		}
+		else{
+			newRoute.setStartLocation(shipments.first().getLocation());
+			newRoute.setEndLocation(shipments.last().getDestination());
+		}
+		
+		origin = newRoute.getStartLocation();
+		destination = newRoute.getEndLocation();
+		
+		try{
+			if( shipments.size() >= 1 ){
+				Location[] waypoints = new Location[shipments.size()-1];
+				// Step through the shipments in order
+				int i = 0;
+				for( Shipment ship : shipments ){
+					if( i < shipments.size()- 1 ){
+						waypoints[i] = ship.getDestination();
+					}
+					i++;
+				}
+				
+				request = new GoogleMapsDirectionsRequest(origin, destination, Output.xml, waypoints);
+			}
+			else{
+				request = new GoogleMapsDirectionsRequest(origin, destination, Output.xml, null);
+			}
+			
+			GoogleMapsDirectionsResponse response = request.makeRequest();
+			if( response != null && !response.hasErrors() ){
+				newRoute.setTotalTime(response.getDuration());
+				newRoute.setTotalMiles(response.getDistance()/GoogleMapsDirectionsResponse.FEET_PER_MILE);
+				newRoute.setTotalDays(response.getDuration()/GoogleMapsDirectionsResponse.SECONDS_PER_DAY);
+			}
+			
+			return SUCCESS;
+		}
+		catch(ServiceException e){
+			e.printStackTrace();
+		}
+		
+		
+		return ERROR;
 	}
 	
 	
@@ -293,5 +399,13 @@ public class ManagementController extends BaseManagementController<Route>{
 
 	public void setShipmentList(String shipmentList) {
 		this.shipmentList = shipmentList;
+	}
+
+	public List<Shipment> getUnselectedShipments() {
+		return unselectedShipments;
+	}
+
+	public void setUnselectedShipments(List<Shipment> unselectedShipments) {
+		this.unselectedShipments = unselectedShipments;
 	}
 }

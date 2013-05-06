@@ -1,16 +1,10 @@
 package edu.thangiah.action.route;
 
-import java.util.TreeSet;
 
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Route;
 import edu.thangiah.entity.Shipment;
-import edu.thangiah.service.GoogleMapsDirectionsRequest;
-import edu.thangiah.service.GoogleMapsDirectionsRequest.Output;
-import edu.thangiah.service.GoogleMapsDirectionsResponse;
-import edu.thangiah.service.ServiceException;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 /**
@@ -22,7 +16,6 @@ import edu.thangiah.strutsutility.exception.StrutsElementException;
 
 public class AddAction extends ManagementController implements Preparable {
 
-	private GoogleMapsDirectionsRequest request;
 	private static final long serialVersionUID = -5659010171250880237L;
 
 	@Override
@@ -71,78 +64,4 @@ public class AddAction extends ManagementController implements Preparable {
 		
     	return SUCCESS;
     }
-
-	private String calculateRouteFields(Route newRoute) {
-		String result = calcGoogleDirectionsValues(newRoute);
-		if( !result.equals(SUCCESS) )
-			return result;
-		
-		if( request == null )
-			return ERROR;
-		
-		int totalWeight = 0;
-		int totalCubicWeight = 0;
-		for( Shipment ship : newRoute.getOrderedShipments() ){
-			totalWeight += ship.getWeight();
-			totalCubicWeight += ship.getCubicWeight();
-		}
-		
-		newRoute.setTotalWeight(new Integer(totalWeight));
-		newRoute.setTotalCubicWeight(new Integer(totalCubicWeight));
-		
-		
-		return SUCCESS;
-	}
-	
-	private String calcGoogleDirectionsValues(Route newRoute){
-		
-		Location origin;
-		Location destination;
-		
-		TreeSet<Shipment> shipments = newRoute.getOrderedShipments();
-		if( shipments == null || shipments.size() <= 0 ){
-			return ERROR;
-		}
-		else{
-			newRoute.setStartLocation(shipments.first().getLocation());
-			newRoute.setEndLocation(shipments.last().getDestination());
-		}
-		
-		origin = newRoute.getStartLocation();
-		destination = newRoute.getEndLocation();
-		
-		try{
-			if( shipments.size() >= 1 ){
-				Location[] waypoints = new Location[shipments.size()-1];
-				// Step through the shipments in order
-				int i = 0;
-				for( Shipment ship : shipments ){
-					if( i < shipments.size()- 1 ){
-						waypoints[i] = ship.getDestination();
-					}
-					i++;
-				}
-				
-				request = new GoogleMapsDirectionsRequest(origin, destination, Output.xml, waypoints);
-			}
-			else{
-				request = new GoogleMapsDirectionsRequest(origin, destination, Output.xml, null);
-			}
-			
-			GoogleMapsDirectionsResponse response = request.makeRequest();
-			if( response != null && !response.hasErrors() ){
-				newRoute.setTotalTime(response.getDuration());
-				newRoute.setTotalMiles(response.getDistance()/GoogleMapsDirectionsResponse.FEET_PER_MILE);
-				newRoute.setTotalDays(response.getDuration()/GoogleMapsDirectionsResponse.SECONDS_PER_DAY);
-			}
-			
-			return SUCCESS;
-		}
-		catch(ServiceException e){
-			e.printStackTrace();
-		}
-		
-		
-		return ERROR;
-	}
 }

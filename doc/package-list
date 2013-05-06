@@ -14,6 +14,7 @@ edu.thangiah.decorator
 edu.thangiah.entity
 edu.thangiah.interceptor
 edu.thangiah.permission
+edu.thangiah.service
 edu.thangiah.strutsutility
 edu.thangiah.strutsutility.exception
 edu.thangiah.test.user
