@@ -47,16 +47,19 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb !=null)
+    		if(fromDb !=null && fromDb.getVehicles() == null)
     		{
     	  		locationDao.delete(fromDb);
+    	  		return SUCCESS;
+    		}
+    		else{
+    			this.addActionError("Dependencies exist and must be deleted before you can delete this entity");
+    			return INPUT;
     		}
     	}
     	catch( Exception e ){
     		this.addActionError("A dependency exists and is prohibiting this deletion.");
     		return INPUT;
     	}
-    	
-    	return SUCCESS;
     }
 }
