@@ -36,7 +36,9 @@ public class AddAction extends ManagementController implements Preparable {
 		newServiceTechnician.setMaintenanceOrder(maintenanceOrderSelect.getSelectedEntity());
 		
 		try{
-			serviceTechnicianDao.add(newServiceTechnician);
+			if(this.getEntity() != null){
+				serviceTechnicianDao.add(newServiceTechnician);				
+			}
 		}
 		catch( Exception e ){
 			return ERROR;

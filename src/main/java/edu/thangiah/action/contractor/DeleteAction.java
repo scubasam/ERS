@@ -41,8 +41,13 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null && fromDb.getLocations() == null && fromDb.getVehicles() == null) {
-    			contractorDao.delete(fromDb);	
+    		if(fromDb != null && fromDb.getLocations() == null && fromDb.getVehicles() == null && fromDb.getContact() == null){
+    			contractorDao.delete(fromDb);
+    			return SUCCESS;
+    		}
+    		else{
+    			this.addActionError("Dependencies exist delete these first");
+    			return INPUT;
     		}
     		
     	}
@@ -51,7 +56,5 @@ public class DeleteAction extends ManagementController
     		
     		return INPUT;
     	}
-    	
-    	return SUCCESS;
     }
 }
