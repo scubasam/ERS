@@ -42,7 +42,7 @@ public class DeleteAction extends ManagementController{
 		
 		try{
 			
-			if(fromDb !=null && fromDb.getMaintenanceOrders() ==  null)
+			if(fromDb != null && fromDb.getMaintenanceOrder() ==  null)
 			{
 				serviceTechnicianDao.delete(fromDb);
 			}
@@ -52,7 +52,7 @@ public class DeleteAction extends ManagementController{
 			}
 		}
 		catch( Exception e ){
-			this.addActionError("Dependencies Exist. You cannot delete it.");
+			this.addActionError("And exception has occured please refresh the page. If this error continues contact system administrator.");
 			return INPUT;
 		}
 		

@@ -51,6 +51,11 @@ public class DeleteAction extends ManagementController
     		if(fromDb !=null && fromDb.getVehicles() == null){
     			vehicleTypeDao.delete(fromDb);
     		}
+    		
+    		else {
+        		this.addActionError("A dependency exists that is prohibiting this deleteion");
+        		return INPUT;
+        	}
     	}
     	catch( Exception e ){
     		this.addActionError("A dependency exists that is prohibiting this deleteion");

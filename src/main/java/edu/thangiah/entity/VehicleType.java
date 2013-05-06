@@ -261,6 +261,4 @@ public class VehicleType extends AbstractEntity implements Serializable, EntityI
 	public void setMaximumCubicWeight(Integer maximumCubicWeight) {
 		this.maximumCubicWeight = maximumCubicWeight;
 	}
-
-
 }
