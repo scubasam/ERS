@@ -41,16 +41,19 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null) {
+    		if(fromDb != null && vehicleDao.findByMaintenanceOrder(maintenanceOrder) == null) {
         		vehicleDao.delete(fromDb);	
+        	  	return SUCCESS;
+    		}
+    		else{
+        		this.addActionError("Maintenance orders are conencted to this vehicle it cannot be deleted.");
+        		return INPUT;
     		}
 
     	}
     	catch( Exception e ){
-    		this.addActionError("Drivers, Service Technicians, or Vehicles exist connected to this Maintenance Order.  It cannot be deleted.");
+    		this.addActionError("And error has occured please try refreshing the page. If this persists contact system admin");
     		return INPUT;
     	}
-    	
-    	return SUCCESS;
     }
 }
