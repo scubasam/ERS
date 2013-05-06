@@ -14,7 +14,12 @@ import edu.thangiah.action.BaseManagementController;
 
 import edu.thangiah.dao.ContactDao;
 import edu.thangiah.dao.ContractorDao;
+import edu.thangiah.dao.DriverDao;
+import edu.thangiah.dao.ServiceTechnicianDao;
 import edu.thangiah.entity.Contact;
+import edu.thangiah.entity.Contractor;
+import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.ServiceTechnician;
 
 /**
  * 
@@ -33,10 +38,17 @@ public class ManagementController extends BaseManagementController<Contact>{
 	
 	@Autowired
 	protected ContactDao contactDao;
-	
 	@Autowired
 	protected ContractorDao contractorDao;
+	@Autowired
+	protected DriverDao driverDao;
+	@Autowired
+	protected ServiceTechnicianDao serviceTechnicianDao;
 	
+	protected Contractor contractor;
+	protected Driver driver;
+	protected ServiceTechnician serviceTechnician;
+
 	protected static final Map<String, String> columnMap;
 	static {
 		Map<String, String> columns = new LinkedHashMap<String, String>();
@@ -126,4 +138,43 @@ public class ManagementController extends BaseManagementController<Contact>{
 		return contractorDao;
 	}
 
+	public DriverDao getDriverDao() {
+		return driverDao;
+	}
+
+	public void setDriverDao(DriverDao driverDao) {
+		this.driverDao = driverDao;
+	}
+
+	public ServiceTechnicianDao getServiceTechnicianDao() {
+		return serviceTechnicianDao;
+	}
+
+	public void setServiceTechnicianDao(ServiceTechnicianDao serviceTechnicianDao) {
+		this.serviceTechnicianDao = serviceTechnicianDao;
+	}
+
+	public Contractor getContractor() {
+		return contractor;
+	}
+
+	public void setContractor(Contractor contractor) {
+		this.contractor = contractor;
+	}
+
+	public Driver getDriver() {
+		return driver;
+	}
+
+	public void setDriver(Driver driver) {
+		this.driver = driver;
+	}
+
+	public ServiceTechnician getServiceTechnician() {
+		return serviceTechnician;
+	}
+
+	public void setServiceTechnician(ServiceTechnician serviceTechnician) {
+		this.serviceTechnician = serviceTechnician;
+	}
 }
