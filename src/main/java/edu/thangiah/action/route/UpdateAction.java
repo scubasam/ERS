@@ -1,5 +1,7 @@
 package edu.thangiah.action.route;
 
+import java.util.TreeSet;
+
 import edu.thangiah.entity.Route;
 import edu.thangiah.entity.Shipment;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
@@ -57,19 +59,29 @@ public class UpdateAction extends ManagementController{
 		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
 		
 		try{
-			if( this.getParsedShipments() != null ){
-				
-				for( Shipment ship : fromDb.getOrderedShipments() ){
-					if( !getParsedShipments().contains(ship) ){
-						fromDb.removeShipment(ship, shipmentDao);
-					}
+			
+			// Use new TreeSet to avoid concurrent modification exception.
+			for( Shipment ship : new TreeSet<Shipment>(fromDb.getOrderedShipments()) ){
+				if( getParsedShipments() == null || !getParsedShipments().contains(ship) ){
+					fromDb.removeShipment(ship, shipmentDao);
 				}
+			}
+			
+			if( this.getParsedShipments() != null ){
 				
 				for( Shipment ship : getParsedShipments() ){
 					if( !fromDb.getOrderedShipments().contains(ship) )
 						fromDb.addShipment(ship, shipmentDao);
+					else
+						shipmentDao.update(ship); // maintain new order even if already exists.
 				}
 			}
+			
+			
+			result = calculateRouteFields(fromDb);
+			if( !result.equals(SUCCESS) )
+				return result;
+			
 			routeDao.update(fromDb);
 		}
 		catch( Exception e ){

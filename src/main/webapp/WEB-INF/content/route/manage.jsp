@@ -91,6 +91,29 @@
 								<s:select label="Vehicle" name="vehicleSelect.selected"
 									list="vehicleSelect.list" listKey="id" listValue="toString()"
 									value="vehicleSelect.selected" />
+									
+									
+									<div id="leftPanel">
+										<h3>All Shipments</h3>
+										<ul id="allShipments">
+											<s:iterator value="unselectedShipments">
+												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+											</s:iterator>
+										</ul>
+									</div>
+									
+									<div id="rightPanel">
+										<h3>Shipment Order</h3>
+										<ul id="shipmentList">
+											<s:iterator value="route.orderedShipments">
+												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+											</s:iterator>
+										</ul>
+									</div>
+									
+									<s:hidden id="orderedShipmentList" type="hidden" name="shipmentList" />
 							</s:form>
 						</div>
 
