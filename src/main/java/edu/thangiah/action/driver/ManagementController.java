@@ -14,6 +14,7 @@ import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.dao.ContactDao;
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.DriverDao;
+import edu.thangiah.dao.MaintenanceOrderDao;
 import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
@@ -46,6 +47,8 @@ public class ManagementController extends BaseManagementController<Driver>{
 	protected ContractorDao contractorDao;
 	@Autowired
 	protected ContactDao contactDao;
+	@Autowired
+	protected MaintenanceOrderDao maintenanceOrderDao;
 
 	protected Contact contact;
 	protected Driver driver;
@@ -241,7 +244,15 @@ public class ManagementController extends BaseManagementController<Driver>{
 	public void setContractorSelect(StrutsSelect<Contractor> contractorSelect) {
 		this.contractorSelect = contractorSelect;
 	}
-	
+
+	public MaintenanceOrderDao getMaintenanceOrderDao() {
+		return maintenanceOrderDao;
+	}
+
+	public void setMaintenanceOrderDao(MaintenanceOrderDao maintenanceOrderDao) {
+		this.maintenanceOrderDao = maintenanceOrderDao;
+	}
+
 	public MaintenanceOrder getMaintenanceOrder() {
 		return maintenanceOrder;
 	}

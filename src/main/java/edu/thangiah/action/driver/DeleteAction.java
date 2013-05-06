@@ -41,7 +41,7 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null) {
+    		if(fromDb != null && driverDao.findByMaintenanceOrder(maintenanceOrder) == null) {
         		driverDao.delete(fromDb);    			
     		}
     	}

@@ -41,7 +41,7 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null /*&& fromDb.getMaintenanceOrders() == null*/) {
+    		if(fromDb != null) {
         		vehicleDao.delete(fromDb);	
     		}
 

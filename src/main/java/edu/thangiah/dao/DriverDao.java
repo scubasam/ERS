@@ -3,6 +3,7 @@ package edu.thangiah.dao;
 import java.util.List;
 
 import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.MaintenanceOrder;
 
 /**
  * This codes primary function is to pull the database references for a driver to be manipulated by the entity classes
@@ -26,5 +27,12 @@ public class DriverDao extends AbstractDao<Driver> {
         return getHibernateTemplate().find("from Driver where id=?", id);
     }
 	
+	@SuppressWarnings("unchecked")
+	public List<MaintenanceOrder> findByMaintenanceOrder(MaintenanceOrder maintenanceOrders){
+		return getHibernateTemplate().find("from Driver where maintenanceOrder_id=?", maintenanceOrders.getId());
+	}
 
+	
+	
+	
 }
