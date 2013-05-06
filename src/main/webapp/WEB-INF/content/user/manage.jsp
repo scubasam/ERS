@@ -67,11 +67,11 @@
 						<s:url id="deleteUrl" value="deleteUser.action">
 							<s:param name="id" value="id" />
 						</s:url>
-						<s:a id="deleteButton" href="%{deleteUrl}">Delete</s:a>
+						<s:a cssClass="ui-button edit-button" href="%{deleteUrl}">Delete</s:a>
 						<br/>
 						
 						<s:url id="clearUrl" value="userManagement.action"></s:url>
-						<s:a id="clearButton" href="%{clearUrl}">Clear</s:a>
+						<s:a cssClass="ui-button edit-button" href="%{clearUrl}">Clear</s:a>
 						<br/>
 					</div>
 				</s:if>
