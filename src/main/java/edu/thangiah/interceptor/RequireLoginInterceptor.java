@@ -25,7 +25,7 @@ public class RequireLoginInterceptor implements Interceptor {
 	private static final Logger LOGGER = Logger.getLogger(RequireLoginInterceptor.class.getName());
 	private Map<String, Object> currentSession;
 	
-	private static final boolean DEBUG = true;
+	private static final boolean DEBUG = false;
 	
 	@Override
 	public void destroy() {

@@ -90,6 +90,9 @@ public abstract class AbstractAction extends ActionSupport implements Preparable
 			currentUser = (User) currentSession.get(USER_SESSION_KEY);
 			return true;
 		}
+		else{
+			currentUser = null;
+		}
 		
 		return false;
 	}
