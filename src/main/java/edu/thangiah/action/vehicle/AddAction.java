@@ -24,7 +24,7 @@ public class AddAction extends ManagementController implements Preparable {
 			initializeSelectedElements();
 		}
 		catch(StrutsElementException e){
-			addActionError("An unknown error occured.  Plase try reloading the page.");
+			this.addActionError("An unknown error occured.  Plase try reloading the page.");
 			return ERROR;
 		}
 		
@@ -43,7 +43,8 @@ public class AddAction extends ManagementController implements Preparable {
 			vehicleDao.add(newVehicle);
 		}
 		catch( Exception e ){
-			return ERROR;
+			this.addActionError("And error has occurred in adding this vehicle please try again!");
+			return INPUT;
 		}
 		
     	return SUCCESS;
