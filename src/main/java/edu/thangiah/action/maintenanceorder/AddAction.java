@@ -51,7 +51,9 @@ public class AddAction extends ManagementController implements Preparable{
 		newMaintenanceOrder.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
 		
 		try{
-			maintenanceOrderDao.add(newMaintenanceOrder);
+			if(this.getEntity() != null){
+				maintenanceOrderDao.add(newMaintenanceOrder);				
+			}
 		}
 		catch(Exception e){
 			return ERROR;
@@ -61,7 +63,7 @@ public class AddAction extends ManagementController implements Preparable{
     
     // called automatically
     public void validate(){
-    	if( getEntity() != null && vehicle != null )
+    	if( getEntity() != null && getEntity().getVehicle() != null )
     	{
     		requiredString(getEntity().getRequester().toString(), "maintenanceOrder.requester");
     		requiredString(getEntity().getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
@@ -80,9 +82,7 @@ public class AddAction extends ManagementController implements Preparable{
 
     }
 
-	/**
-	 * @return the contact
-	 */
+
 	public MaintenanceOrder getMaintenanceOrder()
 	{
 		return getEntity();

@@ -50,4 +50,23 @@ public class AddAction extends ManagementController implements Preparable {
     	return SUCCESS;
     }
 	
+	@Override
+    // called automatically
+    public void validate(){
+    	if( this.getEntity() != null ){
+    		requiredString(this.getEntity().getPlateNumber(), "vehicle.plateNumber");
+    		requiredString(this.getEntity().getManufacturedYear(), "vehicle.manufacturedYear");
+    		requiredString(this.getEntity().getVinNumber(), "vehicle.vinNumber");
+    	}
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}	
+    }
+	public Vehicle getVehicle(){
+		return this.getEntity();
+	}
+	
+	public void setVehicle(Vehicle vehicle) {
+		this.setEntity(vehicle);
+	}
 }

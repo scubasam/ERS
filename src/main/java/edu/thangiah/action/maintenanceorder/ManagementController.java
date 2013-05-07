@@ -47,8 +47,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 	protected DriverDao driverDao;
 
 	protected ServiceTechnician serviceTechnician;
-	protected Driver driver;
-	protected Vehicle vehicle;
 	
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	protected StrutsSelect<Driver> driverSelect;
@@ -90,7 +88,7 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		
 		if(maintenanceOrderDao == null){
 			
-			this.addActionError("unable to connect to the database contact a sys admin");
+        	this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
 		}
 		
 		try{
@@ -146,7 +144,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 			addFieldError("serviceTechnicianSelect.selected", result);
 	}
 	
-	// ALWAYS REMEMBER THE SET AND GET FOR LIST AND ENTITY!!!!!
 	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder){
 		this.setEntity(maintenanceOrder);
 		
@@ -163,7 +160,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 	public List<MaintenanceOrder> getMaintenanceOrders() {
 		return this.getEntityList();
 	}
-	//////////////////////////////////////////////
 
 	
 	public MaintenanceOrderDao getMaintenanceOrderDao() {
@@ -180,22 +176,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 
 	public void setServiceTechnician(ServiceTechnician serviceTechnician) {
 		this.serviceTechnician = serviceTechnician;
-	}
-
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public Driver getDriver() {
-		return driver;
-	}
-
-	public void setDriver(Driver driver) {
-		this.driver = driver;
 	}
 
 	public StrutsSelect<Vehicle> getVehicleSelect() {
@@ -223,14 +203,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		this.serviceTechnicianSelect = serviceTechnicianSelect;
 	}
 
-	public VehicleDao getVehicleDao() {
-		return vehicleDao;
-	}
-
-	public void setVehicleDao(VehicleDao vehicleDao) {
-		this.vehicleDao = vehicleDao;
-	}
-
 	public ServiceTechnicianDao getServiceTechnicianDao() {
 		return serviceTechnicianDao;
 	}
@@ -245,6 +217,14 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 
 	public void setDriverDao(DriverDao driverDao) {
 		this.driverDao = driverDao;
+	}
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
 	}
 	
 

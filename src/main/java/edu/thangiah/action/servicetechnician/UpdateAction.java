@@ -64,4 +64,24 @@ public class UpdateAction extends ManagementController{
     	
     	return SUCCESS;
 	}
+	
+	@Override
+	//called automatically
+	public void validate() {
+		if( this.getEntity() != null){
+    		requiredString(this.getEntity().getSkillGrade(), "serviceTechnician.skillGrade");
+    		}	
+    	else{
+    		this.addActionError("Unknown error.  Please try again.");
+    	}
+	}
+	
+	public ServiceTechnician getServiceTechnician() {
+		return this.getEntity();
+	}
+	
+	public void setServiceTechnician(ServiceTechnician serviceTechnician) {
+		this.setEntity(serviceTechnician);
+	}
+	
 }

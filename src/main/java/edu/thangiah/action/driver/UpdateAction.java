@@ -62,4 +62,27 @@ public class UpdateAction extends ManagementController{
 		}
 		return SUCCESS;
 	}
+	
+	@Override
+    // called automatically
+    public void validate(){
+    	if( getEntity() != null)
+    	{
+    		requiredString(this.getEntity().getLicenseNumber(), "driver.licenseNumber");
+    		requiredString(this.getEntity().getLicenseExpiration().toString(), "driver.licenseExpiration");
+    		requiredString(this.getEntity().getLicenseClass(),"driver.licenseClass");
+    	}		
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}
+    }
+	
+    public Driver getDriver() {
+    	return this.getEntity();
+    }
+    
+    public void setDriver(Driver driver) {
+    	this.setEntity(driver);
+    }
+
 }

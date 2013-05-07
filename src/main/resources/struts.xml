@@ -291,38 +291,33 @@
 
  		
  		<!-- Maintenance Order Actions -->
- 		<action name="maintenanceOrderManagement" class="maintenanceOrderManagementAction">
+ 		<action name="maintenanceOrderManagement" class="maintenanceOrderManagement">
  			<result name="success">content/maintenance_order/manage.jsp</result>
 			<result name="input">content/maintenance_order/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
-		<action name="addMaintenaceOrder" class="addMaintenanceOrderAction">
+		<action name="addMaintenanceOrder" class="addMaintenanceOrder">
 			<result name="success" type="redirect">maintenanceOrderManagement.action</result>
 			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		<action name="updateMaintenanceOrder" class="updateMainteanceOrderAction">
+		<action name="updateMaintenanceOrder" class="updateMainteanceOrder">
 			<result name="success" type="redirect">maintenanceOrderManagement.action</result>
 			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		<action name="deleteMaintenanceOrder" class="deleteMaintenanceOrderAction">
+		<action name="deleteMaintenanceOrder" class="deleteMaintenanceOrder">
 			<result name="success" type="redirect">maintenanceOrderManagement.action?deleted=true</result>
 			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
- 		
- 		 <action name="viewMaintenanceOrder" class="maintenanceOrderViewAction">
- 			<result name="success">content/maintenance_order/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>
  		
  		<!-- Vehicle Actions -->
  		<action name="vehicleManagement" class="vehicleManagement">

@@ -53,4 +53,18 @@ public class UpdateAction extends ManagementController{
     	contractorDao.update(fromDb);
     	return SUCCESS;
 	}
+	
+	@Override
+    // called automatically
+    public void validate(){
+    	if( this.getEntity() != null ){
+    		requiredString(getEntity().getContractorName(), "contractor.contractorName");
+    	}
+    	else{
+    		addActionError("Unknown error.  Please try again.");
+    	}
+    	
+    	this.runContactValidation(contact);
+    	
+    }
 }

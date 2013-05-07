@@ -111,17 +111,19 @@ public class ManagementController extends BaseManagementController<ServiceTechni
 	        
 	        LOGGER.debug("Service Technicians number = " + getServiceTechnicians().size());
 	        return SUCCESS;
-	    }
+	    }	
 	
 	
 	protected void initializeSelectedElements() throws StrutsElementException {
 		String result;
 		result = contactSelect.initializeSelected();
 		if( !result.equals(SUCCESS) )
-			addFieldError("contactSelect", result);
+			addFieldError("contactSelect.selected", result);
+		
+		result = maintenanceOrderSelect.initializeSelected();
+		if( !result.equals(SUCCESS) )
+			addFieldError("maintenanceOrderSelect.selected", result);
 	}
-	
-	
 	
 	public List<ServiceTechnician> getServiceTechnicians() {
 		return this.getEntityList();

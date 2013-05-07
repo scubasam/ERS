@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  	
-	<bean id="maintenanceOrderManagementAction" class="edu.thangiah.action.maintenanceorder.ManagementController" scope="prototype">
+	<bean id="maintenanceOrderManagement" class="edu.thangiah.action.maintenanceorder.ManagementController" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="driverDao" ref="driverDao" />
@@ -12,17 +12,19 @@
 	
 	<bean id="addMaintenanceOrder" class="edu.thangiah.action.maintenanceorder.AddAction" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
-		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
 	
-	<bean id="updateMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.UpdateAction" scope="prototype">
+	<bean id="updateMaintenanceOrder" class="edu.thangiah.action.maintenanceorder.UpdateAction" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
-		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
 	</bean>
 	
-	<bean id="deleteMaintenanceOrderAction" class="edu.thangiah.action.maintenanceorder.DeleteAction" scope="prototype">
+	<bean id="deleteMaintenanceOrder" class="edu.thangiah.action.maintenanceorder.DeleteAction" scope="prototype">
 		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="driverDao" ref="driverDao" />
