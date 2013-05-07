@@ -50,10 +50,10 @@
  		</interceptors>
 
  		<global-results>
- 			<result name="error">WEB-INF/content/error.jsp</result>
- 			<result name="database_error">WEB-INF/content/database_error.jsp</result>
- 			<result name="login">WEB-INF/content/user/login.jsp</result>
- 			<result name="permission">WEB-INF/content/permission.jsp</result>
+ 			<result name="error">content/error.jsp</result>
+ 			<result name="database_error">content/database_error.jsp</result>
+ 			<result name="login">content/user/login.jsp</result>
+ 			<result name="permission">content/permission.jsp</result>
  		</global-results>
  		
  		<global-exception-mappings>
@@ -68,51 +68,51 @@
 
  		
 		<action name="userManagement" class="userManagementAction">
-			<result name="success">WEB-INF/content/user/manage.jsp</result>
+			<result name="success">content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  
 		
 		<action name="userLoginForm" class="baseAction">
-			<result>WEB-INF/content/user/login.jsp</result>
+			<result>content/user/login.jsp</result>
 		</action>
  
 		<action name="addUser" class="addUserAction">
 			<result name="success" type="redirect">userManagement.action</result>
-			<result name="input">WEB-INF/content/user/manage.jsp</result>
+			<result name="input">content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateUser" class="updateUserAction">
 			<result name="success" type="redirect">userManagement.action</result>
-			<result name="input">WEB-INF/content/user/manage.jsp</result>
+			<result name="input">content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteUser" class="deleteUserAction">
 			<result name="success" type="redirect">userManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/user/manage.jsp</result>
+			<result name="input">content/user/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="loginUser" class="loginUserAction">
 			<result name="success" type="redirect">${loginUrl}</result>
-			<result name="input">WEB-INF/content/user/login.jsp</result>
+			<result name="input">content/user/login.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 		</action>
 		
 		<action name="logout" class="logoutUserAction">
-			<result name="success">WEB-INF/content/user/logout.jsp</result>
+			<result name="success">content/user/logout.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 		</action>
 		
 		<action name="manageColumns" class="manageColumnsAction">
 			<result name="success" type="redirect">${action}Management.action</result>
-			<result name="input">WEB-INF/content/error.jsp</result>
+			<result name="input">content/error.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
@@ -120,69 +120,69 @@
 		
 		<!-- Contact Actions -->
  		<action name="contactManagement" class="contactManagementAction">
- 			<result name="success">WEB-INF/content/contact/manage.jsp</result>
+ 			<result name="success">content/contact/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
 		<action name="addContact" class="addContactAction">
 			<result name="success" type="redirect">contactManagement.action</result>
-			<result name="input">WEB-INF/content/contact/manage.jsp</result>
+			<result name="input">content/contact/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateContact" class="updateContactAction">
 			<result name="success" type="redirect">contactManagement.action</result>
-			<result name="input">WEB-INF/content/contact/manage.jsp</result>
+			<result name="input">content/contact/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteContact" class="deleteContactAction">
 			<result name="success" type="redirect">contactManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/contact/manage.jsp</result>
+			<result name="input">content/contact/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		 
 		 <action name="viewContact" class="contactViewAction">
- 			<result name="success">WEB-INF/content/contact/view.jsp</result>
+ 			<result name="success">content/contact/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
  		
  		<!-- Contractor Actions -->
  		<action name="contractorManagement" class="contractorManagement">
- 			<result name="success">WEB-INF/content/contractor/manage.jsp</result>
+ 			<result name="success">content/contractor/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="viewContractor" class="contractorViewAction">
- 			<result name="success">WEB-INF/content/contractor/view.jsp</result>
+ 			<result name="success">content/contractor/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 		
 		<action name="addContractor" class="addContractorAction">
 			<result name="success" type="redirect">contractorManagement.action</result>
-			<result name="input">WEB-INF/content/contractor/manage.jsp</result>
+			<result name="input">content/contractor/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteContractor" class="deleteContractorAction">
 			<result name="success" type="redirect">contractorManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/contractor/manage.jsp</result>
+			<result name="input">content/contractor/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateContractor" class="updateContractorAction">
 			<result name="success" type="redirect">contractorManagement.action</result>
-			<result name="input">WEB-INF/content/contractor/manage.jsp</result>
+			<result name="input">content/contractor/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
@@ -190,101 +190,101 @@
  		
  		<!-- Location Actions -->
  		<action name="locationManagement" class="locationManagementAction">
- 			<result name="success">WEB-INF/content/location/manage.jsp</result>
+ 			<result name="success">content/location/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		 <action name="viewLocation" class="locationViewAction">
- 			<result name="success">WEB-INF/content/location/view.jsp</result>
+ 			<result name="success">content/location/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
 
 		<action name="addLocation" class="addLocationAction">
 			<result name="success" type="redirect">locationManagement.action</result>
-			<result name="input">WEB-INF/content/location/manage.jsp</result>
+			<result name="input">content/location/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateLocation" class="updateLocationAction">
 			<result name="success" type="redirect">locationManagement.action</result>
-			<result name="input">WEB-INF/content/location/manage.jsp</result>
+			<result name="input">content/location/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteLocation" class="deleteLocationAction">
 			<result name="success" type="redirect">locationManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/location/manage.jsp</result>
+			<result name="input">content/location/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  		
  		<!-- Service Technician Actions -->
  		<action name="serviceTechnicianManagement" class="serviceTechnicianManagement">
- 			<result name="success">WEB-INF/content/service_technician/manage.jsp</result>
-			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
+ 			<result name="success">content/service_technician/manage.jsp</result>
+			<result name="input">content/service_technician/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
 		<action name="addServiceTechnician" class="addServiceTechnicianAction">
 			<result name="success" type="redirect">serviceTechnicianManagement.action</result>
-			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
+			<result name="input">content/service_technician/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateServiceTechnician" class="updateServiceTechnicianAction">
 			<result name="success" type="redirect">serviceTechnicianManagement.action</result>
-			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
+			<result name="input">content/service_technician/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteServiceTechnician" class="deleteServiceTechnicianAction">
 			<result name="success" type="redirect">serviceTechnicianManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/service_technician/manage.jsp</result>
+			<result name="input">content/service_technician/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		 		
  		<!--Shipment Actions -->
  		<action name="shipmentManagement" class="shipmentManagement">
-			<result name="success">WEB-INF/content/shipment/manage.jsp</result>
+			<result name="success">content/shipment/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
  		 <action name="viewShipments" class="shipmentViewAction">
- 			<result name="success">WEB-INF/content/shipment/view.jsp</result>
+ 			<result name="success">content/shipment/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
  		<action name="addShipmentForm" class="baseAction">
-			<result>WEB-INF/content/shipment/addForm.jsp</result>
+			<result>content/shipment/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 
 		<action name="addShipment" class="addShipmentAction">
 			<result name="success" type="redirect">shipmentManagement.action</result>
-			<result name="input">WEB-INF/content/shipment/manage.jsp</result>
+			<result name="input">content/shipment/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateShipment" class="updateShipmentAction">
 			<result name="success" type="redirect">shipmentManagement.action</result>
-			<result name="input">WEB-INF/content/shipment/manage.jsp</result>
+			<result name="input">content/shipment/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteShipment" class="deleteShipmentAction">
 			<result name="success" type="redirect">shipmentManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/shipment/manage.jsp</result>
+			<result name="input">content/shipment/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
@@ -292,107 +292,107 @@
  		
  		<!-- Maintenance Order Actions -->
  		<action name="maintenanceOrderManagement" class="maintenanceOrderManagementAction">
- 			<result name="success">WEB-INF/content/maintenance_order/manage.jsp</result>
-			<result name="input">WEB-INF/content/maintenance_order/manage.jsp</result>
+ 			<result name="success">content/maintenance_order/manage.jsp</result>
+			<result name="input">content/maintenance_order/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
 		<action name="addMaintenaceOrder" class="addMaintenanceOrderAction">
 			<result name="success" type="redirect">maintenanceOrderManagement.action</result>
-			<result name="input">WEB-INF/content/maintenance_order/manage.jsp</result>
+			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateMaintenanceOrder" class="updateMainteanceOrderAction">
 			<result name="success" type="redirect">maintenanceOrderManagement.action</result>
-			<result name="input">WEB-INF/content/maintenance_order/manage.jsp</result>
+			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteMaintenanceOrder" class="deleteMaintenanceOrderAction">
 			<result name="success" type="redirect">maintenanceOrderManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/maintenance_order/manage.jsp</result>
+			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  		
  		 <action name="viewMaintenanceOrder" class="maintenanceOrderViewAction">
- 			<result name="success">WEB-INF/content/maintenance_order/view.jsp</result>
+ 			<result name="success">content/maintenance_order/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
  		<!-- Vehicle Actions -->
  		<action name="vehicleManagement" class="vehicleManagement">
- 			<result name="success">WEB-INF/content/vehicle/manage.jsp</result>
-			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
+ 			<result name="success">content/vehicle/manage.jsp</result>
+			<result name="input">content/vehicle/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
 		<action name="addVehicle" class="addVehicleAction">
 			<result name="success" type="redirect">vehicleManagement.action</result>
-			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
+			<result name="input">content/vehicle/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateVehicle" class="updateVehicleAction">
 			<result name="success" type="redirect">vehicleManagement.action</result>
-			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
+			<result name="input">content/vehicle/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteVehicle" class="deleteVehicleAction">
 			<result name="success" type="redirect">vehicleManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/vehicle/manage.jsp</result>
+			<result name="input">content/vehicle/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
  		
  		 <action name="viewVehicle" class="vehicleViewAction">
- 			<result name="success">WEB-INF/content/vehicle/view.jsp</result>
+ 			<result name="success">content/vehicle/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>	
 
  		<!-- Vehicle Type Actions -->
  		<action name="vehicleTypeManagement" class="vehicleTypeManagementAction">
- 			<result name="success">WEB-INF/content/vehicle_type/manage.jsp</result>
+ 			<result name="success">content/vehicle_type/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		 <action name="viewVehicleTypes" class="vehicleTypeViewAction">
- 			<result name="success">WEB-INF/content/vehicle_type/view.jsp</result>
+ 			<result name="success">content/vehicle_type/view.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  		</action>
  		
  		<action name="addVehicleTypeForm" class="baseAction">
-			<result>WEB-INF/content/vehicle_type/addForm.jsp</result>
+			<result>content/vehicle_type/addForm.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 
 		<action name="addVehicleType" class="addVehicleTypeAction">
 			<result name="success" type="redirect">vehicleTypeManagement.action</result>
-			<result name="input">WEB-INF/content/vehicle_type/manage.jsp</result>
+			<result name="input">content/vehicle_type/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>	
 		
 		<action name="updateVehicleType" class="updateVehicleTypeAction">
 			<result name="success" type="redirect">vehicleTypeManagement.action</result>
-			<result name="input">WEB-INF/content/vehicle_type/manage.jsp</result>
+			<result name="input">content/vehicle_type/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteVehicleType" class="deleteVehicleTypeAction">
 			<result name="success" type="redirect">vehicleTypeManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/vehicleType/manage.jsp</result>
+			<result name="input">content/vehicleType/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
@@ -400,57 +400,57 @@
  		
  		<!-- Driver Actions -->
  		<action name="driverManagement" class="driverManagement">
- 			<result name="success">WEB-INF/content/driver/manage.jsp</result>
-			<result name="input">WEB-INF/content/driver/manage.jsp</result>
+ 			<result name="success">content/driver/manage.jsp</result>
+			<result name="input">content/driver/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
 
 		<action name="addDriver" class="addDriverAction">
 			<result name="success" type="redirect">driverManagement.action</result>
-			<result name="input">WEB-INF/content/driver/manage.jsp</result>
+			<result name="input">content/driver/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="updateDriver" class="updateDriverAction">
 			<result name="success" type="redirect">driverManagement.action</result>
-			<result name="input">WEB-INF/content/driver/manage.jsp</result>
+			<result name="input">content/driver/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
 		<action name="deleteDriver" class="deleteDriverAction">
 			<result name="success" type="redirect">driverManagement.action?deleted=true</result>
-			<result name="input">WEB-INF/content/driver/manage.jsp</result>
+			<result name="input">content/driver/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 
  		<!-- Route Actions -->
  		<action name="routeManagement" class="routeManagement">
- 			<result name="success">WEB-INF/content/route/manage.jsp</result>
+ 			<result name="success">content/route/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
  			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="addRoute" class="addRoute">
  			<result name="success" type="redirect">routeManagement.action</result>
-			<result name="input">WEB-INF/content/route/manage.jsp</result>
+			<result name="input">content/route/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="updateRoute" class="updateRoute">
  			<result name="success" type="redirect">routeManagement.action</result>
-			<result name="input">WEB-INF/content/route/manage.jsp</result>
+			<result name="input">content/route/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
  		
  		<action name="deleteRoute" class="deleteRoute">
  			<result name="success" type="redirect">routeManagement.action</result>
-			<result name="input">WEB-INF/content/route/manage.jsp</result>
+			<result name="input">content/route/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>

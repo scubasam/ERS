@@ -28,7 +28,7 @@
 				<s:else>
 					<div class="login">
 						<h2 style="text-align: center;">User Login</h2>
-						<jsp:include page="/WEB-INF/content/user/loginForm.jsp" />
+						<jsp:include page="/content/user/loginForm.jsp" />
 					</div>
 				</s:else>
 				<div class="push"></div>

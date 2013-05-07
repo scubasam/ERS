@@ -27,7 +27,7 @@
 	
 	<error-page>
 	    <error-code>404</error-code>
-	    <location>/WEB-INF/content/404.html</location>
+	    <location>/content/404.html</location>
 	</error-page>
 	
 	

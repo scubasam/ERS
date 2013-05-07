@@ -19,7 +19,7 @@
 	<s:textfield name="serviceTechnician.contact" label="contact" />
 	<s:textfield name="serviceTechnician.skillGrade" label="skillGrade" />
 	<s:textfield name="maintenanceOrder.maintenanceOrders" label="maintenanceOrders" />
-	<jsp:include page ="/WEB-INF/content/contact/fieldForm.jsp" />
+	<jsp:include page ="/content/contact/fieldForm.jsp" />
 	
 	<s:submit type="button" name="Add Service Technician" />
 		
