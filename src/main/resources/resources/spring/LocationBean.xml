@@ -22,8 +22,4 @@
 	<bean id="deleteLocationAction" class="edu.thangiah.action.location.DeleteAction" scope="prototype">
 		<property name="locationDao" ref="locationDao" />
 	</bean>
- 		
-	<bean id="locationViewAction" class="edu.thangiah.action.location.ViewAction" scope="protoype">
-	</bean>
-	
 </beans>

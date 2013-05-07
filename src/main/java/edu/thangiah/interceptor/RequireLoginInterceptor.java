@@ -37,7 +37,6 @@ public class RequireLoginInterceptor implements Interceptor {
 		LOGGER.debug("Initializing RequireLogin Interceptor.");
 	}
 
-	@SuppressWarnings("unused")
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		currentSession = invocation.getInvocationContext().getSession();

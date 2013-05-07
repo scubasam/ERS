@@ -8,6 +8,7 @@
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="driverDao" ref="driverDao" />
 		<property name="contractorDao" ref="contractorDao" />
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
 	
 	<bean id="addDriverAction" class="edu.thangiah.action.driver.AddAction" scope="prototype">
@@ -15,6 +16,7 @@
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="driverDao" ref="driverDao" />
 		<property name="contractorDao" ref="contractorDao" />
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
 	
 	<bean id="updateDriverAction" class="edu.thangiah.action.driver.UpdateAction" scope="prototype">
@@ -22,9 +24,14 @@
 		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="driverDao" ref="driverDao" />
 		<property name="contractorDao" ref="contractorDao" />
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
 	
 	<bean id="deleteDriverAction" class="edu.thangiah.action.driver.DeleteAction" scope="prototype">
+		<property name="contactDao" ref="contactDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 		<property name="driverDao" ref="driverDao" />
+		<property name="contractorDao" ref="contractorDao" />
+		<property name="maintenanceOrderDao" ref="maintenanceOrderDao" />
 	</bean>
 </beans>

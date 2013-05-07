@@ -46,16 +46,21 @@ public class DeleteAction extends ManagementController
     	
     	try{
     		
-    		if(fromDb !=null)
+    		if(fromDb !=null && contactDao.findByContractor(contractor) == null && contactDao.findByDriver(driver) == null && contactDao.findByServiceTechnician(serviceTechnician) == null)
     		{
     			contactDao.delete(fromDb);
+    	    	return SUCCESS;
     		}
-    	}
+    		else{
+        		this.addActionError("A dependency exists which is connected to this contact information.  Please delete the dependency first.");
+        		return INPUT;
+    		}
+    	}	
     	catch( Exception e ){
-    		this.addActionError("A contractor exists which is connected to this contact information.  Please delete the contractor first.");
+    		this.addActionError("And error has occured please try refreshing the page. If this persists contact a system admin");
     		return INPUT;
     	}
     	
-    	return SUCCESS;
+
     }
 }
