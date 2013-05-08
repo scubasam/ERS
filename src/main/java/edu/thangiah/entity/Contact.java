@@ -3,9 +3,10 @@ package edu.thangiah.entity;
 import java.io.Serializable;
 
 
+
 /**
  * Contact model.
- * @author pbair,ksmith
+ * @author pbair,ksmith, Alex McCracken
  */
 public class Contact implements Serializable, EntityInterface {
     private static final long serialVersionUID = 1L;
@@ -21,7 +22,7 @@ public class Contact implements Serializable, EntityInterface {
     private String zip = null;
     private String primaryPhone = null;
     private String workPhone = null;
-
+    
     public Contact() {
     	
     }

@@ -1,6 +1,5 @@
 package edu.thangiah.action.contact;
 
-
 import edu.thangiah.entity.Contact;
 
 /**
@@ -17,14 +16,12 @@ public class DeleteAction extends ManagementController
 	 * 
 	 */
 	private static final long serialVersionUID = -5049171011473675910L;
-
-
+	
 	@Override
 	public void prepare() throws Exception {
 		this.mode = Modes.DELETE;
 		super.prepare();
 	}
-	
 	
 	@Override
     public String execute(){
@@ -45,9 +42,7 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		
-    		if(fromDb !=null && contactDao.findByContractor(contractor) == null && contactDao.findByDriver(driver) == null && contactDao.findByServiceTechnician(serviceTechnician) == null)
-    		{
+    		if(fromDb !=null && serviceTechnicianDao.findByContact(fromDb) == null && driverDao.findByContact(fromDb) == null && contractorDao.findByContact(fromDb) == null) {
     			contactDao.delete(fromDb);
     	    	return SUCCESS;
     		}
@@ -60,7 +55,5 @@ public class DeleteAction extends ManagementController
     		this.addActionError("And error has occured please try refreshing the page. If this persists contact a system admin");
     		return INPUT;
     	}
-    	
-
     }
 }

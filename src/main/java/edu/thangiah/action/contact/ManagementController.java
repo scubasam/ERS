@@ -17,10 +17,6 @@ import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.DriverDao;
 import edu.thangiah.dao.ServiceTechnicianDao;
 import edu.thangiah.entity.Contact;
-import edu.thangiah.entity.Contractor;
-import edu.thangiah.entity.Driver;
-import edu.thangiah.entity.ServiceTechnician;
-
 /**
  * 
  * This class extends our base management controller class and handles
@@ -40,15 +36,12 @@ public class ManagementController extends BaseManagementController<Contact>{
 	protected ContactDao contactDao;
 	@Autowired
 	protected ContractorDao contractorDao;
-	@Autowired
+	@Autowired	
 	protected DriverDao driverDao;
-	@Autowired
+	@Autowired	
 	protected ServiceTechnicianDao serviceTechnicianDao;
 	
-	protected Contractor contractor;
-	protected Driver driver;
-	protected ServiceTechnician serviceTechnician;
-
+	
 	protected static final Map<String, String> columnMap;
 	static {
 		Map<String, String> columns = new LinkedHashMap<String, String>();
@@ -127,15 +120,13 @@ public class ManagementController extends BaseManagementController<Contact>{
 	public void setContactDao(ContactDao contactDao) {
 		this.contactDao = contactDao;
 	}
-	
-	public void setContractorDao(ContractorDao contractorDao)
-	{
-		this.contractorDao = contractorDao;
-	}
-	
-	public ContractorDao getContractorDao()
-	{
+
+	public ContractorDao getContractorDao() {
 		return contractorDao;
+	}
+
+	public void setContractorDao(ContractorDao contractorDao) {
+		this.contractorDao = contractorDao;
 	}
 
 	public DriverDao getDriverDao() {
@@ -152,29 +143,5 @@ public class ManagementController extends BaseManagementController<Contact>{
 
 	public void setServiceTechnicianDao(ServiceTechnicianDao serviceTechnicianDao) {
 		this.serviceTechnicianDao = serviceTechnicianDao;
-	}
-
-	public Contractor getContractor() {
-		return contractor;
-	}
-
-	public void setContractor(Contractor contractor) {
-		this.contractor = contractor;
-	}
-
-	public Driver getDriver() {
-		return driver;
-	}
-
-	public void setDriver(Driver driver) {
-		this.driver = driver;
-	}
-
-	public ServiceTechnician getServiceTechnician() {
-		return serviceTechnician;
-	}
-
-	public void setServiceTechnician(ServiceTechnician serviceTechnician) {
-		this.serviceTechnician = serviceTechnician;
 	}
 }

@@ -2,6 +2,7 @@ package edu.thangiah.dao;
 
 import java.util.List;
 
+import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Driver;
 import edu.thangiah.entity.MaintenanceOrder;
 
@@ -31,7 +32,11 @@ public class DriverDao extends AbstractDao<Driver> {
 	public List<MaintenanceOrder> findByMaintenanceOrder(MaintenanceOrder maintenanceOrders){
 		return getHibernateTemplate().find("from Driver where maintenanceOrder_id=?", maintenanceOrders.getId());
 	}
-
+	
+	@SuppressWarnings("unchecked")
+	public List<Driver> findByContact(Contact contact){
+		return getHibernateTemplate().find("from Driver where driver_id=?", contact.getId());
+	}
 	
 	
 	

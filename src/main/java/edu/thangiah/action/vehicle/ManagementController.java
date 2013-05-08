@@ -21,7 +21,6 @@ import edu.thangiah.dao.VehicleTypeDao;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Driver;
 import edu.thangiah.entity.Location;
-import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Vehicle;
 import edu.thangiah.entity.VehicleType;
 import edu.thangiah.strutsutility.StrutsSelect;
@@ -56,8 +55,6 @@ public class ManagementController extends BaseManagementController<Vehicle>{
 	protected VehicleDao vehicleDao;
 	@Autowired
 	protected MaintenanceOrderDao maintenanceOrderDao;
-	
-	protected MaintenanceOrder maintenanceOrder;
 	
 	protected StrutsSelect<VehicleType> vehicleTypeSelect;
 	protected StrutsSelect<Contractor> contractorSelect;
@@ -246,14 +243,6 @@ public class ManagementController extends BaseManagementController<Vehicle>{
 
 	public void setMaintenanceOrderDao(MaintenanceOrderDao maintenanceOrderDao) {
 		this.maintenanceOrderDao = maintenanceOrderDao;
-	}
-
-	public MaintenanceOrder getMaintenanceOrder() {
-		return maintenanceOrder;
-	}
-
-	public void setMaintenanceOrder(MaintenanceOrder maintenanceOrder) {
-		this.maintenanceOrder = maintenanceOrder;
 	}
 	
 }

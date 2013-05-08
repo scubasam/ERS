@@ -41,7 +41,7 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null && fromDb.getLocations() == null && fromDb.getVehicles() == null && fromDb.getContact() == null){
+    		if(fromDb != null && locationDao.findByContractor(fromDb) == null && vehicleDao.findByContractor(fromDb) == null && contactDao.findByContractor(fromDb) == null){
     			contractorDao.delete(fromDb);
     			return SUCCESS;
     		}
@@ -52,8 +52,7 @@ public class DeleteAction extends ManagementController
     		
     	}
     	catch( Exception e ){
-    		this.addActionError("Drivers, Locations, or Vehicles exist that are connected to this contractor.  It cannot be deleted.");
-    		
+    		this.addActionError("And error has occurred please refresh the page. If this continues contact your system admin!");
     		return INPUT;
     	}
     }

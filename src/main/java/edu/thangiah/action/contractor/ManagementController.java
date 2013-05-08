@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.Action;
 
 import edu.thangiah.action.BaseManagementController;
+import edu.thangiah.dao.ContactDao;
 import edu.thangiah.dao.ContractorDao;
+import edu.thangiah.dao.LocationDao;
+import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
 
@@ -34,6 +37,12 @@ public class ManagementController extends BaseManagementController<Contractor>{
 	
 	@Autowired
 	protected ContractorDao contractorDao;
+	@Autowired 
+	VehicleDao vehicleDao;
+	@Autowired
+	ContactDao contactDao;
+	@Autowired
+	LocationDao locationDao;
 	
 	protected Contact contact;
 	
@@ -123,5 +132,29 @@ public class ManagementController extends BaseManagementController<Contractor>{
 	
 	public void setContractor(Contractor contractor){
 		this.setEntity(contractor);
+	}
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+
+	public ContactDao getContactDao() {
+		return contactDao;
+	}
+
+	public void setContactDao(ContactDao contactDao) {
+		this.contactDao = contactDao;
+	}
+
+	public LocationDao getLocationDao() {
+		return locationDao;
+	}
+
+	public void setLocationDao(LocationDao locationDao) {
+		this.locationDao = locationDao;
 	}
 }

@@ -34,9 +34,11 @@ public class ManagementController extends BaseManagementController<VehicleType>{
 	
 	@Autowired
 	protected VehicleTypeDao vehicleTypeDao;
+	@Autowired
+	protected VehicleDao vehicleDao;
 	
 	protected long newVehicleId;
-	protected VehicleDao vehicleDao;
+
 	protected Vehicle vehicle;
 	protected Set<Vehicle> vehicles;
 	

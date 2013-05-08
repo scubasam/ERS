@@ -1,6 +1,5 @@
 package edu.thangiah.action.location;
 
-
 import edu.thangiah.entity.Location;
 
 /**
@@ -19,7 +18,6 @@ public class DeleteAction extends ManagementController
 	 * 
 	 */
 	private static final long serialVersionUID = -3085733381513456454L;
-
 
 	@Override
 	public void prepare() throws Exception {
@@ -47,7 +45,7 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb !=null && fromDb.getVehicles() == null && fromDb.getContractor() == null){
+    		if(fromDb !=null && vehicleDao.findByLocation(fromDb) == null){
     	  		locationDao.delete(fromDb);
     	  		return SUCCESS;
     		}
@@ -57,7 +55,7 @@ public class DeleteAction extends ManagementController
     		}
     	}
     	catch( Exception e ){
-    		this.addActionError("A dependency exists and is prohibiting this deletion.");
+    		this.addActionError("An error has occurred please refresh the page. If this continues contact your system admin!");
     		return INPUT;
     	}
     }

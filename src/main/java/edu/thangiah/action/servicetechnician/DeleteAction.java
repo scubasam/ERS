@@ -42,7 +42,7 @@ public class DeleteAction extends ManagementController{
 		
 		try{
 			
-			if(fromDb != null && fromDb.getMaintenanceOrder() ==  null)
+			if(fromDb != null && maintenanceOrderDao.findByServiceTechnician(fromDb) ==  null)
 			{
 				serviceTechnicianDao.delete(fromDb);
 			}

@@ -13,6 +13,7 @@ import com.opensymphony.xwork2.Action;
 import edu.thangiah.action.BaseManagementController;
 import edu.thangiah.dao.ContractorDao;
 import edu.thangiah.dao.LocationDao;
+import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 
@@ -39,6 +40,9 @@ public class ManagementController extends BaseManagementController<Location>{
 	
 	@Autowired
 	protected ContractorDao contractorDao;
+	
+	@Autowired
+	protected VehicleDao vehicleDao;
 	
 	protected List<Contractor> contractorList;
 	
@@ -231,5 +235,13 @@ public class ManagementController extends BaseManagementController<Location>{
 
 	public void setSelectedContractorId(long selectedContractorId) {
 		this.selectedContractorId = selectedContractorId;
+	}
+
+	public VehicleDao getVehicleDao() {
+		return vehicleDao;
+	}
+
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
 	}
 }

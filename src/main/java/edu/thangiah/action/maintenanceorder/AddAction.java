@@ -24,10 +24,8 @@ public class AddAction extends ManagementController implements Preparable{
 	
 	@Autowired
 	protected VehicleDao vehicleDao;
-	
 	@Autowired
 	protected DriverDao driverDao;
-	
 	@Autowired
 	protected ServiceTechnicianDao serviceTechnicianDao;
 	
@@ -51,9 +49,7 @@ public class AddAction extends ManagementController implements Preparable{
 		newMaintenanceOrder.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
 		
 		try{
-			if(this.getEntity() != null){
 				maintenanceOrderDao.add(newMaintenanceOrder);				
-			}
 		}
 		catch(Exception e){
 			return ERROR;

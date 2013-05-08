@@ -347,45 +347,29 @@
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
- 		
- 		 <action name="viewVehicle" class="vehicleViewAction">
- 			<result name="success">content/vehicle/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>	
 
  		<!-- Vehicle Type Actions -->
- 		<action name="vehicleTypeManagement" class="vehicleTypeManagementAction">
+ 		<action name="vehicleTypeManagement" class="vehicleTypeManagement">
  			<result name="success">content/vehicle_type/manage.jsp</result>
  			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
  		</action>
- 		
- 		 <action name="viewVehicleTypes" class="vehicleTypeViewAction">
- 			<result name="success">content/vehicle_type/view.jsp</result>
- 			<interceptor-ref name="authStack"></interceptor-ref>
- 		</action>
- 		
- 		<action name="addVehicleTypeForm" class="baseAction">
-			<result>content/vehicle_type/addForm.jsp</result>
-			<interceptor-ref name="authStack"></interceptor-ref>
-			<interceptor-ref name="requireLogin"></interceptor-ref>
-		</action>
 
-		<action name="addVehicleType" class="addVehicleTypeAction">
+		<action name="addVehicleType" class="addVehicleType">
 			<result name="success" type="redirect">vehicleTypeManagement.action</result>
 			<result name="input">content/vehicle_type/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>	
 		
-		<action name="updateVehicleType" class="updateVehicleTypeAction">
+		<action name="updateVehicleType" class="updateVehicleType">
 			<result name="success" type="redirect">vehicleTypeManagement.action</result>
 			<result name="input">content/vehicle_type/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		<action name="deleteVehicleType" class="deleteVehicleTypeAction">
+		<action name="deleteVehicleType" class="deleteVehicleType">
 			<result name="success" type="redirect">vehicleTypeManagement.action?deleted=true</result>
 			<result name="input">content/vehicleType/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>

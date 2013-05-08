@@ -2,6 +2,7 @@ package edu.thangiah.dao;
 
 import java.util.List;
 
+import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.ServiceTechnician;
 
 /**
@@ -26,4 +27,9 @@ public class ServiceTechnicianDao extends AbstractDao<ServiceTechnician> {
     public List<ServiceTechnician> findById(Long id) {
         return getHibernateTemplate().find("from ServiceTechnician where id=?", id);
     }
+	
+	@SuppressWarnings("unchecked")
+	public List<ServiceTechnician> findByContact(Contact contact){
+		return getHibernateTemplate().find("from ServiceTechnician where contact_id=?", contact.getId());
+	}
 }

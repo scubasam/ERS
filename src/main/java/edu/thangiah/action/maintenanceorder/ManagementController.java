@@ -45,8 +45,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 	protected ServiceTechnicianDao serviceTechnicianDao;
 	@Autowired 
 	protected DriverDao driverDao;
-
-	protected ServiceTechnician serviceTechnician;
 	
 	protected StrutsSelect<Vehicle> vehicleSelect;
 	protected StrutsSelect<Driver> driverSelect;
@@ -92,9 +90,9 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		}
 		
 		try{
-			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
 			driverSelect = new StrutsSelect<Driver>(driverDao, "requester");
 			serviceTechnicianSelect = new StrutsSelect<ServiceTechnician>(serviceTechnicianDao, "serviceTechnician");
+			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
 		}
 		catch(StrutsElementException e){
 			this.addActionError("Unable to connect to the database.  Please contact your system administrator.");
@@ -170,14 +168,6 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		this.maintenanceOrderDao = maintenanceOrderDao;
 	}
 
-	public ServiceTechnician getServiceTechnician() {
-		return serviceTechnician;
-	}
-
-	public void setServiceTechnician(ServiceTechnician serviceTechnician) {
-		this.serviceTechnician = serviceTechnician;
-	}
-
 	public StrutsSelect<Vehicle> getVehicleSelect() {
 		return vehicleSelect;
 	}
@@ -215,16 +205,16 @@ public class ManagementController extends BaseManagementController<MaintenanceOr
 		return driverDao;
 	}
 
+	public void setVehicleDao(VehicleDao vehicleDao) {
+		this.vehicleDao = vehicleDao;
+	}
+	
 	public void setDriverDao(DriverDao driverDao) {
 		this.driverDao = driverDao;
 	}
 
 	public VehicleDao getVehicleDao() {
 		return vehicleDao;
-	}
-
-	public void setVehicleDao(VehicleDao vehicleDao) {
-		this.vehicleDao = vehicleDao;
 	}
 	
 

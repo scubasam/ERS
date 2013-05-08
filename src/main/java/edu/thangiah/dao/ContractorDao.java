@@ -3,8 +3,8 @@ package edu.thangiah.dao;
 import java.util.List;
 
 
+import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
-import edu.thangiah.entity.Location;
 
 
 /**
@@ -30,8 +30,7 @@ public class ContractorDao extends AbstractDao<Contractor> {
     }
 
 	@SuppressWarnings("unchecked")
-	public List<Contractor> findByLocation(Location location){
-		return getHibernateTemplate().find("from Contractor where location_id=?", location.getId());
+	public List<Contractor> findByContact(Contact contact){
+		return getHibernateTemplate().find("from Contractor where contact_id=?", contact.getId());
 	}
-
 }

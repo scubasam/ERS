@@ -97,7 +97,7 @@ public class ManagementController extends BaseManagementController<Driver>{
 		}
 		
 		try{
-			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicle");
+			vehicleSelect = new StrutsSelect<Vehicle>(vehicleDao, "vehicles");
 			contactSelect = new StrutsSelect<Contact>(contactDao, "contact");
 			contractorSelect = new StrutsSelect<Contractor>(contractorDao, "contractor");
 		}
