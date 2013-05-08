@@ -7,19 +7,21 @@
 	<bean id="locationManagementAction" class="edu.thangiah.action.location.ManagementController" scope="prototype">
 		<property name="locationDao" ref="locationDao" />
 		<property name="contractorDao" ref="contractorDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
  	
  	<bean id="addLocationAction" class="edu.thangiah.action.location.AddAction" scope="prototype">
- 		<property name="locationDao" ref="locationDao" />
+		<property name="locationDao" ref="locationDao" />
 		<property name="contractorDao" ref="contractorDao" />
-	</bean>
+		<property name="vehicleDao" ref="vehicleDao" />	</bean>
 	
 	<bean id="updateLocationAction" class="edu.thangiah.action.location.UpdateAction" scope="prototype">
- 		<property name="locationDao" ref="locationDao" />
+		<property name="locationDao" ref="locationDao" />
 		<property name="contractorDao" ref="contractorDao" />
-	</bean>
+		<property name="vehicleDao" ref="vehicleDao" />	</bean>
  	
 	<bean id="deleteLocationAction" class="edu.thangiah.action.location.DeleteAction" scope="prototype">
 		<property name="locationDao" ref="locationDao" />
-	</bean>
+		<property name="contractorDao" ref="contractorDao" />
+		<property name="vehicleDao" ref="vehicleDao" />	</bean>
 </beans>

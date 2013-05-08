@@ -5,10 +5,12 @@
 	
 	<bean id="addVehicleType" class="edu.thangiah.action.vehicletype.AddAction" scope="prototype">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
 	
 	<bean id="vehicleTypeManagement" class="edu.thangiah.action.vehicletype.ManagementController" scope="prototype">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
  
 	<bean id="updateVehicleType" class="edu.thangiah.action.vehicletype.UpdateAction" scope="prototype">
@@ -18,5 +20,6 @@
 	
 	<bean id="deleteVehicleType" class="edu.thangiah.action.vehicletype.DeleteAction" scope="prototype">
 		<property name="vehicleTypeDao" ref="vehicleTypeDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
 	</bean>
 </beans>

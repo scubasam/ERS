@@ -6,25 +6,27 @@
  	
 	<bean id="contractorManagement" class="edu.thangiah.action.contractor.ManagementController" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
-	</bean>
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="contactDao" ref="contactDao" />	</bean>
 	
 	<bean id="addContractorAction" class="edu.thangiah.action.contractor.AddAction" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
-		<property name="contactDao" ref="contactDao" />
-	</bean>
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="contactDao" ref="contactDao" />	</bean>
 	
-	<bean id="contractorViewAction" class="edu.thangiah.action.contractor.ViewAction" scope="prototype">
+	<bean id="deleteContractorAction" class="edu.thangiah.action.contractor.DeleteAction">
 		<property name="contractorDao" ref="contractorDao" />
 		<property name="locationDao" ref="locationDao" />
 		<property name="vehicleDao" ref="vehicleDao" />
-	</bean>
-	
-	<bean id="deleteContractorAction" class="edu.thangiah.action.contractor.DeleteAction">
-		<property name="contractorDao" ref="contractorDao"/>
-	</bean>
+		<property name="contactDao" ref="contactDao" />	</bean>
 	
 	<bean id="updateContractorAction" class="edu.thangiah.action.contractor.UpdateAction" scope="prototype">
 		<property name="contractorDao" ref="contractorDao" />
+		<property name="locationDao" ref="locationDao" />
+		<property name="vehicleDao" ref="vehicleDao" />
+		<property name="contactDao" ref="contactDao" />	
 	</bean>
  
 </beans>

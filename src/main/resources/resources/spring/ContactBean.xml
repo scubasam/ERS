@@ -5,18 +5,30 @@
  	
 	<bean id="contactManagementAction" class="edu.thangiah.action.contact.ManagementController" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="contractorDao" ref="contractorDao" />
 	</bean>
 	
 	<bean id="addContactAction" class="edu.thangiah.action.contact.AddAction" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="contractorDao" ref="contractorDao" />
 	</bean>
 	
 	<bean id="updateContactAction" class="edu.thangiah.action.contact.UpdateAction" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="contractorDao" ref="contractorDao" />
 	</bean>
 	
 	<bean id="deleteContactAction" class="edu.thangiah.action.contact.DeleteAction" scope="prototype">
 		<property name="contactDao" ref="contactDao" />
+		<property name="driverDao" ref="driverDao" />
+		<property name="serviceTechnicianDao" ref="serviceTechnicianDao" />
+		<property name="contractorDao" ref="contractorDao" />
 	</bean>
  
 </beans>
