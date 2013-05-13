@@ -1,5 +1,8 @@
 package edu.thangiah.action.vehicle;
 
+import java.util.List;
+
+import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.Vehicle;
 
 /**
@@ -41,9 +44,10 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null && maintenanceOrderDao.findByVehicle(fromDb) == null) {
-        		vehicleDao.delete(fromDb);	
-        	  	return SUCCESS;
+    		List<MaintenanceOrder> maintenanceOrders = maintenanceOrderDao.findByVehicle(fromDb);
+    		if(maintenanceOrders == null || maintenanceOrders.size() == 0){
+    			vehicleDao.delete(fromDb);
+    			return SUCCESS;
     		}
     		else{
         		this.addActionError("Maintenance orders are conencted to this vehicle it cannot be deleted.");

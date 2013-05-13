@@ -1,6 +1,9 @@
 package edu.thangiah.action.driver;
 
+import java.util.List;
+
 import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.MaintenanceOrder;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
@@ -41,9 +44,13 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null && maintenanceOrderDao.findByRequester(fromDb) == null) {
-    			driverDao.delete(fromDb);    			
+    		
+    		List<MaintenanceOrder> maintenanceOrders = maintenanceOrderDao.findByRequester(fromDb);
+    		if(maintenanceOrders == null || maintenanceOrders.size() == 0){
+    			driverDao.delete(fromDb);
+    			return SUCCESS;
     		}
+    		
     		else {
     			this.addActionError("Dependencies exist.  It cannot be deleted.");
     			return INPUT;

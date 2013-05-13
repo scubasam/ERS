@@ -1,5 +1,8 @@
 package edu.thangiah.action.servicetechnician;
 
+import java.util.List;
+
+import edu.thangiah.entity.MaintenanceOrder;
 import edu.thangiah.entity.ServiceTechnician;
 
 /**
@@ -41,10 +44,10 @@ public class DeleteAction extends ManagementController{
 		}
 		
 		try{
-			
-			if(fromDb != null && maintenanceOrderDao.findByServiceTechnician(fromDb) ==  null)
-			{
+			List<MaintenanceOrder> maintenanceOrders = maintenanceOrderDao.findByServiceTechnician(fromDb);
+			if(maintenanceOrders == null || maintenanceOrders.size() == 0){
 				serviceTechnicianDao.delete(fromDb);
+				return SUCCESS;
 			}
 			else {
 				this.addActionError("Dependencies Exist. You cannot delete it.");
@@ -55,7 +58,5 @@ public class DeleteAction extends ManagementController{
 			this.addActionError("And exception has occured please refresh the page. If this error continues contact system administrator.");
 			return INPUT;
 		}
-		
-		return SUCCESS;
 	}
 }

@@ -1,6 +1,11 @@
 package edu.thangiah.action.contractor;
 
+import java.util.List;
+
+import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
+import edu.thangiah.entity.Location;
+import edu.thangiah.entity.Vehicle;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
@@ -41,10 +46,16 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb != null && locationDao.findByContractor(fromDb) == null && vehicleDao.findByContractor(fromDb) == null && contactDao.findByContractor(fromDb) == null){
-    			contractorDao.delete(fromDb);
-    			return SUCCESS;
-    		}
+    		List<Location> locations = locationDao.findByContractor(fromDb);
+    		List<Vehicle> vehicles = vehicleDao.findByContractor(fromDb);
+    		List<Contact> contacts = contactDao.findByContractor(fromDb);  		
+    		
+    		if((locations == null || locations.size() == 0)
+    				&& (vehicles == null || vehicles.size() == 0)
+    				&& (contacts == null || contacts.size() == 0) ){
+    					contractorDao.delete(fromDb);
+    					return SUCCESS;
+    				}
     		else{
     			this.addActionError("Dependencies exist delete these first");
     			return INPUT;

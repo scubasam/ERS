@@ -1,6 +1,9 @@
 package edu.thangiah.action.vehicletype;
 
 
+import java.util.List;
+
+import edu.thangiah.entity.Vehicle;
 import edu.thangiah.entity.VehicleType;
 
 /**
@@ -47,9 +50,10 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb !=null && vehicleDao.findByVehicleType(fromDb) == null){
-    			vehicleTypeDao.delete(fromDb);
-    		   	return SUCCESS;
+    		List<Vehicle> vehicleTypes = vehicleDao.findByVehicleType(fromDb);
+    				if(vehicleTypes == null || vehicleTypes.size() == 0){
+		    			vehicleTypeDao.delete(fromDb);
+		    			return SUCCESS;
     		}
     		else {
         		this.addActionError("A dependency exists that is prohibiting this deleteion");
