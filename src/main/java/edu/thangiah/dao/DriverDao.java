@@ -35,7 +35,7 @@ public class DriverDao extends AbstractDao<Driver> {
 	
 	@SuppressWarnings("unchecked")
 	public List<Driver> findByContact(Contact contact){
-		return getHibernateTemplate().find("from Driver where driver_id=?", contact.getId());
+		return getHibernateTemplate().find("from Driver where contact_id=?", contact.getId());
 	}
 	
 	

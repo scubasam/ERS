@@ -1,6 +1,11 @@
 package edu.thangiah.action.contact;
 
+import java.util.List;
+
 import edu.thangiah.entity.Contact;
+import edu.thangiah.entity.Contractor;
+import edu.thangiah.entity.Driver;
+import edu.thangiah.entity.ServiceTechnician;
 
 /**
  * This class extends the management controller. It's primary function is to handle everything
@@ -42,14 +47,22 @@ public class DeleteAction extends ManagementController
     	}
     	
     	try{
-    		if(fromDb !=null && serviceTechnicianDao.findByContact(fromDb) == null && driverDao.findByContact(fromDb) == null && contractorDao.findByContact(fromDb) == null) {
-    			contactDao.delete(fromDb);
-    	    	return SUCCESS;
-    		}
-    		else{
-        		this.addActionError("A dependency exists which is connected to this contact information.  Please delete the dependency first.");
+			List<ServiceTechnician> serviceTechnicians = serviceTechnicianDao.findByContact(fromDb);
+			List<Driver> drivers = driverDao.findByContact(fromDb);
+			List<Contractor> contractors = contractorDao.findByContact(fromDb);
+			
+			if( ( serviceTechnicians == null || serviceTechnicians.size() == 0 )
+ 					&& (drivers == null || drivers.size() == 0)
+					&& (contractors == null || contractors.size() == 0) ){
+						
+						contactDao.delete(fromDb);
+		    	    	return SUCCESS;
+				
+			}
+			else{
+				this.addActionError("A dependency exists which is connected to this contact information.  Please delete the dependency first.");
         		return INPUT;
-    		}
+			}
     	}	
     	catch( Exception e ){
     		this.addActionError("And error has occured please try refreshing the page. If this persists contact a system admin");
