@@ -1,12 +1,7 @@
 package edu.thangiah.action.driver;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.opensymphony.xwork2.Preparable;
 
-import edu.thangiah.dao.ContactDao;
-import edu.thangiah.dao.ContractorDao;
-import edu.thangiah.dao.VehicleDao;
 import edu.thangiah.entity.Driver;
 import edu.thangiah.strutsutility.exception.StrutsElementException;
 
@@ -21,13 +16,6 @@ import edu.thangiah.strutsutility.exception.StrutsElementException;
 public class AddAction extends ManagementController implements Preparable{
 	
 	private static final long serialVersionUID = -5800683108151609064L;
-	
-	@Autowired
-	protected ContactDao contactDao;
-	@Autowired
-	protected VehicleDao vehicleDao;
-	@Autowired
-	protected ContractorDao contractorDao;
 	
 	
 	@Override
@@ -79,29 +67,5 @@ public class AddAction extends ManagementController implements Preparable{
     public void setDriver(Driver driver) {
     	this.setEntity(driver);
     }
-
-	public ContactDao getContactDao() {
-		return contactDao;
-	}
-
-	public void setContactDao(ContactDao contactDao) {
-		this.contactDao = contactDao;
-	}
-
-	public VehicleDao getVehicleDao() {
-		return vehicleDao;
-	}
-
-	public void setVehicleDao(VehicleDao vehicleDao) {
-		this.vehicleDao = vehicleDao;
-	}
-
-	public ContractorDao getContractorDao() {
-		return contractorDao;
-	}
-
-	public void setContractorDao(ContractorDao contractorDao) {
-		this.contractorDao = contractorDao;
-	}
     
 }

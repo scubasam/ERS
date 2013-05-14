@@ -49,10 +49,9 @@ public class UpdateAction extends ManagementController{
 		
 		if( this.hasActionErrors() || this.hasFieldErrors() )
 			return INPUT;
-    	fromDb = this.getEntity();
 		fromDb.setContact(contactSelect.getSelectedEntity());
 		fromDb.setMaintenanceOrder(maintenanceOrderSelect.getSelectedEntity());
-		
+		fromDb.setSkillGrade(this.getEntity().getSkillGrade());
 		try{
 			serviceTechnicianDao.update(fromDb);
 	    	return SUCCESS;
