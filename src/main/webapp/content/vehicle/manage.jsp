@@ -54,7 +54,7 @@
 						</s:url>
 
 						<div id="formContainer">
-							<s:form name="editForm" action="updateVehicle.action" id="vehicleForm">
+							<s:form name="editForm" action="%{updateVehicle}" id="vehicleForm">
 								<s:textfield name="vehicle.plateNumber" label="Plate Number" />
 								<s:textfield name="vehicle.vinNumber" label="Vin" />
 								<s:textfield name="vehicle.manufacturedYear" label="Manufactured Year" />
