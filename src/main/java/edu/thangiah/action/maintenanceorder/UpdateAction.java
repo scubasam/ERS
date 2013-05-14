@@ -53,6 +53,12 @@ public class UpdateAction extends ManagementController{
 		fromDb.setVehicle(vehicleSelect.getSelectedEntity());
 		fromDb.setDriver(driverSelect.getSelectedEntity());
 		fromDb.setServiceTechnician(serviceTechnicianSelect.getSelectedEntity());
+		fromDb.setScheduledDate(this.getEntity().getScheduledDate());
+		fromDb.setDetails(this.getEntity().getDetails());
+		fromDb.setServiceTypeKey(this.getEntity().getServiceTypeKey());
+		fromDb.setCost(this.getEntity().getCost());
+		fromDb.setStatusKey(this.getEntity().getStatusKey());
+		fromDb.setMaintenanceType(this.getEntity().getMaintenanceType());
 
 		try{
 			maintenanceOrderDao.update(fromDb);
@@ -77,7 +83,6 @@ public class UpdateAction extends ManagementController{
     		requiredString(getEntity().getStatusKey(), "maintenanceOrder.statusKey");
     		requiredString(getEntity().getVehicle().toString(), "maintenanceOrder.vehicle");
     		requiredString(getEntity().getMaintenanceType(), "maintenanceOrder.maintenanceType");
-    	
     	}		
     	else{
     		addActionError("Unknown error.  Please try again.");

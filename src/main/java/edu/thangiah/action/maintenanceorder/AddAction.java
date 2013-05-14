@@ -50,7 +50,9 @@ public class AddAction extends ManagementController implements Preparable{
     public void validate(){
     	if( getEntity() != null  )
     	{
-    		// TODO - test the vehicle inside so that you can have specific error messages about it.
+    		if(this.getEntity().getVehicle() == null){
+    			this.addActionError("Vehicle cannot be null");
+    		}
     		requiredString(getEntity().getRequester().toString(), "maintenanceOrder.requester");
     		requiredString(getEntity().getServiceTechnician().toString(), "maintenanceOrder.serviceTechnician");
     		requiredString(getEntity().getScheduledDate().toString(), "maintenanceOrder.scheduleDate");

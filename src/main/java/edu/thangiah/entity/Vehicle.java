@@ -157,6 +157,14 @@ public class Vehicle extends AbstractEntity implements Serializable, EntityInter
 	public String getViewLink() {
 		return null;
 	}
+
+	public void merge(Vehicle with) {
+		
+		this.plateNumber = with.plateNumber;
+		this.vinNumber = with.vinNumber;
+		this.manufacturedYear = with.manufacturedYear;
+		
+	}
 	
 
 }

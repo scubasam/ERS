@@ -46,6 +46,12 @@ public class UpdateAction extends ManagementController{
 			addActionError("An unknown error occured.  Plase try reloading the page.");
 			return ERROR;
 		}
+    	
+    	Vehicle fromForm = this.getEntity();
+    	if(fromForm.getManufacturedYear() == null || fromForm.getPlateNumber() == null || fromForm.getVinNumber() == null){
+    		this.addActionError("Failed recieving Entity");
+    		return INPUT;
+    	}
 		
 		if( this.hasActionErrors() || this.hasFieldErrors() ){
 			return INPUT;
@@ -56,12 +62,13 @@ public class UpdateAction extends ManagementController{
 		fromDb.setDriver(driverSelect.getSelectedEntity());
 
 		try{
+			fromDb.merge(fromForm);
 			vehicleDao.update(fromDb);
+			return SUCCESS;
 		}
 		catch(Exception e){
 			return ERROR;
 		}
-		return SUCCESS;
 	}
 	
     // called automatically 
