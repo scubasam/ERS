@@ -54,7 +54,7 @@
 						</s:url>
 
 						<div id="formContainer">
-							<s:form name="editForm" action="updateDriver.action" id="driverForm">
+							<s:form name="editForm" action="%{updateDriver}" id="driverForm">
 								<s:textfield name="driver.licenseNumber" label="License Number" />
 								<s:textfield name="driver.licenseExpiration" label="License Expiration" />
 								<s:textfield name="driver.licenseClass" label="License Class" />
@@ -88,7 +88,7 @@
 
 					<s:else>
 						<div id="formContainer">
-							<s:form name="addForm" action="addDriver.action" id="driverForm">
+							<s:form name="addForm" action="addDriver.action">
 								<s:textfield name="driver.licenseNumber" label="License Number" />
 								<s:textfield name="driver.licenseExpiration" label="License Expiration" />
 								<s:textfield name="driver.licenseClass" label="License Class" />
