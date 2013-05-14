@@ -34,6 +34,7 @@ public class AddAction extends ManagementController implements Preparable {
 		
 		Vehicle newVehicle = new Vehicle();
 		
+		newVehicle = this.getEntity();
 		newVehicle.setVehicleType(vehicleTypeSelect.getSelectedEntity());
 		newVehicle.setContractor(contractorSelect.getSelectedEntity());
 		newVehicle.setDriver(driverSelect.getSelectedEntity());
@@ -46,8 +47,8 @@ public class AddAction extends ManagementController implements Preparable {
 			this.addActionError("And error has occurred in adding this vehicle please try again!");
 			return INPUT;
 		}
-		
     	return SUCCESS;
+
     }
 	
 	@Override

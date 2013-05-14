@@ -2,7 +2,6 @@ package edu.thangiah.action.contractor;
 
 import java.util.List;
 
-import edu.thangiah.entity.Contact;
 import edu.thangiah.entity.Contractor;
 import edu.thangiah.entity.Location;
 import edu.thangiah.entity.Vehicle;
@@ -47,12 +46,10 @@ public class DeleteAction extends ManagementController
     	
     	try{
     		List<Location> locations = locationDao.findByContractor(fromDb);
-    		List<Vehicle> vehicles = vehicleDao.findByContractor(fromDb);
-    		List<Contact> contacts = contactDao.findByContractor(fromDb);  		
+    		List<Vehicle> vehicles = vehicleDao.findByContractor(fromDb);  		
     		
     		if((locations == null || locations.size() == 0)
-    				&& (vehicles == null || vehicles.size() == 0)
-    				&& (contacts == null || contacts.size() == 0) ){
+    				&& (vehicles == null || vehicles.size() == 0)){
     					contractorDao.delete(fromDb);
     					return SUCCESS;
     				}

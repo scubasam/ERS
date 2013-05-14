@@ -60,7 +60,5 @@ public class DeleteAction extends ManagementController
     		this.addActionError("And error has occurred. Please try again if this persists contact your system admin");
     		return INPUT;
     	}
-    	
-    	return SUCCESS;
-    }
+	}  	
 }

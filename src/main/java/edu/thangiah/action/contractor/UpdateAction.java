@@ -16,7 +16,7 @@ import edu.thangiah.entity.Contractor;
 public class UpdateAction extends ManagementController{
 
 	private static final long serialVersionUID = 4634172821230672694L;
-
+	
 	@Override
 	public void prepare() throws Exception {
 		this.mode =  Modes.EDIT;
@@ -38,12 +38,12 @@ public class UpdateAction extends ManagementController{
     	}
     	
     	Contractor fromForm = this.getEntity();
-    	if( fromForm == null ){
-    		this.addActionError("The form data could not be retrieved from the form.  Please try again.");
+    	if(fromForm.getContractorName() == null){
+    		this.addActionError("Contractor name is null. Please try again");
     		return INPUT;
     	}
-    	
-    	if( fromForm.getContact() == null)
+    	fromForm.setContact(this.getContact());
+    	if( this.getContact() == null)
     	{
     		this.addActionError("Contact not found or null. Please try again.");
     		return INPUT;

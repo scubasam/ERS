@@ -32,6 +32,7 @@ public class AddAction extends ManagementController implements Preparable {
 		
 		
 		ServiceTechnician newServiceTechnician = new ServiceTechnician();
+		newServiceTechnician = this.getEntity();
 		newServiceTechnician.setContact(contactSelect.getSelectedEntity());
 		newServiceTechnician.setMaintenanceOrder(maintenanceOrderSelect.getSelectedEntity());
 		
