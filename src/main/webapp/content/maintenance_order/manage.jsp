@@ -104,7 +104,7 @@
 									value="serviceTechnicianSelect.selected" />
 								<s:select label="Driver" name="drierSelect.selected"
 									list="driverSelect.list" listKey="id" listValue="toString()"
-									value="driverSelect.selected" />>
+									value="driverSelect.selected" />
 							</s:form>
 						</div>
 
