@@ -305,7 +305,7 @@
 			<interceptor-ref name="requireLogin"></interceptor-ref>
 		</action>
 		
-		<action name="updateMaintenanceOrder" class="updateMainteanceOrder">
+		<action name="updateMaintenanceOrder" class="updateMaintenanceOrder">
 			<result name="success" type="redirect">maintenanceOrderManagement.action</result>
 			<result name="input">content/maintenance_order/manage.jsp</result>
 			<interceptor-ref name="authStack"></interceptor-ref>
