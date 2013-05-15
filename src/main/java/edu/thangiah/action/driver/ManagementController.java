@@ -51,7 +51,6 @@ public class ManagementController extends BaseManagementController<Driver>{
 	protected MaintenanceOrderDao maintenanceOrderDao;
 
 	protected Contact contact;
-	protected Driver driver;
 	protected Vehicle vehicle;
 	protected Contractor contractor;
 	protected MaintenanceOrder maintenanceOrder;
@@ -199,10 +198,6 @@ public class ManagementController extends BaseManagementController<Driver>{
 
 	public void setContact(Contact contact) {
 		this.contact = contact;
-	}
-
-	public void setDriver(Driver driver) {
-		this.driver = driver;
 	}
 
 	public Vehicle getVehicle() {

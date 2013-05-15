@@ -49,12 +49,12 @@
 					<jsp:include page="/includes/error_header.jsp" />
 					<s:if test="getMode()=='edit'">
 
-						<s:url id="updateMaintenanceOrder" value="updateMainteanceOrder.action">
+						<s:url id="updateMaintenanceOrder" value="updateMaintenanceOrder.action">
 							<s:param name="id" value="id" />
 						</s:url>
 
 						<div id="formContainer">
-							<s:form name="editForm" action="%{updateMainteanceOrder}" id="mainteanceOrderForm">
+							<s:form name="editForm" action="%{updateMaintenanceOrder}" id="mainteanceOrderForm">
 								<s:textfield name="maintenanceOrder.scheduledDate" label="Scheduled Date" />															
 								<s:textfield name="maintenanceOrder.details" label="Details" />
 								<s:textfield name="maintenanceOrder.serviceTypeKey" label="Service Type Key" />
