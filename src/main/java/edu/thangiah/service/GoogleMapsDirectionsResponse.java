@@ -9,6 +9,12 @@ import javax.xml.xpath.*;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 
+/**
+ * Implements the Google Directions Web Service API for making requests.  Implements functionality for parsing specific information used
+ * in route calculations.
+ * @author Kelly Smith
+ *
+ */
 public class GoogleMapsDirectionsResponse {
 	public static final int FEET_PER_MILE = 5280;
 	public static final int SECONDS_PER_DAY = 86400;

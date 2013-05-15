@@ -91,7 +91,15 @@ public class AuthenticationInterceptor implements Interceptor {
 		// Action did not set up userBo bean to do authentication
 		return Action.ERROR;
 	}
-
+	
+	/**
+	 * Finds the user that has the specified sesionId, and verifies whether or not they exist.  If they do,
+	 * it generates a new session id and stores it back in the database.  Additionally, this method updates
+	 * the current session information to reflect this change.
+	 * @param sessionId The current logged in users' session id for database lookup.
+	 * @return SUCCESS or ERROR
+	 * @throws Exception 
+	 */
 	private String validateLogin(String sessionId)
 			throws Exception {
 		User user;
@@ -117,9 +125,12 @@ public class AuthenticationInterceptor implements Interceptor {
 		return Action.SUCCESS;
 	}
 	
+	/**
+	 * Determines whether the current logged in user has permission to view the specified action using the permissions framework.
+	 * @param actionName A unique identifier for the action being accessed.  These action names are stored in the database in the permissions table.
+	 * @return SUCCESS or PERMISSION_DENIED
+	 */
 	public String calculatePermissions(String actionName){
-		
-
 		List<Permission> permissions = permissionDao.findById(actionName);
 		if( permissions != null && permissions.size() == 1 ){
 			Permission permission = permissions.get(0);

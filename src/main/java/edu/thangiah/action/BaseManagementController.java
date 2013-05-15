@@ -55,13 +55,17 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 		columnMap = Collections.unmodifiableMap(columns);
 	}
 
+	/**
+	 * Must be overridden by all management controllers as it is used for generating the grid header and body code.
+	 * @return A map of column ids mapped to their visual names.
+	 */
 	protected Map<String, String> getColumnMap(){
 		return columnMap;
 	}
 	
 	/**
 	 * 
-	 * @return A unique identifier for this controller.
+	 * @return A unique identifier for this controller. Must be overridden by all management controllers as it is used for generating the grid header and body code.
 	 */
 	protected abstract String getActionId();
 	
@@ -113,6 +117,15 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
     	return headerOutput;
     }
     
+    /**
+     * This method generates HTML elements for each row of a management controller grid.  It uses java reflections to dynamically pull
+     * data from a List of entities given the visibility set which is provided.
+     * @param visibilitySet A set which determines which columns should be displayed in the grid.
+     * @param entityList A list of entities that will be displayed in the grid.
+     * @param classInstance The class of the particular entities being displayed, which is used for java reflection.
+     * @param editLink A url which is inserted as the destination for the edit button.
+     * @return An HTML formatted String containing table row entries for a list of entities.
+     */
     protected String generateGridBody(Set<String> visibilitySet, List<Entity> entityList, Class<Entity> classInstance, String editLink){
     	if( getColumnMap() == null || getColumnMap().size() <= 0 ){
     		throw new UnsupportedOperationException(MISSING_COLUMNS_ERROR);
@@ -195,21 +208,36 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 		return SUCCESS;
 	}
 	
-	
+	/**
+	 * Provides a generic interfaces for making database calls to retrieve an entity by their id.
+	 * @param dao A DAO instance for accessing the database.
+	 * @param id
+	 * @return An entity from the database with the given type (specified by the dao being used) and id.
+	 */
 	protected Entity retrieveEntityById(AbstractDao<Entity> dao, long id){
 		if( id <= 0 ){
 			this.addActionError("Unable to initialize record");
 		}
 		
-		List<Entity> fromDb = dao.findById(id);
-		if( fromDb == null || fromDb.size() == 0 ){
-			entityNotFoundError();
-			return null;
+		if( dao != null ){
+			List<Entity> fromDb = dao.findById(id);
+			if( fromDb == null || fromDb.size() == 0 ){
+				entityNotFoundError();
+				return null;
+			}
+			
+			return fromDb.get(0);
 		}
-		
-		return fromDb.get(0);
+		else
+			return null;
 	}
 	
+	/**
+	 * Initializes management controllers with an entity based on the id that was submitted for the purposes of editing.
+	 * @param dao A DAO instance for accessing the database.
+	 * @param id
+	 * @return SUCCESS or ERROR
+	 */
 	protected String initializeEntityById(AbstractDao<Entity> dao, long id){
 		this.setEntity(this.retrieveEntityById(dao, id));
 		if( this.entity != null )
@@ -218,6 +246,11 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 			return ERROR;
 	}
 	
+	/**
+	 * Automatically initializes a list of entities for a given management controller for the purposes of displaying in the management grid.
+	 * @param dao A DAO instance for accessing the database.
+	 * @return SUCCESS or ERROR
+	 */
 	protected String initializeEntityList(AbstractDao<Entity> dao){
 		if (dao == null) {
             return ERROR;
@@ -261,6 +294,11 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 		}
 	}
 	
+	/**
+	 * Adds error to the controller which will eventually be displayed to the user.
+	 * @param code Specifies the type of the error.
+	 * @param errorMessage Adds specific error information.
+	 */
 	protected void addControllerError(ErrorCode code, String errorMessage){
 		if( errors == null ){
 			errors = new ArrayList<Error>();
@@ -268,6 +306,10 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 		errors.add(new Error(code, errorMessage));
 	}
 	
+	/**
+	 * 
+	 * @return true if the controller has errors, false otherwise.
+	 */
 	public boolean hasControllerErrors(){
 		if( errors != null && errors.size() > 0 )
 			return true;
@@ -283,6 +325,10 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 		this.deleted = deleted;
 	}
 	
+	/**
+	 * Used to determine if a delete was successful for the purposes of displaying a message to the user.  Utilized in manage.jsp files.
+	 * @return true if the entity was deleted, false otherwise.
+	 */
 	public boolean deleteSuccessful(){
 		if( deleted != null && deleted.equals("true") )
 			return true;
@@ -327,6 +373,10 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 		this.columnLabels = columnLabels;
 	}
 	
+	/**
+	 * Generates an array of String column names based on a Set which was retrieved from the user session information.
+	 * @return An array of String column names.
+	 */
 	public String[] getVisibleColumns() {
 		if( visibleColumns == null ){
 			Set<String> visibleSet = this.getColumnVisibilitySet();
@@ -346,6 +396,11 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
 	}
 }
 
+/**
+ * A generic class for holding error information.  Used to store controller errors.
+ * @author Kelly Smith
+ *
+ */
 class Error{
 	ErrorCode code;
 	String message;

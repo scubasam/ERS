@@ -60,6 +60,9 @@ public class ManagementController extends BaseManagementController<Driver>{
 	protected StrutsSelect<Contact> contactSelect;
 	protected StrutsSelect<Contractor> contractorSelect;
 	
+	/**
+	 * Must be specified by all management controllers as it is used for generating the grid header and body code.
+	 */
 	protected static final Map<String, String> columnMap;
 	static {
 		Map<String, String> columns = new LinkedHashMap<String, String>();
@@ -74,11 +77,17 @@ public class ManagementController extends BaseManagementController<Driver>{
 	
 	
 	// Feeds the column map specific to this class into the auto field generator.
+	/**
+	 * Must be specified by all management controllers as it is used for generating the grid header and body code.
+	 */
 	@Override
 	protected Map<String, String> getColumnMap(){
 		return columnMap;
 	}
 	
+	/**
+	 * Must be specified by all management controllers as it is used for generating the grid header and body code.
+	 */
 	@Override
 	protected String getActionId() {
 		return "driver";

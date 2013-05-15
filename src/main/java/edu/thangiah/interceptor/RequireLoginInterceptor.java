@@ -37,6 +37,10 @@ public class RequireLoginInterceptor implements Interceptor {
 		LOGGER.debug("Initializing RequireLogin Interceptor.");
 	}
 
+	/**
+	 * When this interceptor is invoked, the programmer has specified that the user must be logged in the access the given resource.
+	 * This method will either let them continue or redirect them to a login page depending on their logged in status.
+	 */
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		currentSession = invocation.getInvocationContext().getSession();
@@ -49,6 +53,10 @@ public class RequireLoginInterceptor implements Interceptor {
 		}
 	}
 	
+	/**
+	 * Set's up the session to contain where the user was before they were required to log in.  This allows the user login action to redirect
+	 * them properly after logging them in.
+	 */
 	private void initializeLoginRedirect(){
 		if( currentSession != null ){
 			HttpServletRequest request = ServletActionContext.getRequest();

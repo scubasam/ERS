@@ -10,7 +10,7 @@ import java.net.URLEncoder;
 import edu.thangiah.entity.Location;
 
 /**
- * Implements the Google Directions Web Service API.
+ * Implements the Google Directions Web Service API for making requests.
  * @author Kelly Smith
  *
  */

@@ -1,8 +1,8 @@
 package edu.thangiah.strutsutility.exception;
 
 /**
- * Used as a base class for ERS struts2 element generator classes. See {@link edu.thangiah.strutsutility.StrutsSelect}.
- * @author Kelly
+ * Used as a base exception class for ERS struts2 element generator classes. See {@link edu.thangiah.strutsutility.StrutsSelect}.
+ * @author Kelly Smith
  *
  */
 public class StrutsElementException extends Exception{

@@ -137,6 +137,10 @@ public class User implements Serializable, EntityInterface {
 		this.email = email;
 	}
 
+	/**
+	 * Generates a visibility map for data grid columns based on the XML encoded map stored in the database.
+	 * @return Map containing mappings between actions and a set of visible columns.
+	 */
 	@SuppressWarnings("unchecked")
 	public Map<String, Set<String>> getColumnVisibilityMap() {
 		if( columnVisibilityMap == null ){
@@ -157,6 +161,9 @@ public class User implements Serializable, EntityInterface {
 		this.columnVisibilityMap = columnVisibilityMap;
 	}
 
+	/**
+	 * Encodes the current column visibility data into XML format for storing in the database.
+	 */
 	public void serializeVisibilityMap() {
 		if( columnVisibilityMap != null && columnVisibilityMap.size() > 0 ){
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
