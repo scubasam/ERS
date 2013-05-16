@@ -140,7 +140,7 @@ public abstract class BaseManagementController<Entity extends EntityInterface> e
     	Class<User>[] noParameters = (Class<User>[]) new Class[0];
     	
     	for( Entity entity : entityList ){
-    		bodyOutput += "<tr>\n";
+    		bodyOutput += "<tr id='" + entity.getId() +"'>\n";
     		bodyOutput += "<td><a href=\"" + editLink + "?id=" + entity.getId() + "\">Edit</a></td>\n";
     		for( String fieldName : getColumnMap().keySet() ){
     			if( visibilitySet == null || visibilitySet.contains(fieldName) ){

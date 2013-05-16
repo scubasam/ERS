@@ -26,6 +26,10 @@ function interfaceSetup(){
 	
 	$("#dataContainer").height(h2);
 	$("#"+page).height(h2);
+	
+	if($.url().param('id') != null){
+		$("#"+$.url().param('id')).css("border", "2px solid yellow");
+	}
 }
 
 // convenience function for submitting complex forms
