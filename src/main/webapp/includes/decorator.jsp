@@ -7,8 +7,8 @@
 <link rel="stylesheet" type="text/css" href="/ERS/styles/main.css" />
 
 <script type="text/javascript" src="/ERS/scripts/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="/ERS/scripts/jquery.urlparser.js"></script>
 <script type="text/javascript" src="/ERS/scripts/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/ERS/scripts/jquery-ui/jquery.urlparser.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/ERS/styles/smoothness/jquery-ui-1.10.2.css" />
 

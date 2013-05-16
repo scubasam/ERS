@@ -28,7 +28,7 @@ function interfaceSetup(){
 	$("#"+page).height(h2);
 	
 	if($.url().param('id') != null){
-		$("#"+$.url().param('id')).css("border", "2px solid yellow");
+		$("#row"+$.url().param("id")).children("td").css("background", "#FFFFA3");
 	}
 }
 
