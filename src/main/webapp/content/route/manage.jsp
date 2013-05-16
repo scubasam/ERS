@@ -97,8 +97,12 @@
 										<h3>All Shipments</h3>
 										<ul id="allShipments">
 											<s:iterator value="unselectedShipments">
+												<s:url id="editShipmentUrl" value="shipmentManagement.action">
+													<s:param name="id" value="%{id}" />
+												</s:url>
 												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
-												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+												<a href="${editShipmentUrl}" target="_blank"><s:property value="orderId" /></a></li>
 											</s:iterator>
 										</ul>
 									</div>
@@ -107,8 +111,12 @@
 										<h3>Shipment Order</h3>
 										<ul id="shipmentList">
 											<s:iterator value="route.orderedShipments">
+												<s:url id="editShipmentUrl" value="shipmentManagement.action">
+													<s:param name="id" value="%{id}" />
+												</s:url>
 												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
-												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+												<a href="${editShipmentUrl}" target="_blank"><s:property value="orderId" /></a></li>
 											</s:iterator>
 										</ul>
 									</div>
@@ -142,8 +150,12 @@
 										<h3>All Shipments</h3>
 										<ul id="allShipments">
 											<s:iterator value="allShipments">
+												<s:url id="editShipmentUrl" value="shipmentManagement.action">
+													<s:param name="id" value="%{id}" />
+												</s:url>
 												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
-												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+												<a href="${editShipmentUrl}" target="_blank"><s:property value="orderId" /></a></li>
 											</s:iterator>
 										</ul>
 									</div>
@@ -152,8 +164,12 @@
 										<h3>Shipment Order</h3>
 										<ul id="shipmentList">
 											<s:iterator value="route.orderedShipments">
+												<s:url id="editShipmentUrl" value="shipmentManagement.action">
+													<s:param name="id" value="%{id}" />
+												</s:url>
 												<li class="ui-state-default" style="height: 24px; padding-top: 4px;" value="<s:property value="id" />">
-												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span><s:property value="orderId" /></li>
+												<span style="display: inline-block;" class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+												<a href="${editShipmentUrl}" target="_blank"><s:property value="orderId" /></a></li>
 											</s:iterator>
 										</ul>
 									</div>
